@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как создать YML файл для АлиЭкспресс: полное руководство — Али Гид</title>
+    <meta name="description" content="Узнайте, как создать YML файл для АлиЭкспресс. Пошаговая инструкция, требования к структуре, частые ошибки и советы для успешной выгрузки товаров.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-sozdat-yml-fajl-dlya-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как создать YML файл для АлиЭкспресс: полное руководство">
+    <meta property="og:description" content="Узнайте, как создать YML файл для АлиЭкспресс. Пошаговая инструкция, требования к структуре, частые ошибки и советы для успешной выгрузки товаров.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/prodavtsam-i-biznes/">Продавцам и бизнес</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как создать YML файл для АлиЭкспресс: полное руководство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как создать YML файл для АлиЭкспресс: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-функцию-выгрузки-и-требования-платформы">Где найти функцию выгрузки и требования платформы</a></li><li><a href="#пошаговая-инструкция-по-созданию-yml-файла">Пошаговая инструкция по созданию YML файла</a></li><li><a href="#нюансы-заполнения-полей-и-спецификации">Нюансы заполнения полей и спецификации</a></li><li><a href="#типичные-ошибки-при-формировании-выгрузки">Типичные ошибки при формировании выгрузки</a></li><li><a href="#оптимизация-и-управление-ассортиментом">Оптимизация и управление ассортиментом</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>В современных условиях электронной коммерции ручное добавление товаров на торговые площадки становится неэффективным и трудоемким процессом. Если вы планируете масштабировать свой бизнес на AliExpress, вам потребуется автоматизированная выгрузка ассортимента. Именно для этого создается специальный файл в формате YML (Yandex Market Language), который позволяет передавать информацию о тысячах позиций одновременно.</p>
+<p>Многие продавцы сталкиваются с трудностями при первой настройке, так как площадка предъявляет строгие требования к структуре данных. Неправильно сформированный файл приведет к отклонению загрузки или некорректному отображению карточек товаров. Понимание принципов работы с этим форматом — ключевой навык для любого серьезного продавца на маркетплейсе.</p>
+<p>В этом руководстве мы подробно разберем, где найти необходимые инструменты, как правильно заполнить поля и какие нюансы учесть, чтобы ваша выгрузка прошла успешно с первого раза. Мы рассмотрим технические детали, которые часто упускают новички, и дадим практические советы по оптимизации процесса.</p>
+
+<h2 id="где-найти-функцию-выгрузки-и-требования-платформы">Где найти функцию выгрузки и требования платформы</h2>
+<p>Прежде чем приступать к созданию файла, необходимо понять, где именно в интерфейсе продавца находятся инструменты для работы с каталогом. AliExpress предоставляет несколько способов загрузки товаров, но для работы с YML чаще всего используется партнерский кабинет или специализированные модули в CMS. Важно сразу определить, какой метод интеграции доступен вашему аккаунту.</p>
+<p>Требования к структуре файла могут меняться, поэтому всегда проверяйте актуальную документацию в разделе помощи для продавцов. Платформа периодически обновляет правила заполнения полей, особенно это касается категорий и характеристик.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Требования к форматам файлов и обязательные поля могут изменяться администрацией площадки. Всегда проверяйте актуальные спецификации в разделе «Помощь продавцам» или в техническом документе API перед каждой новой выгрузкой.</p></div>
+
+<h3>Доступные способы интеграции</h3>
+<p>Существует два основных пути работы с каталогом: прямая загрузка через CSV/YML в личном кабинете и использование API для синхронизации в реальном времени. Для большинства малых и средних магазинов оптимальным вариантом остается периодическая выгрузка подготовленного файла.</p>
+<ul>
+<li>Прямая загрузка через интерфейс партнера — подходит для магазинов с обновляемым ассортиментом раз в сутки.</li>
+<li>Использование плагинов для CMS (WordPress, OpenCart, Bitrix) — автоматизирует процесс создания файла.</li>
+<li>Сторонние сервисы-агрегаторы — берут на себя конвертацию и отправку данных.</li>
+</ul>
+
+<h3>Базовые требования к структуре YML</h3>
+<p>Файл должен быть кодирован в UTF-8 без BOM, чтобы корректно отображались кириллические символы. Структура строго следует стандарту XML, где каждый тег должен быть закрыт. Ошибки в синтаксисе приведут к тому, что система не сможет прочитать файл вообще.</p>
+<p>Важно соблюдать иерархию тегов: сначала идет общая информация о магазине, затем категории и только после этого — предложения (товары). Нарушение порядка блоков является частой причиной ошибок валидации.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Убедитесь, что все изображения, ссылки на которые указаны в файле, доступны по прямому протоколу HTTPS. Ссылки на незащищенные ресурсы могут быть заблокированы браузером или самой площадкой.</p></div>
+
+<h2 id="пошаговая-инструкция-по-созданию-yml-файла">Пошаговая инструкция по созданию YML файла</h2>
+<p>Процесс формирования файла можно разделить на несколько логических этапов. Если вы используете CMS, многие действия выполняются автоматически, но контроль за результатом все равно остается за вами. Если же вы формируете файл вручную или через конвертер, следуйте алгоритму ниже.</p>
+
+<div class="checklist-block"><h4>📋 Создание структуры YML</h4><ol><li><strong>Шаг 1.</strong> Откройте текстовый редактор или генератор файлов</li><li><strong>Шаг 2.</strong> Заполните блок head с информацией о магазине</li><li><strong>Шаг 3.</strong> Сформируйте список категорий с их ID</li><li><strong>Шаг 4.</strong> Добавьте блок offers с описанием товаров</li><li><strong>Шаг 5.</strong> Сохраните файл с расширением .xml или .yml</li></ol></div>
+
+<h3>Заполнение блока Head и Категорий</h3>
+<p>В начале файла необходимо указать название магазина, ссылку на него и валюту. Это базовая информация, которая идентифицирует источник данных. Далее следует блок категорий, где каждой группе товаров присваивается уникальный числовой идентификатор (id) и указывается родительская категория, если она есть.</p>
+<p>Идентификаторы должны быть уникальными в пределах файла. Не используйте буквы или спецсимволы в ID категорий, только цифры. Это позволит системе правильно связать товары с их группами.</p>
+
+<h3>Формирование блока Offers (Товары)</h3>
+<p>Самая объемная часть файла — это список предложений. Для каждого товара указываются: уникальный ID, доступность, цена, валюта, название, описание, ссылка на картинку и ссылка на страницу товара. Особое внимание уделите полю <code>name</code> и <code>description</code>, так как они напрямую влияют на поиск.</p>
+<ol>
+<li>Укажите <code>id</code> товара, который должен быть уникальным.</li>
+<li>Задайте параметр <code>available</code> со значением true или false.</li>
+<li>Впишите цену в теге <code>price</code> и валюту в <code>currencyId</code>.</li>
+<li>Добавьте название в теге <code>name</code> и подробное описание в <code>description</code>.</li>
+<li>Вставьте прямую ссылку на главное изображение в тег <code>picture</code>.</li>
+</ol>
+
+<p>Если товар имеет варианты (например, размер или цвет), они могут группироваться или оформляться как отдельные предложения в зависимости от требований конкретной интеграции. Часто для вариативных товаров создают отдельные строки с разными ID, но одинаковым базовым описанием.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте HTML-теги внутри описания товара (например, <code>&lt;br&gt;</code> для переноса строки или <code>&lt;b&gt;</code> для жирного текста), чтобы структурировать текст и сделать его читабельным для покупателя.</p></div>
+
+<h2 id="нюансы-заполнения-полей-и-спецификации">Нюансы заполнения полей и спецификации</h2>
+<p>Качество выгрузки зависит не только от технической правильности кода, но и от смыслового наполнения полей. Алгоритмы ранжирования AliExpress анализируют содержимое тегов для выдачи товаров в поиске. Поэтому простое копирование данных из накладной может оказаться недостаточным.</p>
+
+<h3>Работа с изображениями и медиа</h3>
+<p>В теге <code>picture</code> должна содержаться прямая ссылка на изображение в высоком разрешении. Система не загрузит картинку, если ссылка ведет на страницу с превью или требует авторизации для просмотра. Лучше всего использовать ссылки на изображения, размещенные на вашем хостинге или CDN.</p>
+<p>Количество изображений может варьироваться. В стандартном YML обычно указывается одно главное фото, но расширенные версии формата позволяют добавлять галерею. Проверьте, поддерживает ли ваш метод загрузки дополнительные теги для фото.</p>
+
+<h3>Параметры и характеристики</h3>
+<p>Для электроники и сложных товаров критически важно заполнение блока <code>param</code>. Здесь указываются технические характеристики: диагональ экрана, материал, вес, габариты. Эти данные помогают покупателям фильтровать товары и снижают количество возвратов из-за несоответствия ожиданий.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип данных</th>
+<th>Обязательность</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>Текст</td>
+<td>Обязательно</td>
+<td>Смартфон XYZ</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Число</td>
+<td>Обязательно</td>
+<td>15000</td>
+</tr>
+<tr>
+<td>currencyId</td>
+<td>Текст</td>
+<td>Обязательно</td>
+<td>RUB</td>
+</tr>
+<tr>
+<td>categoryId</td>
+<td>Число</td>
+<td>Обязательно</td>
+<td>105</td>
+</tr>
+<tr>
+<td>picture</td>
+<td>URL</td>
+<td>Желательно</td>
+<td>https://site.com/img.jpg</td>
+</tr>
+</tbody>
+</table>
+
+<details class="faq-item"><summary>Секретные теги для SEO</summary><div class="faq-answer"><p>В расширенных спецификациях YML существуют теги для SEO-оптимизации, такие как <code>manufacturer</code> (производитель) и <code>country_of_origin</code> (страна происхождения). Их заполнение может повысить доверие к товару и улучшить его видимость в фильтрах по брендам.</p></div></details>
+
+<h2 id="типичные-ошибки-при-формировании-выгрузки">Типичные ошибки при формировании выгрузки</h2>
+<p>Даже опытные пользователи допускают ошибки, которые приводят к блокировке выгрузки. Анализ логов ошибок — первый шаг к решению проблемы. Чаще всего система возвращает файл с указанием строки, где произошел сбой.</p>
+
+<h3>Проблемы с кодировкой и спецсимволами</h3>
+<p>Самая распространенная ошибка — использование неправильной кодировки. Файл должен быть в UTF-8. Если вы видите «кракозябры» вместо русского текста, значит, кодировка выбрана неверно. Также проблемы вызывают неэкранированные спецсимволы в тексте, например, амперсанд (&) или кавычки.</p>
+<p>Все специальные символы внутри текста должны быть заменены на HTML-сущности (например, & вместо &, < вместо <). Текстовые редакторы часто делают это автоматически, но при ручной правке об этом нужно помнить.</p>
+
+<h3>Несоответствие категорий</h3>
+<p>Часто продавцы назначают товарам категории, которые не существуют в справочнике AliExpress, или путают их ID. Это приводит к тому, что товар попадает в неправильный раздел или скрывается из каталога. Всегда сверяйте ID категорий с актуальным справочником площадки.</p>
+<ul>
+<li>Использование ID удаленных категорий.</li>
+<li>Отсутствие связи товара с категорией (пустой тег categoryId).</li>
+<li>Несоответствие типа товара выбранной категории.</li>
+</ul>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Загрузка файла с критическими ошибками более трех раз подряд может привести к временной блокировке функции импорта для вашего аккаунта. Проверяйте файл на валидаторе перед отправкой.</p></div>
+
+<h3>Отсутствие обязательных полей</h3>
+<p>Система жестко проверяет наличие обязательных тегов. Если в описании товара отсутствует цена или название, такой товар будет пропущен при импорте. Валидатор обычно подсвечивает такие строки красным цветом.</p>
+
+<h2 id="оптимизация-и-управление-ассортиментом">Оптимизация и управление ассортиментом</h2>
+<p>После успешной первой загрузки работа с каталогом не заканчивается.</div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-функцию-выгрузки-и-требования-платформы">Где найти функцию выгрузки и требования платформы</a></li><li><a href="#пошаговая-инструкция-по-созданию-yml-файла">Пошаговая инструкция по созданию YML файла</a></li><li><a href="#нюансы-заполнения-полей-и-спецификации">Нюансы заполнения полей и спецификации</a></li><li><a href="#типичные-ошибки-при-формировании-выгрузки">Типичные ошибки при формировании выгрузки</a></li><li><a href="#оптимизация-и-управление-ассортиментом">Оптимизация и управление ассортиментом</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/a/al/aliekspress-rossiya-kto-vladelets.html" class="related-card">AliExpress Россия: кто владелец и как работает платформа</a></li><li><a href="/articles/c/ch/chto-pokupat-na-aliekspress-dlya-pereprodazhi-na-avito.html" class="related-card">Что покупать на Алиэкспресс для перепродажи на Авито: гид</a></li><li><a href="/articles/k/ka/kak-zarabotat-na-aliekspress-pereprodavaya.html" class="related-card">Как заработать на AliExpress перепродажей: пошаговое руководство</a></li><li><a href="/articles/c/ch/chto-vygodnej-pereprodavat-s-aliekspress.html" class="related-card">Что выгодно перепродавать с Алиэкспресс: руководство</a></li><li><a href="/articles/a/al/aliekspress-kem-sozdan.html" class="related-card">Кем создан AliExpress: история, владельцы и структура компании</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/a/al/aliekspress-rossiya-kto-vladelets.html" class="related-bottom-card"><span class="related-bottom-title">AliExpress Россия: кто владелец и как работает платформа</span><span class="related-bottom-desc">Узнайте, кто владеет AliExpress Россия, как изменилась структура компании и что это значит для покуп</span></a><a href="/articles/c/ch/chto-pokupat-na-aliekspress-dlya-pereprodazhi-na-avito.html" class="related-bottom-card"><span class="related-bottom-title">Что покупать на Алиэкспресс для перепродажи на Авито: гид</span><span class="related-bottom-desc">Полный разбор ниш и стратегий для старта бизнеса на перепродаже товаров из Китая. Узнайте, что выгод</span></a><a href="/articles/k/ka/kak-zarabotat-na-aliekspress-pereprodavaya.html" class="related-bottom-card"><span class="related-bottom-title">Как заработать на AliExpress перепродажей: пошаговое руководство</span><span class="related-bottom-desc">Полная инструкция по перепродаже товаров с AliExpress: от поиска выгодных позиций до продажи на марк</span></a><a href="/articles/c/ch/chto-vygodnej-pereprodavat-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Что выгодно перепродавать с Алиэкспресс: руководство</span><span class="related-bottom-desc">Анализ ниш для перепродажи товаров с Алиэкспресс. Тренды, маржинальность, выбор категорий и стратеги</span></a><a href="/articles/a/al/aliekspress-kem-sozdan.html" class="related-bottom-card"><span class="related-bottom-title">Кем создан AliExpress: история, владельцы и структура компании</span><span class="related-bottom-desc">Узнайте, кто создал AliExpress, как развивалась платформа и кто владеет гигантом сегодня. Подробная </span></a><a href="/articles/g/gd/gde-uznat-id-magazina-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Где узнать ID магазина на Алиэкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция, как найти ID продавца на AliExpress через ПК и мобильное приложение. Зачем нуж</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

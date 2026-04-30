@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как подключить повышающий модуль с Алиэкспресс: инструкция — Али Гид</title>
+    <meta name="description" content="Подробное руководство по подключению повышающих DC-DC модулей. Настройка, калибровка, схемы подключения и типичные ошибки новичков.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-podklyuchit-povyshayushchij-modul-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить повышающий модуль с Алиэкспресс: инструкция">
+    <meta property="og:description" content="Подробное руководство по подключению повышающих DC-DC модулей. Настройка, калибровка, схемы подключения и типичные ошибки новичков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить повышающий модуль с Алиэкспресс: инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как правильно подключить повышающий модуль питания</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#выбор-подходящей-модели-и-изучение-характеристик">Выбор подходящей модели и изучение характеристик</a></li><li><a href="#пошаговая-инструкция-по-подключению-и-настройке">Пошаговая инструкция по подключению и настройке</a></li><li><a href="#технические-нюансы-и-скрытые-параметры">Технические нюансы и скрытые параметры</a></li><li><a href="#типичные-ошибки-при-монтаже-и-эксплуатации">Типичные ошибки при монтаже и эксплуатации</a></li><li><a href="#финальная-сборка-и-надежная-эксплуатация">Финальная сборка и надежная эксплуатация</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы планируете создать автономное освещение, запитать ноутбук от автомобильного аккумулятора или собрать портативную зарядку для гаджетов, вам неизбежно потребуется устройство, способное преобразовывать напряжение. Стандартные аккумуляторы часто выдают 3.7 вольта или 12 вольт, тогда как потребителям требуется 5, 9, 19 или даже 24 вольта. Именно в этот момент на сцену выходят повышающие DC-DC модули, которые можно недорого приобрести на AliExpress.</p>
+<p>Вот что нужно сделать: разобраться в разнообразии моделей, так как на маркетплейсе представлены десятки вариантов, от простейших схем без защиты до сложных устройств с дисплеями. Неправильный выбор или подключение может привести к выходу из строя как самого модуля, так и подключаемого оборудования. Понимание принципов работы и последовательности действий позволит избежать короткого замыкания и обеспечить стабильную работу вашей системы.</p>
+<p>На практике многие пользователи сталкиваются с тем, что модуль греется, не держит нагрузку или выдает нестабильное напряжение. Это часто связано не с браком, а с особенностями настройки и подключения. </p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Характеристики электронных компонентов, заявленные продавцами на AliExpress, могут отличаться от реальных. Всегда проверяйте предельные токи и напряжения на официальных сайтах производителей микросхем или с помощью мультиметра перед подключением дорогой техники.</p></div>
+
+<h2 id="выбор-подходящей-модели-и-изучение-характеристик">Выбор подходящей модели и изучение характеристик</h2>
+<p>Если хотите избежать проблем в будущем, первым делом необходимо определить, какой именно модуль вам нужен. На AliExpress можно найти как миниатюрные платы для носимой электроники, так и мощные блоки с активным охлаждением. Ключевым параметром является разница между входным и выходным напряжением, а также требуемый ток нагрузки.</p>
+
+<h3>Основные типы повышающих преобразователей</h3>
+<p>Большинство популярных моделей базируются на проверенных временем микросхемах. Одной из самых распространенных является серия XL6009, которая часто встречается в модулях с регулируемыми параметрами. Также популярны модели на базе MT3608 для малых токов и более мощные решения на синхронных контроллерах.</p>
+<ul>
+<li>Модули на базе XL6009: обладают широким диапазоном входных напряжений, но имеют КПД при больших разницах напряжений.</li>
+<li>Устройства на MT3608: компактны, предназначены для токов до 2 ампер, идеальны для питания Arduino или светодиодов.</li>
+<li>Мощные промышленные образцы: часто оснащены радиаторами и вентиляторами, работают в широком диапазоне температур.</li>
+</ul>
+
+<p>Важный момент: обращайте внимание на наличие защиты. Дешевые модули могут не иметь защиты от короткого замыкания или перегрева, что делает их опасными для использования в необслуживаемых системах. Более дорогие варианты часто включают в себя защиту по току, напряжению и температуре.</p>
+
+<h3>Анализ маркировки и контактов</h3>
+<p>На плате любого модуля имеется маркировка контактов, однако она не всегда очевидна для новичка. Обычно используются обозначения <code>IN+</code>, <code>IN-</code> для входа и <code>OUT+</code>, <code>OUT-</code> для выхода. Иногда встречаются сокращения <code>VIN</code> и <code>VOUT</code>. Перед покупкой внимательно изучите фотографии крупным планом, чтобы убедиться в читаемости маркировки.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Обратите внимание на конденсаторы. Если они расположены слишком близко к краю платы или имеют вздутия на фотографиях продавца, от покупки лучше воздержаться. Качественные модули используют твердотельные конденсаторы или имеют достаточный запас по напряжению.</p></div>
+
+<h2 id="пошаговая-инструкция-по-подключению-и-настройке">Пошаговая инструкция по подключению и настройке</h2>
+<p>Вот что нужно сделать для первого запуска: подготовить минимальный набор инструментов. Вам понадобятся мультиметр, источник питания (аккумулятор или блок питания) и, возможно, маленькая отвертка для подстройки переменных резисторов. Без мультиметра настройка модуля невозможна, так как на глаз определить напряжение нельзя.</p>
+
+<h3>Первичная проверка и калибровка</h3>
+<p>Прежде чем подключать дорогое оборудование, модуль необходимо настроить на холостом ходу. Это позволит выставить точное выходное напряжение, которое будет подаваться на потребитель. Неправильная настройка может привести к сгоранию устройства.</p>
+
+<div class="checklist-block"><h4>📋 Первичная настройка модуля</h4><ol><li><strong>Шаг 1.</strong> Подключите источник питания ко входу (IN) модуля</li><li><strong>Шаг 2.</strong> Подсоедините щупы мультиметра к выходным контактам (OUT)</li><li><strong>Шаг 3.</strong> Вращайте многооборотный подстроечный резистор до нужного значения</li><li><strong>Шаг 4.</strong> Проверьте стабильность напряжения под небольшой нагрузкой</li></ol></div>
+
+<p>На практике процесс выглядит следующим образом: вы выставляете на мультиметре режим измерения постоянного напряжения, касаетесь щупами выходных клемм и аккуратно крутите регулятор. Если напряжение «скачет» или не меняется, возможно, регулятор неисправен или достигнут предел регулировки данной схемы.</p>
+
+<h3>Подключение нагрузки и проверка под током</h3>
+<p>После успешной калибровки можно переходить к подключению основного потребителя. Здесь важно соблюдать полярность: плюс к плюсу, минус к минусу. Перепутывание полярности на входе гарантированно выведет модуль из строя, так как диодной защиты на входе часто не устанавливают для экономии места.</p>
+<p>Важный момент: если ваша нагрузка потребляет ток близкий к максимальному для модуля, убедитесь, что провода имеют достаточное сечение. Тонкие провода будут греться и создавать падение напряжения, из-за чего модуль будет работать неэффективно.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте провода с запасом по току. Если модуль рассчитан на 3 ампера, используйте провода, выдерживающие 5 ампер. Это снизит нагрев и потери энергии в линии.</p></div>
+
+<h2 id="технические-нюансы-и-скрытые-параметры">Технические нюансы и скрытые параметры</h2>
+<p>Если хотите добиться максимальной эффективности, необходимо учитывать КПД (коэффициент полезного действия). Повышающий преобразователь не может создать энергию из ничего. Если вы повышаете напряжение с 5 до 12 вольт, ток на выходе будет значительно меньше, чем на входе, с учетом потерь на тепло.</p>
+
+<h3>Проблема нагрева и рассеивания мощности</h3>
+<p>Любой DC-DC конвертер греется. Количество выделяемого тепла зависит от разницы напряжений и силы тока. На AliExpress часто продаются модули без радиаторов, которые при полной нагрузке могут нагреваться до 80-90 градусов. Это критично для пластиковых корпусов.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Влияние на работу</th>
+<th>Рекомендация</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Температура > 60°C</td>
+<td>Снижение ресурса конденсаторов</td>
+<td>Установить радиатор или кулер</td>
+</tr>
+<tr>
+<td>Ток выше номинала</td>
+<td>Срабатывание защиты или перегрев</td>
+<td>Снизить нагрузку или модули</td>
+</tr>
+<tr>
+<td>Пульсации напряжения</td>
+<td>Шум в аудиотехнике, сбои</td>
+<td>Добавить фильтрующий конденсатор</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Влияние длины проводов на стабильность</h3>
+<p>Длинные провода между источником питания и модулем создают индуктивность и сопротивление. Это может приводить к пульсациям на входе, что модуль воспринимает как нестабильность и начинает работать с перебоями. Рекомендуется ставить дополнительный конденсатор большой емкости параллельно входу модуля, как можно ближе к контактам.</p>
+
+<details class="faq-item"><summary>Как уменьшить пульсации</summary><div class="faq-answer"><p>Для снижения уровня шумов можно припаять дополнительный электролитический конденсатор (например, 470 мкФ) и керамический конденсатор (0.1 мкФ) непосредственно на входные и выходные контакты модуля. Это особенно важно при питании чувствительной аудиотехники или радиоприемников.</p></div></details>
+
+<h2 id="типичные-ошибки-при-монтаже-и-эксплуатации">Типичные ошибки при монтаже и эксплуатации</h2>
+<p>На практике большинство проблем возникает из-за невнимательности к деталям. Даже опытные инженеры иногда допускают простые ошибки, которые приводят к неприятным последствиям. Изучение чужих ошибок поможет вам сэкономить время и деньги.</p>
+
+<h3>Ошибки коммутации и пайки</h3>
+<p>Часто пользователи пытаются подключить провода напрямую к контактным площадкам без пайки, просто прижав их. Это приводит к окислению контакта, росту сопротивления и нагреву места соединения. Плохой контакт на входе может вызвать искрение и выход из строя входных цепей.</p>
+<ol>
+<li>Использование слишком тонкого припоя для силовых контактов.</li>
+<li>Отсутствие термоусадки на оголенных участках проводов.</li>
+<li>Подключение нагрузки до проверки выходного напряжения.</li>
+<li>Игнорирование нагрева корпуса при длительной работе.</li>
+</ol>
+
+<h3>Неверная оценка возможностей модуля</h3>
+<p>Многие верят заявленным на AliExpress характеристикам, где указано, например, 10 Ампер. На практике это может быть пиковый ток на долю секунды или ток при очень низком выходном напряжении. Реальный длительный ток часто в 2-3 раза меньше.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Никогда не эксплуатируйте модуль на пределе его возможностей без активного охлаждения. Длительная работа при 100% нагрузке сокращает срок службы в разы и может привести к возгоранию.</p></div>
+
+<p>Важный момент: если модуль начал издавать высокочастотный писк, это может свидетельствовать о работе в нештатном режиме, плохом контакте дросселя или выходе из строя конденсаторов. Такую плату лучше сразу отключить.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед финальным запуском</h4><label class="check-item"><input type="checkbox"><span>Полярность подключения проверена дважды</span></label><label class="check-item"><input type="checkbox"><span>Выходное напряжение выставлено мультиметром</span></label><label class="check-item"><input type="checkbox"><span>Провода имеют достаточное сечение</span></label><label class="check-item"><input type="checkbox"><span>Модуль закреплен и имеет доступ воздуха</span></label><label class="check-item"><input type="checkbox"><span>Нагрузка соответствует мощности модуля</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="финальная-сборка-и-надежная-эксплуатация">Финальная сборка и надежная эксплуатация</h2>
+<p>Если все этапы пройдены успешно, остается только грамотно оформить конструкцию. Электроника не любит вибраций и влаги, поэтому модуль лучше разместить в корпусе. Для корпусов отлично подходят пластиковые коробки для электроники, которые также можно найти на AliExpress.</p>
+<p>Важно обеспечить вентиляцию. Если модуль греется, в корпусе должны быть отверстия. Можно установить маленький компьютерный кулер, запитав его от самого же модуля, если диапазон напряжений позволяет, или от отдельного источника.</p>
+<p>Надежно зафиксированные провода и защищенные контакты — залог долгой работы устройства. Используйте термоклей или силикон для фиксации разъемов, если устройство будет использоваться в автомобиле или на улице. Это предотвратит отрыв проводов от вибрации.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Правильное подключение повышающего модуля требует внимательной настройки напряжения мультиметром и учета реальных токовых ограничений, а не только заявленных характеристик.</p></div>
+
+<p>Грамотный подход к выбору и подключению повышающего модуля с AliExpress позволяет создавать надежные и эффективные системы питания для любых задач. Главное — не пренебрегать проверками и всегда оставлять запас по мощности, чтобы устройство работало в щадящем режиме.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#выбор-подходящей-модели-и-изучение-характеристик">Выбор подходящей модели и изучение характеристик</a></li><li><a href="#пошаговая-инструкция-по-подключению-и-настройке">Пошаговая инструкция по подключению и настройке</a></li><li><a href="#технические-нюансы-и-скрытые-параметры">Технические нюансы и скрытые параметры</a></li><li><a href="#типичные-ошибки-при-монтаже-и-эксплуатации">Типичные ошибки при монтаже и эксплуатации</a></li><li><a href="#финальная-сборка-и-надежная-эксплуатация">Финальная сборка и надежная эксплуатация</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-nastroit-chasy-s-proektsiej-na-potolok-s-aliekspress.html" class="related-card">Как настроить часы с проекцией на потолок с Алиэкспресс</a></li><li><a href="/articles/k/ka/kak-polzovatsya-frezoj-dlya-nogtej-s-aliekspress.html" class="related-card">Как пользоваться фрезой для ногтей с AliExpress: полное руководство</a></li><li><a href="/articles/k/ka/kak-postavit-vremya-na-chasakh-s-aliekspress.html" class="related-card">Как настроить время на умных часах с Алиэкспресс: инструкция</a></li><li><a href="/articles/k/ka/kak-podklyuchit-kameru-endoskop-s-aliekspress.html" class="related-card">Как подключить камеру эндоскоп с Алиэкспресс: полная инструкция</a></li><li><a href="/articles/k/ka/kakuyu-kolonku-vybrat-s-aliekspress.html" class="related-card">Как выбрать колонку на Алиэкспресс: полное руководство 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-nastroit-chasy-s-proektsiej-na-potolok-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить часы с проекцией на потолок с Алиэкспресс</span><span class="related-bottom-desc">Подробное руководство по настройке проекционных часов с AliExpress. Инструкция, расшифровка кнопок, </span></a><a href="/articles/k/ka/kak-polzovatsya-frezoj-dlya-nogtej-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как пользоваться фрезой для ногтей с AliExpress: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по выбору, настройке и безопасной работе с аппаратом для маникюра с AliExpress.</span></a><a href="/articles/k/ka/kak-postavit-vremya-na-chasakh-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить время на умных часах с Алиэкспресс: инструкция</span><span class="related-bottom-desc">Подробный гид по синхронизации времени на умных часах. Узнайте, как подключить приложение, настроить</span></a><a href="/articles/k/ka/kak-podklyuchit-kameru-endoskop-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить камеру эндоскоп с Алиэкспресс: полная инструкция</span><span class="related-bottom-desc">Подробное руководство по подключению USB и Wi-Fi эндоскопов с AliExpress. Настройка драйверов, выбор</span></a><a href="/articles/k/ka/kakuyu-kolonku-vybrat-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать колонку на Алиэкспресс: полное руководство 2026</span><span class="related-bottom-desc">Пошаговая инструкция по выбору колонки на AliExpress: критерии, рейтинг продавцов, отзывы и подводны</span></a><a href="/articles/k/ka/kakie-elektroinstrumenty-mozhno-pokupat-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какие электроинструменты покупать на AliExpress: гид</span><span class="related-bottom-desc">Подробный гид: какие электроинструменты стоит покупать на AliExpress, как выбрать бренд и не ошибить</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

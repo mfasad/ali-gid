@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Радиомодуль с Алиэкспресс: подключение и настройка — Али Гид</title>
+    <meta name="description" content="Подробная инструкция по подключению радиомодулей с Алиэкспресс. Настройка Arduino, выбор антенны и решение проблем с передачей данных.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/r/ra/radiomodul-s-aliekspress-kak-podklyuchat-i-nastraivat.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Радиомодуль с Алиэкспресс: подключение и настройка">
+    <meta property="og:description" content="Подробная инструкция по подключению радиомодулей с Алиэкспресс. Настройка Arduino, выбор антенны и решение проблем с передачей данных.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Радиомодуль с Алиэкспресс: подключение и настройка</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Радиомодуль с Алиэкспресс: как подключить и настроить</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#идентификация-устройства-и-подготовка-оборудования">Идентификация устройства и подготовка оборудования</a></li><li><a href="#схема-подключения-и-монтаж">Схема подключения и монтаж</a></li><li><a href="#программная-настройка-и-тестирование">Программная настройка и тестирование</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#финальная-отладка-и-расширение-функционала">Финальная отладка и расширение функционала</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>Покупка радиомодулей на китайских площадках часто становится первым шагом в мир создания собственных систем умного дома, телеметрии или дистанционного управления. Однако, получив долгожданную посылку, многие сталкиваются с молчащим устройством, которое не желает передавать данные, несмотря на правильную, казалось бы, сборку схемы. Проблема кроется не в браке, а в отсутствии понимания специфики конкретных чипов и необходимости точной программной настройки, без которой железо не оживет.</p>
+<p>Если хотите избежать бессонных ночей с мультиметром и логическим анализатором, важно сразу разобраться в типе вашего приемопередатчика. На рынке электроники доминируют несколько популярных стандартов, каждый из которых требует своего подхода к библиотекам, частотам и схеме подключения. Неправильный выбор библиотеки или игнорирование требований к антенне — это гарантированный путь к нулевому результату.</p>
+<p>Вот что нужно сделать в первую очередь: внимательно осмотреть маркировку на чипе и модуле в целом. Чаще всего новички покупают модули серии NRF24L01, LoRa на базе SX1278 или классические RFM69. От этого зависит дальнейший алгоритм действий. Важно понимать, что универсальной инструкции для всех сразу не существует, но есть общий принцип работы с подобной периферией через микроконтроллеры вроде Arduino или ESP8266.</p>
+
+<h2 id="идентификация-устройства-и-подготовка-оборудования">Идентификация устройства и подготовка оборудования</h2>
+<p>Первым делом необходимо точно определить, что именно приехало из Китая. Визуальное сходство модулей может быть обманчиво, поэтому ищите надписи на черном кристалле или белой наклейке экрана. Если на модуле написано NRF24L01, вы имеете дело с проверенной временем технологией на 2.4 ГГц. Если же видите маркировку SX1278 или надпись LoRa, перед вами устройство для дальнобойной связи на частотах (433, 868 или 915 МГц).</p>
+<p>Важный момент: обращайте внимание на количество контактов. Стандартные модули NRF24L01 имеют 8 контактов, тогда как LoRa модули могут иметь разное расположение пинов в зависимости от производителя платы-носителя. Также критически важно проверить наличие антенны. Для NRF24L01 часто идут маленькие черные антенки, которые накручиваются на разъем, а для LoRa модулей антенны могут быть в виде проволоки или внешних штырей.</p>
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Использование модуля без накрученной антенны может привести к выгоранию выходного каскада усилителя мощности за считанные секунды. Всегда подключайте антенну перед подачей питания.</p></div>
+<p>Для работы вам потребуется плата развития, например, Arduino Uno, Nano или ESP32. Также понадобятся соединительные провода и, желательно, стабилизатор напряжения, если вы планируете запитывать модуль от 5 вольт, так как большинство радиомодулей работают от 3.3 вольта.</p>
+
+<h3>Необходимые компоненты и библиотеки</h3>
+<p>Для успешной интеграции оборудования в ваш проект нужно заранее подготовить программное окружение. В среде Arduino IDE потребуется установка специализированных библиотек, которые берут на себя низкоуровневое управление радиоканалом. Для модулей NRF24L01 стандартом де-факто стала библиотека RF24, а для LoRa модулей часто используют библиотеку Sandeep Mistry или RadioLib.</p>
+<p>Вот список базовых компонентов, которые должны быть у вас под рукой:</p>
+<ul>
+<li>Микроконтроллер (Arduino Nano, Uno, ESP8266 или ESP32)</li>
+<li>Пара радиомодулей (для организации связи нужны минимум два устройства)</li>
+<li>Антенны соответствующего частотного диапазона</li>
+<li>Конденсатор 10-100 мкФ для стабилизации питания NRF24L01</li>
+<li>Соединительные провода Dupont</li>
+</ul>
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>При работе с NRF24L01 настоятельно рекомендуется подпаивать конденсатор между контактами VCC и GND прямо на выводах модуля. Это сглаживает скачки тока при передаче и предотвращает перезагрузку микроконтроллера.</p></div>
+<p>Установку библиотек лучше производить через менеджер библиотек в Arduino IDE, введя названия в поисковую строку. Это гарантирует, что вы получите актуальную и рабочую версию кода, совместимую с текущей версией среды разработки.</p>
+
+<h2 id="схема-подключения-и-монтаж">Схема подключения и монтаж</h2>
+<p>Физическое соединение модуля с микроконтроллером осуществляется через интерфейс SPI. Это высокоскоростной последовательный интерфейс, который требует подключения четырех основных сигнальных линий: MOSI, MISO, SCK и SS. Ошибка в подключении даже одного из этих пинов приведет к тому, что устройство не будет видно в системе.</p>
+<p>На практике распиновка зависит от вашей платы. Для Arduino Uno и Nano контакты SPI находятся на цифровых пинах 11, 12 и 13, а выбор устройства (SS) обычно вешают на 9 или 10 пин. Для ESP8266 (NodeMCU) ситуация сложнее, так как стандартные пины SPI скрыты, и нужно использовать GPIO, например, D5, D6, D7 для SCK, MISO и MOSI соответственно.</p>
+
+<p>Обратите внимание на питание. Модули с усилителем мощности (часто маркируются как PA+LNA) потребляют значительный ток в момент передачи импульса. Стандартный порт USB или слабый блок питания могут не вытянуть пиковую нагрузку, что приведет к нестабильной работе.</p>
+
+<h3>Особенности питания и стабилизации</h3>
+<p>Критически важным аспектом является напряжение питания. Логические уровни большинства современных микроконтроллеров Arduino составляют 5 вольт, тогда как радиомодули требуют строго 3.3 вольта. Прямое подключение VCC модуля к пину 5V на Arduino гарантированно выведет устройство из строя.</p>
+<table>
+<thead>
+<tr>
+<th>Контакт модуля</th>
+<th>Arduino Uno/Nano</th>
+<th>ESP8266 (NodeMCU)</th>
+<th>ESP32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCC</td>
+<td>3.3V (внешний стабилизатор)</td>
+<td>3.3V</td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>CE</td>
+<td>9</td>
+<td>D2 (GPIO4)</td>
+<td>GPIO5</td>
+</tr>
+<tr>
+<td>CSN (SS)</td>
+<td>10</td>
+<td>D8 (GPIO15)</td>
+<td>GPIO18</td>
+</tr>
+<tr>
+<td>SCK</td>
+<td>13</td>
+<td>D5 (GPIO14)</td>
+<td>GPIO18</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>11</td>
+<td>D7 (GPIO13)</td>
+<td>GPIO23</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>12</td>
+<td>D6 (GPIO12)</td>
+<td>GPIO19</td>
+</tr>
+</tbody>
+</table>
+<p>Если хотите обеспечить стабильную работу, используйте внешний источник питания 3.3В с током не менее 200 мА для модулей с усилителем. В таблице приведены стандартные назначения, но их можно менять в коде, что дает гибкость при проектировании платы.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте качественные провода минимальной длины. Длинные скрутки работают как антенны и ловят наводки, что резко снижает качество связи и увеличивает количество ошибок при передаче пакетов.</p></div>
+
+<h2 id="программная-настройка-и-тестирование">Программная настройка и тестирование</h2>
+<p>После сборки схемы наступает этап программирования. Вам потребуется загрузить скетч-пример (обычно называется PingPong или GettingStarted) сначала на одну плату, затем на вторую. В коде необходимо проверить, совпадают ли номера пинов CE и CSN с теми, которые вы использовали при физическом подключении.</p>
+<p>Важный момент: настройка адреса канала и трубы. Радиомодули общаются на определенных частотах, разделенных на каналы. Чтобы устройства"услышали" друг друга, они должны быть настроены на один канал и использовать одинаковый адрес трубы (Pipe Address). Адрес представляет собой массив байт, например, <code>{'T','u','b','e','1'}</code>.</p>
+<p>Вот базовый алгоритм действий для запуска связи:</p>
+<ol>
+<li>Откройте пример скетча в Arduino IDE.</li>
+<li>Найдите строки с определением пинов CE и CSN и приведите их в соответствие со схемой.</li>
+<li>Проверьте настройки скорости (RF24_PA_MIN, RF24_PA_LOW и т.д.).</li>
+<li>Загрузите код в первую плату (Приемник).</li>
+<li>Загрузите код во вторую плату (Передатчик).</li>
+<li>Откройте монитор порта и наблюдайте за обменом данными.</li>
+</ol>
+<details class="faq-item"><summary>Настройка скорости передачи</summary><div class="faq-answer"><p> Для NRF24L01 доступно три скорости: 250 кбит/с, 1 Мбит/с и 2 Мбит/с. Снижение скорости до 250 кбит/с значительно увеличивает дальность и пробиваемость сигнала, но уменьшает пропускную способность.</p></div></details>
+<p>Если в мониторе порта вы видите сообщения о том, что радио не найдено (Radio hardware not responding), проверьте еще раз подключение пинов CE и CSN. Именно через них микроконтроллер управляет состоянием радиомодуля.</p>
+
+<h3>Настройка параметров мощности и канала</h3>
+<p>Дальность связи напрямую зависит от выбранной мощности передатчика. В библиотеках это настраивается функциями вроде <code>radio.setPALevel(RF24_PA_MAX)</code>. Однако установка максимальной мощности не всегда является лучшим решением, так как это увеличивает потребление тока и может создавать помехи собственному приемнику.</p>
+<p>На практике часто эффективнее снизить скорость передачи данных, чем выкручивать мощность на максимум. Для LoRa модулей важным параметром является коэффициент расширения (Spreading Factor). Его увеличение повышает чувствительность приемника и дальность, но снижает скорость обмена данными.</p>
+<mark>Оптимальный диапазон частот для проверки в помещении — 2400-2480 МГц для NRF и 433 МГц для LoRa.</mark> Убедитесь, что выбранный канал не занят мощными источниками помех, такими как Wi-Fi роутеры (для диапазона 2.4 ГГц).</p>
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+<p>Даже опытные инженеры сталкиваются с проблемами при отладке радиоканала. Большинство из них связаны не с поломкой оборудования, а с нюансами эксплуатации. Понимание этих нюансов экономит часы troubleshooting.</p>
+<p>Если хотите быстро диагностировать проблему, обратите внимание на следующие симптомы. Часто пользователи забывают, что для работы SPI шины контакты должны быть подключены строго к аппаратным пинам микроконтроллера, а не к любым свободным.</p>
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Модули NRF24L01 очень чувствительны к качеству питания. Если при попытке передачи модуль"мигает" или система перезагружается — это не брак, а нехватка тока. Добавьте конденсатор 100мкФ параллельно питанию модуля.</p></div>
+<p>Вот список наиболее частых ошибок, которые допускают при первом запуске:</p>
+<ul>
+<li>Отсутствие общей земли (GND) между передатчиком и приемником.</li>
+<li>Использование пинов 5V для питания 3.3V модулей.</li>
+<li>Работа без антенны, приводящая к выходного каскада.</li>
+<li>Несоответствие адресов труб (Pipe addresses) в коде передатчика и приемника.</li>
+<li>Попытка использовать библиотеку для NRF24L01 с модулем LoRa или наоборот.</li>
+</ul>
+<p>Еще одна распространенная проблема — экранирование. Если вы поместите модуль внутрь металлического корпуса или рядом с мощным источником шума (например, мотором или блоком питания), радиус действия может упасть до нескольких метров.</p>
+
+<p>Также стоит упомянуть проблему совместимости клонов. Китайские модули могут быть собраны на чипах разных ревизий. Некоторые старые библиотеки могут некорректно работать с новыми версиями чипов NRF24L01+. В таких случаях помогает обновление библиотеки или переключение на альтернативную, например, RF24Network для создания ячеистых сетей.</p>
+
+<h2 id="финальная-отладка-и-расширение-функционала">Финальная отладка и расширение функционала</h2>
+<p>Когда базовый обмен данными налажен, перед вами открываются широкие возможности. Вы можете передавать не просто строки текста, а сложные структуры данных, содержащие показания датчиков температуры, влажности, координаты GPS или управляющие команды для исполнительных механизмов.</p>
+<p>Важный момент: надежность передачи. Радиоканал — среда ненадежная, пакеты могут теряться. Хорошим тоном считается реализация acknowledgment (подтверждения доставки). Модуль NRF24L01 имеет встроенную аппаратную поддержку ACK, что позволяет программно убедиться, что пакет дошел до адресата.</p>
+<p>Если хотите создать полноценную сеть, рассмотрите возможность использования протоколов поверх драйверов, таких как RF24Network. Это позволит объединить до 6 устройств в одну сеть с автоматической маршрутизацией, превратив простые модули в основу умного дома.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Успешная настройка радиомодуля требует точного соблюдения схемы подключения, наличия антенны и правильных настроек канала в коде.</p></div>
+<p>Не бойтесь экспериментировать с параметрами. Изменение частоты на несколько мегагерц может кардинально улучшить связь в условиях зашумленного эфира многоквартирного дома. Помните, что каждый дом имеет свою уникальную радиокарту, и то, что работало у соседа, может требовать подстройки у вас.</p>
+<p>В конечном итоге, радиомодуль с Алиэкспресс — это мощный инструмент, который при правильном подходе позволяет реализовать проекты любой сложности. От простого включения света по хлопку до построения распределенной системы мониторинга климата на даче. Главное — внимательность к деталям на этапе старта.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#идентификация-устройства-и-подготовка-оборудования">Идентификация устройства и подготовка оборудования</a></li><li><a href="#схема-подключения-и-монтаж">Схема подключения и монтаж</a></li><li><a href="#программная-настройка-и-тестирование">Программная настройка и тестирование</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#финальная-отладка-и-расширение-функционала">Финальная отладка и расширение функционала</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-nastroit-videonablyudenie-s-aliekspress.html" class="related-card">Как настроить видеонаблюдение с AliExpress: полное руководство</a></li><li><a href="/articles/k/ka/kak-kupit-novuyu-videokartu-s-aliekspress.html" class="related-card">Как купить видеокарту на Алиэкспресс: руководство 2026</a></li><li><a href="/articles/k/ka/kak-kleit-zashchitnuyu-plenku-na-telefon-s-aliekspress.html" class="related-card">Как клеить пленку на телефон: гид по AliExpress</a></li><li><a href="/articles/k/ka/kak-kupit-boksmod-na-aliekspress.html" class="related-card">Как купить боксмод на Алиэкспресс: выбор, проверка и доставка</a></li><li><a href="/articles/k/ka/kak-vybrat-magnitolu-2-din-v-avtomobil-na-aliekspress.html" class="related-card">Как выбрать магнитолу 2 DIN на AliExpress: гид по покупке</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-nastroit-videonablyudenie-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить видеонаблюдение с AliExpress: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по настройке IP-камер с AliExpress. Подключение через Wi-Fi, настройка ПО, устр</span></a><a href="/articles/k/ka/kak-kupit-novuyu-videokartu-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как купить видеокарту на Алиэкспресс: руководство 2026</span><span class="related-bottom-desc">Подробный гид по покупке GPU на AliExpress. Проверка продавцов, выбор модели, защита от подделок и о</span></a><a href="/articles/k/ka/kak-kleit-zashchitnuyu-plenku-na-telefon-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как клеить пленку на телефон: гид по AliExpress</span><span class="related-bottom-desc">Подробная инструкция, как выбрать и наклеить защитную пленку с AliExpress. Разбор типов, пошаговый п</span></a><a href="/articles/k/ka/kak-kupit-boksmod-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как купить боксмод на Алиэкспресс: выбор, проверка и доставка</span><span class="related-bottom-desc">Полное руководство по покупке вейп-боксмода на AliExpress. Как выбрать, проверить продавца, оплатить</span></a><a href="/articles/k/ka/kak-vybrat-magnitolu-2-din-v-avtomobil-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать магнитолу 2 DIN на AliExpress: гид по покупке</span><span class="related-bottom-desc">Подробное руководство по выбору 2 DIN магнитолы на Алиэкспресс. Разбор процессоров, экранов, размеро</span></a><a href="/articles/k/ka/kakoj-ofitsialnyj-magazin-xiaomi-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Официальный магазин Xiaomi на АлиЭкспресс: как найти и отличить</span><span class="related-bottom-desc">Где находится официальный магазин Xiaomi на АлиЭкспресс? Инструкция по поиску, проверке бейджа и отл</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

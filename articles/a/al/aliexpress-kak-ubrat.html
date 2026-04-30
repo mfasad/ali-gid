@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как убрать товар из корзины и заказов на AliExpress — Али Гид</title>
+    <meta name="description" content="Подробная инструкция, как удалить товар на AliExpress, скрыть заказы и очистить историю. Решение проблем с корзиной и списком желаемого.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/a/al/aliexpress-kak-ubrat.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как убрать товар из корзины и заказов на AliExpress">
+    <meta property="og:description" content="Подробная инструкция, как удалить товар на AliExpress, скрыть заказы и очистить историю. Решение проблем с корзиной и списком желаемого.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/problemy-s-prilozheniem/">Проблемы с приложением</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как убрать товар из корзины и заказов на AliExpress</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как убрать товар и заказы на AliExpress: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#удаление-товаров-из-корзины-и-списка-желаемого">Удаление товаров из корзины и списка желаемого</a></li><li><a href="#скрытие-и-архивация-оформленных-заказов">Скрытие и архивация оформленных заказов</a></li><li><a href="#удаление-истории-поиска-и-просмотров">Удаление истории поиска и просмотров</a></li><li><a href="#типичные-ошибки-и-ограничения-системы">Типичные ошибки и ограничения системы</a></li><li><a href="#что-делать-если-товар-не-удаляется">Что делать, если товар не удаляется</a></li><li><a href="#стратегия-управления-личным-пространством-на-платформе">Стратегия управления личным пространством на платформе</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+
+<p>Пользователи часто сталкиваются с необходимостью навести порядок в своем аккаунте на популярной торговой площадке. Это может быть связано с желанием скрыть покупку подарка от домочадцев, очисткой корзины от товаров, которые больше не актуальны, или удалением ошибочно оформленных заказов. Интерфейс платформы постоянно обновляется, и некоторые функции, такие как полное удаление истории заказов, становятся менее очевидными или временно недоступными в разных версиях приложения.</p>
+<p>Если хотите эффективно управлять своим пространством на сайте, важно понимать разницу между удалением товара из списка желаемого, очисткой корзины и архивацией завершенных сделок. Просто так нажать кнопку «удалить» на уже совершенной покупке не получится, так как система сохраняет данные о транзакциях для обеспечения безопасности и возможности открытия споров. Однако существуют проверенные способы скрыть ненужную информацию от посторонних глаз или просто визуально разгрузить интерфейс.</p>
+<p>Важный момент: действия в мобильном приложении и в браузерной версии сайта могут отличаться. Некоторые функции доступны только с компьютера, другие — исключительно через смартфон. Поэтому, если вы не нашли нужную опцию в одном месте, стоит проверить другой интерфейс. Ниже приведены подробные инструкции для всех основных сценариев работы с контентом аккаунта.</p>
+
+<h2 id="удаление-товаров-из-корзины-и-списка-желаемого">Удаление товаров из корзины и списка желаемого</h2>
+<p>Самая частая задача, с которой сталкиваются покупатели, — это очистка списка покупок от товаров, которые потеряли актуальность. Цены могли измениться, товар закончился, или вы просто передумали. В отличие от истории заказов, здесь удаление происходит мгновенно и безвозвратно, поэтому стоит быть внимательным при выборе объектов для чистки.</p>
+
+<h3>Очистка корзины покупок</h3>
+<p>Корзина на AliExpress служит не только для оформления заказа, но и для отслеживания изменений цены. Если вы долго не оформляете заказ, система может автоматически удалить товар или изменить его стоимость. Чтобы убрать позиции вручную, следуйте алгоритму:</p>
+<ol>
+<li>Откройте приложение или сайт и перейдите в раздел <code>Корзина</code> (иконка тележки).</li>
+<li>Нажмите на кнопку <em>Управление</em> или <em>Выбрать все</em>, обычно она расположена в верхнем углу экрана.</li>
+<li>Отметьте галочками те товары, которые нужно удалить.</li>
+<li>Нажмите кнопку <em>Удалить</em> (иконка корзины) в нижней части экрана.</li>
+</ol>
+<p>На практике удаление происходит сразу же. Если товар был добавлен из разных цветовых или размерных вариаций, удалять придется каждую позицию отдельно, если они не сгруппированы системой автоматически. Обратите внимание, что если продавец изменил условия доставки или товар стал недоступен в ваш регион, система сама предложит удалить его, но лучше контролировать этот процесс самостоятельно.</p>
+
+<div class="checklist-block"><h4>📋 Быстрая очистка корзины</h4><ol><li><strong>Шаг 1.</strong> Перейдите в раздел Корзина</li><li><strong>Шаг 2.</strong> Нажмите Управление в углу</li><li><strong>Шаг 3.</strong> Выберите ненужные товары</li><li><strong>Шаг 4.</strong> Нажмите кнопку Удалить</li></ol></div>
+
+<h3>Работа со списком желаемого (Избранное)</h3>
+<p>Список желаемого часто превращается в хранилище тысяч товаров, которые пользователь когда-то хотел купить. Это может замедлять работу приложения и мешать находить действительно важные вещи. Удаление отсюда происходит еще проще, чем из корзины.</p>
+<p>Вот что нужно сделать: перейдите в профиль и выберите раздел <em>Избранное</em>. Здесь можно удалять товары по одному, свайпая влево (в мобильном приложении), или группировать их. Если вы хотите полностью очистить список, используйте функцию массового выбора. Это особенно полезно перед крупными распродажами, чтобы оставить только целевые позиции и не запутаться в скидках.</p>
+<table>
+<thead>
+<tr>
+<th>Действие</th>
+<th>Где находится</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Удаление из корзины</td>
+<td>Раздел Корзина -> Управление</td>
+<td>Товар исчезает из списка покупок</td>
+</tr>
+<tr>
+<td>Удаление из избранного</td>
+<td>Профиль -> Избранное</td>
+<td>Товар убирается из списка отслеживаемых</td>
+</tr>
+<tr>
+<td>Удаление вариаций</td>
+<td>Внутри карточки товара</td>
+<td>Убирается конкретный цвет или размер</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="скрытие-и-архивация-оформленных-заказов">Скрытие и архивация оформленных заказов</h2>
+<p>Ситуация с уже оплаченными или завершенными заказами сложнее. Платформа не позволяет просто так удалить запись о транзакции, так как это финансовый документ. Однако существуют способы скрыть заказы из общего списка, чтобы они не мозолили глаза или не были видны другим людям, имеющим доступ к вашему аккаунту.</p>
+
+<h3>Использование функции архивации</h3>
+<p>Функция архивации позволяет убрать заказ из вкладки <em>Все</em> или <em>Ожидается</em>, переместив его в специальное хранилище. Это не удаляет данные навсегда, но делает интерфейс чище. Чтобы воспользоваться этой опцией:</p>
+<ol>
+<li>Зайдите в раздел <code>Мои заказы</code>.</li>
+<li>Найдите нужный заказ и нажмите на три точки или кнопку меню рядом с ним.</li>
+<li>Выберите опцию <em>Архивировать</em> (если доступна в вашей версии).</li>
+</ol>
+<p>Важный момент: функция архивации может быть доступна не для всех пользователей или регионов. В некоторых обновлениях приложения ее прячут или временно отключают. Если вы не видите такой кнопки, значит, в вашей версии интерфейса она не активна.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Архивация не удаляет заказ окончательно. Он просто скрывается из основного списка и переходит в специальную папку «Архив», которую можно найти через поиск или настройки.</p></div>
+
+<h3>Скрытие трекинга и деталей</h3>
+<p>Если ваша цель — скрыть факт покупки, например, чтобы человек, с которым вы делите аккаунт, не видел трек-номер или статус доставки, можно воспользоваться настройками приватности конкретного заказа. Часто достаточно просто не открывать детали заказа, но для полной конфиденциальности лучше использовать отдельные аккаунты.</p>
+<p>На практике, если вы хотите убрать заказ из виду, проще всего отфильтровать список. Нажмите на фильтр вверху списка заказов и выберите статус, например, «Ожидается» или «Завершен». Это визуально уберет ненужные категории. Также можно использовать поиск по ключевым словам, чтобы найти конкретный заказ, не пролистывая всю историю.</p>
+
+<h2 id="удаление-истории-поиска-и-просмотров">Удаление истории поиска и просмотров</h2>
+<p>Алгоритмы AliExpress активно используют историю ваших действий для формирования персональной ленты рекомендаций. Если вы искали специфические товары или просто хотите очистить следы своей активности, необходимо работать с историей просмотров и поисковых запросов. Это также помогает «обнулить» выдачу, если вы хотите увидеть новые товары, а не те, что уже смотрели.</p>
+
+<h3>Очистка истории просмотров товаров</h3>
+<p>История просмотров хранится в профиле пользователя. Чтобы убрать записи о просмотренных товарах:</p>
+<ul>
+<li>Перейдите в профиль и найдите раздел <em>Недавние просмотры</em>.</li>
+<li>Используйте кнопку <em>Очистить</em> или крестик рядом с каждым товаром.</li>
+<li>Подтвердите действие во всплывающем окне.</li>
+</ul>
+<p>После этой операции лента рекомендаций может временно стать менее релевантной, так как системе потребуется время, чтобы заново проанализировать ваши предпочтения. Это нормальное поведение алгоритмов.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Очистка истории просмотров может повлиять на персонализацию купонов. Система перестанет предлагать скидки на категории товаров, которые вы часто смотрели, пока не накопит новую статистику.</p></div>
+
+<h3>Удаление поисковых запросов</h3>
+<p>Поисковая строка сохраняет ваши предыдущие запросы. Чтобы удалить их:</p>
+<ol>
+<li>Нажмите на строку поиска в приложении.</li>
+<li>В выпадающем списке истории поиска нажмите на значок корзины или крестик.</li>
+<li>Выберите <em>Очистить историю</em>.</li>
+</ol>
+<p>Эта процедура не влияет на заказы, но убирает подсказки, которые появляются при вводе текста. Это полезно, если вы пользовались общим устройством и не хотите, чтобы другие пользователи видели, что вы искали.</p>
+
+<h2 id="типичные-ошибки-и-ограничения-системы">Типичные ошибки и ограничения системы</h2>
+<p>Пользователи часто пытаются найти кнопку полного удаления заказа там, где ее быть не может, или путают понятия удаления и отмены. Понимание ограничений платформы поможет избежать лишних действий и разочарований. Система AliExpress построена так, чтобы минимизировать риски для обеих сторон сделки, поэтому удаление данных строго регламентировано.</p>
+
+<h3>Попытка удалить завершенный заказ</h3>
+<p>Многие ищут способ полностью стереть заказ из базы данных после его завершения. Это невозможно. Даже если вы скроете заказ или очистите кэш, на сервере останется запись о транзакции. Это необходимо для работы службы поддержки, гарантийных случаев и налоговой отчетности. Если вы видите заказ, который мешает, его можно только скрыть через архив или фильтрацию.</p>
+
+<h3>Удаление товара во время спора</h3>
+<p>Категорически нельзя пытаться удалять или скрывать товары, по которым открыт спор (Dispute). Это может привести к автоматическому закрытию спора в пользу продавца или осложнить работу модераторов. Пока спор не закрыт, все данные о заказе должны оставаться в исходном виде.</p>
+
+<details class="faq-item"><summary>Почему нельзя удалить заказ?</summary><div class="faq-answer"><p>Запись о заказе является юридическим документом. Она содержит информацию о платеже, доставке и согласии сторон. Удаление этой информации противоречит правилам электронных коммерции и внутренним регламентам безопасности платформы.</p></div></details>
+
+<h3>Ошибки при массовом удалении</h3>
+<p>При попытке удалить много товаров одновременно (например, из корзины) приложение может зависнуть или выдать ошибку. Это связано с нагрузкой на сервер. Лучше удалять товары группами по 10-20 штук, делая небольшие паузы. Также частой ошибкой является удаление товара из корзины, когда идет акция «Купон на корзину»: в этом случае сумма заказа может измениться, и купон перестанет действовать.</p>
+
+<h2 id="что-делать-если-товар-не-удаляется">Что делать, если товар не удаляется</h2>
+<p>Иногда пользователи сталкиваются с техническими проблемами: кнопка удаления не работает, товар возвращается в корзину или список не обновляется. Это может быть связано с плохим интернетом, кэшем приложения или временными сбоями на сервере AliExpress.</p>
+
+<h3>Решение технических проблем</h3>
+<p>В первую очередь проверьте соединение с интернетом. Если сеть стабильна, попробуйте обновить страницу или перезагрузить приложение. Часто помогает очистка кэша в настройках телефона. Если товар «застрял» в корзине и не удаляется, попробуйте оформить заказ (не оплачивая) и затем отменить его — это иногда разблокирует зависшие элементы интерфейса.</p>
+<p>Важный момент: если проблема носит массовый характер, возможно, проводятся технические работы. В этом случае стоит подождать несколько часов. Если же товар мешает прямо сейчас, можно просто игнорировать его, так как через 90 дней после последнего обновления статуса он автоматически исчезнет из активных списков.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед удалением</h4><label class="check-item"><input type="checkbox"><span>Товар не участвует в активном споре</span></label><label class="check-item"><input type="checkbox"><span>У вас есть доступ к интернету</span></label><label class="check-item"><input type="checkbox"><span>Приложение обновлено до последней версии</span></label><label class="check-item"><input type="checkbox"><span>Товар не является частью действующего купона</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="стратегия-управления-личным-пространством-на-платформе">Стратегия управления личным пространством на платформе</h2>
+<p>Умение управлять своим аккаунтом — важный навык для любого покупателя. Регулярная чистка корзины и истории помогает не только сохранить порядок, но и обезопасить свои данные. Не стоит накапливать тысячи товаров в списке желаемого, так как это затрудняет навигацию. Лучше создавать отдельные списки для разных целей или использовать функцию «Поделиться», если нужно сохранить товар для обсуждения с друзьями.</p>
+<p>Если вы планируете продавать подарок, обязательно используйте режим инкогнито в браузере или создайте отдельный аккаунт. Скрытие заказов внутри одного профиля — мера временная и не дает 100% гарантии конфиденциальности, особенно если владелец аккаунта знает, где искать архивы. Для полной приватности разделение аккаунтов остается единственным надежным решением.</p>
+<p>Помните, что платформа постоянно развивается, и расположение кнопок может меняться. Если вы не нашли описанную функцию, воспользуйтесь поиском внутри приложения или обратитесь в службу поддержки. Главное — действовать спокойно и последовательно, проверяя каждое действие, чтобы случайно не удалить нужную покупку или не потерять доступ к важной информации о гарантии.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Полное удаление заказов на AliExpress невозможно, но их можно архивировать или скрывать. Товары из корзины и избранного удаляются мгновенно через меню управления.</p></div>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для быстрой очистки истории используйте десктопную версию сайта. Там функционал управления данными часто более расширенный и удобный, чем в мобильном приложении.</p></div>
+
+<table>
+<thead>
+<tr>
+<th>Объект</th>
+<th>Можно ли удалить навсегда?</th>
+<th>Можно ли скрыть?</th>
+<th>Срок хранения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Товар в корзине</td>
+<td>Да</td>
+<td>Нет (только удалить)</td>
+<td>До 90 дней (автоочистка)</td>
+</tr>
+<tr>
+<td>Завершенный заказ</td>
+<td>Нет</td>
+<td>Да (Архив)</td>
+<td>Бессрочно</td>
+</tr>
+<tr>
+<td>История поиска</td>
+<td>Да</td>
+<td>Нет</td>
+<td>До ручной очистки</td>
+</tr>
+<tr>
+<td>Открытый спор</td>
+<td>Нет</td>
+<td>Нет</td>
+<td>До закрытия спора</td>
+</tr>
+</tbody>
+</table>
+
+<p>На практике, регулярный уход за аккаунтом занимает не более 5 минут в месяц, но значительно улучшает пользовательский опыт. Вы быстрее находите нужные товары, получаете более релевантные рекомендации и сохраняете конфиденциальность своих покупок. Используйте описанные выше методы, чтобы ваш цифровой шопинг оставался комфортным и безопасным.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#удаление-товаров-из-корзины-и-списка-желаемого">Удаление товаров из корзины и списка желаемого</a></li><li><a href="#скрытие-и-архивация-оформленных-заказов">Скрытие и архивация оформленных заказов</a></li><li><a href="#удаление-истории-поиска-и-просмотров">Удаление истории поиска и просмотров</a></li><li><a href="#типичные-ошибки-и-ограничения-системы">Типичные ошибки и ограничения системы</a></li><li><a href="#что-делать-если-товар-не-удаляется">Что делать, если товар не удаляется</a></li><li><a href="#стратегия-управления-личным-пространством-на-платформе">Стратегия управления личным пространством на платформе</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-otkryt-ssylku-na-aliekspress-v-prilozhenii-na-telefone.html" class="related-card">Как открыть ссылку на АлиЭкспресс в приложении: полная инструкция</a></li><li><a href="/articles/a/al/aliekspress-novoe-prilozhenie-chem-otlichaetsya-ot-obychnogo.html" class="related-card">AliExpress: чем новое приложение отличается от старого</a></li><li><a href="/articles/k/ka/kak-svyazatsya-s-operatorom-tekhpodderzhki-aliekspress.html" class="related-card">Как связаться с техподдержкой AliExpress: все способы 2026</a></li><li><a href="/articles/k/ka/kak-ubrat-foto-iz-otzyva-na-aliekspress.html" class="related-card">Как удалить фото из отзыва на АлиЭкспресс: пошаговая инструкция</a></li><li><a href="/articles/p/po/pochemu-zakryli-aliekspress.html" class="related-card">Почему закрыли AliExpress: причины, последствия и что делать покупателям</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-otkryt-ssylku-na-aliekspress-v-prilozhenii-na-telefone.html" class="related-bottom-card"><span class="related-bottom-title">Как открыть ссылку на АлиЭкспресс в приложении: полная инструкция</span><span class="related-bottom-desc">Подробное руководство: как правильно открывать ссылки на AliExpress в мобильном приложении, решать п</span></a><a href="/articles/a/al/aliekspress-novoe-prilozhenie-chem-otlichaetsya-ot-obychnogo.html" class="related-bottom-card"><span class="related-bottom-title">AliExpress: чем новое приложение отличается от старого</span><span class="related-bottom-desc">Подробный разбор нового приложения AliExpress. Узнайте отличия интерфейса, функции Lite-версии, наст</span></a><a href="/articles/k/ka/kak-svyazatsya-s-operatorom-tekhpodderzhki-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как связаться с техподдержкой AliExpress: все способы 2026</span><span class="related-bottom-desc">Пошаговое руководство: как написать в поддержку Алиэкспресс через чат, форму обратной связи или по т</span></a><a href="/articles/k/ka/kak-ubrat-foto-iz-otzyva-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как удалить фото из отзыва на АлиЭкспресс: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по редактированию и удалению фотографий из отзывов на AliExpress. Узнайте о ср</span></a><a href="/articles/p/po/pochemu-zakryli-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Почему закрыли AliExpress: причины, последствия и что делать покупателям</span><span class="related-bottom-desc">Разбираемся, почему AliExpress может быть недоступен в вашем регионе: санкции, блокировки, техническ</span></a><a href="/articles/p/po/pochemu-v-korzine-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Почему в корзине на Алиэкспресс нет товаров: причины и решения</span><span class="related-bottom-desc">Подробный гид, почему исчезла корзина на Алиэкспресс. Решения проблем с отображением товаров, кэшем,</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>AliExpress: как посмотреть всю историю покупок — Али Гид</title>
+    <meta name="description" content="Подробное руководство: как найти историю заказов на Алиэкспресс за все время. Инструкция для приложения и сайта, работа с архивом.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/a/al/aliekspress-kak-posmotret-istoriyu-pokupok-za-vse-vremya.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AliExpress: как посмотреть всю историю покупок">
+    <meta property="og:description" content="Подробное руководство: как найти историю заказов на Алиэкспресс за все время. Инструкция для приложения и сайта, работа с архивом.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/poisk-tovarov/">Поиск товаров</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">AliExpress: как посмотреть всю историю покупок</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Полная история покупок на Алиэкспресс: поиск и восстановление</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-искать-функцию-просмотра-всех-заказов">Где искать функцию просмотра всех заказов</a></li><li><a href="#пошаговая-инструкция-по-восстановлению-истории">Пошаговая инструкция по восстановлению истории</a></li><li><a href="#нюансы-работы-с-архивом-и-удаленными-данными">Нюансы работы с архивом и удаленными данными</a></li><li><a href="#типичные-ошибки-при-поиске-истории">Типичные ошибки при поиске истории</a></li><li><a href="#практическое-применение-истории-покупок">Практическое применение истории покупок</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Если вы активно пользуетесь маркетплейсом AliExpress на протяжении нескольких лет, рано или поздно возникает необходимость заглянуть в прошлое. Это может быть связано с желанием найти чек на купленную когда-то технику для гарантии, потребностью вспомнить модель понравившегося аксессуара или необходимостью доказать продавцу, что вы уже заказывали у него товар ранее. Проблема заключается в том, что интерфейс платформы постоянно меняется, а система по умолчанию скрывает старые данные, чтобы не перегружать основной список текущих операций.</p>
+<p>Многие пользователи ошибочно полагают, что если заказ пропал из вида на главной странице профиля, то он безвозвратно удален. На самом деле, платформа хранит данные о всех совершенных транзакциях, просто перемещает их в специальные разделы или скрывает за фильтрами. Понимание логики работы личного кабинета позволяет быстро находить нужную информацию, даже если с момента покупки прошло несколько лет. Важно учитывать, что доступ к данным может различаться в зависимости от того, используете вы мобильное приложение или полную версию сайта на компьютере.</p>
+<p>Вот что нужно сделать в первую очередь: не паниковать, если вы не видите старый заказ в общем списке. Система сортирует покупки по статусам, и завершенные сделки часто прячутся от глаз, чтобы не мешать отслеживанию активных посылок. Для полноценного управления своими финансами и статистикой расходов необходимо освоить навигацию по разделам «Все заказы» и «Архив». Ниже мы подробно разберем, где именно искать информацию и как восстановить доступ к скрытым данным.</p>
+
+<h2 id="где-искать-функцию-просмотра-всех-заказов">Где искать функцию просмотра всех заказов</h2>
+<p>Если хотите получить доступ к полному списку своих покупок, первым делом нужно перейти в личный профиль. Интерфейс AliExpress, как в мобильной версии, так и на десктопе, построен вокруг центральной вкладки «Мои заказы». Именно здесь сосредоточена вся информация о ваших взаимодействиях с продавцами. Однако просто открыть этот раздел недостаточно, так как по умолчанию там отображаются только те покупки, которые находятся в процессе обработки или доставки.</p>
+<p>Важный момент: для просмотра истории за все время необходимо использовать расширенные фильтры или переходить в специальные подразделы. На главной странице профиля вы увидите плитки с названиями статусов: «Ожидает оплаты», «Отправлен», «Ожидает получения». Чтобы увидеть завершенные сделки, нужно нажать на кнопку «Все заказы» или воспользоваться поиском по истории. В мобильном приложении этот элемент управления обычно находится в верхнем правом углу или в виде отдельной вкладки в нижней части экрана меню профиля.</p>
+<p>На практике поиск нужной функции занимает несколько секунд, если знать, куда смотреть. Веб-версия сайта предоставляет более удобные инструменты для работы с большими массивами данных, позволяя выгружать информацию или использовать сложные фильтры по датам. Мобильное приложение больше ориентировано на быстрый доступ к трекингу и общению с продавцом, но базовый функционал просмотра истории там также присутствует в полном объеме.</p>
+
+<h3>Интерфейс мобильного приложения</h3>
+<p>В приложении навигация сводится к минимуму действий. После авторизации нажмите на иконку <em>«Мой AliExpress»</em> в нижнем правом углу. Перед вами откроется дашборд с основной информацией. Здесь нужно найти раздел <em>«Заказы»</em> и нажать на кнопку <em>«Все»</em> или <em>«Посмотреть все»</em>. Именно этот переход открывает полный список, где можно сортировать товары по времени приобретения. Обратите внимание, что приложение может по умолчанию показывать только заказы за последние 3-6 месяцев, поэтому потребуется дополнительная настройка отображения.</p>
+
+<h3>Работа с веб-версией сайта</h3>
+<p>При использовании компьютера путь выглядит немного иначе. В правом верхнем углу страницы найдите иконку профиля и выберите пункт <em>«Мои заказы»</em>. В открывшемся списке слева или сверху расположена панель фильтров. Здесь можно выбрать статус «Завершенные» (Finished), что сразу отсечет все текущие покупки и оставит только историю. Веб-интерфейс позволяет прокручивать список бесконечно, подгружая все более старые данные, пока вы не дойдете до самых первых покупок на аккаунте.</p>
+
+<h2 id="пошаговая-инструкция-по-восстановлению-истории">Пошаговая инструкция по восстановлению истории</h2>
+<p>Вот что нужно сделать, чтобы получить доступ к полным данным о покупках. Процесс восстановления видимости старых заказов требует последовательного выполнения нескольких действий. Не стоит пропускать этапы фильтрации, так как именно они позволяют отсеять ненужный информационный шум и найти конкретную транзакцию среди тысяч других.</p>
+
+<div class="checklist-block"><h4>📋 Поиск старого заказа</h4><ol><li><strong>Шаг 1.</strong> Откройте раздел «Мои заказы»</li><li><strong>Шаг 2.</strong> Выберите фильтр «Все заказы»</li><li><strong>Шаг 3.</strong> Нажмите на поиск по дате или ключевому слову</li><li><strong>Шаг 4.</strong> Используйте расширенный поиск для старых периодов</li></ol></div>
+
+<ol>
+<li>Авторизуйтесь в своем аккаунте на устройстве, которым вы пользовались для покупок, или войдите под теми же данными.</li>
+<li>Перейдите в раздел <em>«Мои заказы»</em> через главное меню профиля.</li>
+<li>Найдите кнопку или вкладку <em>«Все»</em> (All), чтобы увидеть заказы всех статусов, или выберите конкретно <em>«Завершенные»</em> (Finished).</li>
+<li>Используйте строку поиска внутри раздела заказов. Введите название товара, имя продавца или артикул, если они сохранились.</li>
+<li>Если товар не найден, проверьте раздел «Архив заказов», куда могли попасть удаленные из основного списка позиции.</li>
+</ol>
+
+<p>На практике часто бывает так, что пользователь просто не замечает переключатель между активными и завершенными заказами. После выполнения этих шагов перед вами откроется максимально полный список доступных системе данных. Если вы ищете конкретный товар, лучше всего использовать поиск по ключевым словам на английском языке, так как внутренняя система индексации AliExpress лучше работает с латиницей.</p>
+
+<h3>Использование фильтров по датам</h3>
+<p>Для поиска покупок, совершенных в определенный период, удобнее всего воспользоваться фильтром по времени. В веб-версии сайта рядом со строкой поиска находится выпадающее меню, где можно выбрать «За последние 3 месяца», «За последние 6 месяцев» или «За последний год». Для поиска более старых данных выберите опцию «Другой период» и вручную укажите даты начала и конца поиска. Это значительно сократит время на пролистывание ленты.</p>
+
+<h3>Поиск через архив</h3>
+<p>Если в основном списке заказов товара нет, высока вероятность, что он был архивирован. Архивация — это способ убрать заказ из вида, не удаляя его полностью. Чтобы попасть туда, в разделе «Мои заказы» найдите ссылку или иконку <em>«Архив заказов»</em> (Order Archive). Обычно она расположена в верхнем углу списка или в меню фильтров. Внутри архива также работает поиск и сортировка, позволяя найти нужную позицию.</p>
+
+<h2 id="нюансы-работы-с-архивом-и-удаленными-данными">Нюансы работы с архивом и удаленными данными</h2>
+<p>Важный момент: удаление заказа из списка на экране не означает его физическое удаление с серверов AliExpress. Платформа сохраняет информацию о финансовых транзакциях в соответствии с законодательством и правилами электронных коммерции. Однако для пользователя доступ к этим данным может быть ограничен интерфейсными решениями. Понимание разницы между «архивацией» и «удалением» поможет не потерять важные чеки.</p>
+<p>Если вы хотите очистить свой профиль от лишнего визуального шума, но боитесь потерять историю, используйте функцию архивации. Скрытые в архиве заказы не отображаются в общей ленте, но остаются доступными для просмотра в любой момент. Это особенно актуально для тех, кто делает много мелких покупок и не хочет, чтобы они мешали отслеживанию важных дорогостоящих посылок.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Архивация доступна только для завершенных заказов. Товары, которые находятся в пути или ожидании оплаты, скрыть в архив нельзя.</p></div>
+
+<p>В таблице ниже приведены основные различия между статусами отображения заказов, что поможет лучше ориентироваться в системе:</p>
+
+<table>
+<thead>
+<tr>
+<th>Статус заказа</th>
+<th>Где отображается</th>
+<th>Можно ли восстановить</th>
+<th>Срок хранения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Активный заказ</td>
+<td>Главная страница «Мои заказы»</td>
+<td>Не требуется</td>
+<td>До завершения сделки</td>
+</tr>
+<tr>
+<td>Завершенный заказ</td>
+<td>Вкладка «Завершенные» / «Все»</td>
+<td>Да, автоматически</td>
+<td>Бессрочно (в базе данных)</td>
+</tr>
+<tr>
+<td>Архивный заказ</td>
+<td>Раздел «Архив заказов»</td>
+<td>Да, кнопкой «Восстановить»</td>
+<td>Бессрочно</td>
+</tr>
+<tr>
+<td>Удаленный из истории</td>
+<td>Не отображается в интерфейсе</td>
+<td>Только через поддержку</td>
+<td>До 3-5 лет (по закону)</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Скрытые ограничения поиска</h3>
+<p>Если хотите найти заказ пятилетней давности, приготовьтесь к тому, что система может не выдать результат мгновенно. Существует техническое ограничение на глубину поиска в интерфейсе пользователя. Часто приложение показывает только последние 100-200 заказов в ленте прокрутки. Для доступа к более глубоким слоям истории обязательно используйте текстовый поиск по названию товара или имени продавца, так как он обращается к базе данных напрямую, минуя ограничения ленты.</p>
+
+<h2 id="типичные-ошибки-при-поиске-истории">Типичные ошибки при поиске истории</h2>
+<p>На практике пользователи часто совершают одни и те же ошибки, которые приводят к ложному выводу о том, что история покупок утеряна. Чаще всего это связано с невнимательностью к деталям интерфейса или непониманием работы фильтров. Избегайте этих распространенных ошибок, чтобы сэкономить время и нервы.</p>
+
+<ul>
+<li>Попытка найти товар в разделе «В ожидании», когда покупка уже давно доставлена и закрыта.</li>
+<li>Игнорирование проверки другого аккаунта, если вы когда-либо регистрировались на Алиэкспресс повторно.</li>
+<li>Поиск названия товара на русском языке, когда в системе оно сохранилось в оригинальном английском написании от продавца.</li>
+<li>Уверенность в том, что очистка кэша приложения удаляет историю заказов с сервера (это не так).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Часто пользователи путают «Историю просмотров» (Recently Viewed) с «Историей заказов». В историю просмотров попадают товары, на которые вы просто кликали, но не покупали. Проверять нужно именно раздел «Мои заказы».</p></div>
+
+<p>Еще одной частой ошибкой является использование разных способов входа. Если вы регистрировались через Facebook, а потом вошли через Google, система может создать новый пустой профиль или не показать историю старого аккаунта. Всегда проверяйте, под каким именно логином вы авторизованы в текущий момент. Также стоит помнить, что некоторые товары могут исчезать из каталога, и при переходе по ссылке из истории вы будете видеть страницу с ошибкой или «Товар не найден», но сам факт покупки в истории заказов останется.</p>
+
+<details class="faq-item"><summary>Что делать, если заказ пропал совсем</summary><div class="faq-answer"><p>Если вы уверены, что покупка была, но в истории её нет нигде, включая архив, попробуйте найти письмо от AliExpress на своей электронной почте. В поиске почты введите «AliExpress Order» или «Подтверждение заказа». В письме будет номер заказа (Order Number), который можно отправить в службу поддержки для восстановления доступа к информации о сделке.</p></div></details>
+
+<h2 id="практическое-применение-истории-покупок">Практическое применение истории покупок</h2>
+<p>Если хотите максимально эффективно использовать возможности платформы, знание своей истории покупок станет мощным инструментом. Это не просто список потраченных денег, а база данных для анализа расходов, поиска проверенных продавцов и повторного приобретения качественных товаров. Умение быстро находить старые чеки пригодится в самых разных жизненных ситуациях.</p>
+<p>Важный момент: история покупок помогает отслеживать динамику цен. Вспомнив, сколько вы заплатили за товар год назад, вы сможете оценить реальность текущей скидки. Часто продавцы искусственно завышают цену перед распродажей, но сравнение с исторической стоимостью вскрывает эту манипуляцию. Кроме того, повторный заказ у проверенного временем продавца — это гарантия качества, которую легко обеспечить, найдя его через раздел «Мои заказы» и нажав кнопку «Связаться с продавцом» или «Посетить магазин» в деталях старого заказа.</p>
+
+<div class="checklist-block"><h4>☑️ Зачем нужна история покупок</h4><label class="check-item"><input type="checkbox"><span>Гарантийный случай и подтверждение даты покупки</span></label><label class="check-item"><input type="checkbox"><span>Поиск аналогичного товара у того же продавца</span></label><label class="check-item"><input type="checkbox"><span>Анализ личных расходов и бюджета</span></label><label class="check-item"><input type="checkbox"><span>Проверка реальности текущих скидок</span></label><label class="check-item"><input type="checkbox"><span>Восстановление доступа к инструкциям или файлам</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Также история заказов незаменима при участии в спорах или возврате средств, если проблема с товаром проявилась позже. Даже если стандартный срок защиты покупателя истек, наличие чека с датой покупки может помочь в диалоге с продавцом, который дорожит своей репутацией и постоянными клиентами. Многие продавцы идут навстречу и предлагают купон на скидку или частичный возврат, видя, что вы лояльный клиент с длинной историей покупок.</p>
+
+<h3>Аналитика расходов</h3>
+<p>Хотя встроенной функции экспорта в Excel в мобильном приложении нет, на веб-версии можно вручную собрать данные для личного бюджета. Регулярный просмотр истории помогает понять, на какие категории товаров уходит больше всего средств. Это особенно актуально для тех, кто закупает на Алиэкспресс товары для дома, электронику или комплектующие для хобби. Осознанное потребление начинается с понимания того, что и когда было куплено.</p>
+
+<h3>Поиск инструкций и файлов</h3>
+<p>К электронным товарам, таким как программное обеспечение, карты памяти или гаджеты, часто прилагаются файлы с инструкциями или лицензионными ключами. Эти данные хранятся в карточке заказа. Если вы потеряли бумажную инструкцию или коробку, зайдите в историю заказов, найдите товар и посмотрите вложение в описании или сообщение от продавца. Там может храниться ссылка на скачивание драйверов или мануал на русском языке, который не был отправлен отдельно.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сохраняйте скриншоты чеков с номерами заказов сразу после покупки в отдельную папку в облаке. Это займет минуту, но спасет в ситуации, когда доступ к аккаунту будет временно ограничен или возникнут технические сбои на платформе.</p></div>
+
+<p>В заключение стоит подчеркнуть, что история покупок на AliExpress — это надежный и долговременный инструмент, который находится под вашим контролем. Платформа заинтересована в хранении этих данных, поэтому даже спустя годы вы сможете найти информацию о совершенных сделках. Главное — знать правильные пути навигации: раздел «Все заказы», фильтр «Завершенные» и папка «Архив». Используя поиск по ключевым словам и датам, вы без труда восстановите полную картину своих покупок. Регулярная проверка истории помогает не только находить нужные товары, но и чувствовать себя увереннее при совершении новых сделок, опираясь на прошлый опыт.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>История покупок на AliExpress хранится бессрочно в разделах «Завершенные» и «Архив», доступ к ним осуществляется через фильтры в меню «Мои заказы».</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-искать-функцию-просмотра-всех-заказов">Где искать функцию просмотра всех заказов</a></li><li><a href="#пошаговая-инструкция-по-восстановлению-истории">Пошаговая инструкция по восстановлению истории</a></li><li><a href="#нюансы-работы-с-архивом-и-удаленными-данными">Нюансы работы с архивом и удаленными данными</a></li><li><a href="#типичные-ошибки-при-поиске-истории">Типичные ошибки при поиске истории</a></li><li><a href="#практическое-применение-истории-покупок">Практическое применение истории покупок</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-ubrat-rossijskie-magaziny-s-aliexpress.html" class="related-card">Как убрать российские магазины с AliExpress: пошаговое руководство</a></li><li><a href="/articles/s/sk/skolko-stoit-utka-na-aliekspress.html" class="related-card">Сколько стоит утка на Алиэкспресс: цены на фигурки и игрушки</a></li><li><a href="/articles/k/ka/kak-na-aliekspress-najti-magaziny-s-vysokim-rejtingom.html" class="related-card">Как найти проверенные магазины на AliExpress с высоким рейтингом</a></li><li><a href="/articles/k/ka/kak-zakazat-ochki-s-dioptriyami-na-aliekspress.html" class="related-card">Как заказать очки с диоптриями на Алиэкспресс: полный гид</a></li><li><a href="/articles/k/ko/kopii-massimo-dutti-na-aliekspress-kak-najti.html" class="related-card">Копии Massimo Dutti на AliExpress: как найти и не ошибиться</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-ubrat-rossijskie-magaziny-s-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Как убрать российские магазины с AliExpress: пошаговое руководство</span><span class="related-bottom-desc">Подробная инструкция, как скрыть российские магазины на AliExpress через настройки, фильтры и VPN. А</span></a><a href="/articles/s/sk/skolko-stoit-utka-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Сколько стоит утка на Алиэкспресс: цены на фигурки и игрушки</span><span class="related-bottom-desc">Узнайте, сколько стоит утка на Алиэкспресс. Обзор цен на резиновые игрушки, статуэтки и коллекционны</span></a><a href="/articles/k/ka/kak-na-aliekspress-najti-magaziny-s-vysokim-rejtingom.html" class="related-bottom-card"><span class="related-bottom-title">Как найти проверенные магазины на AliExpress с высоким рейтингом</span><span class="related-bottom-desc">Пошаговое руководство по поиску надежных продавцов на AliExpress: фильтры, рейтинги, отзывы и скрыты</span></a><a href="/articles/k/ka/kak-zakazat-ochki-s-dioptriyami-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как заказать очки с диоптриями на Алиэкспресс: полный гид</span><span class="related-bottom-desc">Подробная инструкция по заказу оптических очков на AliExpress. Как выбрать диоптрии, измерить зрачки</span></a><a href="/articles/k/ko/kopii-massimo-dutti-na-aliekspress-kak-najti.html" class="related-bottom-card"><span class="related-bottom-title">Копии Massimo Dutti на AliExpress: как найти и не ошибиться</span><span class="related-bottom-desc">Где искать копии Massimo Dutti на Алиэкспресс. Пошаговый поиск по фото, бренды-аналоги и советы по в</span></a><a href="/articles/g/gd/gde-na-aliekspress-posmotret-prodavtsa.html" class="related-bottom-card"><span class="related-bottom-title">Где найти продавца на AliExpress: поиск в приложении и на сайте</span><span class="related-bottom-desc">Подробный гид о том, как найти продавца на Алиэкспресс через заказ, чат или карточку товара. Инструк</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

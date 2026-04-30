@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Подключение ИК-датчика с Алиэкспресс: схема и код — Али Гид</title>
+    <meta name="description" content="Как подключить инфракрасный датчик HC-SR501 с Алиэкспресс к Arduino. Подробная схема распиновки, настройка чувствительности и готовый код.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/i/in/infrakrasnyj-datchik-s-aliekspress-kak-podklyuchit.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Подключение ИК-датчика с Алиэкспресс: схема и код">
+    <meta property="og:description" content="Как подключить инфракрасный датчик HC-SR501 с Алиэкспресс к Arduino. Подробная схема распиновки, настройка чувствительности и готовый код.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Подключение ИК-датчика с Алиэкспресс: схема и код</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Инфракрасный датчик с Алиэкспресс: полное руководство по подключению</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#идентификация-контактов-и-подготовка-к-работе">Идентификация контактов и подготовка к работе</a></li><li><a href="#схема-подключения-и-монтаж-оборудования">Схема подключения и монтаж оборудования</a></li><li><a href="#настройка-параметров-и-программирование">Настройка параметров и программирование</a></li><li><a href="#режимы-работы-и-расширенные-настройки">Режимы работы и расширенные настройки</a></li><li><a href="#типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</a></li><li><a href="#практическое-применение-и-итоговые-рекомендации">Практическое применение и итоговые рекомендации</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Покупка электронных компонентов на AliExpress часто превращается в увлекательный, но иногда запутанный процесс, особенно когда речь заходит о модулях для Arduino или Raspberry Pi. Инфракрасный датчик движения, чаще всего модель HC-SR501, является одним из самых популярных товаров для начинающих электронщиков, однако его получение по почте — это только половина дела. Многие пользователи сталкиваются с растерянностью, когда вскрывают пакет и видят простую зеленую плату с тремя контактами, пластиковой линзой и двумя регулировочными винтами, не имея ни малейшего понятия, как заставить это работать без сгорания микросхемы.</p>
+
+<p>Проблема усугубляется тем, что документация в комплекте часто отсутствует или выполнена на ломаном английском языке, а продавцы не всегда готовы предоставить исчерпывающие технические консультации. Неправильное подключение питания может мгновенно вывести устройство из строя, а неверная настройка чувствительности приведет к ложным срабатываниям, что полностью дискредитирует идею использования датчика в системе умного дома или охранной сигнализации. Важно понимать, что этот модуль — не просто выключатель, а сложное устройство, требующее времени на прогрев и калибровку.</p>
+
+<p>Если вы хотите создать автоматическое освещение, систему безопасности или просто реагирующий на движение робот, вам потребуется четкий план действий. В этом руководстве мы разберем все этапы: от идентификации контактов до написания кода и физической установки. Мы рассмотрим нюансы, о которых молчат в описании товаров, и поможем избежать типичных ошибок, свойственных новичкам в мире микроконтроллеров.</p>
+
+<h2 id="идентификация-контактов-и-подготовка-к-работе">Идентификация контактов и подготовка к работе</h2>
+
+<p>Прежде чем браться за паяльник или соединительные провода, необходимо детально изучить сам модуль. Стандартный ИК-датчик HC-SR501, который массово продается на AliExpress, имеет унифицированную конструкцию. На плате вы увидите три основных контакта, расположенных в ряд. Если посмотреть на датчик со стороны разъемов, то слева направо они обычно обозначены как GND, OUT и VCC. Именно с этой информацией нужно работать в первую очередь, так как перепутывание контактов VCC и GND гарантированно приведет к выходу модуля из строя.</p>
+
+<p>Контакт GND — это земля, общий провод, который подключается к минусу источника питания или плате Arduino. Центральный контакт OUT является сигнальным: именно через него датчик отправляет сигнал о том, что движение обнаружено. Третий контакт, VCC, предназначен для подачи питания. 5 до 20 вольт, что делает его совместимым как с 5-вольтовыми платами Arduino, так и с 12-вольтовыми системами.</p>
+
+<p>Помимо трех основных контактов, на плате расположены два потенциометра (регулятора) для настройки параметров работы. Один из них, обычно помеченный как Time, отвечает за длительность сигнала. Второй, помеченный как Delay или Sens, регулирует чувствительность сенсора и расстояние обнаружения. Также на плате часто присутствует перемычка (джампер) с тремя контактами, позволяющая переключать режимы работы датчика между одиночным и повторяющимсяом.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Убедитесь, что ваш источник питания способен выдавать достаточный ток. Хотя сам датчик потребляет немного, при подключении к Arduino через USB порт компьютера лучше быть осторожным с нагрузкой.</p></div>
+
+<h3>Необходимые инструменты и компоненты</h3>
+
+<p>Для успешного запуска проекта вам понадобится минимальный набор инструментов. В первую очередь, это сам датчик движения HC-SR501, приобретенный на площадке. Во-вторых, потребуется микроконтроллер, чаще всего используют Arduino Uno, Nano или Mega, так как они наиболее популярны и имеют обширную поддержку в сообществах. Также необходимы соединительные провода, предпочтительно типа «папа-папа» или «папа-мама», в зависимости от того, как вы планируете подключать датчик к макетной плате или напрямую к контроллеру.</p>
+
+<p>Не лишним будет наличие мультиметра для проверки напряжения и целостности соединений, хотя для старта можно обойтись и без него, если вы уверены в качестве своих проводов. Если вы планируете использовать датчик в автономном проекте, потребуется источник питания соответствующего напряжения, например, батарея 9V или блок питания 5V. Для первичного тестирования кода и отладки понадобится компьютер с установленной средой разработки Arduino IDE.</p>
+
+<h2 id="схема-подключения-и-монтаж-оборудования">Схема подключения и монтаж оборудования</h2>
+
+<p>Процесс физического соединения датчика с микроконтроллером не требует глубоких знаний электротехники, но demands внимательности к деталям. Основная задача — правильно сопоставить контакты датчика с портами Arduino. Стандартная схема подключения для Arduino Uno выглядит следующим образом: контакт VCC на датчике соединяется с пином 5V на плате Arduino. Контакт GND подключается к любому из пинов GND на Arduino. Сигнальный пин OUT датчика необходимо подключить к цифровому пину, например, D2, который в дальнейшем будет опрашиваться программой.</p>
+
+<p>Важный момент: если вы используете макетную плату, убедитесь, что дорожки питания не замкнуты коротким замыканием. Перед подачей питания еще раз визуально проверьте все соединения. Ошибка в подключении питания, когда плюс подается на землю или наоборот, может сжечь не только датчик, но и порт USB на вашем компьютере или саму плату Arduino. После проверки соединений можно подключать Arduino к компьютеру через USB-кабель.</p>
+
+<div class="checklist-block"><h4>📋 Первичное подключение</h4><ol><li><strong>Шаг 1.</strong> Подключите провод VCC датчика к 5V Arduino</li><li><strong>Шаг 2.</strong> Соедините GND датчика с GND Arduino</li><li><strong>Шаг 3.</strong> Подключите OUT датчика к цифровому пину D2</li><li><strong>Шаг 4.</strong> Проверьте надежность всех контактов</li></ol></div>
+
+<h3>Таблица соответствия контактов</h3>
+
+<p>Для удобства восприятия информации о подключении, ниже приведена сводная таблица, которая поможет вам быстро сориентироваться в распиновке. Используйте её как шпаргалку при сборке схемы.</p>
+
+<table>
+<thead>
+<tr>
+<th>Контакт датчика HC-SR501</th>
+<th>Функция</th>
+<th>Подключение к Arduino Uno</th>
+<th>Цвет провода (рекомендуемый)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCC</td>
+<td>Питание (+)</td>
+<td>5V</td>
+<td>Красный</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>Земля (-)</td>
+<td>GND</td>
+<td>Черный</td>
+</tr>
+<tr>
+<td>OUT</td>
+<td>Сигнальный выход</td>
+<td>Цифровой пин (например, D2)</td>
+<td>Желтый или Белый</td>
+</tr>
+</tbody>
+</table>
+
+<p>Стоит отметить, что цветовая маркировка проводов может отличаться в зависимости от производителя набора, поэтому всегда ориентируйтесь в первую очередь на подписи на плате датчика и плате Arduino, а не только на цвет изоляции. Если вы используете другие платы, такие как ESP8266 или ESP32, логика остается той же, но нужно учитывать, что эти платы работают с логикой 3.3 вольта, хотя HC-SR501 обычно совместим и с ними благодаря своим характеристикам выхода.</p>
+
+<h2 id="настройка-параметров-и-программирование">Настройка параметров и программирование</h2>
+
+<p>После того как схема собрана, наступает этап настройки. Датчик HC-SR501 требует некоторого времени для первоначальной стабилизации после подачи питания. Обычно этот процесс занимает от 10 до 60 секунд. В это время светодиод на плате может мигать, а датчик не будет реагировать на движения. Это нормальное поведение, обусловленное прогревом пироэлектрического элемента и стабилизацией внутренних цепей.</p>
+
+<p>Настройка чувствительности и времени задержки осуществляется с помощью двух потенциометров на плате. Регулятор времени (Time) позволяет установить длительность, в течение которой на выходе OUT будет держаться высокий уровень сигнала после обнаружения движения. Диапазон регулировки составляет примерно от 3 секунд до 5 минут. Регулятор чувствительности (Sens) меняет дальность действия датчика, которая может варьироваться от менее 3 метров до 7 метров.</p>
+
+<p>Для управления датчиком через Arduino необходимо загрузить соответствующий скетч. Программа считывает состояние сигнального пина: если там высокий уровень (HIGH), значит, движение есть. Ниже приведен алгоритм действий для написания и загрузки кода. Не нужно быть программистом, чтобы понять логику: мы просто говорим микроконтроллеру смотреть на определенный пин и зажигать встроенный светодиод, если там есть сигнал.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Не крутите потенциометры слишком сильно. У них есть ограниченный ход, и чрезмерное усилие может сломать механизм регулятора, что сделает точную настройку невозможной.</p></div>
+
+<h3>Программная реализация</h3>
+
+<p>Код для работы с датчиком крайне прост. В функции setup мы задаем режим работы пина как входной (INPUT). В функции loop мы постоянно считываем значение с пина. Если значение равно HIGH, мы включаем светодиод или выполняем другое действие. Если LOW — выключаем. Важно добавить небольшие задержки в коде для стабильности работы, хотя сам датчик берет паузы на себя.</p>
+
+<ol>
+<li>Откройте среду Arduino IDE и создайте новый скетч.</li>
+<li>Объявите переменную для пина датчика, например, <code>int sensorPin = 2;</code>.</li>
+<li>В функции <code>setup</code> инициализируйте пин как <code>pinMode(sensorPin, INPUT);</code> и запустите Serial для отладки.</li>
+<li>В функции <code>loop</code> считывайте значение <code>digitalRead(sensorPin)</code> и выводите результат в монитор порта.</li>
+<li>Загрузите код в плату и откройте монитор порта для наблюдения за сигналами.</li>
+</ol>
+
+<p>После загрузки кода попробуйте помахать рукой перед датчиком. В мониторе порта должны появляться сообщения о detected motion. Если этого не происходит, проверьте соединения или попробуйте увеличить чувствительность винтом. Также убедитесь, что вы дали датчику хотя бы минуту на прогрев после подачи питания.</p>
+
+<h2 id="режимы-работы-и-расширенные-настройки">Режимы работы и расширенные настройки</h2>
+
+<p>На плате датчика есть перемычка, состоящая из трех контактов, два из которых замкнуты пластиковым колпачком. Это переключатель режимов триггера. В положении, когда замкнуты контакты ближе к краю платы (режим H), датчик работает в режиме повторяющегося триггера. Это означает, что пока есть движение, сигнал на выходе будет оставаться высоким. Как только движение прекратится, начнется отсчет времени задержки, и только после его истечения сигнал исчезнет.</p>
+
+<p>Во втором положении (режим L), когда замкнуты контакты ближе к центру, работает режим одиночного триггера. В этом случае при обнаружении движения выдается один импульс длительностью, заданной регулятором времени. Если человек продолжает двигаться, датчик каждый раз будет выдавать новый импульс только после того, как закончится предыдущий. Для систем безопасности чаще используют первый режим, так как он гарантирует постоянный сигнал тревоги, пока нарушитель находится в зоне видимости.</p>
+
+<details class="faq-item"><summary>Технические детали PIR-сенсора</summary><div class="faq-answer"><p>Внутри пластиковой полусферы находится пироэлектрический кристалл, который реагирует на изменение инфракрасного излучения. Линза Френеля, выполненная из пластика, фокусирует ИК-излучение на кристалле и разбивает зону чувствительности на сектора, что позволяет фиксировать перемещение объектов поперек лучей.</p></div></details>
+
+<h3>Таблица режимов работы</h3>
+
+<p>Для более глубокого понимания различий между режимами, рассмотрим их характеристики в сравнительной таблице.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Режим H (Повторяющийся)</th>
+<th>Режим L (Одиночный)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Поведение при движении</td>
+<td>Сигнал держится постоянно</td>
+<td>Выдается импульс за импульсом</td>
+</tr>
+<tr>
+<td>Реакция после ухода</td>
+<td>Задержка перед выключением</td>
+<td>Задержка перед выключением</td>
+</tr>
+<tr>
+<td>Применение</td>
+<td>Охранные системы, свет в коридоре</td>
+<td>Счетчики посетителей, автоматика</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</h2>
+
+<p>Даже при соблюдении всех инструкций могут возникнуть проблемы. Чаще всего они связаны с внешними факторами или неправильной интерпретацией поведения устройства. Понимание природы этих ошибок поможет быстро диагностировать неисправность и вернуть систему в рабочее состояние без замены оборудования.</p>
+
+<ul>
+<li>Ложные срабатывания из-за источников тепла. Датчик реагирует на изменение ИК-излучения, поэтому потоки горячего воздуха от кондиционера, батареи отопления или прямые солнечные лучи, попадающие на сенсор, могут вызывать хаотичные включения.</li>
+<li>Недостаточное время прогрева. Многие пользователи начинают махать руками сразу после подачи питания. Датчику требуется до 60 секунд для калибровки окружающей среды. В этот период он может вести себя непредсказуемо.</li>
+<li>Плохой контакт в разъемах. Дешевые соединительные провода или окислившиеся контакты могут приводить к пропаданию сигнала или постоянному высокому уровню на выходе, что выглядит как неисправность датчика.</li>
+<li>Отражения от блестящих поверхностей. Глянцевые стены или зеркала могут отражать ИК-лучи, создавая сложные траектории движения, которые сбивают алгоритм работы сенсора.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для снижения количества ложных срабатываний установите датчик в углу комнаты на высоте 2-2.5 метра и направьте его так, чтобы движение происходило поперек зоны чувствительности, а не прямо на датчик.</p></div>
+
+<h2 id="практическое-применение-и-итоговые-рекомендации">Практическое применение и итоговые рекомендации</h2>
+
+<p>Инфракрасный датчик движения с AliExpress — это универсальный инструмент, который открывает широкие возможности для автоматизации. Вы можете использовать его для создания умного ночника, который загорается, когда вы встаете с кровати, или для системы оповещения о приходе гостей. В сочетании с модулем Wi-Fi, таким как ESP8266, этот датчик может отправлять уведомления прямо на ваш смартфон, превращаясь в полноценный элемент системы умного дома.</p>
+
+<p>Главное преимущество таких модулей — их автономность и простота интеграции. Они не требуют сложной математики для обработки данных, выдавая готовый логический сигнал. Это позволяет сосредоточиться на реализации логики вашего проекта, а не на отладке сенсорики. При правильной установке и настройке HC-SR501 работает годами, потребляя минимальное количество энергии, что критически важно для батарейных устройств.</p>
+
+<p>В заключение, успешное подключение ИК-датчика зависит от внимательного отношения к деталям: правильной распиновки, учета времени прогрева и грамотной настройки чувствительности. Избегайте размещения датчика рядом с вибрирующими объектами и источниками тепла. Помните, что <mark>максимальная дальность в 7 метров</mark> достигается только в идеальных условиях, поэтому всегда оставляйте запас по зоне покрытия при проектировании системы.</p>
+
+<div class="checklist-block"><h4>☑️ Финальная проверка</h4><label class="check-item"><input type="checkbox"><span>Проверено напряжение питания (4.5-20В)</span></label><label class="check-item"><input type="checkbox"><span>Датчик прогрелся 60 секунд после включения</span></label><label class="check-item"><input type="checkbox"><span>Потенциометры настроены под задачу</span></label><label class="check-item"><input type="checkbox"><span>Режим триггера (H/L) выбран верно</span></label><label class="check-item"><input type="checkbox"><span>Код загружен и монитор порта показывает корректные данные</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Подключение ИК-датчика HC-SR501 сводится к соединению трех контактов с Arduino, настройке двух регуляторов и учету времени прогрева для стабильной работы.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#идентификация-контактов-и-подготовка-к-работе">Идентификация контактов и подготовка к работе</a></li><li><a href="#схема-подключения-и-монтаж-оборудования">Схема подключения и монтаж оборудования</a></li><li><a href="#настройка-параметров-и-программирование">Настройка параметров и программирование</a></li><li><a href="#режимы-работы-и-расширенные-настройки">Режимы работы и расширенные настройки</a></li><li><a href="#типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</a></li><li><a href="#практическое-применение-и-итоговые-рекомендации">Практическое применение и итоговые рекомендации</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/u/u-/u-kogo-na-aliekspress-pokupat-radiodetali.html" class="related-card">Где покупать радиодетали на Алиэкспресс: гид по проверенным</a></li><li><a href="/articles/k/ka/kakoj-registrator-luchshe-kupit-dlya-avtomobilya-nedorogo-na-aliekspress.html" class="related-card">Недорогой видеорегистратор с AliExpress: выбор и обзор</a></li><li><a href="/articles/a/aj/ajfony-s-aliekspress-pochemu-deshevye.html" class="related-card">Айфоны с AliExpress: почему дешевле оригинала и стоит ли покупать</a></li><li><a href="/articles/f/fo/fotolovushka-s-aliekspress-kakuyu-kupit.html" class="related-card">Фотоловушка с AliExpress: как выбрать и не ошибиться в 2026 году</a></li><li><a href="/articles/v/vi/videoregistrator-s-aliekspress-kakoj-vybrat.html" class="related-card">Видеорегистратор с Алиэкспресс: какой выбрать и не ошибиться</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/u/u-/u-kogo-na-aliekspress-pokupat-radiodetali.html" class="related-bottom-card"><span class="related-bottom-title">Где покупать радиодетали на Алиэкспресс: гид по проверенным</span><span class="related-bottom-desc">Полный гид по выбору продавцов радиодеталей на AliExpress. Списки магазинов, проверка рейтингов, бор</span></a><a href="/articles/k/ka/kakoj-registrator-luchshe-kupit-dlya-avtomobilya-nedorogo-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Недорогой видеорегистратор с AliExpress: выбор и обзор</span><span class="related-bottom-desc">Как выбрать лучший бюджетный видеорегистратор на Алиэкспресс? Рейтинг моделей, советы по поиску, раз</span></a><a href="/articles/a/aj/ajfony-s-aliekspress-pochemu-deshevye.html" class="related-bottom-card"><span class="related-bottom-title">Айфоны с AliExpress: почему дешевле оригинала и стоит ли покупать</span><span class="related-bottom-desc">Разбираем, как продавцы снижают цены на iPhone на AliExpress, чем это грозит покупателю и как не нар</span></a><a href="/articles/f/fo/fotolovushka-s-aliekspress-kakuyu-kupit.html" class="related-bottom-card"><span class="related-bottom-title">Фотоловушка с AliExpress: как выбрать и не ошибиться в 2026 году</span><span class="related-bottom-desc">Подробное руководство по выбору фотоловушки на AliExpress: ключевые параметры, топ-модели, нюансы по</span></a><a href="/articles/v/vi/videoregistrator-s-aliekspress-kakoj-vybrat.html" class="related-bottom-card"><span class="related-bottom-title">Видеорегистратор с Алиэкспресс: какой выбрать и не ошибиться</span><span class="related-bottom-desc">Полный гид по выбору видеорегистратора на AliExpress. Разбор характеристик, матрицы Sony, угол обзор</span></a><a href="/articles/a/al/aliekspress-smartfony-chto-znachit-globalnaya-versiya.html" class="related-bottom-card"><span class="related-bottom-title">Глобальная версия AliExpress: отличия от китайской и как выбрать</span><span class="related-bottom-desc">Полный гид по версиям смартфонов на AliExpress. Чем Global Version отличается от CN, как проверить п</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

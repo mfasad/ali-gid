@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как добавить товар в избранное на AliExpress: инструкция — Али Гид</title>
+    <meta name="description" content="Подробная инструкция, как добавить товар в избранное на AliExpress. Разбор функций, синхронизации и управления списком желаемого.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/a/al/aliexpress-kak-dobavit-tovar-v-izbrannoe.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как добавить товар в избранное на AliExpress: инструкция">
+    <meta property="og:description" content="Подробная инструкция, как добавить товар в избранное на AliExpress. Разбор функций, синхронизации и управления списком желаемого.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/poisk-tovarov/">Поиск товаров</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как добавить товар в избранное на AliExpress: инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как добавить товар в избранное на AliExpress: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-функцию-сохранения-товаров-на-интерфейсе">Где найти функцию сохранения товаров на интерфейсе</a></li><li><a href="#пошаговая-инструкция-по-добавлению-товара">Пошаговая инструкция по добавлению товара</a></li><li><a href="#управление-списком-желаемого-и-синхронизация">Управление списком желаемого и синхронизация</a></li><li><a href="#типичные-ошибки-и-проблемы-при-сохранении">Типичные ошибки и проблемы при сохранении</a></li><li><a href="#эффективное-использование-для-выгодных-покупок">Эффективное использование для выгодных покупок</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Интерфейс приложения и веб-версии регулярно обновляется разработчиками. Расположение кнопок и названия разделов могут отличаться от описанных в зависимости от версии операционной системы и региона аккаунта. Актуальную информацию всегда проверяйте в официальных разделах помощи на сайте AliExpress.</p></div>
+
+<p>Покупки на огромных международных маркетплейсах часто превращаются в длительный процесс выбора, сравнения и ожидания подходящего момента. Пользователи сталкиваются с ситуацией, когда понравившийся товар нужно отложить, чтобы не потерять его среди миллионов других предложений, или сравнить цены у разных продавцов. Именно в такие моменты становится критически важной функция «Избранное», позволяющая сохранять карточки товаров для быстрого доступа в будущем.</p>
+<p>Многие новички на платформе упускают возможность систематизировать свой шопинг, просто листая бесконечную ленту рекомендаций. Это приводит к тому, что выгодные предложения исчезают из вида, акции заканчиваются, а поиск нужной вещи приходится начинать заново. Понимание механики работы со списком желаемого помогает не только экономить время, но и отслеживать динамику цен, получая уведомления о скидках.</p>
+<p>Важный момент: функционал сохранения товаров работает синхронно между мобильным приложением и десктопной версией сайта. Если вы добавите вещь в список через телефон, она мгновенно появится в личном кабинете на компьютере, что обеспечивает гибкость управления покупками в любое время суток.</p>
+
+<h2 id="где-найти-функцию-сохранения-товаров-на-интерфейсе">Где найти функцию сохранения товаров на интерфейсе</h2>
+<p>Интерфейс платформы разработан таким образом, чтобы ключевые действия были доступны в один клик, однако расположение элементов может различаться в зависимости от устройства. На главной странице сайта или в мобильном приложении рядом с каждым товарным предложением обычно присутствует значок в виде сердечка. Это и есть основной маркер для добавления позиции в ваш персональный список.</p>
+<p>Если вы находитесь внутри карточки конкретного товара, кнопка добавления в избранное чаще всего расположена в верхней части экрана, рядом с кнопкой покупки или корзины. В мобильном приложении этот элемент интерфейса может быть вынесен в нижнюю панель управления или находиться в верхнем углу, в зависимости от версии операционной системы вашего смартфона.</p>
+<p>Вот что нужно сделать для доступа к полному списку сохраненных позиций: необходимо перейти в личный профиль пользователя. В веб-версии для этого нужно навести курсор на аватарку или имя в правом верхнем углу, где откроется выпадающее меню. В приложении достаточно нажать на иконку «Мой AliExpress» в нижнем правом углу навигационной панели.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Список избранного также доступен через прямую ссылку в меню профиля, где он часто обозначается как «Wishlist» или «Список желаемого».</p></div>
+
+<h3>Навигация в мобильном приложении</h3>
+<p>Мобильная версия площадки ориентирована на скорость взаимодействия, поэтому доступ к любимым товарам здесь максимально упрощен. После входа в приложение обратите внимание на нижнюю строку меню, где расположены основные разделы: «Главная», «Категории», «Сообщения» и профиль. Переход в профиль открывает доступ ко всем инструментам управления аккаунтом.</p>
+<p>Внутри профиля вы увидите сетку иконок с основными функциями, такими как «Мои заказы», «Купоны» и «Кошелек». Среди них нужно найти иконку с изображением сердца. Нажатие на этот элемент открывает полный список всех товаров, которые вы когда-либо сохраняли. Здесь же доступна сортировка по дате добавления или цене.</p>
+<div class="checklist-block"><h4>📋 Добавление через приложение</h4><ol><li><strong>Шаг 1.</strong> Найдите товар в ленте или поиске</li><li><strong>Шаг 2.</strong> Нажмите на иконку сердца рядом с фото товара</li><li><strong>Шаг 3.</strong> Убедитесь, что сердце закрасилось красным цветом</li><li><strong>Шаг 4.</strong> Проверьте товар в разделе «Избранное» в профиле</li></ol></div>
+
+<h3>Поиск опции на десктопной версии сайта</h3>
+<p>При работе с компьютера управление списком желаемого становится более удобным благодаря большому экрану и возможности использования мыши. На главной странице сайта значок сердца часто расположен в шапке сайта, рядом с корзиной и профилем пользователя. Это глобальная кнопка, ведущая сразу ко всему списку.</p>
+<p>При просмотре каталога товаров в режиме сетки значок добавления в избранное находится в углу каждой карточки товара. При наведении курсора мыши он может менять цвет или появляться всплывающая подсказка. Это позволяет быстро помечать интересные позиции, не открывая каждую карточку отдельно, что значительно ускоряет процесс первичного отбора.</p>
+<details class="faq-item"><summary>Скрытые функции списка</summary><div class="faq-answer"><p>В веб-версии можно создавать отдельные папки для товаров, группируя их по категориям, например, «Электроника», «Одежда» или «Подарки». Для этого в списке избранного нажмите кнопку «Создать папку» и распределите товары accordingly.</p></div></details>
+
+<h2 id="пошаговая-инструкция-по-добавлению-товара">Пошаговая инструкция по добавлению товара</h2>
+<p>Процесс сохранения товара интуитивно понятен, но имеет свои особенности в зависимости от того, где именно вы находитесь: в поисковой выдаче, внутри категории или на странице конкретного продукта. Алгоритм действий един для всех разделов, однако визуальное оформление кнопки может варьироваться.</p>
+<p>Если вы хотите сохранить товар непосредственно из поисковой выдачи, найдите нужную позицию в списке. Справа или слева от изображения товара (в зависимости от языка интерфейса и версии сайта) будет располагаться небольшой контур сердца. Нажмите на него один раз, и контур должен заполниться красным цветом, что сигнализирует об успешном сохранении.</p>
+<div class="checklist-block"><h4>☑️ Проверка успешного добавления</h4><label class="check-item"><input type="checkbox"><span>Сердечко стало красным</span></label><label class="check-item"><input type="checkbox"><span>Появилось всплывающее уведомление «Добавлено»</span></label><label class="check-item"><input type="checkbox"><span>Товар отображается в списке избранного</span></label><label class="check-item"><input type="checkbox"><span>Количество лайков на товаре увеличилось</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h3>Алгоритм действий с карточки товара</h3>
+<p>Когда вы уже перешли на страницу описания продукта, чтобы изучить характеристики, отзывы и фотографии, кнопка добавления в избранное становится еще заметнее. Она обычно дублируется: один значок находится рядом с ценой и кнопкой «Купить», а второй может быть расположен в галерее изображений или в блоке с выбором цвета и размера.</p>
+<p>Вот что нужно сделать: выберите необходимые параметры товара, такие как размер, цвет или комплектация, если это возможно до добавления в список. Затем нажмите на значок сердца. Система может предложить вам выбрать папку для сохранения или просто подтвердить действие. После этого товар зафиксирован в вашем аккаунте.</p>
+<ol>
+<li>Откройте страницу понравившегося товара.</li>
+<li>Выберите нужный цвет, размер или модель из предложенных вариантов.</li>
+<li>Нажмите на иконку сердца (обычно красного или серого цвета).</li>
+<li>Дождитесь визуального подтверждения изменения цвета иконки.</li>
+<li>При необходимости создайте новую папку для сортировки.</li>
+</ol>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте функцию «Поделиться», чтобы отправить товар в избранное с другого устройства. Просто скопируйте ссылку и откройте ее на нужном гаджете, войдя в свой акка-</p></div>
+
+<h3>Добавление через поисковую выдачу и категории</h3>
+<p>При больших каталогов удобно помечать товары прямо в списке, не переходя внутрь. Это позволяет быстро отфильтровать тысячи предложений и оставить только десятки потенциальных покупок. Значок сердца в списке выдачи часто менее заметен, чем на странице товара, поэтому стоит быть внимательнее.</p>
+<p>В некоторых версиях интерфейса при наведении курсора на карточку товара в каталоге, кнопка добавления в избранное может появляться только при активном взаимодействии. Если вы не видите сердечко сразу, попробуйте навести курсор мыши на изображение или угол карточки товара.</p>
+<table>
+<thead>
+<tr>
+<th>Действие</th>
+<th>Где находится кнопка</th>
+<th>Визуальный сигнал</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Из поиска</td>
+<td>Угол карточки товара</td>
+<td>Контур сердца</td>
+</tr>
+<tr>
+<td>Из карточки</td>
+<td>Рядом с ценой/фото</td>
+<td>Закрашенное сердце</td>
+</tr>
+<tr>
+<td>Из профиля</td>
+<td>Кнопка «Добавить»</td>
+<td>Плюс или сердце</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="управление-списком-желаемого-и-синхронизация">Управление списком желаемого и синхронизация</h2>
+<p>Собрать коллекцию товаров — это только половина задачи. Важно уметь эффективно управлять этим списком, особенно когда накопится несколько сотен позиций. Платформа предоставляет инструменты для сортировки, удаления и группировки сохраненных товаров, что превращает хаотичный набор ссылок в удобный каталог.</p>
+<p>Синхронизация между устройствами происходит в реальном времени, но иногда может требовать обновления страницы. Если вы добавили товар с телефона, а на компьютере его не видно, попробуйте обновить страницу браузера или выйти и заново войти в аккаунт.</p>
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>При удалении аккаунта или сбросе настроек приложения без авторизации локальный список желаемого может быть потерян, если он не был синхронизирован с облаком сервера. Всегда входите в аккаунт перед активным шопингом.</p></div>
+
+<h3>Сортировка и создание папок</h3>
+<p>Для удобства навигации по большому количеству товаров рекомендуется использовать папки. Это особенно актуально, если вы планируете покупки для разных целей: ремонт, гардероб, подарки детям или электроника. Создание тематических групп позволяет мгновенно находить нужную вещь.</p>
+<p>В интерфейсе списка избранного есть функция редактирования. Вы можете выделить несколько товаров и переместить их в созданную ранее папку или создать новую «на лету». Также доступна сортировка по цене: от дешевых к дорогим, что помогает оценить общий бюджет планируемых покупок.</p>
+<ul>
+<li>Откройте раздел «Избранное» в профиле.</li>
+<li>Нажмите на кнопку управления или редактирования списков.</li>
+<li>Выберите опцию «Создать папку» и дайте ей название.</li>
+<li>Отметьте товары галочками и выберите «Переместить».</li>
+<li>Сохраните изменения.</li>
+</ul>
+
+<h3>Уведомления о снижении цены</h3>
+<p>Одной из ключевых функций списка желаемого является мониторинг цены. Платформа автоматически отслеживает стоимость сохраненных товаров и может уведомить вас, если продавец решит сделать скидку. Это мощный инструмент для экономии, позволяющий купить вещь по лучшей цене.</p>
+<p>Чтобы получать уведомления, необходимо разрешить приложению отправку пуш-уведомлений или проверить настройки электронной почты в личном кабинете. Часто рядом с товаром в списке избранного появляется плашка «Цена снизилась», привлекающая внимание.</p>
+<p>Важный момент: не все товары участвуют в автоматическом снижении цены через систему уведомлений. Некоторые продавцы меняют цену вручную или проводят краткосрочные флеш-акции, которые могут не стандартное уведомление, поэтому периодическая ручная проверка списка не будет лишней.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Своевременное добавление товаров в избранное и настройка уведомлений позволяют не упустить выгодную цену и быстро найти нужный товар среди миллионов предложений.</p></div>
+
+<h2 id="типичные-ошибки-и-проблемы-при-сохранении">Типичные ошибки и проблемы при сохранении</h2>
+<p>Несмотря на простоту функции, пользователи часто сталкиваются с проблемами, которые мешают нормальному использованию списка желаемого. Большинство из них связано с техническими нюансами работы приложения или непониманием логики платформы. Разбор этих ошибок поможет избежать потери данных и разочарования.</p>
+<p>Одной из самых распространенных проблем является отсутствие авторизации. Если вы добавляете товары, не войдя в свой аккаунт, они сохраняются только в кэше браузера или локальном хранилище приложения. При очистке кэша или переустановке приложения весь список исчезнет безвозвратно.</p>
+
+<h3>Проблемы с отображением и синхронизацией</h3>
+<p>Иногда пользователи жалуются, что товар пропал из списка или не появляется на другом устройстве. Чаще всего это связано с плохим интернет-соединением в момент добавления. Запрос не успевает дойти до сервера, и визуально кнопка меняет цвет, но фактически сохранение не происходит.</p>
+<p>Также стоит учитывать региональные ограничения. Некоторые товары могут быть доступны для просмотра в одном регионе, но скрыты или недоступны для покупки в другом. Если товар помечен как «недоступен в вашем регионе», он может автоматически удалиться из избранного или стать неактивным.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Если товар исчез из избранного, проверьте, не закончился ли у него срок действия ссылки или не удален ли он продавцом с площадки.</p></div>
+
+<h3>Ошибки при удалении и дубликатов</h3>
+<p>Случайное удаление важных позиций — частая проблема при активном скроллинге. В мобильном интерфейсе свайп влево или вправо может означать команду «удалить». Будьте внимательны при быстрой прокрутке списка, чтобы случайно не очистить его.</p>
+<p>Дубликаты товаров могут возникать, если один и тот же продукт продается разными продавцами или имеет разные варианты SKU (артикулы). Система может считать их разными товарами, даже если визуально они идентичны. Внимательно проверяйте название магазина и артикул перед покупкой из списка.</p>
+<p>Типичные ошибки пользователей:</p>
+<ol>
+<li>Сохранение товаров без авторизации в аккаунте.</li>
+<li>Игнорирование проверки синхронизации между устройствами.</li>
+<li>Удаление товаров из-за случайных свайпов в приложении.</li>
+<li>Ожидание мгновенного обновления цены без ручного страницы.</li>
+</ol>
+
+<h2 id="эффективное-использование-для-выгодных-покупок">Эффективное использование для выгодных покупок</h2>
+<p>Список желаемого — это не просто хранилище ссылок, а полноценный инструмент стратегического планирования бюджета. Грамотное использование этой функции позволяет превратить спонтанный шопинг в осознанный процесс, где каждая покупка обоснована и выгодна. Опытные пользователи платформы знают, как выжать максимум из этого инструмента.</p>
+<p>Используйте список для отслеживания сезонных распродаж. Добавляйте товары заранее, за месяц или два до крупных событий вроде «11.11» или «Черной пятницы». Это позволит вам видеть реальную динамику цен и отличать настоящую скидку от маркетингового хода.</p>
+<p>Вот что нужно сделать для максимальной эффективности: создайте отдельные списки для срочных покупок и для «хотелок», которые можно купить позже. Регулярно проводите ревизию списка, удаляя то, что потеряло актуальность, чтобы не захламлять пространство и держать фокус на действительно важных вещах.</p>
+<p>На практике... использование функции сравнения цен внутри списка желаемого помогает выбрать лучшего продавца. Если один и тот же товар есть у нескольких поставщиков, вы можете быстро оценить рейтинги, количество заказов и условия доставки, не теряя товар из вида.</p>
+<details class="faq-item"><summary>Секретный лайфхак</summary><div class="faq-answer"><p> Добавляйте товары в избранное за несколько дней до покупки. Алгоритмы платформы могут заметить ваш интерес и прислать персональный купон на этот товар для стимулирования покупки.</p></div></details>
+
+<h3>Аналитика цен и принятие решений</h3>
+<p>Находясь в списке избранного, вы можете спокойно проанализировать все параметры товара. Часто бывает так, что при первом просмотре карточки мы упускаем важные детали, которые становятся очевидны при повторном изучении в спокойной обстановке.</p>
+<p>Обращайте внимание на дату добавления и текущую цену. Если цена выросла, возможно, стоит подождать. Если упала — это сигнал к действию. Такая аналитика особенно важна для дорогостоящих категорий товаров, таких как электроника или бытовая техника.</p>
+
+<h3>Планирование подарков и событий</h3>
+<p>Функция избранного идеально подходит для планирования подарков на праздники. Вы можете заранее собрать идеи, обсудить их с друзьями или семьей и просто ждать подходящего момента для оформления заказа. Это избавляет от стресса последнего момента и позволяет выбрать действительно качественный товар.</p>
+<p>Кроме того, сохраняя товары, вы помогаете алгоритмам платформы лучше понять ваши предпочтения. В результате лента рекомендаций станет более релевантной, и вы будете чаще видеть именно то, что вам интересно, что делает процесс шопинга более приятным и эффективным.</p>
+<p>В завершение стоит сказать, что игнорировать инструмент «Избранное» на AliExpress — значит лишать себя возможности покупать умнее. Простое действие — нажать на сердечко — открывает доступ к мощному функционалу отслеживания, сравнения и экономии. Освоив этот инструмент, вы станете более продвинутым пользователем платформы.</p>
+<p>Помните, что список желаемого — это ваше личное пространство для экспериментов с выбором. Не бойтесь добавлять много позиций, сортировать их и удалять. Чем активнее вы пользуетесь этой функцией, тем более персонализированным и удобным становится ваш опыт покупок на глобальном маркетплейсе.</p>
+<p>Используйте полученные знания для оптимизации своего шопинга, и платформа ответит вам лучшими предложениями и удобством. Удачных покупок и выгодных находок в вашем персональном списке!</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-функцию-сохранения-товаров-на-интерфейсе">Где найти функцию сохранения товаров на интерфейсе</a></li><li><a href="#пошаговая-инструкция-по-добавлению-товара">Пошаговая инструкция по добавлению товара</a></li><li><a href="#управление-списком-желаемого-и-синхронизация">Управление списком желаемого и синхронизация</a></li><li><a href="#типичные-ошибки-и-проблемы-при-сохранении">Типичные ошибки и проблемы при сохранении</a></li><li><a href="#эффективное-использование-для-выгодных-покупок">Эффективное использование для выгодных покупок</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-eshche-kitajskij-sajt-est-krome-aliekspress.html" class="related-card">Какой китайский сайт есть кроме Алиэкспресс: гид по аналогам</a></li><li><a href="/articles/k/ka/kak-na-aliekspress-najti-magazin-shein.html" class="related-card">Как найти Shein на Алиэкспресс: пошаговое руководство 2026</a></li><li><a href="/articles/2/2p/2pcs-chto-eto-aliekspress.html" class="related-card">Что такое 2pcs на Алиэкспресс: расшифровка и применение</a></li><li><a href="/articles/k/ka/kak-uznat-samyj-prodavaemyj-tovar-na-aliekspress.html" class="related-card">Как найти самый продаваемый товар на Алиэкспресс: подробное руководство</a></li><li><a href="/articles/g/gd/gde-brat-tovary-deshevle-chem-na-aliekspress.html" class="related-card">Где брать товары дешевле Алиэкспресс: поиск оптовых поставщиков</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kakoj-eshche-kitajskij-sajt-est-krome-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какой китайский сайт есть кроме Алиэкспресс: гид по аналогам</span><span class="related-bottom-desc">Ищете, какой китайский сайт есть кроме Алиэкспресс? Полный обзор площадок для покупок, сравнение цен</span></a><a href="/articles/k/ka/kak-na-aliekspress-najti-magazin-shein.html" class="related-bottom-card"><span class="related-bottom-title">Как найти Shein на Алиэкспресс: пошаговое руководство 2026</span><span class="related-bottom-desc">Поиск официального магазина Shein на AliExpress: где искать, как отличить от подделок и что делать, </span></a><a href="/articles/2/2p/2pcs-chto-eto-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Что такое 2pcs на Алиэкспресс: расшифровка и применение</span><span class="related-bottom-desc">Подробный разбор термина 2pcs на AliExpress. Узнайте, как покупать товары поштучно или упаковками, р</span></a><a href="/articles/k/ka/kak-uznat-samyj-prodavaemyj-tovar-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как найти самый продаваемый товар на Алиэкспресс: подробное руководство</span><span class="related-bottom-desc">Узнайте, как найти самые популярные товары на AliExpress. Анализ рейтингов, заказов, фильтров и скры</span></a><a href="/articles/g/gd/gde-brat-tovary-deshevle-chem-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Где брать товары дешевле Алиэкспресс: поиск оптовых поставщиков</span><span class="related-bottom-desc">Ищете, где покупать товары дешевле, чем на Алиэкспресс? Подробный гид по оптовым площадкам Китая, Та</span></a><a href="/articles/k/ka/kak-pravilno-polzovatsya-poiskovikom-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как пользоваться поиском на Алиэкспресс: полное руководство</span><span class="related-bottom-desc">Подробный гид по умному поиску на AliExpress. Фильтры, поиск по фото, скрытые функции и способы отсе</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Сборка фрезера с Алиэкспресс: инструкция по запуску и настройке — Али Гид</title>
+    <meta name="description" content="Как собрать и запустить фрезерный станок с AliExpress. Пошаговая инструкция, проверка электроники, калибровка осей и устранение люфтов своими руками.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-sobrat-frezer-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Сборка фрезера с Алиэкспресс: инструкция по запуску и настройке">
+    <meta property="og:description" content="Как собрать и запустить фрезерный станок с AliExpress. Пошаговая инструкция, проверка электроники, калибровка осей и устранение люфтов своими руками.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Сборка фрезера с Алиэкспресс: инструкция по запуску и настройке</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Сборка и запуск фрезерного станка с Алиэкспресс: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-рабочего-места-и-проверка-комплектации">Подготовка рабочего места и проверка комплектации</a></li><li><a href="#механическая-сборка-и-монтаж-узлов-станка">Механическая сборка и монтаж узлов станка</a></li><li><a href="#электрическая-схема-и-подключение-контроллера">Электрическая схема и подключение контроллера</a></li><li><a href="#калибровка-тестовый-запуск-и-устранение-дефектов">Калибровка, тестовый запуск и устранение дефектов</a></li><li><a href="#финальная-настройка-и-начало-эксплуатации">Финальная настройка и начало эксплуатации</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Покупка фрезерного станка на китайской торговой площадке — это всегда баланс между желанием сэкономить и риском столкнуться с необходимостью глубокой технической настройки. Часто устройства приходят в разобранном состоянии или требуют тщательной ревизии перед первым включением, чтобы избежать поломки дорогостоящих компонентов в первые же минуты работы. Если вы хотите быть уверены в точности обработки и безопасности оборудования, игнорировать этап правильной сборки и проверки электроники категорически нельзя.</p>
+
+<p>На практике многие пользователи совершают ошибку, сразу подключая питание к собранному «на глаз» устройству. Это может привести к выходу из строя шаговых двигателей или контроллера управления из-за неправильной фазировки или скачков напряжения. Важно понимать, что китайские производители часто экономят на предпродажной подготовке, поэтому функции по проверке соединений и механики ложатся на плечи конечного владельца. Вот что нужно сделать в первую очередь: подготовить рабочее место и внимательно изучить комплектацию.</p>
+
+<p>Если хотите избежать лишних трат на ремонт, начните с детальной инспекции всех узлов. Механические повреждения при транспортировке — частое явление, и обнаружение трещины в литой станине или люфта в направляющих до сборки сэкономит вам время на возврат товара. Далее мы рассмотрим процесс поэтапной сборки, настройки управляющей электроники и калибровки станка для достижения максимальной точности.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Гарантийные обязательства продавцов часто не покрывают повреждения, возникшие при неправильной сборке или нарушении правил подключения электропитания. Всегда проверяйте соответствие напряжения в сети требованиям устройства.</p></div>
+
+<h2 id="подготовка-рабочего-места-и-проверка-комплектации">Подготовка рабочего места и проверка комплектации</h2>
+
+<p>Первым шагом является организация пространства. Фрезерный станок — это тяжелое и габаритное оборудование, которое требует устойчивой поверхности. Если хотите обеспечить виброустойчивость и точность обработки, стол должен быть массивным и ровным. Легкие сборные конструкции здесь не подойдут, так как вибрации при фрезеровке могут сместить весь агрегат или исказить геометрию изделия.</p>
+
+<p>Важный момент: перед тем как собирать узлы, разложите все детали и сверьте их со списком в инструкции или описании лота. Часто мелкие, но критически важные элементы, такие как цанги, ключи, концевые выключатели или крепежные болты, могут быть упакованы отдельно в небольшие пакеты. Потеря даже одного специфического винта может остановить всю сборку.</p>
+
+<ul>
+<li>Проверьте целостность алюминиевого профиля и направляющих рельс на предмет вмятин и перекосов.</li>
+<li>Убедитесь, что шаговые двигатели имеют свободный ход валов (при выключенном питании) и не заклинены.</li>
+<li>Проверьте комплект кабелей на наличие видимых повреждений изоляции и целостность разъемов.</li>
+<li>Наличие цангового патрона и набора цанг соответствующего размера под ваш тип фрез.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Китайские продавцы часто используют стандартные метрические болты, но в редких случаях могут встречаться дюймовые размеры в специфических моделях. Имейте под рукой штангенциркуль для проверки резьбы.</p></div>
+
+<h3>Необходимые инструменты для сборки</h3>
+
+<p>Для успешной сборки вам потребуется базовый набор домашнего мастера, дополненный некоторыми специфическими инструментами. Стандартные наборы ключей могут не подойти к крепежу станка, поэтому лучше заранее подготовить следующий список:</p>
+
+<ol>
+<li>Набор шестигранных ключей (имбовых), включая метрические размеры от 2 до 10 мм.</li>
+<li>Набор рожковых или накидных ключей для гаек.</li>
+<li>Крестовые и шлицевые отвертки разного размера.</li>
+<li>Мультиметр для проверки целостности цепей и напряжения.</li>
+<li>Ветошь и технический спирт для обезжиривания поверхностей перед смазкой.</li>
+</ol>
+
+<div class="checklist-block"><h4>📋 Первичная инспекция</h4><ol><li><strong>Шаг 1.</strong> Распакуйте все коробки и разложите компоненты</li><li><strong>Шаг 2.</strong> Сверьте количество деталей с упаковочным листом</li><li><strong>Шаг 3.</strong> Осмотрите механические части на наличие дефектов литья или транспортировки</li><li><strong>Шаг 4.</strong> Проверьте комплектацию инструментов и крепежа</li></ol></div>
+
+<h2 id="механическая-сборка-и-монтаж-узлов-станка">Механическая сборка и монтаж узлов станка</h2>
+
+<p>Процесс механической сборки зависит от конкретной модели, будь то компактный гравер или полноразмерный станок с ЧПУ. Однако общий принцип заключается в последовательном монтаже несущих конструкций. Если хотите избежать перекосов, не затягивайте крепеж окончательно до тех пор, пока все узлы не будут установлены на свои места. Сначала наживите все болты, выровняйте геометрию, и только потом произведите финальную затяжку.</p>
+
+<p>Особое внимание уделите установке линейных направляющих. Они должны быть параллельны друг другу и плоскости стола. Любые перекосы приведут к повышенному износу подшипниковых кареток и появлению люфтов, что критично для качества фрезеровки. Используйте строительный уровень или точный угольник для контроля положения рельс.</p>
+
+<h3>Установка шпинделя и системы передачи движения</h3>
+
+<p>Монтаж шпинделя требует аккуратности, так как это самый нагруженный узел. Вал двигателя не должен испытывать радиальных нагрузок при установке. При соединении шпинделя с цанговым патроном убедитесь, что внутренняя конусность чистая, без пыли и стружки. Грязь в конусе приведет к биению фрезы и быстрому износу.</p>
+
+<p>В моделях с ременной передачей важно правильно натянуть ремень. Слишком слабое натяжение вызовет проскальзывание и потерю шагов, а чрезмерное — перегрузит подшипники двигателя. Если передача винтовая, проверьте отсутствие люфта в гайке винта. Для этого покачайте гайку вдоль оси винта при выключенном двигателе.</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип передачи</th>
+<th>Преимущества</th>
+<th>Требования при сборке</th>
+<th>Типичные проблемы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Шарико-винтовая (ШВП)</td>
+<td>Высокая точность, отсутствие люфтов</td>
+<td>Требуется точная соосность опорных блоков</td>
+<td>Заедание при перекосе, шум при отсутствии смазки</td>
+</tr>
+<tr>
+<td>Зубчатый ремень</td>
+<td>Высокая скорость, низкий уровень шума</td>
+<td>Правильное натяжение, параллельность валов</td>
+<td>Проскальзывание, растяжение со временем</td>
+</tr>
+<tr>
+<td>Трапециевидный винт</td>
+<td>Низкая стоимость, простота</td>
+<td>Регулярная смазка, выборка люфта гайкой</td>
+<td>Люфт, низкая скорость перемещения</td>
+</tr>
+</tbody>
+</table>
+
+<details class="faq-item"><summary>Секреты смазки</summary><div class="faq-answer"><p>Для направляющих используйте литиевые смазки с дисульфидом молибдена. Для винтовых пар лучше подходят жидкие машинные масла или специальные смазки для ШВП. Не смешивайте разные типы смазок.</p></div></details>
+
+<h2 id="электрическая-схема-и-подключение-контроллера">Электрическая схема и подключение контроллера</h2>
+
+<p>Самый ответственный этап — коммутация электроники. Ошибки здесь могут стоить вам сгоревших драйверов или двигателей. Прежде всего, убедитесь, что напряжение блока питания соответствует требованиям ваших шаговых двигателей и шпинделя. Часто станки с Алиэкспресс комплектуются блоками на 24В или 48В, и подключение 220В напрямую в цепь двигателей фатально.</p>
+
+<p>Если хотите обезопасить себя, используйте мультиметр для прозвонки всех соединений перед подачей питания. Проверьте, что земляной провод надежно заземлен, особенно если у вас станок с металлическим корпусом. Это важно для безопасности оператора и защиты электроники от статических разрядов.</p>
+
+<p>Подключение шаговых двигателей требует соблюдения фазировки. Двигатели могут быть биполярными или униполярными, и схема подключения обмоток различается. Обычно цветовая маркировка проводов стандартизирована, но полагаться на нее полностью нельзя. Лучше найти даташит на конкретную модель двигателя или использовать мультиметр в режиме измерения сопротивления для определения пар обмоток.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Никогда не отключайте и не подключайте разъемы шаговых двигателей при включенном питании контроллера. Индуктивный всплеск напряжения гарантированно выведет драйверы из строя.</p></div>
+
+<h3>Настройка драйверов и токов</h3>
+
+<p>После физического подключения необходимо настроить ток, подаваемый на двигатели. На большинстве драйверов (например, TB6600 или DM542) есть потенциометр для регулировки тока. Установка слишком высокого тока приведет к перегреву двигателей, слишком низкого — к потере шагов под нагрузкой.</p>
+
+<p>Расчет тока производится на основе номинального тока двигателя, указанного в паспорте. Обычно рекомендуется выставлять ток на уровне 70-80% от номинала для безопасной длительной работы. Для регулировки используйте маленькую отвертку и контролируйте температуру двигателей в процессе первого запуска.</p>
+
+<ol>
+<li>Определите номинальный ток вашего двигателя из документации.</li>
+<li>Рассчитайте рабочее значение (например, 80% от номинала).</li>
+<li>Подайте питание на контроллер, но не включайте двигатели.</li>
+<li>Вращением потенциометра установите требуемое значение, контролируя показания амперметра или используя формулу напряжения на потенциометре.</li>
+</ol>
+
+<div class="checklist-block"><h4>☑️ Проверка электрики</h4><label class="check-item"><input type="checkbox"><span>Все разъемы плотно вставлены до щелчка</span></label><label class="check-item"><input type="checkbox"><span>Полярность питания соблюдена</span></label><label class="check-item"><input type="checkbox"><span>Заземление подключено</span></label><label class="check-item"><input type="checkbox"><span>Потенциометры драйверов настроены</span></label><label class="check-item"><input type="checkbox"><span>Кабели уложены в кабель-каналы и не болтаются</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="калибровка-тестовый-запуск-и-устранение-дефектов">Калибровка, тестовый запуск и устранение дефектов</h2>
+
+<p>Когда механика собрана и электрика проверена, наступает время первого запуска. Не спешите сразу зажимать материал. Первый прогон делается «на холостом ходу» на максимальных скоростях, чтобы выявить механические заклинивания или странные звуки. Если хотите быть уверенным в системе, проведите тестовую фрезеровку мягкого материала, например, воска или МДФ.</p>
+
+<p>Важнейшим этапом является калибровка осей. Китайские станки часто имеют сбитые настройки шагов на миллиметр. Для калибровки используйте штангенциркуль: задайте перемещение на определенное расстояние (например, 100 мм) и измерьте реальный пройденный путь. Внесите корректировки в настройки программного обеспечения (Mach3, GRBL, LinuxCNC).</p>
+
+<p>На практике часто встречается проблема «винтовой ошибки» или люфта, когда при смене направления движения станок делает небольшой шаг вхолостую. Это лечится механической выборкой люфта в гайках или программной компенсацией (backlash compensation) в настройках контроллера. Также проверьте перпендикулярность осей: вырежьте круг и измерьте его диаметр в разных направлениях.</p>
+
+<h3>Типичные ошибки при сборке и запуске</h3>
+
+<p>Многие проблемы, с которыми сталкиваются новички, имеют типовые причины. Анализ этих ошибок поможет вам избежать долгих поисков неисправностей. Чаще всего дело в невнимательности к мелочам или спешке при монтаже.</p>
+
+<ul>
+<li>Игнорирование смазки направляющих и винтов сразу после сборки, что ведет к сухому трению и задирам.</li>
+<li>Недостаточная затяжка крепежа шпинделя, вызывающая его выпадение в процессе работы.</li>
+<li>Неправильная заземляющая петля, создающая наводки на датчики и вызывающая сбои в работе ЧПУ.</li>
+<li>Использование некачественных или слишком длинных кабелей без экранирования, что приводит к потере шагов.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для первого запуска установите в программе уменьшенную скорость перемещения (feed rate) и ускорение. Это позволит безопасно оценить поведение станка и вовремя заметить аномалии.</p></div>
+
+<h2 id="финальная-настройка-и-начало-эксплуатации">Финальная настройка и начало эксплуатации</h2>
+
+<p>После успешного прохождения тестов можно переходить к полноценной работе. Помните, что новый станок требует обкатки. В первые часы работы старайтесь не давать максимальную нагрузку и регулярно проверяйте температуру узлов. Металл должен «притереться», а смазка — распределиться по всем трущимся поверхностям.</p>
+
+<p>Регулярное обслуживание — залог долгой жизни вашего оборудования. Периодически очищайте станок от стружки и пыли, особенно из зоны ходовых винтов и линейных направляющих. Абразивная пыль, смешиваясь со смазкой, работает как наждачка, быстро уничтожаяность механизма. <mark>Проверяйте натяжение ремней и отсутствие люфтов каждые 10-20 часов работы.</mark></p>
+
+<p>Соблюдение этих простых правил позволит вам получить надежный инструмент, который прослужит годы. Самостоятельная сборка и настройка фрезера с Алиэкспресс — это отличный способ не только сэкономить, но и глубоко понять принцип работы оборудования, что в будущем облегчит его ремонт и модернизацию. Теперь вы готовы создавать свои первые проекты.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Правильная сборка, внимательная проверка электрики и тщательная калибровка превращают бюджетный станок из Китая в точный инструмент.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-рабочего-места-и-проверка-комплектации">Подготовка рабочего места и проверка комплектации</a></li><li><a href="#механическая-сборка-и-монтаж-узлов-станка">Механическая сборка и монтаж узлов станка</a></li><li><a href="#электрическая-схема-и-подключение-контроллера">Электрическая схема и подключение контроллера</a></li><li><a href="#калибровка-тестовый-запуск-и-устранение-дефектов">Калибровка, тестовый запуск и устранение дефектов</a></li><li><a href="#финальная-настройка-и-начало-эксплуатации">Финальная настройка и начало эксплуатации</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-pinpointer-luchshe-kupit-na-aliekspress.html" class="related-card">Какой пинпоинтер лучше купить на Алиэкспресс: гид по выбору</a></li><li><a href="/articles/k/ka/kak-proshit-brelok-dlya-shlagbauma-s-aliekspress.html" class="related-card">Как прошить брелок для шлагбаума с Алиэкспресс: полная инструкция</a></li><li><a href="/articles/k/ka/kakie-akkumulyatornye-batarejki-luchshe-kupit-na-aliekspress.html" class="related-card">Какие аккумуляторные батарейки лучше на Алиэкспресс: гид по брендам</a></li><li><a href="/articles/k/ki/kitajskij-planshet-10-dyujmov-kakoj-vybrat-s-aliekspress.html" class="related-card">Как выбрать китайский планшет 10 дюймов на AliExpress: гайд 2026</a></li><li><a href="/articles/p/po/pochemu-ne-zaryazhaetsya-smart-chasy-s-aliekspress.html" class="related-card">Не заряжаются умные часы с Алиэкспресс: причины и решения</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kakoj-pinpointer-luchshe-kupit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какой пинпоинтер лучше купить на Алиэкспресс: гид по выбору</span><span class="related-bottom-desc">Подробный разбор лучших пинпоинтеров на AliExpress. Сравнение моделей, настройка чувствительности и </span></a><a href="/articles/k/ka/kak-proshit-brelok-dlya-shlagbauma-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как прошить брелок для шлагбаума с Алиэкспресс: полная инструкция</span><span class="related-bottom-desc">Подробный гайд по настройке копировщика пультов с Алиэкспресс. Как скопировать код, очистить память </span></a><a href="/articles/k/ka/kakie-akkumulyatornye-batarejki-luchshe-kupit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какие аккумуляторные батарейки лучше на Алиэкспресс: гид по брендам</span><span class="related-bottom-desc">Подробный гид по выбору аккумуляторных батареек на Алиэкспресс. Тесты брендов LiitoKala, Vapcell, XT</span></a><a href="/articles/k/ki/kitajskij-planshet-10-dyujmov-kakoj-vybrat-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать китайский планшет 10 дюймов на AliExpress: гайд 2026</span><span class="related-bottom-desc">Пошаговое руководство по выбору 10-дюймового планшета с AliExpress: сравнение моделей, ключевые хара</span></a><a href="/articles/p/po/pochemu-ne-zaryazhaetsya-smart-chasy-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Не заряжаются умные часы с Алиэкспресс: причины и решения</span><span class="related-bottom-desc">Почему не заряжаются смарт часы с Алиэкспресс? Подробный гид по диагностике поломки, ремонту и возвр</span></a><a href="/articles/u/us/ushki-s-aliekspress-kotorye-reagiruyut-na-nastroenie.html" class="related-bottom-card"><span class="related-bottom-title">Ушки с AliExpress, реагирующие на настроение: как выбрать и настроить</span><span class="related-bottom-desc">Подробное руководство по выбору, покупке и настройке умных ушек с AliExpress, которые меняют цвет в </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

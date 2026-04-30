@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Сборка ЧПУ станка с Алиэкспресс: инструкция по шагам — Али Гид</title>
+    <meta name="description" content="Подробный гид по сборке фрезерного станка с ЧПУ из комплектующих AliExpress. Выбор профилей, моторов, настройки электроники и устранение люфтов.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-sobrat-frezernyj-stanok-s-chpu-svoimi-rukami-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Сборка ЧПУ станка с Алиэкспресс: инструкция по шагам">
+    <meta property="og:description" content="Подробный гид по сборке фрезерного станка с ЧПУ из комплектующих AliExpress. Выбор профилей, моторов, настройки электроники и устранение люфтов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Сборка ЧПУ станка с Алиэкспресс: инструкция по шагам</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как собрать фрезерный станок с ЧПУ своими руками с Алиэкспресс</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#планирование-проекта-и-выбор-кинематической-схемы">Планирование проекта и выбор кинематической схемы</a></li><li><a href="#заказ-комплектующих-на-aliexpress-и-логистика">Заказ комплектующих на AliExpress и логистика</a></li><li><a href="#механическая-сборка-и-устранение-люфтов">Механическая сборка и устранение люфтов</a></li><li><a href="#электрика-и-настройка-управляющей-электроники">Электрика и настройка управляющей электроники</a></li><li><a href="#типичные-ошибки-при-сборке-и-запуске">Типичные ошибки при сборке и запуске</a></li><li><a href="#финальная-настройка-и-первые-фрезы">Финальная настройка и первые фрезы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>Если вы задумались о создании собственного фрезерного станка с числовым программным управлением, скорее всего, вы уже столкнулись с высокими ценами на готовые промышленные решения. Рынок готового оборудования часто предлагает либо очень дорогие и громоздкие машины, либо дешевые китайские конструкторы, качество которых оставляет желать лучшего. Самостоятельная сборка из комплектующих, заказанных на AliExpress, позволяет получить устройство именно с теми характеристиками, которые нужны вам, и сэкономить значительную сумму.</p>
+<p>Вот что нужно сделать: принять тот факт, что процесс потребует не только финансовых вложений, но и времени на изучение теории механики и электроники. Многие новички недооценивают важность жесткости конструкции, фокусируясь только на мощности двигателя шпинделя. Однако именно от жесткости рамы и отсутствия люфтов в передачах зависит точность обработки деталей. Если вы хотите работать с металлом, требования к конструкции будут на порядок выше, чем для работы с деревом или пластиком.</p>
+<p>На практике сборка такого станка превращается в увлекательный инженерный проект, где вы выступаете в роли конструктора, электрика и программиста в одном лице. Важно сразу определиться с бюджетом и зоной обработки, так как эти параметры диктуют выбор всех остальных компонентов. Не стоит пытаться сэкономить на критически важных узлах, таких как шарико-винтовые пары или шаговые двигатели, так как это неизбежно приведет к проблема при эксплуатации.</p>
+
+<h2 id="планирование-проекта-и-выбор-кинематической-схемы">Планирование проекта и выбор кинематической схемы</h2>
+<p>Если хотите собрать надежный станок, первым шагом должен стать выбор типа кинематики. Существует несколько популярных схем, каждая из которых имеет свои преимущества и недостатки. Для домашнего использования чаще всего выбирают схему Moving Gantry (подвижный портал), где стол неподвижен, а портал перемещается вдоль оси X. Это обеспечивает лучшую устойчивость заготовки и упрощает организацию пылеудаления.</p>
+
+<h3>Сравнение типов приводов и направляющих</h3>
+<p>Важный момент: выбор между ременной передачей и шарико-винтовой парой (ШВП) определяет класс точности вашего будущего станка. Ременные передачи подходят только для мягкой древесины и пенопласта, так как ремень имеет свойство растягиваться и вибрировать. Для фрезерования твердых материалов, включая алюминий и латунь, использование ШВП является обязательным условием.</p>
+<p>Направляющие также играют критическую роль. Линейные рельсовые направляющие (типа MGN или Hiwin) обеспечивают гораздо меньшее трение и большую жесткость по сравнению с круглыми валами. Круглые валы проще в монтаже, но они склонны к прогибу под нагрузкой, что снижает точность.</p>
+
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Для дерева/пластика</th>
+<th>Для цветных металлов</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Передача</td>
+<td>Ремень GT2 или Трапеция T8</td>
+<td>ШВП 1204/1605/1610</td>
+<td>ШВП исключает люфт</td>
+</tr>
+<tr>
+<td>Направляющие</td>
+<td>Круглые валы 8-12 мм</td>
+<td>Линейные рельсы 12-15 мм</td>
+<td>Рельсы жестче и долговечнее</td>
+</tr>
+<tr>
+<td>Двигатели</td>
+<td>NEMA 17 (1.8 град)</td>
+<td>NEMA 23 (1.2-1.8 град)</td>
+<td>Важно учитывать ток и момент</td>
+</tr>
+<tr>
+<td>Рама</td>
+<td>Алюминиевый профиль 2020/2040</td>
+<td>Сталь или профиль 4040/4080</td>
+<td>Масса рамы гасит вибрации</td>
+</tr>
+</tbody>
+</table>
+
+<p>Вот что нужно сделать: рассчитать необходимую зону обработки и на основе этого подобрать длину профилей и винтов. Не забывайте, что полезный ход будет меньше длины профиля из-за места, занимаемого каретками и креплениями двигателей.</p>
+
+<h2 id="заказ-комплектующих-на-aliexpress-и-логистика">Заказ комплектующих на AliExpress и логистика</h2>
+<p>Если хотите избежать проблем с доставкой и качеством, подходите к выбору продавцов на AliExpress с максимальной тщательностью. Платформа предлагает огромный выбор компонентов, от дешевых копий до брендовых изделий. Ключевым фактором здесь является не только цена, но и рейтинг продавца, количество заказов и, самое главное, отзывы с фотографиями.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Тарифы на ввоз товаров и таможенные лимиты могут меняться. Перед крупным заказом обязательно проверьте актуальные правила таможенной службы вашей страны на официальном сайте ФТС или аналогичного органа.</p></div>
+
+<h3>Поиск надежных поставщиков электроники</h3>
+<p>На практике покупка электроники у случайных продавцов часто приводит к получению бракованных драйверов или двигателей с перебитыми обмотками. Рекомендуется искать специализированные магазины, торгующие компонентами для 3D-принтеров и ЧПУ станков. Такие продавцы обычно лучше разбираются в товаре и могут дать техническую консультацию.</p>
+<p>Важный момент: обращайте внимание на стоимость доставки. Часто компоненты дешевле купить в наборе (kit), чем по отдельности, так как доставка суммируется. Кроме того, длинные элементы, такие как линейные рельсы или профили, могут стоить очень дорого в доставке из-за габаритов.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>При заказе ШВП обязательно указывайте в комментарии к заказу или в сообщении продавцу, что нужна обработка концов под поддержку (BF/BK). Иначе вы получите просто гладкий винт, который невозможно закрепить.</p></div>
+
+<h3>Организация доставки длинномеров</h3>
+<p>Если хотите сэкономить на доставке длинных профилей и рельс, рассмотрите возможность заказа местной резки или покупки алюминиевого профиля в местных строительных магазинах. Алюминиевый конструкционный профиль стандартных размеров часто доступен локально, что избавит от рисков повреждения при транспортировке.</p>
+<p>Вот что нужно сделать: составить единую таблицу всех необходимых компонентов с ссылками и ценами. Это поможет увидеть общую картину бюджета и избежать ситуации, когда не хватает одной маленькой детали, а заказывать ее отдельно долго и дорого.</p>
+
+<div class="checklist-block"><h4>📋 Оформление заказа</h4><ol><li><strong>Шаг 1.</strong> Выберите товар с пометкой «Choice» или высоким рейтингом</li><li><strong>Шаг 2.</strong> Проверьте наличие вариантов доставки без пошлин</li><li><strong>Шаг 3.</strong> В диалоге с продавцом уточните комплектацию</li><li><strong>Шаг 4.</strong> Оплатите заказ и сохраните трек-номер</li></ol></div>
+
+<h2 id="механическая-сборка-и-устранение-люфтов">Механическая сборка и устранение люфтов</h2>
+<p>Если хотите, чтобы станок работал точно, механическая сборка должна быть выполнена с соблюдением геометрии. Перекосы рамы приведут к заклиниванию кареток и повышенному износу. Начинайте сборку с основания, убедившись, что все углы строго прямые, а поверхности параллельны.</p>
+
+<h3>Монтаж линейных направляющих и ШВП</h3>
+<p>На практике установка линейных рельсов требует чистоты и аккуратности. Пыль или стружка, попавшая под каретку, может вывести ее из строя. Используйте смазку, рекомендованную производителем, и не перетягивайте крепежные болты, чтобы не деформировать рельсу.</p>
+<p>Важный момент: обработка концов ШВП. Как уже упоминалось, концы винтов должны быть проточены под подшипниковые опоры. Если вы заказали винт без обработки, вам придется выполнить эту операцию самостоятельно на токарном станке или заказать услугу у местного токаря.</p>
+
+<details class="faq-item"><summary>Обработка концов ШВП</summary><div class="faq-answer"><p>Для установки подшипниковых опор конец винта должен иметь меньший диаметр (обычно на 1-2 мм меньше номинала) и соответствующую длину. Глубина проточки зависит от типа опоры (BF12, BK12 и т.д.).</p></div></details>
+
+<h3>Сборка портала и крепление двигателей</h3>
+<p>Если хотите минимизировать вибрации, используйте качественные соединительные муфты между двигателем и винтом. Жесткие муфты передают все биения винта на двигатель, что может привести к его перегреву. Лучше использовать спиральные муфты, которые компенсируют небольшие перекосы.</p>
+<p>Вот что нужно сделать: проверить отсутствие люфта в каждой оси после сборки. Для этого можно использовать индикатор часового типа, уперев его в торец винта и покачивая гайку. Допустимый люфт должен быть минимальным, в идеале — менее 0.05 мм.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте шаблон для сверления отверстий под рельсы. Это гарантирует, что отверстия будут просверлены точно по центру и на одинаковом расстоянии, что критически важно для плавного хода кареток.</p></div>
+
+<h2 id="электрика-и-настройка-управляющей-электроники">Электрика и настройка управляющей электроники</h2>
+<p>Если хотите избежать пожара или выхода оборудования из строя, уделите максимум внимания электрической части. Правильный подбор сечения проводов, установка предохранителей и качественная коммутация — залог безопасной эксплуатации. Не экономьте на блоке питания, так как он является сердцем системы.</p>
+
+<h3>Выбор контроллера и драйверов</h3>
+<p>На практике для самодельных станков чаще всего используются контроллеры на базе Arduino с прошивкой GRBL или более современные платы типа MKS, BTT или DDC. Для простых задач достаточно Arduino Uno с платой расширения CNC Shield. Для более сложных задач, требующих тихой работы и высокой скорости, подойдут платы с поддержкой Klipper или Mach3.</p>
+<p>Важный момент: настройка тока драйверов. Перед подключением двигателей необходимо настроить ток удержания на драйверах с помощью потенциометра. Слишком малый ток приведет к пропуску шагов, а слишком большой — к перегреву двигателя и драйвера.</p>
+
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Функция</th>
+<th>Рекомендация</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Контроллер</td>
+<td>Интерпретация G-кода</td>
+<td>Arduino + CNC Shield или BTT SKR</td>
+</tr>
+<tr>
+<td>Драйверы</td>
+<td>Управление моторами</td>
+<td>TMC2208/2209 (тихие) или TB6600</td>
+</tr>
+<tr>
+<td>Блок питания</td>
+<td>Питание 12/24/48В</td>
+<td>Мощность с запасом 30%</td>
+</tr>
+<tr>
+<td>Концевики</td>
+<td>Определение нуля</td>
+<td>Механические или оптические</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Коммутация и безопасность</h3>
+<p>Если хотите, чтобы станком было удобно пользоваться, сразу предусмотрите установку аварийной кнопки (E-Stop). Она должна разрывать цепь питания двигателей и шпинделя. Также рекомендуется использовать кабель-каналы для укладки проводов, чтобы защитить их от стружки и попадания в движущиеся части.</p>
+<p>Вот что нужно сделать: прозвонить все цепи мультиметром перед первым включением. Проверьте отсутствие короткого замыкания между плюсом и минусом, а также между сигнальными проводами и землей.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Шпиндель и блок питания могут работать от сети 220В. Все работы по подключению силовой части проводите только при полностью отключенном питании. Неверная коммутация может привести к поражению электрическим током.</p></div>
+
+<h2 id="типичные-ошибки-при-сборке-и-запуске">Типичные ошибки при сборке и запуске</h2>
+<p>На практике большинство проблем при сборке станков с ЧПУ связано не с браком компонентов, а с ошибками монтажа и настройки. Знание этих ошибок заранее поможет вам избежать долгих поисков неисправностей.</p>
+
+<ul>
+<li>Игнорирование настройки тока драйверов, что приводит к пропуску шагов и потере геометрии детали.</li>
+<li>Использование слишком длинных проводов без экранирования, что вызывает наводки и сбои в работе контроллера.</li>
+<li>Отсутствие жесткого крепления станка к верстаку, из-за чего при фрезеровании станок «гуляет» вместе с заготовкой.</li>
+<li>Неправильный выбор шага винта или микрошага, что приводит к низкой скорости перемещения или недостаточному усилию.</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Проверка перед запуском</h4><label class="check-item"><input type="checkbox"><span>Затянуты ли все винты и гайки</span></label><label class="check-item"><input type="checkbox"><span>Настроен ли ток на драйверах</span></label><label class="check-item"><input type="checkbox"><span>Проверена ли полярность подключения двигателей</span></label><label class="check-item"><input type="checkbox"><span>Установлены ли ограничения по софту (soft limits)</span></label><label class="check-item"><input type="checkbox"><span>Смазаны ли направляющие</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="финальная-настройка-и-первые-фрезы">Финальная настройка и первые фрезы</h2>
+<p>Если вы дошли до этого этапа, значит, механика собрана и электрика проверена. Теперь предстоит настроить программную часть. Вам потребуется установить драйверы для контроллера, программу-терминал (например, Universal Gcode Sender или Candle) и CAM-программу для создания управляющих программ (ArtCAM, Fusion 360, Estlcam).</p>
+
+<h3>Калибровка осей и настройка GRBL</h3>
+<p>Важный момент: калибровка шагов на миллиметр. Даже если вы рассчитали все точно, реальное количество шагов может отличаться. Используйте калибровочный шаблон или просто линейку: задайте перемещение на 100 мм и измерьте фактическое расстояние. Внесите корректирующий коэффициент в настройки контроллера.</p>
+<p>Вот что нужно сделать: настроить скорость ускорения и максимальную скорость для каждой оси. Слишком высокие значения приведут к срыву в резонанс и потере шагов, слишком низкие — к неоправданному увеличению времени обработки.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Для первых тестов используйте мягкие материалы, например, воск или МДФ. Это позволит проверить работу станка без риска сломать фрезу или повредить станок при ошибках.</p></div>
+
+<h3>Подбор режимов резания</h3>
+<p>На практике подбор режимов резания (скорость вращения шпинделя и скорость подачи) — это искусство, зависящее от материала, фрезы и жесткости станка. Начинать всегда следует с консервативных значений, постепенно увеличивая подачу до появления характерного звука и качества стружки.</p>
+<p>Если хотите продлить жизнь фрезам, следите за тем, чтобы фреза не работала вхолостую внутри материала. Используйте стратегии адаптивного фрезерования, которые поддерживают постоянную нагрузку на инструмент.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Сборка ЧПУ станка с Алиэкспресс — это реальный способ получить мощный инструмент для творчества и бизнеса, сэкономив до 70% стоимости готового аналога при условии грамотного подхода.</p></div>
+
+<p>В завершение стоит сказать, что путь от идеи до первого стружкообразования может занять от нескольких недель до нескольких месяцев. Не спешите, тщательно проверяйте каждый узел. Самодельный станок хорош тем, что его можно бесконечно модернизировать: менять шпиндель на более мощный, добавлять поворотную ось или систему автоматической смены инструмента.</p>
+<p>Если хотите добиться успеха, относитесь к процессу сборки как к обучению. Каждая решенная проблема сделает вас более компетентным оператором и инженером. В итоге вы получите не просто станок, а глубокое понимание того, как он работает, что позволит вам эффективно его использовать и ремонтировать.</p>
+<p>На практике оказывается, что главный ресурс — это не деньги, потраченные на AliExpress, а ваше терпение и внимательность. Удачной сборки и ровных деталей!</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#планирование-проекта-и-выбор-кинематической-схемы">Планирование проекта и выбор кинематической схемы</a></li><li><a href="#заказ-комплектующих-на-aliexpress-и-логистика">Заказ комплектующих на AliExpress и логистика</a></li><li><a href="#механическая-сборка-и-устранение-люфтов">Механическая сборка и устранение люфтов</a></li><li><a href="#электрика-и-настройка-управляющей-электроники">Электрика и настройка управляющей электроники</a></li><li><a href="#типичные-ошибки-при-сборке-и-запуске">Типичные ошибки при сборке и запуске</a></li><li><a href="#финальная-настройка-и-первые-фрезы">Финальная настройка и первые фрезы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/t/to/tochilka-dlya-sverl-s-aliekspress-kak-polzovatsya.html" class="related-card">Точилка для сверл с Алиэкспресс: инструкция по использованию</a></li><li><a href="/articles/k/ka/kak-vybrat-lazernyj-graver-dlya-doma-na-aliekspress.html" class="related-card">Как выбрать лазерный гравер для дома на АлиЭкспресс</a></li><li><a href="/articles/k/ka/kakie-akkumulyatornye-batarejki-luchshe-vybrat-na-aliekspress-dlya-fonarika.html" class="related-card">Лучшие аккумуляторы для фонаря на Алиэкспресс: гид по выбору</a></li><li><a href="/articles/k/ka/kak-nakleit-zashchitnoe-steklo-s-aliekspress.html" class="related-card">Как наклеить защитное стекло с AliExpress: инструкция</a></li><li><a href="/articles/3/3d/3d-printer-s-aliekspress-kakoj-luchshe.html" class="related-card">3D принтер с AliExpress: какой выбрать и не ошибиться</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/t/to/tochilka-dlya-sverl-s-aliekspress-kak-polzovatsya.html" class="related-bottom-card"><span class="related-bottom-title">Точилка для сверл с Алиэкспресс: инструкция по использованию</span><span class="related-bottom-desc">Как правильно пользоваться точилкой для сверл из Китая: пошаговый гайд, нюансы настройки и частые ош</span></a><a href="/articles/k/ka/kak-vybrat-lazernyj-graver-dlya-doma-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать лазерный гравер для дома на АлиЭкспресс</span><span class="related-bottom-desc">Подробное руководство по выбору лазерного гравера для дома на AliExpress. Сравнение мощностей, типов</span></a><a href="/articles/k/ka/kakie-akkumulyatornye-batarejki-luchshe-vybrat-na-aliekspress-dlya-fonarika.html" class="related-bottom-card"><span class="related-bottom-title">Лучшие аккумуляторы для фонаря на Алиэкспресс: гид по выбору</span><span class="related-bottom-desc">Подробный гид по выбору аккумуляторов для фонарика на Алиэкспресс. Узнайте, как отличить честную емк</span></a><a href="/articles/k/ka/kak-nakleit-zashchitnoe-steklo-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как наклеить защитное стекло с AliExpress: инструкция</span><span class="related-bottom-desc">Подробный гид: как идеально наклеить защитное стекло с Алиэкспресс. Удаление пыли, центровка, борьба</span></a><a href="/articles/3/3d/3d-printer-s-aliekspress-kakoj-luchshe.html" class="related-bottom-card"><span class="related-bottom-title">3D принтер с AliExpress: какой выбрать и не ошибиться</span><span class="related-bottom-desc">Подробный гид по выбору 3D принтера на AliExpress. Сравнение брендов, скрытые расходы и пошаговая ин</span></a><a href="/articles/k/ka/kakoj-frezer-luchshe-kupit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какой фрезер купить на AliExpress: выбор и бренды</span><span class="related-bottom-desc">Подробный гид по выбору фрезера на Алиэкспресс. Рейтинг брендов, характеристики, нюансы заказа из Ки</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

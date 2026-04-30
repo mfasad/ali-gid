@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как отследить динамику цен на AliExpress: пошаговое руководство — Али Гид</title>
+    <meta name="description" content="Узнайте, как мониторить изменения цен на AliExpress, чтобы покупать по лучшей цене. Пошаговые инструкции, инструменты и лайфхаки для экономии.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-na-aliekspress-otsledit-dinamiku-tsen.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как отследить динамику цен на AliExpress: пошаговое руководство">
+    <meta property="og:description" content="Узнайте, как мониторить изменения цен на AliExpress, чтобы покупать по лучшей цене. Пошаговые инструкции, инструменты и лайфхаки для экономии.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/kupony-i-skidki/">Купоны и скидки</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как отследить динамику цен на AliExpress: пошаговое руководство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как отслеживать динамику цен на AliExpress: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#зачем-следить-за-ценами-на-aliexpress-и-как-это-экономит-деньги">Зачем следить за ценами на AliExpress и как это экономит деньги</a></li><li><a href="#где-на-aliexpress-посмотреть-историю-цен-товара">Где на AliExpress посмотреть историю цен товара</a></li><li><a href="#пошаговая-инструкция-как-отследить-цену-товара">Пошаговая инструкция: как отследить цену товара</a></li><li><a href="#нюансы-и-подводные-камни-при-отслеживании-цен">Нюансы и подводные камни при отслеживании цен</a></li><li><a href="#типичные-ошибки-при-отслеживании-цен">Типичные ошибки при отслеживании цен</a></li><li><a href="#когда-покупать-оптимальные-моменты-для-экономии">Когда покупать: оптимальные моменты для экономии</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><h2 id="зачем-следить-за-ценами-на-aliexpress-и-как-это-экономит-деньги">Зачем следить за ценами на AliExpress и как это экономит деньги</h2>
+
+<p>Если вы регулярно покупаете на AliExpress, то знаете: цены здесь меняются почти ежедневно. Товар, который вчера стоил 1500 рублей, сегодня может подешеветь до 1200, а через неделю снова подорожать. Продавцы часто устраивают акции, распродажи или просто корректируют стоимость в зависимости от спроса. Без отслеживания динамики легко переплатить или упустить выгодное предложение.</p>
+
+<p>На практике мониторинг цен помогает не только сэкономить, но и спланировать покупки. Например, если вы видите, что цена на смарт-часы последнюю неделю только растёт, стоит купить их сейчас. А если товар дешевеет уже месяц — можно подождать ещё, ведь скоро может быть скидка. Кроме того, отслеживание помогает выявлять недобросовестных продавцов, которые искусственно завышают цену перед «распродажей».</p>
+
+<p>Вот что нужно сделать, чтобы всегда покупать по лучшей цене: научиться пользоваться встроенными инструментами AliExpress, подключить сторонние сервисы и понимать, когда именно стоит нажимать кнопку <em>Купить</em>. Далее разберём все способы — от простых до продвинутых.</p>
+
+<h2 id="где-на-aliexpress-посмотреть-историю-цен-товара">Где на AliExpress посмотреть историю цен товара</h2>
+
+<p>Платформа не показывает график изменений цен напрямую, но есть несколько способов получить эту информацию. Часть данных доступна прямо на сайте, часть — через сторонние инструменты. Начните с самого простого.</p>
+
+<h3>Встроенные инструменты AliExpress</h3>
+
+<p>Если хотите быстро оценить, как менялась цена, воспользуйтесь этими функциями:</p>
+
+<ul>
+ <li><strong>Раздел «Цена» на карточке товара.</strong> Здесь иногда отображается старая цена (зачёркнутая) и текущая. Например: «Было: 1999 ₽ — Сейчас: 1499 ₽». Это не полная история, но даёт представление о недавнем изменении.</li>
+ <li><strong>Уведомления о снижении цены.</strong> Нажмите на колокольчик <em>Отслеживать цену</em> рядом с кнопкой <em>Купить</em>. AliExpress пришлёт уведомление, если цена упадёт. Минус: вы не увидите, насколько сильно она изменилась.</li>
+ <li><strong>Отзывы покупателей.</strong> В комментариях иногда упоминают, по какой цене покупали товар раньше. Ищите фразы вроде «Купил за 800 рублей, сейчас вижу, что подорожало».</li>
+</ul>
+
+<p>Важный момент: встроенные инструменты показывают только последние изменения. Для глубокого анализа понадобятся сторонние сервисы.</p>
+
+<h3>Сторонние сервисы для отслеживания цен</h3>
+
+<p>Для детального мониторинга используйте специализированные сайты и расширения. Они сохраняют историю цен, строят графики и даже прогнозируют будущие изменения. Популярные варианты:</p>
+
+<table>
+ <thead>
+ <tr>
+ <th>Сервис</th>
+ <th>Функции</th>
+ <th>Бесплатно/Платно</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Keepa</td>
+ <td>Графики цен, уведомления, анализ продавца</td>
+ <td>Бесплатно (базовая версия)</td>
+ </tr>
+ <tr>
+ <td>CamelCamelCamel</td>
+ <td>История цен, трекер скидок</td>
+ <td>Бесплатно</td>
+ </tr>
+ <tr>
+ <td>AliPrice (расширение для браузера)</td>
+ <td>Отображение истории прямо на странице товара</td>
+ <td>Бесплатно</td>
+ </tr>
+ <tr>
+ <td>3CX AliExpress Price Tracker</td>
+ <td>Мониторинг нескольких товаров, экспорт данных</td>
+ <td>Платно (от 5$ в месяц)</td>
+ </tr>
+ </tbody>
+</table>
+
+<p>Например, <strong>Keepa</strong> показывает, как менялась цена за последний год, какие были пиковые и минимальные значения. Это помогает понять, стоит ли ждать дальнейшего снижения или лучше покупать сейчас.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Не все сервисы поддерживают русскоязычный интерфейс. Для удобства используйте переводчик в браузере.</p></div>
+
+<h2 id="пошаговая-инструкция-как-отследить-цену-товара">Пошаговая инструкция: как отследить цену товара</h2>
+
+<p>Выбрав инструмент, следуйте этому алгоритму. Рассмотрим процесс на примере <strong>Keepa</strong> — одного из самых надёжных сервисов.</p>
+
+<div class="checklist-block"><h4>📋 Отслеживание цены через Keepa</h4><ol><li><strong>Шаг 1.</strong> Скопируйте ссылку на товар с AliExpress</li><li><strong>Шаг 2.</strong> Перейдите на сайт Keepa и вставьте ссылку в поисковую строку</li><li><strong>Шаг 3.</strong> Изучите график изменения цены (ось X — время, ось Y — цена)</li><li><strong>Шаг 4.</strong> Настройте уведомление о снижении цены (кнопка <em>Create Price Drop Alert</em>)</li><li><strong>Шаг 5.</strong> Дождитесь письма или push-уведомления о выгодном предложении</li></ol></div>
+
+<h3>Альтернативный способ: расширение AliPrice</h3>
+
+<ol>
+ <li>Установите расширение <strong>AliPrice</strong> для Chrome или Firefox из официального магазина.</li>
+ <li>Откройте карточку товара на AliExpress. Под основной ценой появится график изменений.</li>
+ <li>Нажмите <em>Add to Tracker</em>, чтобы добавить товар в список отслеживаемых.</li>
+ <li>Задайте желаемую цену в настройках — расширение сообщит, когда она будет достигнута.</li>
+</ol>
+
+<p>Преимущество расширений в том, что они работают прямо в браузере, не требуя перехода на сторонние сайты. Минус: некоторые продавцы блокируют такие инструменты, и график может не отобразиться.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если график не показывается, попробуйте обновить страницу или очистить кэш браузера. Иногда помогает открытие товара в режиме инкогнито.</p></div>
+
+<h2 id="нюансы-и-подводные-камни-при-отслеживании-цен">Нюансы и подводные камни при отслеживании цен</h2>
+
+<p>Даже с инструментами мониторинга легко ошибиться. Вот на что обратить внимание:</p>
+
+<ul>
+ <li><strong>Цены в разных валютах.</strong> AliExpress может показывать стоимость в долларах, евро или рублях в зависимости от вашего региона. Убедитесь, что сравниваете цены в одной валюте, иначе график будет некорректным.</li>
+ <li><strong>Скидки для новых покупателей.</strong> Иногда платформа даёт персональные купоны, которые искажают реальную цену. Например, вам показывают 1500 ₽ со скидкой 20%, а другим пользователям — 1800 ₽ без скидки.</li>
+ <li><strong>Изменения у разных продавцов.</strong> Один и тот же товар могут продавать десятки магазинов. Отслеживайте динамику у конкретного продавца, а не по всему AliExpress.</li>
+ <li><strong>Временные акции.</strong> Цена может резко упасть на один день (например, во время «Чёрной пятницы»), а затем вернуться к прежнему уровню. Не спешите покупать, если скидка кажется подозрительно большой.</li>
+</ul>
+
+<p>Важный момент: некоторые продавцы искусственно завышают цену перед распродажей, чтобы создать иллюзию большой скидки. Всегда проверяйте историю за последний месяц, а не только за неделю.</p>
+
+<details class="faq-item"><summary>Как распознать «ложную скидку»</summary><div class="faq-answer"><p>Если старая цена на графике держалась всего 1-2 дня, а до этого товар стоил дешевле — это признак манипуляции. Например, цена была 1000 ₽, затем на день поднялась до 1500 ₽, а потом «упала» до 1200 ₽ с пометкой «Скидка 20%». На самом деле никакой выгоды нет.</p></div></details>
+
+<h2 id="типичные-ошибки-при-отслеживании-цен">Типичные ошибки при отслеживании цен</h2>
+
+<p>Многие пользователи теряют деньги из-за распространённых промахов. Вот что нельзя делать:</p>
+
+<ul>
+ <li><strong>Игнорировать комиссию платформы.</strong> Иногда цена товара снижается, но растёт комиссия AliExpress (например, за доставку или конвертацию валют). В итоге итоговая сумма остаётся прежней или даже увеличивается. Всегда проверяйте <em>полную стоимость</em> в корзине.</li>
+ <li><strong>Покупать сразу при первом снижении.</strong> Если цена упала на 5-10%, это не всегда повод для покупки. Возможно, через неделю она упадёт ещё на 20%. Сравнивайте текущую цену с минимальной за последний месяц.</li>
+ <li><strong>Не проверять рейтинг продавца.</strong> Низкая цена может быть связана с плохим качеством товара или ненадёжным продавцом. Всегда смотрите отзывы и рейтинг (должен быть выше 95%).</li>
+ <li><strong>Забывать про сезонные колебания.</strong> Цены на некоторые товары (например, купальники или новогодние украшения) закономерно растут перед сезоном и падают после. Учитывайте это при анализе графиков.</li>
+</ul>
+
+<p>На практике самая большая ошибка — полагаться только на один инструмент. Комбинируйте встроенные функции AliExpress, сторонние сервисы и собственную аналитику. Например, если Keepa показывает, что цена стабильно падает уже два месяца, но продавец поднял её на 30%, стоит поискать этот товар у другого поставщика.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Срок действия некоторых купонов AliExpress — всего 24 часа. Если вы отслеживаете товар и дожидаетесь минимальной цены, но упускаете момент активации купона, можете потерять дополнительную скидку.</p></div>
+
+<h2 id="когда-покупать-оптимальные-моменты-для-экономии">Когда покупать: оптимальные моменты для экономии</h2>
+
+<p>Отслеживание цен бесполезно, если не знать, когда именно стоит нажимать <em>Купить</em>. Вот ключевые моменты для покупки:</p>
+
+<ul>
+ <li><strong>После длительного падения.</strong> Если цена стабильно снижается 2-3 недели, а график показывает, что она близка к минимуму за полгода — самое время покупать.</li>
+ <li><strong>Во время глобальных распродаж.</strong> «Чёрная пятница», «11.11», «Новый год» — в эти периоды скидки реальные, а не маркетинговые. Но проверяйте историю, чтобы убедиться, что цена не была завышена перед акцией.</li>
+ <li><strong>При появлении купона.</strong> AliExpress часто даёт скидки 5-15% на определённые категории. Если цена товара и так упала, а ещё есть купон — это идеальное сочетание.</li>
+ <li><strong>Когда продавец предлагает бесплатную доставку.</strong> Иногда цена товара не меняется, но исчезает плата за доставку. Это тоже экономия.</li>
+</ul>
+
+<p>Если товар нужен срочно, а цена сейчас не самая низкая, воспользуйтесь <strong>кэшбэком</strong>. Сервисы вроде LetyShops или EPN возвращают часть денег за покупку, что компенсирует разницу. Например, при кэшбэке 10% и цене 2000 ₽ вы получите назад 200 ₽ — это покрывает небольшую переплату.</p>
+
+<p>На практике лучшая стратегия — сочетание терпения и гибкости. Если товар не срочный, дождитесь минимальной цены. Если нужен быстро, ищите альтернативы у других продавцов или используйте кэшбэк. И всегда проверяйте <em>полную стоимость</em> с учётом доставки и комиссий.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Отслеживание цен на AliExpress экономит до 30-40% на покупках. Используйте Keepa или AliPrice для графиков, комбинируйте с купонными сервисами и покупайте в моменты длительного падения цены или глобальных распродаж.</p></div>
+
+<div class="checklist-block"><h4>☑️ Чек-лист перед покупкой</h4><label class="check-item"><input type="checkbox"><span>Проверьте историю цены за последние 3 месяца</span></label><label class="check-item"><input type="checkbox"><span>Сравните предложения у 3-5 продавцов</span></label><label class="check-item"><input type="checkbox"><span>Убедитесь, что скидка реальная (не «нарисованная»)</span></label><label class="check-item"><input type="checkbox"><span>Посчитайте полную стоимость с доставкой</span></label><label class="check-item"><input type="checkbox"><span>Активируйте купон или кэшбэк</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#зачем-следить-за-ценами-на-aliexpress-и-как-это-экономит-деньги">Зачем следить за ценами на AliExpress и как это экономит деньги</a></li><li><a href="#где-на-aliexpress-посмотреть-историю-цен-товара">Где на AliExpress посмотреть историю цен товара</a></li><li><a href="#пошаговая-инструкция-как-отследить-цену-товара">Пошаговая инструкция: как отследить цену товара</a></li><li><a href="#нюансы-и-подводные-камни-при-отслеживании-цен">Нюансы и подводные камни при отслеживании цен</a></li><li><a href="#типичные-ошибки-при-отслеживании-цен">Типичные ошибки при отслеживании цен</a></li><li><a href="#когда-покупать-оптимальные-моменты-для-экономии">Когда покупать: оптимальные моменты для экономии</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-na-aliekspress-khalyava-v-mobilnom-prilozhenii.html" class="related-card">Где халява на Алиэкспресс в приложении: поиск и секреты</a></li><li><a href="/articles/k/ka/kak-zarabotat-monety-v-aliekspress.html" class="related-card">Как заработать монеты на АлиЭкспресс: пошаговое руководство</a></li><li><a href="/articles/g/gd/gde-posmotret-kod-v-aliekspress.html" class="related-card">Где найти код в АлиЭкспресс: купоны, трекинг и промокоды</a></li><li><a href="/articles/k/ko/kogda-na-aliexpress-budut-skidki.html" class="related-card">Когда скидки на AliExpress: календарь распродаж</a></li><li><a href="/articles/k/ka/kak-poluchat-keshbek-na-aliekspress-epn.html" class="related-card">Кэшбэк на AliExpress через ePN: полное руководство</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/g/gd/gde-na-aliekspress-khalyava-v-mobilnom-prilozhenii.html" class="related-bottom-card"><span class="related-bottom-title">Где халява на Алиэкспресс в приложении: поиск и секреты</span><span class="related-bottom-desc">Полный гид по бесплатным товарам, купонам и бонусам в мобильном приложении AliExpress. Где искать ак</span></a><a href="/articles/k/ka/kak-zarabotat-monety-v-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как заработать монеты на АлиЭкспресс: пошаговое руководство</span><span class="related-bottom-desc">Узнайте, как получить и потратить монеты на АлиЭкспресс: от участия в акциях до возврата средств. По</span></a><a href="/articles/g/gd/gde-posmotret-kod-v-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Где найти код в АлиЭкспресс: купоны, трекинг и промокоды</span><span class="related-bottom-desc">Полное руководство: где посмотреть код купона, промокод или трек-номер в приложении и на сайте AliEx</span></a><a href="/articles/k/ko/kogda-na-aliexpress-budut-skidki.html" class="related-bottom-card"><span class="related-bottom-title">Когда скидки на AliExpress: календарь распродаж</span><span class="related-bottom-desc">Узнайте, когда проходят распродажи на AliExpress. Календарь скидок, секреты купонов и лучшее время д</span></a><a href="/articles/k/ka/kak-poluchat-keshbek-na-aliekspress-epn.html" class="related-bottom-card"><span class="related-bottom-title">Кэшбэк на AliExpress через ePN: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по получению кэшбэка с AliExpress через сервис ePN. Регистрируйтесь, подключайт</span></a><a href="/articles/g/gd/gde-vvesti-kod-priglasheniya-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Где ввести код приглашения на Алиэкспресс: пошаговый гид</span><span class="related-bottom-desc">Узнайте, где найти поле для кода приглашения на Алиэкспресс, как активировать бонусы новичка и избеж</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

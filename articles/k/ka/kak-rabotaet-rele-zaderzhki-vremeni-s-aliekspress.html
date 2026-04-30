@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работает реле задержки времени с Алиэкспресс: гид — Али Гид</title>
+    <meta name="description" content="Подробная инструкция по подключению и настройке таймера-реле с Алиэкспресс. Разбор схем, режимов работы и устранение неисправностей.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-rabotaet-rele-zaderzhki-vremeni-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает реле задержки времени с Алиэкспресс: гид">
+    <meta property="og:description" content="Подробная инструкция по подключению и настройке таймера-реле с Алиэкспресс. Разбор схем, режимов работы и устранение неисправностей.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работает реле задержки времени с Алиэкспресс: гид</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Реле задержки времени с Алиэкспресс: полное руководство по настройке</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#выбор-подходящей-модели-и-расшифровка-маркировки">Выбор подходящей модели и расшифровка маркировки</a></li><li><a href="#схемы-подключения-и-монтаж-оборудования">Схемы подключения и монтаж оборудования</a></li><li><a href="#алгоритмы-настройки-временных-интервалов">Алгоритмы настройки временных интервалов</a></li><li><a href="#типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</a></li><li><a href="#финальная-проверка-и-безопасность-эксплуатации">Финальная проверка и безопасность эксплуатации</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Если вы столкнулись с необходимостью автоматизировать включение или выключение электроприборов, реле задержки времени становится незаменимым помощником. Покупка такого устройства на AliExpress часто кажется привлекательной из-за низкой цены и широкого выбора моделей, однако получение посылки может поставить в тупик отсутствием инструкции на русском языке и сложностью интерфейса.</p>
+<p>Вот что нужно сделать в первую очередь: не спешить подавать питание 220 вольт, пока вы не разберетесь с типом платы и логикой работы кнопок. Многие пользователи совершают ошибку, полагая, что все таймеры работают одинаково, тогда как на рынке представлено множество модификаций с разной прошивкой и схемотехникой.</p>
+<p>Важный момент: понимание принципа действия позволит избежать короткого замыкания и выхода из строя как самого реле, так и подключаемого оборудования. В этом руководстве мы разберем, как выбрать нужную модель, правильно ее подключить и настроить временные интервалы без лишней головной боли.</p>
+<h2 id="выбор-подходящей-модели-и-расшифровка-маркировки">Выбор подходящей модели и расшифровка маркировки</h2>
+<p>Если хотите избежать проблем с подключением, первым делом необходимо разобраться в типах реле, представленных на маркетплейсе. Ассортимент огромен, и визуально похожие платы могут иметь принципиально разную логику работы.</p>
+<p>На практике чаще всего встречаются таймеры на базе микросхем серии 555 или микроконтроллеров с цифровым управлением. Первые обычно имеют один или два потенциометра для грубой настройки времени, вторые — дисплей и кнопки для точной установки.</p>
+<h3>Основные типы таймеров</h3>
+<p>Существует несколько базовых конфигураций, каждая из которых решает специфические задачи. Важно правильно идентифицировать устройство по внешнему виду и маркировке.</p>
+<ul>
+<li>Одноступенчатые реле с задержкой выключения: устройство работает, пока подается питание, и отключается через заданный интервал после разрыва цепи управления.</li>
+<li>Реле с задержкой включения: после подачи питания нагрузка включается только спустя установленное время.</li>
+<li>Циклические таймеры: обеспечивают периодическое включение и выключение нагрузки по заданному алгоритму.</li>
+<li>Многофункциональные модули: позволяют переключаться между режимами работы через комбинации кнопок.</li>
+</ul>
+<p>Вот что нужно сделать: внимательно изучите фотографии товара в карточке продавца. Часто в названии указаны ключевые слова, такие как "Delay Off", "Cycle Timer" или "12V 24V 220V", что указывает на напряжение питания и режим работы.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Обращайте внимание на напряжение катушки реле. Если на плате написано 12V, подача 220V напрямую на вход питания мгновенно выведет устройство из строя.</p></div>
+<p>Для удобства сравнения основных характеристик различных модулей можно воспользоваться следующей таблицей:</p>
+<table>
+<thead>
+<tr>
+<th>Тип модуля</th>
+<th>Напряжение питания</th>
+<th>Точность</th>
+<th>Сложность настройки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Аналоговый (потенциометры)</td>
+<td>12В / 24В / 220В</td>
+<td>Низкая (зависит от дрейфа конденсатора)</td>
+<td>Низкая</td>
+</tr>
+<tr>
+<td>Цифровой (кнопки)</td>
+<td>12В / 24В</td>
+<td>Высокая (до 0.1 сек)</td>
+<td>Средняя</td>
+</tr>
+<tr>
+<td>С дисплеем</td>
+<td>12В / 24В / 220В</td>
+<td>Очень высокая</td>
+<td>Высокая</td>
+</tr>
+</tbody>
+</table>
+<h2 id="схемы-подключения-и-монтаж-оборудования">Схемы подключения и монтаж оборудования</h2>
+<p>Если хотите обеспечить безопасную эксплуатацию, строго следуйте маркировке контактов на печатной плате. Универсального стандарта расположения выводов не существует, поэтому каждый модуль требует индивидуального подхода.</p>
+<p>Важный момент: большинство модулей с Алиэкспресс имеют гальваническую развязку только по сигналу управления, но не по силовой части. Это означает, что при работе с сетью 220 вольт необходимо соблюдать особую осторожность.</p>
+<h3>Расшифровка контактов</h3>
+<p>На плате обычно присутствуют две группы контактов: цепь управления (питание самого модуля) и силовая цепь (контакты реле). Силовые контакты часто обозначаются как COM (общий), NO (нормально открытый) и NC (нормально закрытый).</p>
+<p>На практике подключение выглядит следующим образом: фаза от сети разрывается через контакты реле. Провод от счетчика идет на COM, а к нагрузке идет от NO (если нужно включение по таймеру) или NC (если нужно выключение по таймеру).</p>
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Категорически запрещается превышать ток, указанный на реле. Если на реле написано 10А, не подключайте нагрузку мощнее 2 кВт. Для мощных приборов используйте промежуточный контактор.</p></div>
+<p>Вот что нужно сделать для правильного монтажа:</p>
+<ol>
+<li>Определите напряжение питания модуля (VCC и GND). Если модуль на 12В, используйте отдельный блок питания.</li>
+<li>Подключите сигнальный вход (Trigger/IN), если управление осуществляется внешним сигналом.</li>
+<li>Подключите силовую цепь через клеммы реле, соблюдая фазировку.</li>
+<li>Заизолируйте все открытые токоведущие части перед первым включением.</li>
+</ol>
+<p>Для визуализации процесса подключения ниже приведена типовая схема для модуля с внешним питанием:</p>
+<table>
+<thead>
+<tr>
+<th>Контакт на плате</th>
+<th>Функция</th>
+<th>Куда подключать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCC / +</td>
+<td>Плюс питания</td>
+<td>Плюс блока питания (12В/24В)</td>
+</tr>
+<tr>
+<td>GND / -</td>
+<td>Минус питания</td>
+<td>Минус блока питания</td>
+</tr>
+<tr>
+<td>IN / Trigger</td>
+<td>Вход сигнала</td>
+<td>Кнопка, выключатель или контроллер</td>
+</tr>
+<tr>
+<td>COM</td>
+<td>Общий контакт реле</td>
+<td>Фаза от сети 220В</td>
+</tr>
+<tr>
+<td>NO</td>
+<td>Нормально открытый</td>
+<td>К нагрузке (включается при сработке)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="алгоритмы-настройки-временных-интервалов">Алгоритмы настройки временных интервалов</h2>
+<p>Если хотите добиться точного времени срабатывания, необходимо освоить методику настройки, которая зависит от типа вашего устройства. На аналоговых моделях это делается вращением переменных резисторов, на цифровых — комбинацией кнопок.</p>
+<p>Вот что нужно сделать: найдите потенциометры, обозначенные как T1 и T2, или кнопки SET и RST. На многих модулях с Алиэкспресс присутствует переключатель диапазонов времени (S/M/H), который задает базовую единицу измерения.</p>
+<h3>Настройка аналоговых модулей</h3>
+<p>На платах с потенциометрами время регулируется путем изменения сопротивления в цепи зарядки конденсатора. Вращение против часовой стрелки обычно уменьшает время, по часовой — увеличивает.</p>
+<p>Важный момент: шкала на потенциометре часто нелинейна. Для точной настройки рекомендуется использовать секундомер и делать несколько пробных запусков.</p>
+<div class="checklist-block"><h4>📋 Настройка аналогового таймера</h4><ol><li><strong>Шаг 1.</strong> Установите переключатель диапазонов в нужное положение (сек/мин/час)</li><li><strong>Шаг 2.</strong> Подайте питание и запустите таймер</li><li><strong>Шаг 3.</strong> Вращайте потенциометр, контролируя время по секундомеру</li><li><strong>Шаг 4.</strong> Зафиксируйте положение, если потенциометр имеет стопор</li></ol></div>
+<h3>Программирование цифровых таймеров</h3>
+<p>Цифровые модули позволяют задавать время с точностью до десятых долей секунды. Обычно используется следующая логика: короткое нажатие выбирает разряд (секунды, минуты), длительное — меняет значение.</p>
+<p>На практике часто встречается режим, когда после установки времени нужно нажать и удерживать кнопку запуска в течение 3-5 секунд для сохранения параметров в памяти.</p>
+<details class="faq-item"><summary>Скрытые функции цифровых таймеров</summary><div class="faq-answer"><p>Некоторые модули поддерживают режим самотестирования или сброса к заводским настройкам при одновременном нажатии двух кнопок. Проверьте документацию продавца или экспериментируйте осторожно.</p></div></details>
+<h2 id="типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</h2>
+<p>Если устройство работает некорректно, скорее всего, проблема кроется в одной из распространенных ошибок монтажа или настройки. Анализ неисправностей помогает быстро вернуть систему в рабочее состояние.</p>
+<p>Важный момент: прежде чем искать поломку, проверьте качество контактов и надежность пайки. Дешевые модули с Алиэкспресс часто имеют "холодную" пайку или окисленные выводы.</p>
+<h3>Список распространенных проблем</h3>
+<p>Ниже перечислены ситуации, с которыми сталкивается большинство пользователей, и способы их решения:</p>
+<ul>
+<li>Реле щелкает, но не включается: проверьте, правильно ли подключена нагрузка к контактам NO или NC. Возможно, вы используете нормально замкнутый контакт там, где нужен нормально открытый.</li>
+<li>Время срабатывания не соответствует установленному: на аналоговых платах мог высохнуть конденсатор или сбиться калибровка. Требуется повторная настройка с эталонным таймером.</li>
+<li>Модуль греется: проверьте напряжение питания. Подача повышенного напряжения (например, 15В вместо 12В) вызывает перегрев стабилизатора.</li>
+<li>Ложные срабатывания: длинные провода управления могут ловить наводки. Рекомендуется использовать экранированный провод или подтягивающий резистор.</li>
+</ul>
+<div class="checklist-block"><h4>☑️ Диагностика неисправностей</h4><label class="check-item"><input type="checkbox"><span>Проверено ли напряжение питания мультиметром?</span></label><label class="check-item"><input type="checkbox"><span>Правильно ли выбран диапазон времени?</span></label><label class="check-item"><input type="checkbox"><span>Нет ли короткого замыкания в цепи нагрузки?</span></label><label class="check-item"><input type="checkbox"><span>Надежно ли зафиксированы провода в клеммах?</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+<p>Если хотите исключить влияние помех, старайтесь не прокладывать слаботочные провода управления параллельно силовым линиям 220В на больших расстояниях.</p>
+<h2 id="финальная-проверка-и-безопасность-эксплуатации">Финальная проверка и безопасность эксплуатации</h2>
+<p>После успешной настройки и монтажа наступает этап финальной проверки, который нельзя игнорировать. Надежность работы всей системы зависит от того, насколько качественно выполнена эта стадия.</p>
+<p>Вот что нужно сделать: проведите тестовый запуск системы без подключенной полезной нагрузки, используя вместо нее лампочку-контроль или мультиметр. Это позволит убедиться в правильности логики работы без риска повреждения дорогостоящего оборудования.</p>
+<p>Важный момент: <mark>обязательно обеспечьте отвод тепла</mark>, если реле коммутирует токи, близкие к предельным значениям. Пластиковый корпус или закрытый щиток могут привести к перегреву и оплавлению контактов.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для продления срока службы реле при работе с индуктивной нагрузкой (двигатели, трансформаторы) используйте варисторы или RC-цепочки для гашения искры на контактах.</p></div>
+<p>При длительной эксплуатации периодически проверяйте затяжку винтов клемм. Тепловое расширение и сжатие металла может ослабить контакт, что приведет к нагреву и возможному возгоранию.</p>
+<p>Если вы планируете использовать устройство в условиях повышенной влажности или запыленности, позаботьтесь о дополнительном защитном кожухе с классом защиты не ниже IP54. Электроника с Алиэкспресс редко имеет заводскую герметизацию.</p>
+<p>В заключение стоит подчеркнуть, что реле задержки времени — это мощный инструмент автоматизации, доступный каждому. Правильный выбор модели, внимательное отношение к схеме подключения и соблюдение правил безопасности позволят создать надежную систему управления электроприборами.</p>
+<p>Используйте полученные знания для реализации своих проектов, будь то автоматическое освещение, управление вентиляцией или контроль технологических процессов. Грамотная настройка таймера избавит от рутинных действий и повысит комфорт использования электрооборудования.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Реле задержки с Алиэкспресс — эффективное решение для автоматизации, требующее внимательного подбора напряжения и правильной настройки временных интервалов.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#выбор-подходящей-модели-и-расшифровка-маркировки">Выбор подходящей модели и расшифровка маркировки</a></li><li><a href="#схемы-подключения-и-монтаж-оборудования">Схемы подключения и монтаж оборудования</a></li><li><a href="#алгоритмы-настройки-временных-интервалов">Алгоритмы настройки временных интервалов</a></li><li><a href="#типичные-ошибки-и-методы-их-устранения">Типичные ошибки и методы их устранения</a></li><li><a href="#финальная-проверка-и-безопасность-эксплуатации">Финальная проверка и безопасность эксплуатации</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-za-tyubik-prishel-so-steklom-na-telefon-s-aliekspress.html" class="related-card">Тюбик со стеклом с AliExpress: что это и как приклеить</a></li><li><a href="/articles/k/ki/kit-nabor-chasy-s-aliekspress-kak-nastroit.html" class="related-card">Кит-набор часы с Алиэкспресс: полная инструкция по настройке</a></li><li><a href="/articles/k/ka/kak-zakazat-planshet-na-aliekspress.html" class="related-card">Как заказать планшет на Алиэкспресс: полный гайд и советы</a></li><li><a href="/articles/k/ka/kak-nakleit-steklo-na-ekran-telefona-s-aliekspress.html" class="related-card">Как наклеить защитное стекло с Алиэкспресс: пошаговое руководство</a></li><li><a href="/articles/c/ch/chto-takoe-globalnaya-versiya-smartfona-na-aliekspress-xiaomi.html" class="related-card">Глобальная версия Xiaomi на AliExpress: как отличить от CN</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/c/ch/chto-za-tyubik-prishel-so-steklom-na-telefon-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Тюбик со стеклом с AliExpress: что это и как приклеить</span><span class="related-bottom-desc">Подробный гид: как правильно нанести жидкое стекло из тюбика на экран телефона. Инструкция, советы, </span></a><a href="/articles/k/ki/kit-nabor-chasy-s-aliekspress-kak-nastroit.html" class="related-bottom-card"><span class="related-bottom-title">Кит-набор часы с Алиэкспресс: полная инструкция по настройке</span><span class="related-bottom-desc">Подробный гайд по сборке и подключению DIY-часов с Алиэкспресс. Настройка Bluetooth, установка прило</span></a><a href="/articles/k/ka/kak-zakazat-planshet-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как заказать планшет на Алиэкспресс: полный гайд и советы</span><span class="related-bottom-desc">Подробная инструкция, как купить планшет на Алиэкспресс. Выбор модели, проверка продавца, оплата и з</span></a><a href="/articles/k/ka/kak-nakleit-steklo-na-ekran-telefona-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как наклеить защитное стекло с Алиэкспресс: пошаговое руководство</span><span class="related-bottom-desc">Подробная инструкция по установке защитного стекла на экран телефона: выбор, подготовка, поклейка и </span></a><a href="/articles/c/ch/chto-takoe-globalnaya-versiya-smartfona-na-aliekspress-xiaomi.html" class="related-bottom-card"><span class="related-bottom-title">Глобальная версия Xiaomi на AliExpress: как отличить от CN</span><span class="related-bottom-desc">Как купить глобальную версию смартфона Xiaomi на AliExpress. Отличия от китайской, проверка IMEI, на</span></a><a href="/articles/k/ka/kak-nastroit-radio-na-magnitole-android-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить радио на магнитоле Android с Алиэкспресс</span><span class="related-bottom-desc">Подробная инструкция: как настроить радио на китайской магнитоле Android. Поиск станций, настройка ч</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

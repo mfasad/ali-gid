@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работает поиск на AliExpress: алгоритмы и лайфхаки 2026 — Али Гид</title>
+    <meta name="description" content="Разбираем, как устроен поиск на АлиЭкспресс: от ранжирования товаров до фильтров и скрытых настроек. Пошаговые инструкции для покупателей.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-rabotaet-poiskovik-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает поиск на AliExpress: алгоритмы и лайфхаки 2026">
+    <meta property="og:description" content="Разбираем, как устроен поиск на АлиЭкспресс: от ранжирования товаров до фильтров и скрытых настроек. Пошаговые инструкции для покупателей.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/poisk-tovarov/">Поиск товаров</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работает поиск на AliExpress: алгоритмы и лайфхаки 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как устроен поиск на AliExpress: алгоритмы, фильтры и секреты эффективного поиска</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#почему-поиск-на-aliexpress-показывает-не-то-что-вы-ищете">Почему поиск на AliExpress показывает не то, что вы ищете</a></li><li><a href="#где-находятся-инструменты-поиска-и-как-их-включить">Где находятся инструменты поиска и как их включить</a></li><li><a href="#пошаговая-инструкция-как-найти-точно-нужный-товар">Пошаговая инструкция: как найти точно нужный товар</a></li><li><a href="#скрытые-настройки-поиска-что-не-видно-с-первого-взгляда">Скрытые настройки поиска: что не видно с первого взгляда</a></li><li><a href="#типичные-ошибки-при-поиске-на-aliexpress">Типичные ошибки при поиске на AliExpress</a></li><li><a href="#как-поиск-aliexpress-влияет-на-ваши-будущие-покупки">Как поиск AliExpress влияет на ваши будущие покупки</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><h2 id="почему-поиск-на-aliexpress-показывает-не-то-что-вы-ищете">Почему поиск на AliExpress показывает не то, что вы ищете</h2>
+
+<p>Если хотите быстро найти нужный товар на AliExpress, но поиск выдаёт сотни нерелевантных вариантов — проблема не в вас, а в алгоритмах платформы. Маркетплейс анализирует не только ключевые слова, но и поведение миллионов пользователей, историю покупок, геолокацию и даже время суток. В результате первые страницы часто занимают товары с высокими продажами, а не те, что идеально подходят под ваш запрос.</p>
+
+<p>На практике это означает, что простой ввод названия товара в строку поиска работает лишь в 30% случаев. Остальные 70% — это борьба с «умными» фильтрами, рекламными вставками и приоритетами продавцов. Например, если вы ищете <strong>«беспроводные наушники»</strong>, система может показать сначала дешёвые китайские модели с низким рейтингом, а не те, что соответствуют вашему бюджету или бренду. Или же выдаст товары из категории <em>«Аксессуары для телефонов»</em>, хотя вам нужна именно аудиотехника.</p>
+
+<p>Вот что нужно сделать, чтобы поиск работал на вас: понять логику ранжирования, научиться использовать скрытые фильтры и обходить стандартные ограничения. Далее разберём, как это сделать на практике — от базовых настроек до продвинутых приёмов.</p>
+
+<h2 id="где-находятся-инструменты-поиска-и-как-их-включить">Где находятся инструменты поиска и как их включить</h2>
+
+<p>Основные элементы поиска на AliExpress спрятаны не только в строке ввода, но и в боковых панелях, выпадающих меню и даже в личном кабинете. Если вы пользуетесь мобильным приложением, часть функций может отличаться от десктопной версии — об этом расскажем отдельно.</p>
+
+<h3>Строки поиска и быстрые фильтры</h3>
+<p>Главная поисковая строка расположена в верхней части экрана на всех страницах сайта. В мобильном приложении она дублируется в нижнем меню (значок <em>«Лупа»</em>). Вот что можно сделать прямо здесь:</p>
+<ul>
+    <li>Ввести ключевое слово или фразу (например, <strong>«smartwatch с пульсометром»</strong>).</li>
+    <li>Использовать автодополнение — система подскажет популярные запросы по первым буквам.</li>
+    <li>Нажать на иконку <em>«Фильтры»</em> (рядом со строкой) для уточнения параметров.</li>
+</ul>
+
+<p>Важный момент: автодополнение работает на основе <strong>трендов и геолокации</strong>. Если вы ищете товар из другой страны, попробуйте временно сменить регион в настройках аккаунта или использовать VPN.</p>
+
+<h3>Расширенные фильтры: где искать и как применять</h3>
+<p>Чтобы открыть полный список фильтров, после ввода запроса нажмите <em>«Все фильтры»</em> (на десктопе) или значок <em>«Сортировка»</em> (в мобильном приложении). Здесь доступны:</p>
+<table>
+    <thead>
+        <tr>
+            <th>Категория фильтра</th>
+            <th>Что регулирует</th>
+            <th>Пример использования</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Цена</td>
+            <td>Диапазон стоимости (от/до)</td>
+            <td>Исключить товары дешевле 500 ₽ или дороже 5 000 ₽</td>
+        </tr>
+        <tr>
+            <td>Рейтинг продавца</td>
+            <td>Минимальный процент положительных отзывов</td>
+            <td>Оставить только продавцов с рейтингом ≥ 95%</td>
+        </tr>
+        <tr>
+            <td>Количество заказов</td>
+            <td>Популярность товара (минимальное число продаж)</td>
+            <td>Показать товары с ≥ 1 000 заказов</td>
+        </tr>
+        <tr>
+            <td>Страна отправки</td>
+            <td>Локация склада продавца</td>
+            <td>Исключить товары из Китая, если нужен быстрый трекинг</td>
+        </tr>
+        <tr>
+            <td>Наличие скидок</td>
+            <td>Только товары с действующими промокодами</td>
+            <td>Отметить галочкой <em>«Скидки»</em> и <em>«Купоны»</em></td>
+        </tr>
+    </tbody>
+</table>
+
+<p><div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Фильтр <em>«Страна отправки»</em> особенно важен для скорости доставки. Товары со складов в России или Европе часто доходят за 7–14 дней, тогда как из Китая — до 40 дней.</p></div></p>
+
+<p>На практике большинство пользователей игнорируют фильтр <strong>«Количество заказов»</strong>, хотя он помогает отсеять некачественные товары. Если продавец реализовал менее 100 единиц товара, высока вероятность, что это новая модель без отзывов или подделка.</p>
+
+<h2 id="пошаговая-инструкция-как-найти-точно-нужный-товар">Пошаговая инструкция: как найти точно нужный товар</h2>
+
+<p>Если стандартный поиск не даёт результатов, воспользуйтесь этой схемой. Она работает для 90% запросов — от электроники до одежды.</p>
+
+<div class="checklist-block"><h4>📋 Эффективный поиск на AliExpress</h4><ol><li><strong>Шаг 1.</strong> Введите ключевое слово на английском (например, <strong>«wireless earbuds»</strong> вместо «беспроводные наушники»)</li><li><strong>Шаг 2.</strong> Откройте <em>«Все фильтры»</em> и установите диапазон цен, рейтинг продавца ≥ 97%, количество заказов ≥ 500</li><li><strong>Шаг 3.</strong> Отсортируйте результаты по <em>«Рейтингу»</em> или <em>«Количеству заказов»</em></li><li><strong>Шаг 4.</strong> Проверьте отзывы с фото и видео (кликните на звездочки под товаром)</li><li><strong>Шаг 5.</strong> Используйте <em>«Похожие товары»</em> в карточке понравившегося варианта</li></ol></div>
+
+<h3>Поиск по изображению: как работает и где найти</h3>
+<p>Если вы нашли товар на другом сайте или у вас есть его фото, можно воспользоваться поиском по картинке:</p>
+<ol>
+    <li>На главной странице AliExpress нажмите на иконку <em>«Фотоаппарат»</em> в поисковой строке.</li>
+    <li>Загрузите изображение с компьютера или вставьте ссылку на фото из интернета.</li>
+    <li>Система покажет аналогичные товары из каталога.</li>
+</ol>
+
+<p><div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для лучших результатов используйте чёткие фотографии без водяных знаков. Если искать по скриншоту с другого маркетплейса (например, Amazon), AliExpress может показать тот же товар дешевле.</p></div></p>
+
+<h3>Поиск по категориям: когда он эффективнее текстового запроса</h3>
+<p>Если вы ищете товар широкой категории (например, <strong>«мебель для гостиной»</strong> или <strong>«спортивная одежда»</strong>), лучше начать с раздела <em>«Категории»</em> в верхнем меню. Здесь товары разбиты по тематическим блокам, а внутри каждой категории есть свои фильтры. Например:</p>
+<ul>
+    <li>В разделе <em>«Электроника»</em> можно выбрать подкатегорию <em>«Наушники»</em> → <em>«Беспроводные»</em> → <em>«С шумоподавлением»</em>.</li>
+    <li>В <em>«Одежде»</em> доступны фильтры по размеру, материалу и сезону.</li>
+</ul>
+
+<p><div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Алгоритмы AliExpress могут «зацикливаться» на ваших предыдущих поисках. Если вы долго искали, например, <strong>«чайники»</strong>, а затем переключились на <strong>«смартфоны»</strong>, система может подмешивать чайники в результаты. В этом случае очистите историю поиска в личном кабинете или используйте режим инкогнито.</p></div></p>
+
+<h2 id="скрытые-настройки-поиска-что-не-видно-с-первого-взгляда">Скрытые настройки поиска: что не видно с первого взгляда</h2>
+
+<p>AliExpress скрывает часть инструментов, чтобы упростить интерфейс для новичков. Но эти функции могут сэкономить часы на поиск товаров.</p>
+
+<h3>Сортировка по «Новинкам» и «Самым обсуждаемым»</h3>
+<p>По умолчанию поиск сортирует товары по <em>«Рекомендуемым»</em> — это смесь релевантности, популярности и платных продвижений. Чтобы увидеть другие варианты, кликните на выпадающее меню <em>«Сортировка»</em> и выберите:</p>
+<ul>
+    <li><strong>«Новинки»</strong> — товары, добавленные в каталог за последние 7 дней.</li>
+    <li><strong>«Самые обсуждаемые»</strong> — товары с максимальным количеством отзывов за месяц.</li>
+    <li><strong>«Цена: по возрастанию/убыванию»</strong> — для поиска бюджетных или премиальных вариантов.</li>
+</ul>
+
+<p><details class="faq-item"><summary>Как найти товары с бесплатной доставкой</summary><div class="faq-answer"><p>В результатах поиска откройте фильтр <em>«Доставка»</em>|Выберите опцию <em>«Бесплатная доставка»</em>|Обратите внимание, что некоторые продавцы указывают бесплатную доставку только для заказов от определённой суммы (например, 2 000 ₽).</p></div></details></p>
+
+<h3>Поиск по характеристикам: как сузить результаты до 10 вариантов</h3>
+<p>Для многих категорий товаров доступны <strong>технические фильтры</strong>. Например, при поиске смартфонов можно указать:</p>
+<ul>
+    <li>Объём оперативной памяти (4 ГБ, 6 ГБ, 8 ГБ).</li>
+    <li>Ёмкость аккумулятора (3 000–5 000 мАч).</li>
+    <li>Разрешение камеры (12 МП, 48 МП и т. д.).</li>
+    <li>Поддержка 5G.</li>
+</ul>
+
+<p>Чтобы найти эти фильтры:</p>
+<ol>
+    <li>Введите запрос (например, <strong>«smartphone»</strong>).</li>
+    <li>В левой колонке (на десктопе) или после нажатия <em>«Фильтры»</em> (в мобильном приложении) найдите блок <em>«Характеристики»</em>.</li>
+    <li>Установите нужные параметры и примените фильтры.</li>
+</ol>
+
+<p>Важный момент: не все продавцы корректно заполняют характеристики. Если фильтр по <strong>«размеру экрана»</strong> не дал результатов, попробуйте искать по ключевым словам в описании (например, <strong>«6.5 inch»</strong>).</p>
+
+<h2 id="типичные-ошибки-при-поиске-на-aliexpress">Типичные ошибки при поиске на AliExpress</h2>
+
+<p>Даже опытные покупатели допускают ошибки, которые ведут к пустой трате времени или покупке некачественных товаров. Вот самые распространённые:</p>
+
+<ul>
+    <li><strong>Использование русскоязычных запросов.</strong> AliExpress лучше понимает английские ключевые слова. Например, запрос <strong>«беспроводные наушники»</strong> даст меньше релевантных результатов, чем <strong>«wireless earbuds»</strong>.</li>
+    <li><strong>Игнорирование отзывов с фото.</strong> Текстовые отзывы легко подделать, а вот фотографии реальных покупателей — нет. Всегда проверяйте раздел <em>«Отзывы с изображениями»</em>.</li>
+    <li><strong>Покупка у продавцов с рейтингом ниже 95%.</strong> Даже если цена привлекательна, высок риск получить брак или подделку. Минимальный порог — <mark>97%</mark> положительных отзывов.</li>
+    <li><strong>Непроверенные купоны.</strong> Не все скидки, которые предлагает система, реально работают. Перед оформлением заказа тестируйте промокод в корзине.</li>
+</ul>
+
+<p><div class="checklist-block"><h4>☑️ Проверка продавца перед покупкой</h4><label class="check-item"><input type="checkbox"><span>Рейтинг ≥ 97%</span></label><label class="check-item"><input type="checkbox"><span>Количество заказов ≥ 500</span></label><label class="check-item"><input type="checkbox"><span>Наличие отзывов с фото/видео за последние 3 месяца</span></label><label class="check-item"><input type="checkbox"><span>Срок работы на платформе ≥ 1 года</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div></p>
+
+<h2 id="как-поиск-aliexpress-влияет-на-ваши-будущие-покупки">Как поиск AliExpress влияет на ваши будущие покупки</h2>
+
+<p>Алгоритмы AliExpress запоминают каждое ваше действие: от просмотренных товаров до времени, проведённого на странице. Эта информация формирует <strong>персонализированную ленту рекомендаций</strong>, которая появляется на главной странице и в разделе <em>«Для вас»</em>. Если вы часто ищете, например, <strong>«фитнес-браслеты»</strong>, система будет подсовывать их даже в категориях, не связанных со спортом.</p>
+
+<p>На практике это означает, что поисковые запросы влияют не только на текущие результаты, но и на будущие. Чтобы сбросить «зацикленность» алгоритма:</p>
+<ul>
+    <li>Очистите историю поиска в личном кабинете (<code>Профиль → Настройки → История поиска</code>).</li>
+    <li>Используйте режим инкогнито в браузере для «чистого» поиска.</li>
+    <li>Периодически просматривайте товары из других категорий, чтобы разнообразить рекомендации.</li>
+</ul>
+
+<p>Ещё один нюанс: AliExpress может показывать разные цены на один и тот же товар в зависимости от вашего региона, истории покупок и даже устройства. Например, в мобильном приложении цена может быть ниже, чем на десктопе, из-за акций для пользователей apps. Всегда сравнивайте цены в разных версиях платформы.</p>
+
+<p><div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Эффективный поиск на AliExpress требует комбинации точных запросов, фильтров и проверки продавцов. Используйте английские ключевые слова, сортируйте по рейтингу и количеству заказов, а также анализируйте отзывы с фото — это сократит риск ошибки до 5%.</p></div></p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#почему-поиск-на-aliexpress-показывает-не-то-что-вы-ищете">Почему поиск на AliExpress показывает не то, что вы ищете</a></li><li><a href="#где-находятся-инструменты-поиска-и-как-их-включить">Где находятся инструменты поиска и как их включить</a></li><li><a href="#пошаговая-инструкция-как-найти-точно-нужный-товар">Пошаговая инструкция: как найти точно нужный товар</a></li><li><a href="#скрытые-настройки-поиска-что-не-видно-с-первого-взгляда">Скрытые настройки поиска: что не видно с первого взгляда</a></li><li><a href="#типичные-ошибки-при-поиске-на-aliexpress">Типичные ошибки при поиске на AliExpress</a></li><li><a href="#как-поиск-aliexpress-влияет-на-ваши-будущие-покупки">Как поиск AliExpress влияет на ваши будущие покупки</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-kupit-velosiped-na-aliekspress.html" class="related-card">Как купить велосипед на Алиэкспресс: гид по выбору и заказу</a></li><li><a href="/articles/a/al/aliekspress-otzyvy-kak-zakazyvat.html" class="related-card">Как читать отзывы и заказывать на AliExpress без ошибок</a></li><li><a href="/articles/k/ka/kakie-tseny-byli-na-aliekspress.html" class="related-card">Как узнать цены на AliExpress: история и актуальные данные</a></li><li><a href="/articles/k/ka/kak-pravilno-vybrat-tip-vilki-na-aliekspress.html" class="related-card">Как выбрать вилку на Алиэкспресс: полный гайд</a></li><li><a href="/articles/k/ka/kak-delat-zakazy-na-aliekspress.html" class="related-card">Как делать заказы на АлиЭкспресс: пошаговое руководство 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-kupit-velosiped-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как купить велосипед на Алиэкспресс: гид по выбору и заказу</span><span class="related-bottom-desc">Подробная инструкция: как выбрать и купить велосипед на Алиэкспресс. Советы по сборке, проверке, там</span></a><a href="/articles/a/al/aliekspress-otzyvy-kak-zakazyvat.html" class="related-bottom-card"><span class="related-bottom-title">Как читать отзывы и заказывать на AliExpress без ошибок</span><span class="related-bottom-desc">Пошаговое руководство по анализу отзывов на AliExpress, выбору надежных продавцов и безопасному офор</span></a><a href="/articles/k/ka/kakie-tseny-byli-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать цены на AliExpress: история и актуальные данные</span><span class="related-bottom-desc">Где искать архив цен на AliExpress, как отслеживать изменения и сравнивать стоимость товаров за разн</span></a><a href="/articles/k/ka/kak-pravilno-vybrat-tip-vilki-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать вилку на Алиэкспресс: полный гайд</span><span class="related-bottom-desc">Как не ошибиться с розеткой при заказе электроники с Алиэкспресс. Разбор типов вилок, переходников и</span></a><a href="/articles/k/ka/kak-delat-zakazy-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как делать заказы на АлиЭкспресс: пошаговое руководство 2026</span><span class="related-bottom-desc">Подробная инструкция по оформлению заказов на AliExpress: от выбора товара до оплаты и отслеживания.</span></a><a href="/articles/o/oc/ochki-kak-u-tima-iz-zkd-kupit-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Очки как у Тима из ЗКД: где купить и как не ошибиться</span><span class="related-bottom-desc">Подробный гайд по поиску и покупке очков Тима из Звездного Клуба Диско на AliExpress. Разбор моделей</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Сортировка AliExpress: как отслеживать посылки и сроки — Али Гид</title>
+    <meta name="description" content="Как работает сортировка на AliExpress: сроки доставки, статусы трека, где искать посылку и что делать при задержках. Полное руководство.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/s/so/sortirovka-aliekspress-skolko-zhdat-posylku.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Сортировка AliExpress: как отслеживать посылки и сроки">
+    <meta property="og:description" content="Как работает сортировка на AliExpress: сроки доставки, статусы трека, где искать посылку и что делать при задержках. Полное руководство.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/treking-posylok/">Трекинг посылок</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Сортировка AliExpress: как отслеживать посылки и сроки</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Сортировка на AliExpress: сколько ждать посылку и как отследить</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-актуальную-информацию-о-статусе-сортировки">Где найти актуальную информацию о статусе сортировки</a></li><li><a href="#пошаговая-инструкция-по-отслеживанию-этапов-доставки">Пошаговая инструкция по отслеживанию этапов доставки</a></li><li><a href="#нюансы-работы-сортировочных-центров-и-логистических-цепочек">Нюансы работы сортировочных центров и логистических цепочек</a></li><li><a href="#типичные-ошибки-покупателей-при-отслеживании">Типичные ошибки покупателей при отслеживании</a></li><li><a href="#как-действовать-при-длительных-задержках-на-сортировке">Как действовать при длительных задержках на сортировке</a></li><li><a href="#реальное-время-ожидания-и-факторы-влияния">Реальное время ожидания и факторы влияния</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Покупатели часто сталкиваются с ситуацией, когда трек-номер перестает обновляться или показывает непонятные статусы, связанные с сортировкой. Это вызывает тревогу, так как непонятно, где находится заказ и движется ли он вообще. В системе логистики AliExpress этап сортировки является одним из самых критичных, ведь именно здесь формируется маршрут вашего груза.</p>
+
+<p>Если вы хотите понять реальное положение дел, нужно знать, как читать статусы трекинга и какие временные рамки считаются нормой для разных методов доставки. Многие пользователи ошибочно полагают, что отсутствие обновлений означает потерю посылки, хотя чаще всего товар просто ожидает своей очереди на перегрузку в транспортном узле.</p>
+
+<p>Важный момент: понимание процессов сортировки помогает избежать преждевременного открытия споров или паники. В этой инструкции мы разберем, как интерпретировать данные трекинга, какие сроки установлены для различных служб доставки и что делать, если товар «завис» на сортировочном центре.</p>
+
+<h2 id="где-найти-актуальную-информацию-о-статусе-сортировки">Где найти актуальную информацию о статусе сортировки</h2>
+
+<p>Первое, что нужно сделать при возникновении вопросов о местоположении заказа, — это правильно считать данные с трек-номером. Интерфейс приложения и сайта может показывать упрощенную информацию, которая не всегда отражает полную картину перемещений груза по Китаю и вашей стране.</p>
+
+<p>Вот что нужно сделать: зайдите в личный кабинет и найдите нужный заказ. Основной путь выглядит так: нажмите <code>Мои заказы → Выберите заказ → Трекинг</code>. Именно здесь отображается базовая информация, но она часто обновляется с задержкой. Для более детального анализа лучше использовать сторонние агрегаторы трекинга или официальные сайты почтовых служб.</p>
+
+<p>На практике наиболее точные данные о сортировке показывают специализированные сервисы, которые собирают информацию со всех промежуточных пунктов. Они могут отображать статусы вроде «Прибыло в центр сортировки» или «Покинуло сортировочный центр», которые в стандартном интерфейсе AliExpress могут быть скрыты под общим названием «В пути».</p>
+
+<div class="checklist-block"><h4>📋 Проверка статуса заказа</h4><ol><li><strong>Шаг 1.</strong> Зайдите в раздел «Мои заказы» на сайте или в приложении</li><li><strong>Шаг 2.</strong> Нажмите на кнопку «Отследить» или «Track» под нужным товаром</li><li><strong>Шаг 3.</strong> Скопируйте трек-номер и вставьте его в поисковую строку стороннего трекера</li><li><strong>Шаг 4.</strong> Сравните даты последних обновлений статуса сортировки</li></ol></div>
+
+<p>Если хотите получить максимально подробную картину, используйте глобальные системы отслеживания. Они позволяют увидеть, на каком именно складе находится посылка: в городе отправления, в транзитном хабе или уже в стране назначения.</p>
+
+<h2 id="пошаговая-инструкция-по-отслеживанию-этапов-доставки">Пошаговая инструкция по отслеживанию этапов доставки</h2>
+
+<p>Процесс движения посылки от продавца до покупателя состоит из нескольких четких этапов. Понимание каждого из них поможет вам спрогнозировать время прибытия. Сортировка может происходить (многократно): в городе отправителя, в международном аэропорту вылета, в аэропорту прилета и в местном распределительном центре.</p>
+
+<p>Важно различать статусы, которые говорят о том, что товар просто лежит на складе, и те, что подтверждают его движение. Ниже приведена таблица с основными статусами и их расшифровкой, которая поможет вам сориентироваться.</p>
+
+<table>
+<thead>
+<tr>
+<th>Статус на английском</th>
+<th>Перевод и значение</th>
+<th>Среднее время ожидания</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sorting Complete</td>
+<td>Сортировка завершена. Товар готов к отправке на следующий этап.</td>
+<td>1-2 дня</td>
+</tr>
+<tr>
+<td>Arrived at Sorting Center</td>
+<td>Прибыло в центр сортировки. Идет обработка и распределение по направлениям.</td>
+<td>2-5 дней</td>
+</tr>
+<tr>
+<td>Departed from Sorting Center</td>
+<td>Покинуло центр сортировки. Груз передан перевозчику или в аэропорт.</td>
+<td>1-3 дня</td>
+</tr>
+<tr>
+<td>Hand over to airline</td>
+<td>Передано авиакомпании. Ожидание загрузки в самолет.</td>
+<td>3-7 дней</td>
+</tr>
+</tbody>
+</table>
+
+<p>Если хотите быть уверенным в том, что процесс идет нормально, следуйте этому алгоритму действий. Он поможет систематизировать проверку и не упустить важные моменты.</p>
+
+<ol>
+<li>Получите трек-номер сразу после того, как продавец отправит товар. Обычно это происходит в течение 1-3 дней после оплаты.</li>
+<li>Проверьте первый статус. Если написано «Создан», ждите реального сканирования. Если статус не меняется более 5 дней, свяжитесь с продавцом.</li>
+<li>Отслеживайте момент прибытия в центр сортировки. Это ключевая точка, после которой товар либо улетает в вашу страну, либо перемещается по внутренним складам Китая.</li>
+<li>Контролируйте статус «Таможенный контроль». Если после сортировки в стране назначения статус не меняется более 10 дней, возможно, требуется ваше вмешательство или уплата пошлин.</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Статус «Сортировка» может длиться до 7 дней в периоды распродаж (11.11, Черная пятница). Это нормально и не требует открытия спора.</p></div>
+
+<h2 id="нюансы-работы-сортировочных-центров-и-логистических-цепочек">Нюансы работы сортировочных центров и логистических цепочек</h2>
+
+<p>Логистика AliExpress устроена так, что посылки часто проходят через несколько рук. Сначала товар попадает в руки логистической компании (Cainiao, Yanwen, 4PX и др.), которая везет его на общий склад. Там происходит первичная сортировка по направлениям.</p>
+
+<p>Вот что нужно знать: существуют разные типы сортировочных центров. Есть внутренние, которые работают только по Китаю, и международные хабы. Если вы видите, что посылка долго находится в сортировочном центре в городе Иу или Гуанчжоу, это означает, что она ожидает формирования контейнера или загрузки в самолет.</p>
+
+<p>Особое внимание стоит уделить методу доставки. Если вы выбрали <em>AliExpress Standard Shipping</em>, сортировка обычно проходит быстрее и прозрачнее, так как этим занимается партнерская сеть Cainiao. Для эконом-доставок (например, <em>Cainiao Super Economy</em>) трекинг может обрываться на границе Китая, и вы увидите только прибытие в вашу страну.</p>
+
+<ul>
+<li>Прямые рейсы доставляют товары быстрее, но они доступны не для всех товаров и регионов.</li>
+<li>Сборные грузы могут ждать заполнения объема, что увеличивает время нахождения на сортировке.</li>
+<li>В праздничные дни в Китае (Китайский Новый год, «Золотая неделя») сортировочные центры работают в замедленном режиме или закрываются.</li>
+<li>Некоторые статусы могут дублироваться или идти в обратном порядке из-за ошибок сканирования операторами.</li>
+</ul>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>В период с конца января по февраль (Китайский Новый год) сроки сортировки и доставки могут увеличиться в 2-3 раза. Планируйте покупки заранее.</p></div>
+
+<p>На практике часто встречается ситуация, когда трек-номер перестает обновляться после статуса «Покинуло сортировочный центр». Это может означать, что товар уже в пути, но еще не отсканирован на следующем пункте. Такое «молчание» может длиться от недели до двух.</p>
+
+<h2 id="типичные-ошибки-покупателей-при-отслеживании">Типичные ошибки покупателей при отслеживании</h2>
+
+<p>Многие пользователи совершают одни и те же ошибки, которые приводят к лишнему стрессу или даже потере денег. Чтобы избежать этого, важно знать, чего делать не стоит.</p>
+
+<p>Самая распространенная ошибка — открытие спора слишком рано. Если срок защиты покупателя еще не истек, а посылка просто долго не обновляется, спор могут закрыть, а деньги не вернуть, так как формально товар еще в пути.</p>
+
+<p>Другая ошибка — игнорирование <mark>срока защиты заказа</mark>. Это временной промежуток, в течение которого AliExpress гарантирует возврат денег, если товар не придет. Многие ждут обновления трека, забывая, что время защиты тикает.</p>
+
+<details class="faq-item"><summary>Что делать, если трек не работает</summary><div class="faq-answer"><p>Если трек-номер не пробивается ни в одной системе, возможно, продавец использовал фейковый номер. Подождите 10 дней. Если статус не изменится на «Отправлено», открывайте спор с причиной «Товар не отправлен».</p></div></details>
+
+<p>Также пользователи часто путают местную почту и международные сервисы. После того как посылка прибывает в вашу страну, за нее может отвечать местная почта (Почта России, Укрпочта, Казпочта и т.д.), и трекинг нужно продолжать уже на их сайте, используя тот же номер.</p>
+
+<h3>Список действий, которых следует избегать</h3>
+
+<ul>
+<li>Не подтверждайте получение товара, если физически не держите его в руках, даже если продавец очень просит об этом.</li>
+<li>Не полагайтесь только на уведомления от приложения AliExpress, они часто приходят с опозданием.</li>
+<li>Не игнорируйте сообщения от таможенной службы, если они требуют оформления.</li>
+<li>Не ждите истечения срока защиты до последней минуты, чтобы открыть спор, если ясно, что посылка потеряна.</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Чек-лист перед открытием спора</h4><label class="check-item"><input type="checkbox"><span>Проверен ли трек-номер на сторонних сайтах?</span></label><label class="check-item"><input type="checkbox"><span>Не истек ли срок защиты заказа?</span></label><label class="check-item"><input type="checkbox"><span>Прошло ли достаточно времени с момента последней проверки?</span></label><label class="check-item"><input type="checkbox"><span>Связались ли вы с продавцом для уточнения информации?</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="как-действовать-при-длительных-задержках-на-сортировке">Как действовать при длительных задержках на сортировке</h2>
+
+<p>Если посылка «зависла» на сортировке и сроки уже превышают разумные пределы (например, 20-30 дней без движения), необходимо переходить к активным действиям. Пассивное ожидание в этом случае редко дает результат.</p>
+
+<p>В первую очередь напишите продавцу. Используйте переводчик, если не знаете языка. Спросите, знает ли он о проблеме и может ли запросить информацию у логистической компании. Часто продавцы имеют прямые каналы связи с перевозчиками и могут ускорить процесс или дать точный ответ.</p>
+
+<p>Если продавец молчит или отписывается отписками, а срок защиты подходит к концу (осталось менее 5-7 дней), нужно готовить почву для спора. Сделайте скриншоты трекинга, где видно долгое отсутствие обновлений.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>При открытии спора выбирайте причину «Проблема с логистикой» или «Товар не получен». Не соглашайтесь на продление срока защиты, если не уверены, что товар придет. Лучше получить деньги и заказать заново.</p></div>
+
+<h2 id="реальное-время-ожидания-и-факторы-влияния">Реальное время ожидания и факторы влияния</h2>
+
+<p>Время доставки — понятие растяжимое. Оно зависит от множества факторов: сезона, выбранного метода доставки, растаможки и даже текущей геополитической ситуации. В таблице ниже приведены ориентировочные сроки для разных методов доставки с учетом сортировки.</p>
+
+<table>
+<thead>
+<tr>
+<th>Метод доставки</th>
+<th>Средний срок (дни)</th>
+<th>Особенности сортировки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AliExpress Standard</td>
+<td>15-35</td>
+<td>Полный трекинг, приоритетная сортировка</td>
+</tr>
+<tr>
+<td>Cainiao Super Economy</td>
+<td>30-60</td>
+<td>Трекинг только до вылета из Китая, долгая сортировка</td>
+</tr>
+<tr>
+<td>AliExpress Premium</td>
+<td>7-15</td>
+<td>Быстрая сортировка, прямые рейсы, курьерская доставка</td>
+</tr>
+<tr>
+<td>Доставка из РФ (Склад в РФ)</td>
+<td>2-7</td>
+<td>Сортировка внутри страны, без таможни</td>
+</tr>
+</tbody>
+</table>
+
+<p>Если хотите минимизировать время ожидания, выбирайте товары со склада в вашей стране или используйте платные методы доставки. Бесплатные или очень дешевые варианты всегда подразумевают более долгую и сложную логистику с множеством перевалок.</p>
+
+<p> Иногда задержка в 2-3 дня на складе позволяет объединить вашу посылку с сотнями других в один контейнер, что в итоге делает доставку дешевле и экологичнее.</p>
+
+<p>В заключение стоит сказать, что система AliExpress отработана годами и в большинстве случаев работает как часы. Статусы сортировки — это нормальная часть пути вашей покупки. Главное — сохранять спокойствие, регулярно проверять трекинг через надежные источники и не забывать о сроках защиты заказа. Если вы будете следить за этими параметрами, процесс покупок станет гораздо прозрачнее и предсказуемее.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Сортировка на AliExpress занимает от 1 до 7 дней в зависимости от загрузки центров. Ключ к спокойствию — отслеживание через сторонние сервисы и контроль срока защиты заказа.</p></div>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Всегда проверяйте адрес доставки перед оплатой. Изменение адреса после сортировки часто невозможно или платно.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-актуальную-информацию-о-статусе-сортировки">Где найти актуальную информацию о статусе сортировки</a></li><li><a href="#пошаговая-инструкция-по-отслеживанию-этапов-доставки">Пошаговая инструкция по отслеживанию этапов доставки</a></li><li><a href="#нюансы-работы-сортировочных-центров-и-логистических-цепочек">Нюансы работы сортировочных центров и логистических цепочек</a></li><li><a href="#типичные-ошибки-покупателей-при-отслеживании">Типичные ошибки покупателей при отслеживании</a></li><li><a href="#как-действовать-при-длительных-задержках-на-сортировке">Как действовать при длительных задержках на сортировке</a></li><li><a href="#реальное-время-ожидания-и-факторы-влияния">Реальное время ожидания и факторы влияния</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ko/kogda-pridut-tovary-s-aliekspress.html" class="related-card">Когда придут товары с АлиЭкспресс: сроки, трекинг и доставка</a></li><li><a href="/articles/p/po/poteryalas-posylka-s-aliekspress-chto-delat-gde-iskat.html" class="related-card">Потерялась посылка с Алиэкспресс: где искать и что делать</a></li><li><a href="/articles/k/ko/kogda-prikhodit-trek-nomer-na-posylku-s-aliekspress.html" class="related-card">Когда приходит трек-номер на AliExpress: сроки и поиск</a></li><li><a href="/articles/k/ka/kak-otsledit-posylku-s-aliekspress-po-trek-kodu-iz-kitaya.html" class="related-card">Как отследить посылку с AliExpress по трек-коду из Китая</a></li><li><a href="/articles/p/pr/promezhutochnyj-punkt-aliekspress-chto-takoe.html" class="related-card">Промежуточный пункт AliExpress: что это и как работает</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ko/kogda-pridut-tovary-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Когда придут товары с АлиЭкспресс: сроки, трекинг и доставка</span><span class="related-bottom-desc">Узнайте точные сроки доставки AliExpress, как отследить посылку и что делать, если заказ задерживает</span></a><a href="/articles/p/po/poteryalas-posylka-s-aliekspress-chto-delat-gde-iskat.html" class="related-bottom-card"><span class="related-bottom-title">Потерялась посылка с Алиэкспресс: где искать и что делать</span><span class="related-bottom-desc">Статус посылки не меняется или она пропала? Подробная инструкция: поиск трек-номера, открытие спора,</span></a><a href="/articles/k/ko/kogda-prikhodit-trek-nomer-na-posylku-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Когда приходит трек-номер на AliExpress: сроки и поиск</span><span class="related-bottom-desc">Узнайте, когда появляется трек-номер на AliExpress после оплаты. Сроки активации, поиск в приложении</span></a><a href="/articles/k/ka/kak-otsledit-posylku-s-aliekspress-po-trek-kodu-iz-kitaya.html" class="related-bottom-card"><span class="related-bottom-title">Как отследить посылку с AliExpress по трек-коду из Китая</span><span class="related-bottom-desc">Пошаговое руководство по трекингу заказов с AliExpress: где найти номер, как проверить статус, нюанс</span></a><a href="/articles/p/pr/promezhutochnyj-punkt-aliekspress-chto-takoe.html" class="related-bottom-card"><span class="related-bottom-title">Промежуточный пункт AliExpress: что это и как работает</span><span class="related-bottom-desc">Разбираем, что такое промежуточный пункт на Алиэкспресс, где его найти, как отслеживать посылку и чт</span></a><a href="/articles/k/ka/kak-najti-otpravlenie-s-aliekspress-po-nomeru-zakaza.html" class="related-bottom-card"><span class="related-bottom-title">Как отследить заказ AliExpress по номеру — инструкция 2026</span><span class="related-bottom-desc">Пошаговое руководство: где искать номер заказа, как проверить статус отправления на AliExpress и что</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

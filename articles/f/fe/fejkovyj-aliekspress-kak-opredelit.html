@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Фейковый Алиэкспресс: как отличить подделку сайта — Али Гид</title>
+    <meta name="description" content="Как не попасть на фейковый Алиэкспресс. Подробная инструкция по проверке домена, защите данных и безопасным платежам.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/f/fe/fejkovyj-aliekspress-kak-opredelit.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Фейковый Алиэкспресс: как отличить подделку сайта">
+    <meta property="og:description" content="Как не попасть на фейковый Алиэкспресс. Подробная инструкция по проверке домена, защите данных и безопасным платежам.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Фейковый Алиэкспресс: как отличить подделку сайта</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как отличить настоящий Алиэкспресс от фейкового сайта-подделки</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#анализ-доменного-имени-и-адресной-строки">Анализ доменного имени и адресной строки</a></li><li><a href="#визуальные-отличия-и-элементы-интерфейса">Визуальные отличия и элементы интерфейса</a></li><li><a href="#алгоритм-безопасной-авторизации-и-оплаты">Алгоритм безопасной авторизации и оплаты</a></li><li><a href="#типичные-ошибки-пользователей-и-способы-защиты">Типичные ошибки пользователей и способы защиты</a></li><li><a href="#что-делать-при-подозрении-на-мошенничество">Что делать при подозрении на мошенничество</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Покупки на популярных маркетплейсах стали неотъемлемой частью повседневной жизни миллионов пользователей, однако растущая популярность платформ привлекает внимание киберпреступников, создающих точные копии известных ресурсов. Фейковый Алиэкспресс — это не просто копия дизайна, а сложный инструмент, разработанный для кражи ваших личных данных, логинов, паролей и, самое главное, информации о банковских картах. Понимание того, как выявить мошеннический ресурс, критически важно для сохранения финансовой безопасности, ведь визуально такие сайты могут практически не отличаться от оригинала, особенно для неопытного пользователя.</p>
+
+<p>Если вы перешли по ссылке из сомнительного сообщения в мессенджере, увидели рекламу с нереально низкими ценами или вам прислали QR-код для получения «подарка», риск столкнуться с фишингом возрастает многократно. Злоумышленники используют методы социальной инженерии, чтобы заставить вас поверить в легитимность ресурса, обещая бесплатные товары или огромные скидки, которые невозможны в реальности. Важно сохранять бдительность и знать технические признаки, по которым можно вычислить подделку, прежде чем вводить какие-либо данные на странице.</p>
+
+<p>Вот что нужно сделать в первую очередь: внимательно проанализировать адресную строку браузера и поведение сайта. Настоящий ресурс работает по защищенному протоколу и имеет официальное доменное имя, в то время как копии часто используют похожие, но отличающиеся на одну букву названия или бесплатные доменные зоны. Далее мы подробно разберем алгоритм проверки, типичные ошибки пользователей и способы защиты ваших средств.</p>
+
+<h2 id="анализ-доменного-имени-и-адресной-строки">Анализ доменного имени и адресной строки</h2>
+
+<p>Первое и самое важное место, куда должен посмотреть пользователь при посещении любого интернет-магазина, — это адресная строка браузера. Именно здесь скрываются самые явные признаки того, что перед вами фейковый Алиэкспресс. Мошенники часто регистрируют домены, которые визуально очень похожи на оригинальные, рассчитывая на невнимательность человека. Например, вместо привычного aliexpress.com может использоваться aliexpress-shop.com, ali-express.ru или даже aliexpress-akciya.net.</p>
+
+<p>Важный момент: оригинальный глобальный сайт использует доменную зону .com, а официальная российская версия — .ru, но структура домена должна быть чистой, без лишних приставок и дефисов посередине названия бренда. Если вы видите в адресе слова типа sale, discount, promo или gift, это почти гарантированно указывает на мошеннический ресурс, созданный для выманивания данных.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Доменные зоны могут меняться, а мошенники регистрируют сотни новых адресов ежедневно. Всегда проверяйте официальное доменное имя в поисковых системах или через приложение, а не переходите по ссылкам из рекламы.</p></div>
+
+<p>На практике часто встречается ситуация, когда пользователь видит знакомый логотип и яркие баннеры, но игнорирует адрес сайта. Браузеры помечают такие сайты как «Незащищенные», если на них нет SSL-сертификата, однако современные фишинговые ресурсы научились обходить это ограничение, устанавливая бесплатные сертификаты безопасности. Поэтому наличие «замочка» рядом с адресом больше не является гарантией честности продавца, хотя его отсутствие — это стопроцентный сигнал опасности.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Обращайте внимание на протокол соединения. Если браузер предупреждает, что соединение не защищено, или показывает красный значок предупреждения, немедленно покиньте страницу.</p></div>
+
+<h3>Таблица сравнения признаков домена</h3>
+
+<p>Для удобства проверки можно использовать сравнительную таблицу, которая поможет быстро сориентироваться в ситуации и отличить оригинал от подделки по техническим параметрам адреса.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр проверки</th>
+<th>Официальный сайт</th>
+<th>Фейковый сайт (Фишинг)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доменная зона</td>
+<td>.com, .ru (официальные)</td>
+<td>.xyz, .top, .net, .info, .biz</td>
+</tr>
+<tr>
+<td>Написание бренда</td>
+<td>aliexpress (слитно)</td>
+<td>ali-express, alieexpress, alixpress</td>
+</tr>
+<tr>
+<td>Наличие лишних слов</td>
+<td>Отсутствуют</td>
+<td>sale, bonus, gift, promo, win</td>
+</tr>
+<tr>
+<td>Возраст домена</td>
+<td>Много лет</td>
+<td>Создан несколько дней или недель назад</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="визуальные-отличия-и-элементы-интерфейса">Визуальные отличия и элементы интерфейса</h2>
+
+<p>После проверки адреса следует внимательно осмотреть содержимое страницы. Фейковый Алиэкспресс часто создается hastily (на скорую руку), и хотя дизайн может быть скопирован один в один, детали часто выдают мошенников. Обратите внимание на качество логотипа: на поддельных сайтах он может быть размытым, иметь неправильные пропорции или отличаться оттенками цветов от оригинала.</p>
+
+<p>Если хотите убедиться в подлинности ресурса, попробуйте найти раздел «О нас» или «Контакты». На оригинальном сайте эта информация структурирована, есть юридические данные компании, адреса офисов и работающие формы связи. На фишинговых страницах такие разделы либо отсутствуют, либо содержат набор бессвязного текста, скопированного с разных источников, либо ведут на неработающие ссылки.</p>
+
+<details class="faq-item"><summary>Технические детали верстки</summary><div class="faq-answer"><p> Мошенники часто копируют HTML-код главной страницы, но забывают обновить скрипты или подключить внешние стили correctly. Если при прокрутке страницы «плывет» верстка, не работают выпадающие меню или кнопки нажимаются без реакции, это признак низкокачественной копии.</p></div></details>
+
+<h3>Ошибки в тексте и отсутствие функционала</h3>
+
+<p>Важный момент: автоматические переводчики, которыми пользуются создатели фейков, часто допускают грубые грамматические и смысловые ошибки. Если вы читаете текст на странице и видите странные фразы, несогласованные окончания или машинный стиль перевода, это тревожный сигнал. Официальный маркетплейс дорожит репутацией и использует профессиональный перевод.</p>
+
+<p>Кроме того, проверьте работоспособность ссылок в подвале сайта (футере). На фейковых ресурсах ссылки на «Политику конфиденциальности», «Пользовательское соглашение» или «Помощь» часто ведут в никуда, открывают пустые страницы или просто обновляют текущий экран. Настоящий сайт имеет глубокую структуру с работающими разделами для каждой категории товаров и услуги.</p>
+
+<div class="checklist-block"><h4>📋 Проверка интерфейса</h4><ol><li><strong>Шаг 1.</strong> Откройте любую товарную карточку</li><li><strong>Шаг 2.</strong> Попробуйте выбрать вариант цвета или размера</li><li><strong>Шаг 3.</strong> Нажмите кнопку «Купить» или «В корзину»</li><li><strong>Шаг 4.</strong> Проверьте, сохраняется ли товар в профиле при авторизации</li></ol></div>
+
+<h2 id="алгоритм-безопасной-авторизации-и-оплаты">Алгоритм безопасной авторизации и оплаты</h2>
+
+<p>Самый критический момент взаимодействия с потенциально опасным сайтом — это ввод личных данных. Фейковый Алиэкспресс создан именно для того, чтобы вы ввели свой логин, пароль и данные карты. Если сайт требует авторизации для просмотра каталога или обещает вход через «специальный шлюз» для получения скидки, это 100% попытка кражи аккаунта.</p>
+
+<p>Вот что нужно сделать: никогда не вводите данные своей основной банковской карты на сайтах, в которых вы не уверены на сто процентов. Используйте виртуальные карты с ограниченным лимитом средств или сервисы безопасных платежей, которые не передают данные карты напрямую продавцу. Оригинальный сайт всегда перенаправляет на защищенные шлюзы платежных систем, а не просит ввести данные в простую форму на странице.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Никогда не сохраняйте данные карты в браузере на посторонних устройствах и не соглашайтесь на предложения «менеджеров» перевести деньги напрямую на карту или через криптовалюту. Официальная площадка всегда проводит оплату внутри системы.</p></div>
+
+<h3>Проверка безопасности соединения</h3>
+
+<p>На практике безопасность передачи данных обеспечивается протоколом HTTPS. Обратите внимание, что современные браузеры помечают сайты без этого протокола как небезопасные. Однако, как упоминалось ранее, наличие HTTPS не гарантирует честность владельцев. Важнее следить за тем, куда именно вы попадаете после нажатия кнопки оплаты.</p>
+
+<p>Если при переходе к оплате адресная строка резко меняет домен на неизвестный или предлагает скачать какое-либо приложение для завершения транзакции, немедленно прекратите операцию. Легитимные платежи проходят в рамках домена платежного агрегатора или самого маркетплейса без необходимости загрузки стороннего ПО.</p>
+
+<ul>
+<li>Используйте двухфакторную авторизацию для входа в личный кабинет.</li>
+<li>Проверяйте историю операций в банковском приложении в реальном времени.</li>
+<li>Не переходите по ссылкам из SMS и сообщений в мессенджерах для оплаты заказов.</li>
+<li>Установите антивирусное ПО с модулем защиты от фишинга.</li>
+</ul>
+
+<h2 id="типичные-ошибки-пользователей-и-способы-защиты">Типичные ошибки пользователей и способы защиты</h2>
+
+<p>Анализ инцидентов показывает, что пользователи чаще всего становятся жертвами мошенников из-за невнимательности или излишней доверчивости к яркой рекламе. Понимание типичных ошибок поможет вам избежать попадания в ловушку и сохранить свои средства в безопасности.</p>
+
+<p>Если хотите обезопасить себя, установите правило: любые «слишком хорошие» предложения, которые встречаются вам в интернете, должны проходить тройную проверку. Бесплатный iPhone, 99% скидка на все товары или выигрыш в лотерею, в которой вы не участвовали — это классические приманки фишеров.</p>
+
+<div class="checklist-block"><h4>☑️ Критерии безопасности</h4><label class="check-item"><input type="checkbox"><span>Адрес сайта совпадает с официальным</span></label><label class="check-item"><input type="checkbox"><span>Есть работающая связь с поддержкой</span></label><label class="check-item"><input type="checkbox"><span>Отсутствуют требования скачать файл</span></label><label class="check-item"><input type="checkbox"><span>Цены соответствуют рыночным</span></label><label class="check-item"><input type="checkbox"><span>Сайт существует давно</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h3>Список распространенных заблуждений</h3>
+
+<p>Многие пользователи ошибочно полагаются на визуальное сходство сайта с оригиналом, считая, что если логотип на месте, то и сайт настоящий. Это опасное заблуждение, так как скопировать картинку занимает несколько секунд. Другая частая ошибка — игнорирование предупреждений браузера или антивируса, которые блокируют переход на подозрительный ресурс.</p>
+
+<ol>
+<li>Вера в то, что акционные предложения приходят через личные сообщения в соцсетях от имени магазина.</li>
+<li>Использование одного и того же пароля для всех сайтов, что позволяет хакерам получить доступ к другим аккаунтам после кражи данных с фейка.</li>
+<li>Отказ от проверки сертификата безопасности и доменной информации.</li>
+<li>Попытка «просто посмотреть», что будет, если ввести данные, что приводит к мгновенному перехвату информации.</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Помните, что сотрудники официальных магазинов никогда не пишут первыми в личные сообщения с просьбой подтвердить данные или оплатить заказ отдельно. Все коммуникации ведутся через встроенный чат на платформе.</p></div>
+
+<h2 id="что-делать-при-подозрении-на-мошенничество">Что делать при подозрении на мошенничество</h2>
+
+<p>Если вы поняли, что попали на фейковый Алиэкспресс, но еще не ввели данные, просто закройте вкладку и очистите кэш браузера. Если же вы успели ввести логин и пароль, немедленно смените их на официальном сайте (через безопасное соединение, например, с мобильного интернета, а не того Wi-Fi, где могли перехватить данные). Также рекомендуется проверить компьютер на наличие вредоносного ПО.</p>
+
+<p>Важный момент: если были введены данные карты, свяжитесь с банком для блокировки карты и перевыпуска. Сообщите оператору о возможной компрометации данных. Не ждите появления списаний, действуйте превентивно. Банки имеют механизмы защиты от мошеннических операций, но скорость вашей реакции играет ключевую роль.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Установите расширение для браузера, которое проверяет репутацию сайтов и блокирует известные фишинговые ресурсы. Это добавит дополнительный уровень защиты при серфинге в интернете.</p></div>
+
+<p>В завершение стоит подчеркнуть, что безопасность в интернете зависит в первую очередь от внимательности пользователя. Фейковый Алиэкспресс — это реальная угроза, но ее легко избежать, если соблюдать базовые правила цифровой гигиены. Всегда проверяйте адресную строку, не верьте чудесным скидкам и используйте только официальные приложения или проверенные ссылки для входа.</p>
+
+<p>Регулярно обновляйте пароли, используйте уникальные комбинации символов для разных сервисов и не передавайте коды из SMS никому. Соблюдение этих простых правил позволит вам наслаждаться онлайн-шопингом без риска потерять деньги или личные данные. Будьте бдительны, и тогда ни один мошенник не сможет вам навредить.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Фейковый Алиэкспресс легко отличить по домену, ошибкам в тексте и требованию ввести данные вне официальной формы. Всегда проверяйте адресную строку и используйте только официальные приложения.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#анализ-доменного-имени-и-адресной-строки">Анализ доменного имени и адресной строки</a></li><li><a href="#визуальные-отличия-и-элементы-интерфейса">Визуальные отличия и элементы интерфейса</a></li><li><a href="#алгоритм-безопасной-авторизации-и-оплаты">Алгоритм безопасной авторизации и оплаты</a></li><li><a href="#типичные-ошибки-пользователей-и-способы-защиты">Типичные ошибки пользователей и способы защиты</a></li><li><a href="#что-делать-при-подозрении-на-мошенничество">Что делать при подозрении на мошенничество</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-udalit-akkaunt-v-aliekspress-s-telefona-v-prilozhenii.html" class="related-card">Как удалить аккаунт АлиЭкспресс с телефона: полная инструкция</a></li><li><a href="/articles/k/ka/kak-izmenit-email-aliexpress.html" class="related-card">Как изменить email на AliExpress: пошаговая инструкция</a></li><li><a href="/articles/p/pr/proverochnyj-kod-aliekspress-chto-eto-prishlo-sms-s-kodom.html" class="related-card">Код из СМС от AliExpress: что это и как подтвердить заказ</a></li><li><a href="/articles/k/ka/kak-pravilno-smenit-parol-na-aliekspress.html" class="related-card">Как сменить пароль на АлиЭкспресс: полная инструкция</a></li><li><a href="/articles/c/ch/chem-plokh-aliekspress.html" class="related-card">Недостатки AliExpress: скрытые риски, обман и проблемы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-udalit-akkaunt-v-aliekspress-s-telefona-v-prilozhenii.html" class="related-bottom-card"><span class="related-bottom-title">Как удалить аккаунт АлиЭкспресс с телефона: полная инструкция</span><span class="related-bottom-desc">Пошаговое руководство по удалению учетной записи в приложении AliExpress. Как навсегда закрыть профи</span></a><a href="/articles/k/ka/kak-izmenit-email-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Как изменить email на AliExpress: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по смене электронной почты на Алиэкспресс. Решение проблем с доступом, безопас</span></a><a href="/articles/p/pr/proverochnyj-kod-aliekspress-chto-eto-prishlo-sms-s-kodom.html" class="related-bottom-card"><span class="related-bottom-title">Код из СМС от AliExpress: что это и как подтвердить заказ</span><span class="related-bottom-desc">Получили СМС с проверочным кодом от AliExpress? Разбираем, зачем он нужен, как правильно ввести и чт</span></a><a href="/articles/k/ka/kak-pravilno-smenit-parol-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить пароль на АлиЭкспресс: полная инструкция</span><span class="related-bottom-desc">Подробная инструкция по смене пароля на AliExpress. Как восстановить доступ, настроить безопасность </span></a><a href="/articles/c/ch/chem-plokh-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Недостатки AliExpress: скрытые риски, обман и проблемы</span><span class="related-bottom-desc">Подробный разбор минусов AliExpress: качество товаров, логистика, споры и реальные риски. Стоит ли з</span></a><a href="/articles/k/ka/kak-otklyuchit-rekomendatsii-na-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить рекомендации на AliExpress: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по настройке персонализации и отключению рекомендаций на AliExpress. Сохраните </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

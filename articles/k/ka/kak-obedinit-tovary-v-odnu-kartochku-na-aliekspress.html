@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как объединить товары в одну карточку на AliExpress — Али Гид</title>
+    <meta name="description" content="Подробный гайд: как добавить товары в одну корзину, оплатить вместе и получить трек-номер. Инструкция по группировке покупок.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-obedinit-tovary-v-odnu-kartochku-na-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как объединить товары в одну карточку на AliExpress">
+    <meta property="og:description" content="Подробный гайд: как добавить товары в одну корзину, оплатить вместе и получить трек-номер. Инструкция по группировке покупок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/poisk-tovarov/">Поиск товаров</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как объединить товары в одну карточку на AliExpress</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как объединить товары в одну карточку на AliExpress</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-функцию-объединения-и-как-она-работает">Где найти функцию объединения и как она работает</a></li><li><a href="#пошаговая-инструкция-по-оформлению-объединенного-заказа">Пошаговая инструкция по оформлению объединенного заказа</a></li><li><a href="#нюансы-логистики-когда-товары-объединяются-физически">Нюансы логистики: когда товары объединяются физически</a></li><li><a href="#типичные-ошибки-и-подводные-камни">Типичные ошибки и подводные камни</a></li><li><a href="#что-делать-если-товары-все-же-разделились">Что делать, если товары все же разделились</a></li><li><a href="#стратегия-умного-шопинга-на-aliexpress">Стратегия умного шопинга на AliExpress</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Покупки на популярной китайской площадке часто превращаются в настоящий квест по поиску выгодных предложений. Пользователи могут часами листать каталоги, отбирая мелочевку, электронику или одежду, чтобы собрать полную корзину. Однако при оформлении заказа новички часто сталкиваются с ситуацией, когда система разбивает их выбор на несколько отдельных заказов, каждый со своей стоимостью доставки и собственным трек-номером. Это не только запутывает отслеживание посылок, но и лишает возможности воспользоваться порогом бесплатной доставки или объединенными купонами.</p>
+<p>Понимание того, как работает система группировки товаров, критически важно для экономии времени и денег. Многие покупатели ошибочно полагают, что наличие товаров в корзине автоматически означает их объединение, но на практике алгоритмы платформы диктуют свои правила. Если вы хотите получить все вещи в одной коробке или хотя бы оформить их одним платежом, необходимо учитывать ряд технических и логистических нюансов. В этом руководстве мы разберем, как правильно формировать заказы, чтобы минимизировать количество треков и maximизировать выгоду.</p>
+<p>Важный момент: объединение возможно только при соблюдении определенных условий, касающихся склада отправителя и выбранного метода доставки. Если товары лежат на разных складах или продаются разными поставщиками с несовместимыми условиями логистики, система физически не сможет свести их в одну посылку. Поэтому перед тем как переходить к оплате, стоит внимательно проверить детали каждого лота.</p>
+
+<h2 id="где-найти-функцию-объединения-и-как-она-работает">Где найти функцию объединения и как она работает</h2>
+
+<p>На самом деле, отдельной кнопки «Объединить всё в одну кучу» в интерфейсе приложения или на сайте не существует. Процесс происходит автоматически на основе алгоритмов платформы, которые анализируют совместимость товаров. Ваша задача как покупателя — создать правильные условия для этого автоматического срабатывания. В первую очередь, все товары должны находиться в корзине. Именно корзина является тем местом, где система начинает «примерять» товары друг к другу, оценивая возможность их совместной отправки.</p>
+<p>Если вы хотите, чтобы товары были оплачены вместе, вам нужно перейти в раздел корзины. Там вы увидите список всех добавленных позиций. Система группирует их по продавцам и складам. Если товары находятся на одном складе (например, «Склад в России» или «Склад в Китае») и отправляются одним логистическим партнером, при переходе к оформлению они могут быть предложены к объединению. Однако часто бывает так, что товары от разных продавцов, даже если они лежат рядом в списке, формируют отдельные заказы.</p>
+
+<h3>Роль корзины в процессе группировки</h3>
+<p>Корзина на AliExpress — это не просто список желаемого, а сложный инструмент сортировки. Когда вы добавляете товар, система присваивает ему метку продавца и склада. Для успешного объединения важно, чтобы в момент оформления заказа в корзине не было конфликующих позиций. Например, если вы добавили товар с быстрой доставкой и товар с эконом-доставкой, система может разделить их, так как они будут отправлены разными службами.</p>
+<p>Вот что нужно сделать: перед оплатой внимательно просмотрите список в корзине. Если вы видите, что товары разбиты на группы по продавцам, это нормально. Но если один и тот же продавец разбил ваши товары на несколько заказов, проверьте, не выбраны ли разные варианты доставки для разных позиций. Часто достаточно привести метод доставки к единому знаменателю, чтобы система позволила оформить их вместе.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Корзина хранит товары ограниченное время. Если вы отложите покупку на несколько недель, цена или наличие могут измениться, что сбросит возможность объединения по старой цене.</p></div>
+
+<h2 id="пошаговая-инструкция-по-оформлению-объединенного-заказа">Пошаговая инструкция по оформлению объединенного заказа</h2>
+
+<p>Процесс оформления заказа, который приведет к объединению товаров (или хотя бы их совместной оплате), требует внимательности на каждом этапе. Начинать нужно с тщательной подготовки корзины. Убедитесь, что вы выбрали нужные размеры, цвета и количества. После этого переходите к процедуре checkout, где и происходит магия алгоритмов.</p>
+
+<div class="checklist-block"><h4>📋 Оформление заказа</h4><ol><li><strong>Шаг 1.</strong> Зайдите в корзину и выберите товары</li><li><strong>Шаг 2.</strong> Нажмите «Купить» или «Оформить»</li><li><strong>Шаг 3.</strong> Проверьте адрес доставки для всех позиций</li><li><strong>Шаг 4.</strong> Оплатите единоразово всю сумму</li></ol></div>
+
+<h3>Выбор метода доставки и адреса</h3>
+<p>Ключевым моментом является адрес доставки. Для объединения товаров в одну физическую посылку (особенно при доставке из Китая) адрес должен быть идентичным. Если вы укажете разные адреса или даже отличающиеся формулировки (например, в одном случае «дом 5», в другом «д. 5»), система может посчитать это разными направлениями и разделить заказ. Кроме того, метод доставки должен поддерживать консолидацию.</p>
+<p>На практике чаще всего объединение происходит при выборе стандартных методов доставки, таких как AliExpress Standard Shipping или Cainiao Super Economy. Если для одного товара выбрана курьерская доставка DHL, а для другого — обычная почта, объединение в одну посылку невозможно. Вам придется либо менять метод доставки на более универс3альный, либо мириться с несколькими треками.</p>
+
+<h3>Оплата и формирование трека</h3>
+<p>После подтверждения адреса система пересчитает итоговую сумму. Если товары удалось объединить в один логистический (order), вы увидите одну общую сумму к оплате и один трек-номер (или он появится позже в деталях). Если же система разделила заказ, вы увидите несколько блоков с оплатой. В некоторых случаях, даже если товары разбиты по разным заказам внутри одной транзакции, они могут быть объединены на складе перед отправкой.</p>
+<p>Важно оплатить все выбранные товары одним кликом, если интерфейс позволяет. Раздельная оплата гарантированно приведет к раздельным заказам. После оплаты статус заказа изменится на «Ожидает отправки». Именно в этот период продавец или склад формирует посылку.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Сроки обработки заказа могут варьироваться. Если один товар будет готов к отправке через 2 дня, а второй через 10, система может отправить их separately, даже если они были в одном заказе.</p></div>
+
+<h2 id="нюансы-логистики-когда-товары-объединяются-физически">Нюансы логистики: когда товары объединяются физически</h2>
+
+<p>Существует разница между объединением в рамках одного заказа (оплата одним чеком) и физическим объединением в одну коробку. Часто покупатели путают эти понятия. Вы можете оплатить пять товаров разом, но получить пять разных пакетиков. Физическое объединение происходит на складе отправителя или в сортировочном центре.</p>
+
+<h3>Доставка с местного склада (Россия, Польша, Испания)</h3>
+<p>Если вы заказываете товары, которые уже находятся на складе в вашей стране (маркировка «Доставка из РФ» или другой страны ЕС), chances of physical consolidation are high if they come from the same warehouse hub. Однако, даже товары от разных продавцов могут быть отправлены с одного распределительного центра. В этом случае они часто приходят в одной коробке или пакете, но с разными трек-номерами внутри, либо вообще без трек-номеров для внутренней пересылки.</p>
+<p>Если товары приходят с разных складов одного региона, они физически не могут быть в одной коробке, так как находятся в разных городах. В таком случае вы получите несколько посылок, даже если оплата была единой. Это нормальная практика логистики.</p>
+
+<h3>Доставка из Китая: Consolidation Service</h3>
+<p>При заказе из Китая ситуация сложнее. AliExpress внедряет услуги по объединению посылок (Consolidation), но они работают не всегда автоматически. Иногда система предлагает объединить несколько заказов от разных продавцов на складе в Китае перед отправкой в вашу страну. Это позволяет сэкономить на доставке или получить товар быстрее.</p>
+<p>Если вы видите предложение объединять заказы на складе, соглашайтесь на него. Это значит, что ваши пакетики от разных продавцов соберут в один большой мешок и отправят общим трек-номером. Это значительно упрощает отслеживание и получение.</p>
+
+<details class="faq-item"><summary>Как работает складское объединение</summary><div class="faq-answer"><p> Продавцы отправляют товар на центральный склад AliExpress. Там сотрудники сканируют ваши заказы, понимают, что они идут одному человеку, упаковывают их вместе и клеят новый ярлык для международной пересылки.</p></div></details>
+
+<table>
+<thead>
+<tr>
+<th>Тип доставки</th>
+<th>Возможность объединения</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AliExpress Standard Shipping</td>
+<td>Высокая</td>
+<td>Часто объединяется на сортировочных центрах</td>
+</tr>
+<tr>
+<td>Cainiao Super Economy</td>
+<td>Средняя</td>
+<td>Долгая доставка, могут разделить на части</td>
+</tr>
+<tr>
+<td>Доставка из РФ/Европы</td>
+<td>Зависит от склада</td>
+<td>Объединяются только товары с одного хаба</td>
+</tr>
+<tr>
+<td>Курьерские службы (DHL, FedEx)</td>
+<td>Низкая</td>
+<td>Редко объединяются с обычной почтой</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="типичные-ошибки-и-подводные-камни">Типичные ошибки и подводные камни</h2>
+
+<p>Даже опытные пользователи иногда допускают ошибки, которые сводят на нет все попытки оптимизировать доставку. Чаще всего проблемы возникают из-за невнимательности к деталям интерфейса или misunderstanding работы купонов.</p>
+
+<h3>Игнорирование условий купонов</h3>
+<p>Одна из самых частых ошибок — попытка применить купон на объединенный заказ, когда товары не соответствуют его условиям. Например, купон действует только на электронику, а вы добавили в корзину еще и одежду. Система может разбить заказ, чтобы применить скидку только к подходящим товарам, либо вообще не дать оформить заказ со скидкой. Всегда проверяйте, на какие категории товаров распространяется действие промокода.</p>
+
+<h3>Разные варианты доставки для одного продавца</h3>
+<p>Если вы берете два товара у одного продавца, но для одного выбрали «Standard», а для другого «Economy», продавец может отправить их двумя разными посылками, чтобы не ждать готовности второго товара. Это увеличит время ожидания и запутает трекинг. Старайтесь выбирать одинаковый метод доставки для всех позиций от одного вендора.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте функцию «Похожие товары» или «Рекомендуемое», чтобы найти нужные вещи у того же продавца, что и основной товар. Это повысит шансы на объединение.</p></div>
+
+<h3>Блок типичных ошибок</h3>
+<ul>
+<li>Оплата товаров частями вместо единого платежа.</li>
+<li>Указание разных имен получателей или телефонов в адресе доставки.</li>
+<li>Добавление товаров с предзаказом (long shipping time) вместе с готовыми к отправке (ready to ship).</li>
+<li>Игнорирование сообщений от продавца с просьбой подтвердить объединение.</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Проверка перед оплатой</h4><label class="check-item"><input type="checkbox"><span>Все товары в одной корзине?</span></label><label class="check-item"><input type="checkbox"><span>Адрес доставки идентичен для всех позиций?</span></label><label class="check-item"><input type="checkbox"><span>Метод доставки совместим?</span></label><label class="check-item"><input type="checkbox"><span>Купоны применяются корректно?</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="что-делать-если-товары-все-же-разделились">Что делать, если товары все же разделились</h2>
+
+<p>Бывает так, что вы сделали все правильно, но получили несколько треков или посылок. Не стоит паниковать. В большинстве случаев это не влияет на качество товаров, а лишь требует чуть больше внимания при отслеживании. Если товары пришли в разных коробках, просто дождитесь всех отправлений. Если же пропала часть заказа, система защиты покупателя все равно работает для каждого трек-номера отдельно.</p>
+<p>Если разделение произошло по вине продавца (например, он отправил часть товара, а часть забыл), и вы хотите объединить доставку или получить компенсацию за двойную доставку (если она была платной), стоит открыть спор или написать продавцу. Однако, если разделение произошло на уровне логистических алгоритмов платформы, сделать с этим ничего нельзя.</p>
+
+<h3>Работа с трек-номерами</h3>
+<p>При получении нескольких треков удобно использовать сторонние агрегаторы трекинга или встроенное приложение AliExpress, которое умеет группировать заказы по дате получения. Создайте себе привычку проверять статус каждого трека раз в 2-3 дня. Это поможет вовремя заметить, если одна из посылок «зависла».</p>
+<p>Важный момент: если товары разделились, но пришли в одном пакете (что бывает при доставке почтой), на пакете может быть указан только один основной трек-номер, а остальные будут вложены внутрь. Будьте внимательны при получении.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Объединение товаров зависит от склада, метода доставки и единого адреса. Полностью контролировать процесс нельзя, но можно создать условия для автоматической группировки.</p></div>
+
+<h2 id="стратегия-умного-шопинга-на-aliexpress">Стратегия умного шопинга на AliExpress</h2>
+
+<p>Подводя итог, можно сказать, что объединение товаров в одну карточку или посылку — это скорее результат грамотной стратегии покупок, чем действие одной кнопки. Если вы планируете закупку большого количества мелочей, попробуйте найти одного продавца, у которого есть все нужные позиции (так называемые «стоковые» магазины). Это гарантирует на 100% единую посылку и часто единую доставку.</p>
+<p>Если же товары от разных продавцов, ваша главная задача — синхронизировать параметры доставки. Одинаковый адрес, одинаковый метод shipping и оплата в один клик — вот три кита, на которых держится успешное объединение. Не забывайте, что платформа постоянно обновляет свои алгоритмы, и то, что работало год назад, сегодня может иметь новые особенности. Следите за изменениями в интерфейсе и сообщениями от службы поддержки.</p>
+<p>В конечном счете, даже если товары придут в двух разных коробках, главное — это выгодная цена и удовольствие от покупки. Использование купонов, участие в распродажах и правильный выбор времени для заказа часто важнее, чем количество треков в приложении. Экспериментируйте с разными комбинациями товаров, и вы быстро поймете логику работы системы в вашем регионе.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Помните, что правила платформы могут меняться. Актуальную информацию о доставке всегда можно найти в справочном центре приложения или на официальном сайте AliExpress.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-функцию-объединения-и-как-она-работает">Где найти функцию объединения и как она работает</a></li><li><a href="#пошаговая-инструкция-по-оформлению-объединенного-заказа">Пошаговая инструкция по оформлению объединенного заказа</a></li><li><a href="#нюансы-логистики-когда-товары-объединяются-физически">Нюансы логистики: когда товары объединяются физически</a></li><li><a href="#типичные-ошибки-и-подводные-камни">Типичные ошибки и подводные камни</a></li><li><a href="#что-делать-если-товары-все-же-разделились">Что делать, если товары все же разделились</a></li><li><a href="#стратегия-умного-шопинга-на-aliexpress">Стратегия умного шопинга на AliExpress</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-iskat-lui-vitton-na-aliekspress.html" class="related-card">Как искать Луи Виттон на Алиэкспресс: гид по репликам и аналогам</a></li><li><a href="/articles/r/ro/rozovoe-zoloto-585-chto-eto-takoe-na-aliekspress.html" class="related-card">Розовое золото 585 на Алиэкспресс: правда или позолота?</a></li><li><a href="/articles/k/ka/kak-zakazat-zara-na-aliekspress.html" class="related-card">Как заказать товар на Алиэкспресс: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-najti-samyj-populyarnyj-tovar-na-aliekspress.html" class="related-card">Как найти самый популярный товар на АлиЭкспресс: гид</a></li><li><a href="/articles/c/ch/chto-zakazat-na-aliekspress-za-300-rublej.html" class="related-card">Что заказать на АлиЭкспресс за 300 рублей: Топ вещей</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-iskat-lui-vitton-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как искать Луи Виттон на Алиэкспресс: гид по репликам и аналогам</span><span class="related-bottom-desc">Подробная инструкция по поиску вещей Луи Виттон на AliExpress. Узнайте, как отличить реплику, какие </span></a><a href="/articles/r/ro/rozovoe-zoloto-585-chto-eto-takoe-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Розовое золото 585 на Алиэкспресс: правда или позолота?</span><span class="related-bottom-desc">Как купить розовое золото 585 на Алиэкспресс? Разбор пробы, цен, рисков и способов проверки подлинно</span></a><a href="/articles/k/ka/kak-zakazat-zara-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как заказать товар на Алиэкспресс: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство, как оформить первый заказ на AliExpress. Регистрация, выбор товара, оплата и </span></a><a href="/articles/k/ka/kak-najti-samyj-populyarnyj-tovar-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как найти самый популярный товар на АлиЭкспресс: гид</span><span class="related-bottom-desc">Узнайте, как найти самый популярный товар на АлиЭкспресс. Пошаговая инструкция по фильтрам, анализу </span></a><a href="/articles/c/ch/chto-zakazat-na-aliekspress-za-300-rublej.html" class="related-bottom-card"><span class="related-bottom-title">Что заказать на АлиЭкспресс за 300 рублей: Топ вещей</span><span class="related-bottom-desc">Список полезных товаров до 300 рублей на АлиЭкспресс. Электроника, мелочи для дома, гаджеты и инстру</span></a><a href="/articles/c/ch/chto-oznachaet-2-pcs-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Что значит 2 pcs на Алиэкспресс: расшифровка и правила покупки</span><span class="related-bottom-desc">Подробный разбор аббревиатуры 2 pcs на AliExpress. Как купить набор, не переплатить за доставку и из</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

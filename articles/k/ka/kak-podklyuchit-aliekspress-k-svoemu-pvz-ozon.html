@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как подключить AliExpress к ПВЗ Ozon: Инструкция — Али Гид</title>
+    <meta name="description" content="Полный гид по интеграции AliExpress с Ozon Rocket для ПВЗ. Настройка выдачи, тарифы, лимиты и решение проблем.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-podklyuchit-aliekspress-k-svoemu-pvz-ozon.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить AliExpress к ПВЗ Ozon: Инструкция">
+    <meta property="og:description" content="Полный гид по интеграции AliExpress с Ozon Rocket для ПВЗ. Настройка выдачи, тарифы, лимиты и решение проблем.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/prodavtsam-i-biznes/">Продавцам и бизнес</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить AliExpress к ПВЗ Ozon: Инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как подключить AliExpress к своему ПВЗ Ozon: Полный гид</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-функцию-интеграции-в-личном-кабинете">Где найти функцию интеграции в личном кабинете</a></li><li><a href="#пошаговая-инструкция-по-подключению-и-работе">Пошаговая инструкция по подключению и работе</a></li><li><a href="#нюансы-работы-тарифы-и-лимиты">Нюансы работы, тарифы и лимиты</a></li><li><a href="#типичные-ошибки-при-подключении-и-работе">Типичные ошибки при подключении и работе</a></li><li><a href="#как-эффективно-использовать-трафик-в-пвз">Как эффективно использовать трафик в ПВЗ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы являетесь владельцем или партнером пункта выдачи заказов (ПВЗ) Ozon, то расширение ассортимента услуг — это естественный шаг для увеличения трафика и прибыли. Часто партнеры задаются вопросом, как подключить AliExpress к своему ПВЗ Ozon, полагая, что это прямая интеграция, аналогичная подключению Wildberries или самого Ozon. Однако реальность такова, что прямой кнопки «Подключить AliExpress» в личном кабинете партнера Ozon не существует, так как это две конкурирующие платформы с разными экосистемами. Понимание этой разницы критически важно, чтобы не тратить время на поиски несуществующей функции.</p>
+<p>На практике возможность работать с AliExpress появляется через партнерскую программу Ozon Rocket (ранее известную как Ozon Партнерская программа). Именно этот инструмент позволяет монетизировать трафик, который приходит в вашу точку. Посетители ПВЗ могут интересоваться товарами с AliExpress, и ваша задача как партнера — грамотно перенаправить их интерес в комиссионное русло. Это не автоматическая выдача посылок, а именно реферальная модель сотрудничества, которая требует правильной настройки.</p>
+<p>Важный момент: многие путают логистическую интеграцию и маркетинговую. Вы не сможете принимать посылки AliExpress на склад Ozon для последующей выдачи клиентам, если это не предусмотрено специальными пилотными проектами, о которых обычно сообщается индивидуально. Основная рабочая модель для большинства ПВЗ — это создание витрины или использование QR-кодов для перехода в магазин AliExpress через вашу партнерскую ссылку. Вот что нужно сделать, чтобы запустить этот процесс и начать получать доход.</p>
+
+<h2 id="где-найти-функцию-интеграции-в-личном-кабинете">Где найти функцию интеграции в личном кабинете</h2>
+<p>Первое, что нужно сделать, это убедиться, что ваш аккаунт в системе Ozon подготовлен для работы с партнерскими программами. Часто партнеры ищут настройки AliExpress в разделе логистики или управления точкой, что является ошибкой. Необходимый функционал находится в совершенно другом модуле, предназначенном для маркетинга и привлечения трафика.</p>
+<p>Для доступа к нужным инструментам вам необходимо перейти в Ozon Rocket. Это отдельная платформа, которая требует авторизации через ваш аккаунт Ozon (Seller или Партнер). Если у вас еще нет доступа к Ozon Rocket, система предложит оформить регистрацию, где нужно будет подтвердить статус партнера. После входа в интерфейс перед вами откроется панель управления партнерскими программами.</p>
+<p>Внутри Ozon Rocket вам потребуется найти раздел «Магазины» или «Каталог партнерских программ». Именно там агрегированы все доступные для подключения ритейлеры, включая AliExpress Russia. Обратите внимание, что статус программы может меняться: иногда AliExpress проводит набор партнеров, а иногда приостанавливает его. Поэтому, если вы не видите магазин в списке активных, проверьте раздел «Архив» или новости платформы.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Условия партнерских программ, включая AliExpress, могут изменяться в любой момент. Всегда проверяйте актуальность ставок и правил в личном кабинете Ozon Rocket или на официальном сайте партнерской сети перед началом работы.</p></div>
+
+<h3>Настройка профиля партнера</h3>
+<p>Прежде чем генерировать ссылки, убедитесь, что в профиле партнера заполнены все реквизиты для выплат. Без этого даже успешные переходы и покупки не будут оплачены. В разделе «Финансы» или «Настройки» укажите способ вывода средств и проверьте статус верификации.</p>
+<p>Также стоит настроить параметры постбэка, если вы планируете использовать сложные системы аналитики, хотя для большинства ПВЗ достаточно стандартных инструментов Ozon Rocket. Важно сохранить логин и пароль от кабинета партнера в надежном месте, так как доступ к нему понадобится регулярно.</p>
+
+<h2 id="пошаговая-инструкция-по-подключению-и-работе">Пошаговая инструкция по подключению и работе</h2>
+<p>Процесс подключения AliExpress к вашей деятельности как партнера Ozon сводится к регистрации в партнерской программе маркетплейса и генерации ссылок. Это не техническая интеграция API, а скорее настройка маркетингового канала. Ниже приведена последовательность действий, которая позволит вам начать работу.</p>
+<p>Сначала необходимо подать заявку на участие в партнерской программе AliExpress Russia через интерфейс Ozon Rocket. После одобрения заявки (обычно это занимает от нескольких часов до пары дней) вам станут доступны инструменты для создания ссылок. Вы сможете формировать Deeplink-ссылки на конкретные товары, категории или главную страницу.</p>
+
+<div class="checklist-block"><h4>📋 Регистрация в партнерской программе</h4><ol><li><strong>Шаг 1.</strong> Войдите в Ozon Rocket через аккаунт Ozon</li><li><strong>Шаг 2.</strong> Найдите в каталоге магазин «AliExpress Russia»</li><li><strong>Шаг 3.</strong> Нажмите кнопку «Подключиться» и заполните анкету</li><li><strong>Шаг 4.</strong> Дождитесь подтверждения и получите доступ к инструментам</li></ol></div>
+
+<p>После получения доступа ваша задача — внедрить эти ссылки в навигацию вашего ПВЗ. Это может быть QR-код на стойке администратора, ссылка в чат-боте для клиентов или пост в локальной группе в соцсетях. Клиент переходит по вашей ссылке, покупает товар на AliExpress, а вы получаете процент от совершенной покупки.</p>
+<p>Важно понимать механику attribution (атрибуции). Cookie-файл, который устанавливается при переходе по вашей ссылке, имеет определенный срок жизни. Если клиент купит товар в течение этого периода, комиссия будет начислена вам. Если клиент вернется на сайт позже без повторного перехода, комиссия может не сработать.</p>
+
+<h3>Генерация партнерских ссылок</h3>
+<p>Для работы вам нужно освоить инструмент «Создание ссылок» в кабинете Ozon Rocket. Выберите AliExpress, вставьте URL нужного товара или страницы и нажмите «Создать». Система выдаст вам короткую ссылку, которую можно размещать где угодно.</p>
+<p>Рекомендуется создавать отдельные ссылки для разных акций. Например, одна ссылка для раздела «Товары со скидкой», другая для «Электроники». Это позволит вам в будущем анализировать, какой именно контент интересен вашим клиентам.</p>
+
+<h2 id="нюансы-работы-тарифы-и-лимиты">Нюансы работы, тарифы и лимиты</h2>
+<p>Работа с партнерскими программами китайского маркетплейса имеет свои особенности, которые сильно отличаются от стандартной выдачи заказов Ozon. Здесь нет фиксированной платы за выдачу, доход формируется исключительно как процент от оборота. Ставки могут варьироваться в зависимости от категории товара и текущих акций.</p>
+<p>Например, электроника часто имеет меньший процент, но высокий средний чек, а одежда и аксессуары — более высокий процент, но меньший чек. Вам нужно экспериментировать с предложением, чтобы понять, что лучше покупает ваша аудитория. Также стоит учитывать, что AliExpress часто меняет правила начисления комиссий.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение / Описание</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Модель оплаты</td>
+<td>CPS (Cost Per Sale)</td>
+<td>Оплата только за совершенные покупки</td>
+</tr>
+<tr>
+<td>Средняя ставка</td>
+<td>От 1% до 10%</td>
+<td>Зависит от категории товара</td>
+</tr>
+<tr>
+<td>Срок cookie</td>
+<mark>15 дней</mark>
+<td>Период жизни cookie-файла</td>
+</tr>
+<tr>
+<td>Минимальная выплата</td>
+<td>Зависит от Ozon Rocket</td>
+<td>Обычно 1000-3000 рублей</td>
+</tr>
+<tr>
+<td>Период выплат</td>
+<td>Ежемесячно</td>
+<td>После подтверждения заказа покупателем</td>
+</tr>
+</tbody>
+</table>
+
+<p>Важный момент: существуют категории товаров, на которые комиссия не начисляется вовсе. Обычно это товары, которые уже продаются с максимальной скидкой, или определенные бренды, исключенные из партнерской программы. Всегда проверяйте условия в описании оффера.</p>
+<p>Также стоит учитывать валютные риски. Хотя расчеты в РФ ведутся в рублях, базовые ставки могут зависеть от курсовых колебаний, если программа международная. Однако для AliExpress Russia расчеты, как правило, прозрачны и фиксируются в рублях на момент покупки.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Некоторые категории товаров могут быть исключены из партнерской программы. Всегда проверяйте статус товара в инструменте проверки ссылок перед продвижением.</p></div>
+
+<h3>Сроки выплат и подтверждение</h3>
+<p>Деньги за покупки не приходят мгновенно. Существует период «холда» (заморозки), во время которого проверяется, не вернул ли товар покупатель. Для AliExpress этот период может составлять от 15 до 30 дней после доставки товара. Только после этого статус заказа меняется на «Подтвержден», и комиссия попадает в ваш баланс.</p>
+<p>Выплаты производятся по графику Ozon Rocket. Обычно это происходит раз в месяц, после того как вы подадите заявку на выплату и сумма на балансе превысит минимальный порог. Задержки со стороны платежной системы возможны, но случаются редко.</p>
+
+<h2 id="типичные-ошибки-при-подключении-и-работе">Типичные ошибки при подключении и работе</h2>
+<p>Начинающие партнеры часто наступают на одни и те же грабли, теряя потенциальную прибыль или получая бан от партнерской программы. Избежать этого поможет знание распространенных ошибок. Внимательно изучите список ниже, чтобы не повторять чужих неудач.</p>
+<p>Одной из главных ошибок является попытка «накрутки» или самопокупок. Если система обнаружит, что переходы и покупки совершаются с одних и тех же IP-адресов, или используется бот, ваш аккаунт будет заблокирован, а средства заморожены. Честность — единственная стратегия в долгосрочной перспективе.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Самостоятельные покупки по своим ссылкам строго запрещены правилами партнерских программ. Это приводит к блокировке аккаунта и потере всех накопленных средств без возможности восстановления.</p></div>
+
+<ul>
+<li>Использование запрещенных методов трафика (спам в личных сообщениях, контекстная реклама на брендовые запросы, если это запрещено офертой).</li>
+<li>Отсутствие маркировки ссылок (если того требуют правила, хотя в Ozon Rocket это обычно автоматизировано).</li>
+<li>Неверное понимание срока действия cookie: партнеры думают, что комиссия будет начислена за любую покупку в будущем, забывая про 15-дневный лимит.</li>
+<li>Размещение ссылок в местах, где они не видны целевой аудитории (например, в закрытых чатах без контекста).</li>
+</ul>
+
+<p>Еще одна частая ошибка — игнорирование мобильной версии. Огромная часть покупок на AliExpress совершается с смартфонов. Если ваш QR-код ведет на тяжелую десктопную версию сайта или ссылка не открывается в приложении, вы теряете конверсию. Всегда тестируйте ссылки с мобильного устройства.</p>
+<p>Также партнеры часто забывают обновлять ссылки при изменении акций. Если вы разместили QR-код «Скидки 11.11» в январе, он будет вызывать недоумение у клиентов. Следите за актуальностью предложений на стойке информации в вашем ПВЗ.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед запуском</h4><label class="check-item"><input type="checkbox"><span>Аккаунт Ozon Rocket верифицирован</span></label><label class="check-item"><input type="checkbox"><span>Заявка на AliExpress одобрена</span></label><label class="check-item"><input type="checkbox"><span>Ссылки протестированы на мобильном устройстве</span></label><label class="check-item"><input type="checkbox"><span>Понятен механизм начисления комиссий</span></label><label class="check-item"><input type="checkbox"><span>Изучены запрещенные методы трафика</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="как-эффективно-использовать-трафик-в-пвз">Как эффективно использовать трафик в ПВЗ</h2>
+<p>Ваш пункт выдачи — это место, где уже есть поток людей, готовых тратить деньги. Это идеальная аудитория для кросс-продаж. Пока клиент ждет свою посылку, пока оформляет документы или просто стоит в очереди, у него есть свободное время и смартфон в руках.</p>
+<p>Организуйте зону ожидания с комфортными местами и заметными плакатами с QR-кодами. Надпись «Скучаешь? Купи со скидкой» может сработать лучше, чем сухое «Партнерская программа». Создайте атмосферу, в которой покупка с AliExpress воспринимается как развлечение или выгодное решение.</p>
+
+<details class="faq-item"><summary>Секреты повышения конверсии</summary><div class="faq-answer"><p>Размещайте QR-коды на уровне глаз. Используйте яркие цвета. Предлагайте помощь: «Помогу найти товар дешевле». Часто люди ленятся искать сами, и ваша консультация за процент с покупки будет выгодна обеим сторонам.</p></div></details>
+
+<h3>Работа с возражениями клиентов</h3>
+<p>Клиенты могут сомневаться в безопасности покупок через ваши ссылки. Объясните, что переход по ссылке не требует ввода дополнительных данных, это просто способ зафиксировать, что вы посоветовали магазин. Все платежи проходят на защищенном сайте AliExpress.</p>
+<p>Если клиент боится долгой доставки, предложите фильтровать товары по опции «Доставка из России». На AliExpress сейчас много складов внутри страны, и товары приходят за 2-4 дня, как с Ozon. Это сильный аргумент для сомневающихся.</p>
+
+<p>В итоге, подключение AliExpress к вашему ПВЗ через Ozon Rocket — это не сложная техническая задача, а вопрос правильной организации маркетинга. Вы не становитесь логистическим партнером китайцев, вы становитесь их рекламным агентом на местах. Это требует минимальных вложений, но постоянного внимания и креативности.</p>
+<p>Главное — не останавливаться после первой попытки. Если в первый месяц доход будет небольшим, проанализируйте, почему. Быть может, QR-код плохо читается, или предложение неактуально. Экспериментируйте с форматами подачи, общайтесь с клиентами, ищите их боли. Именно живой контакт в ПВЗ дает вам преимущество перед безликой рекламой в интернете.</p>
+<p>Помните, что диверсификация доходов — залог устойчивости бизнеса. Пока Ozon платит за выдачу, AliExpress может стать приятным бонусом, который покроет аренду или коммунальные расходы. Начните с малого, изучите механику на собственных небольших покупках (попросите друзей или родственников, но не нарушайте правила самопокупок, лучше просто протестируйте процесс), и масштабируйте успешные практики.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Подключение AliExpress к ПВЗ Ozon осуществляется через партнерскую программу Ozon Rocket, позволяя зарабатывать процент с покупок клиентов, перешедших по вашим ссылкам, без прямой логистической интеграции.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-функцию-интеграции-в-личном-кабинете">Где найти функцию интеграции в личном кабинете</a></li><li><a href="#пошаговая-инструкция-по-подключению-и-работе">Пошаговая инструкция по подключению и работе</a></li><li><a href="#нюансы-работы-тарифы-и-лимиты">Нюансы работы, тарифы и лимиты</a></li><li><a href="#типичные-ошибки-при-подключении-и-работе">Типичные ошибки при подключении и работе</a></li><li><a href="#как-эффективно-использовать-трафик-в-пвз">Как эффективно использовать трафик в ПВЗ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/n/na/na-chem-mozhno-zarabotat-na-aliexpress.html" class="related-card">На чем заработать на AliExpress: ниши, стратегии и риски</a></li><li><a href="/articles/k/ka/kak-ostavit-otzyv-o-pokupatele-na-aliekspress.html" class="related-card">Как оставить отзыв о покупателе на АлиЭкспресс: гид для продавца</a></li><li><a href="/articles/k/ka/kak-rabotat-s-aliekspress-biznes.html" class="related-card">AliExpress Business: регистрация, возможности и руководство</a></li><li><a href="/articles/k/ka/kak-dobavit-kupon-prodavtsa-na-aliekspress.html" class="related-card">Как добавить купон продавца на AliExpress: пошаговое руководство 2026</a></li><li><a href="/articles/c/ch/chto-kupit-na-aliekspress-interesnogo-dlya-prodazhi.html" class="related-card">Что выгодно купить на Алиэкспресс для перепродажи в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/n/na/na-chem-mozhno-zarabotat-na-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">На чем заработать на AliExpress: ниши, стратегии и риски</span><span class="related-bottom-desc">Полный гид по заработку на AliExpress: партнерская программа, дропшиппинг, перепродажа товаров из Ки</span></a><a href="/articles/k/ka/kak-ostavit-otzyv-o-pokupatele-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как оставить отзыв о покупателе на АлиЭкспресс: гид для продавца</span><span class="related-bottom-desc">Подробная инструкция: как оставить отзыв о покупателе на АлиЭкспресс. Разбор интерфейса, сроков, нюа</span></a><a href="/articles/k/ka/kak-rabotat-s-aliekspress-biznes.html" class="related-bottom-card"><span class="related-bottom-title">AliExpress Business: регистрация, возможности и руководство</span><span class="related-bottom-desc">Полный гид по AliExpress Business. Как зарегистрироваться, получить оптовые цены, оформить возврат и</span></a><a href="/articles/k/ka/kak-dobavit-kupon-prodavtsa-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как добавить купон продавца на AliExpress: пошаговое руководство 2026</span><span class="related-bottom-desc">Подробная инструкция для продавцов AliExpress: где найти функцию купонов, как настроить скидки и изб</span></a><a href="/articles/c/ch/chto-kupit-na-aliekspress-interesnogo-dlya-prodazhi.html" class="related-bottom-card"><span class="related-bottom-title">Что выгодно купить на Алиэкспресс для перепродажи в 2026 году</span><span class="related-bottom-desc">Полный гид по нишам для перепродажи: что выгодно покупать на AliExpress для бизнеса. Топ товаров, ма</span></a><a href="/articles/b/bi/biznes-s-aliekspress-bez-vlozhenij-s-kem-sotrudnichat.html" class="related-bottom-card"><span class="related-bottom-title">Бизнес с AliExpress без вложений: с кем сотрудничать и как начать</span><span class="related-bottom-desc">Полный гид по старту бизнеса с AliExpress без вложений. Выберите схему: дропшиппинг, CPA-сети или па</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

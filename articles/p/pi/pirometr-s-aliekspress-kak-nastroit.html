@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Пирометр с Алиэкспресс: как настроить и откалибровать — Али Гид</title>
+    <meta name="description" content="Подробная инструкция: как настроить пирометр с Алиэкспресс, выбрать коэффициент эмиссии и избежать ошибок при измерении температуры.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/p/pi/pirometr-s-aliekspress-kak-nastroit.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Пирометр с Алиэкспресс: как настроить и откалибровать">
+    <meta property="og:description" content="Подробная инструкция: как настроить пирометр с Алиэкспресс, выбрать коэффициент эмиссии и избежать ошибок при измерении температуры.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Пирометр с Алиэкспресс: как настроить и откалибровать</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как правильно настроить пирометр с Алиэкспресс</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#первичная-подготовка-и-знакомство-с-интерфейсом">Первичная подготовка и знакомство с интерфейсом</a></li><li><a href="#настройка-коэффициента-эмиссии-и-температурных-режимов">Настройка коэффициента эмиссии и температурных режимов</a></li><li><a href="#технические-характеристики-и-таблицы-соответствия">Технические характеристики и таблицы соответствия</a></li><li><a href="#типичные-ошибки-при-эксплуатации-и-калибровке">Типичные ошибки при эксплуатации и калибровке</a></li><li><a href="#практическое-применение-и-итоговые-рекомендации">Практическое применение и итоговые рекомендации</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Покупка измерительных приборов на популярных китайских площадках часто становится отличным способом сэкономить, получив в руки функциональный инструмент по цене, значительно уступающей брендовым аналогам. Однако, получив долгожданную посылку, многие пользователи сталкиваются с ситуацией, когда прибор вроде бы работает, но показывает явно неверные данные или ведет себя непредсказуемо. Это особенно актуально для инфракрасных термометров, или пирометров, которые требуют правильной первичной настройки для обеспечения точности измерений.</p>
+<p>Проблема заключается в том, что большинство бюджетных моделей поставляются с базовыми заводскими установками, которые не учитывают специфику измеряемых поверхностей. Без правильной калибровки и понимания принципов работы вы рискуете получить прибор, погрешность которого будет слишком велика для профессионального или даже бытового использования. Именно поэтому вопрос о том, как настроить пирометр с Алиэкспресс, является критически важным сразу после распаковки.</p>
+<p>В этом руководстве мы подробно разберем все этапы подготовки прибора к работе, от установки элементов питания до тонкой настройки коэффициента эмиссии. Вы узнаете, как интерпретировать показания дисплея, какие параметры можно изменить вручную и как избежать типичных ошибок, которые допускают новички. Понимание этих нюансов позволит вам превратить дешевую покупку в надежный инструмент для решения задач по дому, в гараже или на производстве.</p>
+
+<h2 id="первичная-подготовка-и-знакомство-с-интерфейсом">Первичная подготовка и знакомство с интерфейсом</h2>
+<p>Прежде чем приступать к измерениям, необходимо правильно подготовить устройство к работе. Многие модели с Алиэкспресс поставляются с разряженными батарейками или вовсе без них, а некоторые оснащены встроенными аккумуляторами, требующими первоначальной зарядки. Если вы проигнорируете этот этап, показания могут быть нестабильными, а подсветка экрана — тусклой, что затруднит считывание данных в условиях плохой освещенности.</p>
+<p>Внимательно осмотрите корпус прибора. В нижней части, рядом с курком или на торце, обычно расположен отсек для элементов питания. Для работы чаще всего требуются батарейки типа ААА или литиевые элементы CR2032 в зависимости от модели. Важно использовать только качественные источники питания, так как пирометры чувствительны к падению напряжения, что может привести к увеличению погрешности измерений.</p>
+<p>Включите устройство, нажав кнопку питания или курок. На дисплее должны отобразиться все сегменты, после чего прибор перейдет в режим ожидания. Интерфейс бюджетных моделей обычно минималистичен: основной циферблат показывает текущую температуру, а дополнительные индикаторы информируют о режиме работы, заряде батареи и выбранном коэффициенте излучения. Вот что нужно сделать в первую очередь:</p>
+<ol>
+<li>Установите свежие батарейки, соблюдая полярность, указанную в отсеке.</li>
+<li>Нажмите кнопку включения и убедитесь, что все символы на экране читаемы.</li>
+<li>Наведите прибор на объект с известной температурой (например, комнатная стена) для первичной оценки.</li>
+<li>Проверьте работу лазерного указателя, если он предусмотрен моделью.</li>
+</ol>
+<p>Если на экране появился символ разряженной батареи, замените элементы питания немедленно. Работа на низком заряде может искажать результаты, так как лазерный указатель и процессор требуют стабильного напряжения для корректной работы.</p>
+
+<h2 id="настройка-коэффициента-эмиссии-и-температурных-режимов">Настройка коэффициента эмиссии и температурных режимов</h2>
+<p>Самым важным параметром, который требует внимания пользователя, является коэффициент эмиссии (излучательная способность). Это величина, показывающая, насколько эффективно поверхность объекта излучает тепловую энергию по сравнению с абсолютно черным телом. Заводская настройка большинства пирометров с Алиэкспресс установлена на значение 0.95, что идеально подходит для органических материалов, краски, дерева и пластика, но совершенно неверно для блестящих металлов.</p>
+<p>Если вы планируете измерять температуру радиаторов, труб, сковородок или автомобильных дисков, стандартная настройка приведет к значительному занижению показаний. К счастью, многие модели позволяют изменять этот параметр. Для этого обычно требуется зажать комбинацию кнопок или использовать длительное нажатие на клавишу меню. На дисплее появится мигающее значение коэффициента, которое можно изменить в диапазоне от 0.10 до 1.00.</p>
+<div class="checklist-block"><h4>📋 Изменение коэффициента эмиссии</h4><ol><li><strong>Шаг 1.</strong> Зажмите кнопку Mode на 3 секунды</li><li><strong>Шаг 2.</strong> Используйте кнопки вверх/вниз для изменения значения</li><li><strong>Шаг 3.</strong> Нажмите Mode для подтверждения</li><li><strong>Шаг 4.</strong> Прибор перейдет в режим измерения</li></ol></div>
+<p>Помимо эмиссии, важно настроить единицы измерения. Приборы могут работать в градусах Цельсия (°C) или Фаренгейта (°F). Переключение обычно осуществляется коротким нажатием на кнопку <code>Unit</code> или удержанием кнопки меню. Также стоит обратить внимание на возможность фиксации показаний. Функция <em>HOLD</em> позволяет зафиксировать максимальное или минимальное значение за время измерения, что удобно при работе с движущимися объектами или труднодоступными местами.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Для измерения температуры блестящих металлических поверхностей без специальной настройки рекомендуется наклеить на объект кусочек матового скотча или закрасить участок черной краской. Это позволит получить точные показания даже при стандартном коэффициенте 0.95.</p></div>
+<p>Некоторые продвинутые модели предлагают выбор между режимами измерения: только лазер, только ИК-датчик или их комбинация. Лазер в пирометре служит исключительно для целеуказания и не участвует в измерении температуры. Понимание этого принципа поможет избежать ошибок, когда луч лазера попадает на один объект, а ИК-датчик считывает температуру соседнего.</p>
+
+<h2 id="технические-характеристики-и-таблицы-соответствия">Технические характеристики и таблицы соответствия</h2>
+<p>При выборе настроек и интерпретации данных крайне важно учитывать оптическое разрешение прибора, часто обозначаемое как соотношение D:S (Distance to Spot). Этот параметр определяет, с какого расстояния и какую площадь будет измерять ваш пирометр. Дешевые модели часто имеют соотношение 1:1, 8:1 или 12:1, тогда как профессиональные приборы могут достигать 50:1.</p>
+<p>Соотношение означает, что с расстояния 12 сантиметров прибор усреднит температуру круга диаметром 1 сантиметр. Если вы подойдете слишком близко или, наоборот, отойдете далеко, в зону измерения попадут посторонние объекты, и показания будут неверными. Ниже приведена таблица, помогающая понять зависимость диаметра пятна измерения от расстояния для разных моделей.</p>
+<table>
+<thead>
+<tr>
+<th>Соотношение D:S</th>
+<th>Расстояние до объекта</th>
+<th>Диаметр пятна измерения</th>
+<th>Рекомендуемое применение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1:1</td>
+<td>10 см</td>
+<td>10 см</td>
+<td>Большие поверхности, стены, полы</td>
+</tr>
+<tr>
+<td>8:1</td>
+<td>40 см</td>
+<td>5 см</td>
+<td>Трубы отопления, радиаторы</td>
+</tr>
+<tr>
+<td>12:1</td>
+<td>60 см</td>
+<td>5 см</td>
+<td>Автомобильные диски, электрошкафы</td>
+</tr>
+<tr>
+<td>50:1</td>
+<td>100 см</td>
+<td>2 см</td>
+<td>Мелкие детали, электроника (редко на Ali)</td>
+</tr>
+</tbody>
+</table>
+<p>Еще одним важным аспектом является диапазон измеряемых температур. Бюджетные пирометры часто имеют рабочий диапазон от -50 до +380 градусов Цельсия. Превышение верхнего предела может повредить сенсор, а измерение слишком холодных объектов вне диапазона приведет к ошибке или показанию минимального значения.</p>
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Не направляйте пирометр на источники открытого пламени или раскаленные объекты, превышающие максимальный порог прибора. Это может необратимо повредить оптический сенсор и вывести устройство из строя.</p></div>
+<p>Также стоит учитывать время отклика прибора. В бюджетных моделях оно может составлять от 500 мс до 2 секунд. Это означает, что при резком перемещении прибора с горячего на холодный объект, на экране еще некоторое время будет сохраняться предыдущее значение. Для получения точных данных необходимо удерживать курсор на объекте до стабилизации показаний.</p>
+
+<h2 id="типичные-ошибки-при-эксплуатации-и-калибровке">Типичные ошибки при эксплуатации и калибровке</h2>
+<p>Даже правильно настроенный прибор может давать сбои, если пользователь не учитывает внешние факторы. Одной из самых распространенных ошибок является попытка измерить температуру воздуха. Пирометр измеряет температуру поверхности, на которую он наведен, а не среды между ним и объектом. Воздух для инфракрасного излучения практически прозрачен, поэтому показания будут отражать температуру стен или предметов в комнате, но не самого воздушного потока.</p>
+<p>Второй частой ошибкой становится игнорирование чистоты линзы. Пыль, жир или конденсат на стекле датчика действуют как фильтр, снижая количество поступающего излучения и искажая результат. Протирайте линзу мягкой тканью перед каждым использованием, особенно если прибор хранится в гараже или мастерской.</p>
+<details class="faq-item"><summary>Влияние пара и дыма</summary><div class="faq-answer"><p>Пар, дым и плотная запыленность воздуха могут значительно искажать показания пирометра. Частицы воды и пыли в воздухе поглощают и отражают ИК-излучение. Если вы работаете в таких условиях, старайтесь максимально сократить расстояние до объекта или использовать защитные экраны.</p></div></details>
+<p>Третья ошибка связана с углом измерения. Идеальным считается угол 90 градусов к поверхности. При измерении под острым углом часть излучения отражается от поверхности, а не попадает в датчик, что приводит к занижению показаний. Старайтесь держать прибор перпендикулярно измеряемой плоскости.</p>
+<p>Наконец, многие пользователи забывают про акклиматизацию прибора. Если вы принесли пирометр с мороза в теплое помещение, внутри корпуса может образоваться конденсат, а электроника будет работать нестабильно. Дайте устройству полежать в выключенном состоянии 20-30 минут для выравнивания температуры.</p>
+<div class="checklist-block"><h4>☑️ Проверка перед измерением</h4><label class="check-item"><input type="checkbox"><span>Батарейки заряжены и вставлены правильно</span></label><label class="check-item"><input type="checkbox"><span>Линза датчика чистая и сухая</span></label><label class="check-item"><input type="checkbox"><span>Выбран правильный коэффициент эмиссии</span></label><label class="check-item"><input type="checkbox"><span>Прибор прогрелся в помещении</span></label><label class="check-item"><input type="checkbox"><span>Курсор направлен перпендикулярно поверхности</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="практическое-применение-и-итоговые-рекомендации">Практическое применение и итоговые рекомендации</h2>
+<p>Правильно настроенный пирометр с Алиэкспресс становится универсальным помощником в хозяйстве. С его помощью можно быстро проверить равномерность прогрева радиаторов отопления, найти утечку тепла в окнах, диагностировать перегрев электрических контактов в щитке или проверить температуру масла в двигателе перед запуском в мороз. Главное — помнить о погрешности, которая для бюджетных моделей составляет около 2-3 градусов, и учитывать ее при принятии решений.</p>
+<p>Используйте функцию усреднения или фиксации максимальных значений для более точного анализа. Например, при поиске перегретого провода в пучке кабелей, медленно водите лучом и следите за пиковыми значениями. Если прибор поддерживает подключение к компьютеру или смартфону, настройте программное обеспечение для построения графиков, что поможет отследить динамику нагрева во времени.</p>
+<p>В заключение стоит отметить, что секрет успеха кроется в понимании физики процесса и внимании к деталям настройки. Не бойтесь экспериментировать с коэффициентом эмиссии на знакомых объектах, чтобы «почувствовать» прибор. Сравните показания пирометра с обычным контактным термометром на различных поверхностях — это лучший способ калибровки в домашних условиях.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для регулярной проверки точности создайте эталонную точку. Например, измерьте температуру кипящей воды (100°C) или тающего льда (0°C), предварительно скорректировав показания на атмосферное давление, если требуется высокая точность. Это поможет понять реальную погрешность вашего конкретного экземпляра.</p></div>
+<p>Инфракрасный термометр — это инструмент, который прощает ошибки в обращении, но требует грамотной настройки. Соблюдая простые правила эксплуатации и регулярно проверяя калибровку, вы обеспечите себе долгие годы точных измерений. Помните, что даже недорогая модель с правильной настройкой может превзойти в удобстве использования дорогой брендовый аналог в руках неопытного пользователя.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Настройка пирометра сводится к установке правильного коэффициента эмиссии и учету расстояния до объекта, что гарантирует точность измерений для различных материалов.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#первичная-подготовка-и-знакомство-с-интерфейсом">Первичная подготовка и знакомство с интерфейсом</a></li><li><a href="#настройка-коэффициента-эмиссии-и-температурных-режимов">Настройка коэффициента эмиссии и температурных режимов</a></li><li><a href="#технические-характеристики-и-таблицы-соответствия">Технические характеристики и таблицы соответствия</a></li><li><a href="#типичные-ошибки-при-эксплуатации-и-калибровке">Типичные ошибки при эксплуатации и калибровке</a></li><li><a href="#практическое-применение-и-итоговые-рекомендации">Практическое применение и итоговые рекомендации</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/u/u-/u-kakogo-prodavtsa-na-aliekspress-kupit-smartfon.html" class="related-card">У какого продавца на Алиэкспресс купить смартфон: гид по выбору</a></li><li><a href="/articles/k/ka/kak-nakleit-zashchitnoe-steklo-na-telefon-s-zhidkostyu-s-aliekspress-na-samsung.html" class="related-card">Как наклеить защитное стекло на телефон с жидкостью: гид</a></li><li><a href="/articles/k/ka/kak-razobrat-sensornyj-vyklyuchatel-s-aliekspress.html" class="related-card">Как разобрать сенсорный выключатель с Алиэкспресс: полное руководство</a></li><li><a href="/articles/k/ka/kak-nazyvaetsya-prilozhenie-dlya-chasov-s-aliekspress.html" class="related-card">Какое приложение для часов с АлиЭкспресс: полный гид по настройке</a></li><li><a href="/articles/c/ch/chto-znachit-rostest-na-telefon-na-aliekspress.html" class="related-card">Ростест на АлиЭкспресс: что это значит и как проверить</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/u/u-/u-kakogo-prodavtsa-na-aliekspress-kupit-smartfon.html" class="related-bottom-card"><span class="related-bottom-title">У какого продавца на Алиэкспресс купить смартфон: гид по выбору</span><span class="related-bottom-desc">Как выбрать надежного продавца смартфонов на AliExpress. Рейтинг магазинов, проверка рейтинга, анали</span></a><a href="/articles/k/ka/kak-nakleit-zashchitnoe-steklo-na-telefon-s-zhidkostyu-s-aliekspress-na-samsung.html" class="related-bottom-card"><span class="related-bottom-title">Как наклеить защитное стекло на телефон с жидкостью: гид</span><span class="related-bottom-desc">Подробная инструкция по установке жидкого стекла на Samsung. Разбор технологии, пошаговый алгоритм д</span></a><a href="/articles/k/ka/kak-razobrat-sensornyj-vyklyuchatel-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как разобрать сенсорный выключатель с Алиэкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по разборке сенсорных выключателей с Алиэкспресс. Снятие панели, замена реле, д</span></a><a href="/articles/k/ka/kak-nazyvaetsya-prilozhenie-dlya-chasov-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какое приложение для часов с АлиЭкспресс: полный гид по настройке</span><span class="related-bottom-desc">Узнайте, как называется приложение для умных часов с АлиЭкспресс. Инструкция по поиску, установке, н</span></a><a href="/articles/c/ch/chto-znachit-rostest-na-telefon-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Ростест на АлиЭкспресс: что это значит и как проверить</span><span class="related-bottom-desc">Узнайте, что означает маркировка Ростест на телефонах с АлиЭкспресс. Полное руководство: отличия от </span></a><a href="/articles/a/ad/add-mi-band-6-chto-eto-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Add Mi Band 6 на AliExpress: инструкция по привязке</span><span class="related-bottom-desc">Как привязать Mi Band 6 на Алиэкспресс: настройка, поиск функции Add Mi Band 6, решение проблем с по</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

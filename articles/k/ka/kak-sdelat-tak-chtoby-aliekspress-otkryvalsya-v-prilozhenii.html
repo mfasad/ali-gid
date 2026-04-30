@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как сделать, чтобы AliExpress открывался в приложении: полное руководство — Али Гид</title>
+    <meta name="description" content="Подробная инструкция по настройке ссылок AliExpress. Как включить Deep Linking, сбросить настройки браузера и заставить ссылки открываться сразу в мобильном приложении.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-sdelat-tak-chtoby-aliekspress-otkryvalsya-v-prilozhenii.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как сделать, чтобы AliExpress открывался в приложении: полное руководство">
+    <meta property="og:description" content="Подробная инструкция по настройке ссылок AliExpress. Как включить Deep Linking, сбросить настройки браузера и заставить ссылки открываться сразу в мобильном приложении.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/problemy-s-prilozheniem/">Проблемы с приложением</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как сделать, чтобы AliExpress открывался в приложении: полное руководство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как заставить ссылки AliExpress открываться в мобильном приложении</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-настройки-открытия-ссылок-в-системе">Где найти настройки открытия ссылок в системе</a></li><li><a href="#пошаговая-инструкция-по-активации-функции">Пошаговая инструкция по активации функции</a></li><li><a href="#нюансы-работы-deep-linking-и-технические-ограничения">Нюансы работы Deep Linking и технические ограничения</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#оптимальная-настройка-для-стабильной-работы">Оптимальная настройка для стабильной работы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Ситуация, когда после клика на ссылку с товаром или купоном вместо привычного интерфейса мобильного приложения открывается браузер, знакома многим активным покупателям. Это не просто мелкое неудобство, а реальная потеря времени, так как мобильная версия сайта часто не имеет полного функционала, доступного в нативном клиенте. Пользователи могут пропустить персональные купоны, не увидеть всплывающие акции или столкнуться с неудобствами при оформлении заказа, если система не перекинет их в заранее настроенный аккаунт.</p>
+
+<p>Причина такого поведения кроется в настройках операционной системы вашего смартфона, которые определяют, как обрабатываются интернет-ссылки. Android и iOS имеют сложные механизмы приоритетов, где браузер может быть выбран по умолчанию или стоять в списке предпочтений выше, чем приложение маркетплейса. Кроме того, сами разработчики приложений периодически меняют протоколы обработки ссылок, что может сбивать ранее установленные параметры.</p>
+
+<p>Если хотите избежать постоянной ручной переключения между вкладками браузера и магазином, необходимо выполнить ряд настроек на уровне системы. Это гарантирует, что любой клик по адресу aliexpress.com будет автоматически перенаправлять вас в установленное приложение, обеспечивая seamless-опыт использования платформы. Ниже мы подробно разберем, где искать эти настройки и как их правильно конфигурировать.</p>
+
+<h2 id="где-найти-настройки-открытия-ссылок-в-системе">Где найти настройки открытия ссылок в системе</h2>
+
+<p>Первым шагом для решения проблемы является локация нужного раздела в настройках вашего устройства. Путь к этим параметрам может отличаться в зависимости от версии операционной системы и оболочки производителя смартфона, но логика остается единой. Вам потребуется найти раздел, отвечающий за управление установленными программами, и выбрать там конкретное приложение AliExpress.</p>
+
+<p>Вот что нужно сделать: на устройствах с операционной системой Android путь чаще всего пролегает через меню <code>Настройки → Приложения → Управление приложениями</code>. В списке всех программ необходимо найти AliExpress. На устройствах Apple iOS ситуация иная: там нет прямого аналога «открытия по умолчанию» для всех ссылок, но есть настройки Safari и универсальных ссылок, которые требуют особого подхода.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>На Android 11 и новее доступ к управлению ссылками может быть скрыт в подменю «Дополнительно» или «Открытие по умолчанию» внутри карточки приложения.</p></div>
+
+<p>Важный момент: если вы ранее устанавливали галочку «Запомнить выбор» при открытии ссылки и выбрали браузер, система будет упорно игнорировать приложение до тех пор, пока вы не сбросите этот приоритет. Поэтому поиск настройки «Открытие ссылок» является критически важным этапом.</p>
+
+<h3>Настройки для пользователей Android</h3>
+
+<p>Владельцам Android-смартфонов повезло больше, так как эта ОС позволяет гибко управлять протоколами. После входа в карточку приложения AliExpress необходимо найти пункт, который может называться «Открывать по умолчанию», «Поддерживаемые ссылки» или «Наборы ссылок». Именно здесь скрывается переключатель, разрешающий программе перехватывать адресацию.</p>
+
+<p>На практике это выглядит как список доменов, таких как <code>aliexpress.com</code>, <code>m.aliexpress.com</code> или <code>page.aliexpress.com</code>. Убедитесь, что напротив них стоит отметка о поддержке. Если вы видите сообщение «Не поддерживается» или список пуст, попробуйте обновить приложение до последней версии, так как старые версии могут не иметь необходимых деклараций в манифесте программы.</p>
+
+<div class="checklist-block"><h4>📋 Настройка на Android</h4><ol><li><strong>Шаг 1.</strong> Зайдите в «Настройки» телефона</li><li><strong>Шаг 2.</strong> Перейдите в «Приложения» и найдите AliExpress</li><li><strong>Шаг 3.</strong> Выберите «Открытие по умолчанию»</li><li><strong>Шаг 4.</strong> Включите опцию «Открывать поддерживаемые ссылки»</li></ol></div>
+
+<h3>Особенности настройки на iOS</h3>
+
+<p>В экосистеме Apple механизм работает иначе. Здесь используется технология Universal Links. Если ссылка не открывается в приложении автоматически, это часто означает, что связь между сайтом и приложением была нарушена или пользователь ранее явно выбрал открытие в Safari. Для исправления ситуации иногда требуется переустановка приложения или очистка кеша Safari.</p>
+
+<h2 id="пошаговая-инструкция-по-активации-функции">Пошаговая инструкция по активации функции</h2>
+
+<p>После того как вы нашли необходимый раздел, важно правильно выставить приоритеты. Просто наличие приложения на телефоне не гарантирует его автоматический запуск. Система должна получить четкий сигнал от пользователя о том, что для доменов AliExpress предпочтительно использовать именно нативный клиент, а не веб-браузер.</p>
+
+<p>Вот что нужно сделать для принудительного открытия:</p>
+
+<ol>
+<li>Откройте настройки смартфона и найдите раздел приложений.</li>
+<li>Выберите AliExpress из списка и нажмите на пункт «Открытие по умолчанию» (или аналогичный).</li>
+<li>Активируйте переключатель «Открывать поддерживаемые веб-адреса».</li>
+<li>Если есть список ссылок, убедитесь, что все домены AliExpress помечены как поддерживаемые.</li>
+<li>Вернитесь на рабочий стол и полностью закройте приложение AliExpress (выгрузите из памяти).</li>
+<li>Перейдите в любой мессенджер или браузер, найдите ссылку на товар и нажмите на нее.</li>
+</ol>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Если после настройки ссылка все равно ведет в браузер, попробуйте скопировать ссылку, а затем вставить её в адресную строку браузера и нажать «Перейти». Иногда первый ручной переход через браузер с уже установленным приложением запускает цепную реакцию настройки приоритетов.</p></div>
+
+<p>Важный момент: в некоторых случаях, особенно на смартфонах Xiaomi, Samsung или Huawei, могут работать агрессивные энергосберегающие режимы. Они могут блокировать фоновую активность приложения, необходимую для перехвата ссылки. Проверьте, не стоит ли приложение в «Спящем режиме» или «Жесткой экономии энергии».</p>
+
+<h3>Сброс предпочтений браузера</h3>
+
+<p>Если вышеописанные действия не помогли, возможно, браузер «захватил» контроль над ссылками. Чтобы это исправить, нужно зайти в настройки самого браузера (Chrome, Samsung Internet, Яндекс) и найти раздел «Приложения по умолчанию» или «Открытие ссылок». Там следует отключить открытие ссылок приложений или выбрать опцию «Всегда спрашивать».</p>
+
+<h2 id="нюансы-работы-deep-linking-и-технические-ограничения">Нюансы работы Deep Linking и технические ограничения</h2>
+
+<p>Технология, которая позволяет переходить с веб-страницы сразу на конкретную страницу внутри приложения, называется Deep Linking. Она работает не всегда идеально, и понимание её ограничений поможет вам не паниковать, если что-то пойдет не так. Основная проблема кроется в различии между мобильной и десктопной версиями ссылок.</p>
+
+<p>Если хотите быть уверенным в успехе, обращайте внимание на формат ссылки. Ссылки, ведущие на специфические промо-страницы, которые существуют только в вебе, могут не иметь аналога в приложении. В таком случае система физически не сможет открыть их внутри программы и перенаправит вас в браузер.</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип ссылки</th>
+<th>Вероятность открытия в приложении</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Карточка товара (Product Page)</td>
+<td><mark>Высокая (99%)</mark></td>
+<td>Стандартный формат ссылок, работает стабильно.</td>
+</tr>
+<tr>
+<td>Главная страница</td>
+<td>Высокая</td>
+<td>Открывает приложение на домашнем экране.</td>
+</tr>
+<tr>
+<td>Специальные акции (Super Deals)</td>
+<td>Средняя</td>
+<td>Зависит от версии приложения и поддержки активности.</td>
+</tr>
+<tr>
+<td>Страницы продавцов</td>
+<td>Высокая</td>
+<td>Обычно перенаправляет в профиль продавца внутри app.</td>
+</tr>
+</tbody>
+</table>
+
+<details class="faq-item"><summary>Почему ссылки иногда не работают</summary><div class="faq-answer"><p> Разработчики AliExpress часто меняют структуру URL. Ссылка, которая вела на товар год назад, сегодня может быть перенаправлена через редирект, который приложение не распознает как безопасный или поддерживаемый.</p></div></details>
+
+<p>На практике также встречается проблема с «безопасными» браузерами, встроенными в социальные сети (например, внутри ВКонтакте или Telegram). Они могут блокировать попытку внешнего приложения перехватить ссылку. В таких случаях лучше использовать функцию «Открыть в браузере», а уже оттуда система должна перекинуть вас в приложение, если настройки выполнены верно.</p>
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+
+<p>Даже следуя инструкциям, пользователи часто сталкиваются с тем, что желаемый эффект не достигается. Чаще всего это связано с человеческим фактором или упущенными мелочами в настройках системы. Разберем самые распространенные сценарии, когда механизм переключения дает сбой.</p>
+
+<p>Если хотите избежать проблем, проверьте, не установлена ли у вас модифицированная версия приложения или версия из неофициального источника. Такие программы могут не иметь правильных сертификатов, необходимых для работы с системными ссылками Android или iOS.</p>
+
+<ul>
+<li>Устаревшая версия приложения: старые версии могут не поддерживать новые протоколы ссылок.</li>
+<li>Конфликт версий: на телефоне могут быть установлены две версии (например, обычная и Lite), и система не знает, какую запускать.</li>
+<li>Блокировщики рекламы: некоторые DNS-фильтры или антивирусы могут блокировать запрос на запуск приложения.</li>
+<li>Кэш браузера: переполненный кэш может хранить старые правила редиректа.</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Чек-лист диагностики</h4><label class="check-item"><input type="checkbox"><span>Приложение обновлено до последней версии</span></label><label class="check-item"><input type="checkbox"><span>В настройках Android включено «Открывать поддерживаемые ссылки»</span></label><label class="check-item"><input type="checkbox"><span>Браузер не имеет жесткого приоритета</span></label><label class="check-item"><input type="checkbox"><span>Ссылка ведет на актуальную страницу товара</span></label><label class="check-item"><input type="checkbox"><span>На телефоне нет конфликтующих копий AliExpress</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Важный момент: если вы используете несколько браузеров, настройки могут применяться только к тому, который стоит по умолчанию для системы, или наоборот, конфликтовать. Попробуйте временно сделать основным браузером стандартный Chrome или Safari и проверить работу ссылок.</p>
+
+<h2 id="оптимальная-настройка-для-стабильной-работы">Оптимальная настройка для стабильной работы</h2>
+
+<p>Для того чтобы шопинг приносил только удовольствие, а не борьбу с настройками, рекомендуется один раз правильно сконфигурировать устройство и периодически проверять актуальность версий. Стабильность работы ссылок напрямую влияет на скорость оформления заказов и доступ к эксклюзивным мобильным ценам.</p>
+
+<p>Вот что нужно сделать для поддержания системы в рабочем состоянии: регулярно обновляйте приложение через официальные магазины Google Play или App Store. Разработчики постоянно вносят правки в механизмы Deep Linking, и старые версии могут работать некорректно. Также следите за обновлениями операционной системы, так как крупные апдейты Android или iOS могут сбрасывать разрешения для приложений.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте функцию «Поделиться» внутри других приложений. Часто при отправке ссылки на товар другу через мессенджер, превью ссылки автоматически подтягивает данные из приложения, что подтверждает правильность настроек Deep Linking.</p></div>
+
+<p>На практике оптимальной конфигурацией является ситуация, когда приложение AliExpress имеет статус «Разрешено» для всех типов ссылок домена, а браузер настроен на вопрос «Где открыть?» при каждом переходе, пока вы сами не выберете приложение и не нажмете «Всегда». Это дает баланс между автоматизацией и контролем.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Правильная настройка открытия ссылок требует активации функции «Открывать по умолчанию» в настройках Android или сброса настроек Safari на iOS, что обеспечивает мгновенный переход в приложение для удобного шопинга.</p></div>
+
+<p>Помните, что корректная работа ссылок — это не только удобство, но и безопасность. Официальное приложение гарантирует, что вы находитесь именно на защищенном сайте AliExpress, а не на фишинговой копии, которая могла бы открыться в браузере по ошибочной ссылке. Поэтому настройка приоритета приложения является также элементом цифровой гигиены.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-настройки-открытия-ссылок-в-системе">Где найти настройки открытия ссылок в системе</a></li><li><a href="#пошаговая-инструкция-по-активации-функции">Пошаговая инструкция по активации функции</a></li><li><a href="#нюансы-работы-deep-linking-и-технические-ограничения">Нюансы работы Deep Linking и технические ограничения</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#оптимальная-настройка-для-стабильной-работы">Оптимальная настройка для стабильной работы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-obnovit-aliekspress-na-telefone-do-poslednej-versii-besplatno.html" class="related-card">Как обновить Алиэкспресс на телефоне: полная инструкция</a></li><li><a href="/articles/k/ka/kak-udalit-arkhiv-na-aliekspress-s-telefona.html" class="related-card">Как удалить архив заказов на Алиэкспресс с телефона: пошагово</a></li><li><a href="/articles/k/ka/kak-skopirovat-sajt-aliekspress.html" class="related-card">Как скопировать ссылку на товар AliExpress: полное руководство</a></li><li><a href="/articles/k/ka/kak-vosstanovit-uchetnuyu-zapis-v-aliekspress-v-prilozhenii.html" class="related-card">Как восстановить учетную запись AliExpress в приложении: пошагово</a></li><li><a href="/articles/p/po/pochemu-ne-rabotaet-sajt-aliekspress-na-russkom.html" class="related-card">Почему не работает сайт Алиэкспресс на русском: причины и решения</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-obnovit-aliekspress-na-telefone-do-poslednej-versii-besplatno.html" class="related-bottom-card"><span class="related-bottom-title">Как обновить Алиэкспресс на телефоне: полная инструкция</span><span class="related-bottom-desc">Подробное руководство по бесплатному обновлению приложения AliExpress на Android и iPhone. Решаем ош</span></a><a href="/articles/k/ka/kak-udalit-arkhiv-na-aliekspress-s-telefona.html" class="related-bottom-card"><span class="related-bottom-title">Как удалить архив заказов на Алиэкспресс с телефона: пошагово</span><span class="related-bottom-desc">Подробная инструкция, как очистить архив заказов в приложении AliExpress на Android/iOS. Нюансы, оши</span></a><a href="/articles/k/ka/kak-skopirovat-sajt-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как скопировать ссылку на товар AliExpress: полное руководство</span><span class="related-bottom-desc">Подробная инструкция, как скопировать товар, ссылку или описание с AliExpress через приложение и бра</span></a><a href="/articles/k/ka/kak-vosstanovit-uchetnuyu-zapis-v-aliekspress-v-prilozhenii.html" class="related-bottom-card"><span class="related-bottom-title">Как восстановить учетную запись AliExpress в приложении: пошагово</span><span class="related-bottom-desc">Потеряли доступ к аккаунту AliExpress? Узнайте, как восстановить учетную запись через приложение: ин</span></a><a href="/articles/p/po/pochemu-ne-rabotaet-sajt-aliekspress-na-russkom.html" class="related-bottom-card"><span class="related-bottom-title">Почему не работает сайт Алиэкспресс на русском: причины и решения</span><span class="related-bottom-desc">Почему пропал русский язык на Алиэкспресс? Узнайте причины сбоя, способы перевода страницы и настрой</span></a><a href="/articles/p/po/pochemu-ne-mogu-zadat-vopros-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Почему не могу задать вопрос на Алиэкспресс: причины и решения</span><span class="related-bottom-desc">Не работает чат на Алиэкспресс? Разбираем, почему не могу задать вопрос продавцу, как исправить ошиб</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Экспорт почты AliExpress: как скачать данные и историю — Али Гид</title>
+    <meta name="description" content="Подробный гид по экспорту международной почты AliExpress. Узнайте, как скачать данные аккаунта, историю заказов и переписку для архива.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/e/ek/eksport-mezhdunarodnoj-pochty-aliekspress-chto-eto.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Экспорт почты AliExpress: как скачать данные и историю">
+    <meta property="og:description" content="Подробный гид по экспорту международной почты AliExpress. Узнайте, как скачать данные аккаунта, историю заказов и переписку для архива.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Экспорт почты AliExpress: как скачать данные и историю</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Экспорт международной почты AliExpress: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-функцию-управления-данными-и-экспорта">Где найти функцию управления данными и экспорта</a></li><li><a href="#пошаговая-инструкция-по-выгрузке-данных">Пошаговая инструкция по выгрузке данных</a></li><li><a href="#нюансы-форматов-и-технические-ограничения">Нюансы форматов и технические ограничения</a></li><li><a href="#типичные-ошибки-при-попытке-сохранить-переписку">Типичные ошибки при попытке сохранить переписку</a></li><li><a href="#что-делать-если-автоматический-экспорт-не-работает">Что делать, если автоматический экспорт не работает</a></li><li><a href="#стратегия-цифрового-архива-для-шопоголика">Стратегия цифрового архива для шопоголика</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы активно пользуетесь маркетплейсом AliExpress на протяжении нескольких лет, ваш аккаунт превращается в огромный архив цифровой информации. В нем хранится не только история покупок, но и детальная переписка с продавцами, трекинг-коды, чеки и данные о возвратах. Многие пользователи задумываются о сохранении этих данных только тогда, когда возникает спорная ситуация, блокировка аккаунта или просто желание навести порядок в цифровом пространстве.</p>
+<p>Вот что нужно сделать: разобраться, что именно представляет собой функция экспорта данных на этой платформе. Часто под «экспортом почты» пользователи понимают возможность выгрузить всю историю переписки с международной поддержкой или конкретными продавцами в удобном формате. Это необходимо для ведения бухгалтерии, подтверждения гарантийных случаев или просто для личного архива, чтобы не зависеть от доступности серверов платформы в будущем.</p>
+<p>Важный момент: AliExpress, как и многие крупные IT-компании, следует правилам защиты персональных данных, предоставляя пользователям инструменты для управления их информацией. Однако интерфейс платформы часто меняется, и найти нужные настройки бывает непросто. В этом руководстве мы разберем, где искать функцию выгрузки данных, как правильно интерпретировать полученные файлы и какие существуют ограничения.</p>
+
+<h2 id="где-найти-функцию-управления-данными-и-экспорта">Где найти функцию управления данными и экспорта</h2>
+
+<p>На практике поиск инструментов для экспорта данных может занять немало времени, если не знать точного пути. Интерфейс AliExpress ориентирован в первую очередь на совершение покупок, а функции управления аккаунтом и безопасностью часто спрятаны в глубине меню. Для начала вам необходимо авторизоваться в своей учетной записи через браузер на компьютере, так как в мобильном приложении функционал по работе с данными часто урезан.</p>
+<p>Если хотите получить доступ к полному архиву, перейдите в раздел настроек профиля. Обычно путь выглядит следующим образом: нажмите на аватарку в верхнем правом углу, выберите <code>Account Settings</code> (Настройки аккаунта), а затем найдите вкладку, связанную с безопасностью или приватностью. Именно там располагаются инструменты GDPR (для европейских пользователей) или общие настройки конфиденциальности, которые доступны и для других регионов.</p>
+
+<h3>Раздел безопасности и конфиденциальности</h3>
+<p>Внутри раздела безопасности следует искать опции с названиями вроде «Download my data» (Скачать мои данные) или «Privacy Center» (Центр конфиденциальности). Именно здесь формируется запрос на создание архива. Система собирает информацию со всех разделов: от истории поиска до детализированных логов переписки. Важно понимать, что процесс не происходит мгновенно. После подачи запроса система начинает сбор данных, что может занять от нескольких часов до суток.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Сроки формирования архива могут варьироваться от 24 до 72 часов. Ссылка для скачивания действует ограниченное время, обычно не более 3-5 дней, после чего файл удаляется с сервера.</p></div>
+
+<h3>Альтернативные пути через службу поддержки</h3>
+<p>В некоторых случаях автоматическая выгрузка может не содержать полной истории переписки в читаемом формате. Тогда на помощь приходит обращение в службу поддержки. Вы можете инициировать диалог с оператором или ботом Eva, запросив предоставление истории коммуникаций. Хотя это не прямой «экспорт» в один клик, это легитимный способ получить данные, если автоматические инструменты дают сбой.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Полный экспорт данных включает не только переписку, но и историю изменений статуса заказов, что может быть критически важно при длительных судебных разбирательствах.</p></div>
+
+<h2 id="пошаговая-инструкция-по-выгрузке-данных">Пошаговая инструкция по выгрузке данных</h2>
+
+<p>Вот что нужно сделать, чтобы гарантированно получить копию своей переписки и данных о заказах. Процесс требует внимательности, так как неверно выбранный формат или тип данных может привести к тому, что файл окажется нечитаемым или неполным. Следуйте алгоритму, чтобы избежать лишних действий.</p>
+
+<div class="checklist-block"><h4>📋 Запрос данных аккаунта</h4><ol><li><strong>Шаг 1.</strong> Войдите в аккаунт через браузер</li><li><strong>Шаг 2.</strong> Перейдите в Account Settings → Privacy</li><li><strong>Шаг 3.</strong> Нажмите Download my data</li><li><strong>Шаг 4.</strong> Выберите типы данных (Orders, Messages)</li><li><strong>Шаг 5.</strong> Подтвердите запрос email-кодом</li></ol></div>
+
+<ol>
+<li>Авторизуйтесь на сайте AliExpress и перейдите в центр учетной записи.</li>
+<li>Найдите раздел «Безопасность» или «Конфиденциальность» (Privacy).</li>
+<li>Выберите опцию запроса данных (Request Data).</li>
+<li>В появившемся списке отметьте галочками пункты «Messages» (Сообщения) и «Orders» (Заказы).</li>
+<li>Укажите адрес электронной почты, на который придет ссылка для скачивания.</li>
+<li>Подтвердите операцию кодом из SMS или письма.</li>
+</ol>
+
+<p>После того как вы получите уведомление о готовности архива, файл будет отправлен на указанную почту. Обычно это ZIP-архив, содержащий JSON или CSV файлы. Для открытия таких файлов могут потребоваться специальные программы или онлайн-конвертеры, если вы не владеете навыками программирования. JSON — это структурированный текстовый формат, который легко читается машинами, но сложен для восприятия человеком без предварительной обработки.</p>
+
+<h3>Работа с полученными файлами</h3>
+<p>Когда архив загружен, распакуйте его в отдельную папку. Внутри вы обнаружите несколько файлов. Нас интересует файл, связанный с сообщениями (часто называется <code>messages.json</code> или). Чтобы прочитать его, можно использовать текстовые редакторы, но лучше восполь<mark>ьзоваться онлайн-JSON viewer</mark>, который отформатирует текст в виде удобной таблицы или дерева диалогов. Это позволит увидеть даты, отправителя и текст сообщений.</p>
+
+<details class="faq-item"><summary>Как читать JSON файл</summary><div class="faq-answer"><p>Текст в файле выглядит как код. Ищите поля"content" (содержимое сообщения),"sender" (отправитель) и"gmtCreate" (дата создания). Копируйте эти значения в таблицу Excel для удобного просмотра.</p></div></details>
+
+<h2 id="нюансы-форматов-и-технические-ограничения">Нюансы форматов и технические ограничения</h2>
+
+<p>На практике пользователи часто сталкиваются с тем, что выгруженные данные выглядят как набор непонятных символов. Это нормально для машинного формата данных. Главная сложность заключается в том, что AliExpress, как и другие платформы, не предоставляет функцию экспорта переписки в формате PDF или Word «из коробки». Вам придется самостоятельно структурировать информацию.</p>
+
+<h3>Проблема кодировки и языков</h3>
+<p>Важный момент: в переписке с международными продавцами часто смешиваются языки. При экспорте могут возникать проблемы с кодировкой, когда русские буквы превращаются в «кракозябры». Чтобы избежать этого, убедитесь, что ваш текстовый редактор или программа для просмотра JSON поддерживает кодировку <code>UTF-8</code>. Это стандарт, который должен корректно отображать символы любого языка.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для удобного чтения истории переписки скопируйте данные из JSON-файла в Google Таблицы или Excel. Это позволит отсортировать сообщения по датам и быстро найти нужный диалог.</p></div>
+
+<h3>Ограничения по объему и глубине архива</h3>
+<p>Система может иметь лимиты на количество выгружаемых сообщений. Например, архив может содержать данные только за последние 2-3 года, даже если вы пользуетесь сайтом дольше. Это связано с оптимизацией хранения данных на серверах компании. Старые сообщения могут быть перемещены в «холодное» хранилище и не попадать в стандартный запрос на выгрузку.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Ограничение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Формат файла</td>
+<td>JSON, CSV</td>
+<td>Требует конвертации для чтения</td>
+</tr>
+<tr>
+<td>Глубина архива</td>
+<td>История аккаунта</td>
+<td>Обычно до 3-5 лет назад</td>
+</tr>
+<tr>
+<td>Срок хранения ссылки</td>
+<td>Время доступности файла</td>
+<td><mark>3-5 дней</mark> после формирования</td>
+</tr>
+<tr>
+<td>Размер файла</td>
+<td>Зависит от активности</td>
+<td>До 2-4 ГБ для активных пользователей</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="типичные-ошибки-при-попытке-сохранить-переписку">Типичные ошибки при попытке сохранить переписку</h2>
+
+<p>Многие пользователи совершают одни и те же ошибки, пытаясь сохранить важную информацию. Чаще всего это связано с невнимательностью к деталям интерфейса или misunderstanding технических процессов. Избегайте этих pitfalls, чтобы не потерять данные.</p>
+
+<ul>
+<li>Попытка сделать скриншоты всей переписки вручную: это долго и неудобно для поиска информации в будущем.</li>
+<li>Игнорирование проверки электронной почты: письмо со ссылкой на архив может попасть в папку «Спам».</li>
+<li>Удаление аккаунта до выгрузки данных: после удаления восстановление истории переписки невозможно.</li>
+<li>Попытка открыть JSON файл в стандартном «Блокноте» Windows без форматирования, что делает текст нечитаемым.</li>
+</ul>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Никогда не передавайте файлы с экспортированными данными третьим лицам. В них может содержаться ваша личная информация, адреса доставки и номера телефонов.</p></div>
+
+<h3>Проблемы с доступом к старым заказам</h3>
+<p>Частая ошибка — ожидание, что в экспорте будут полные детали заказов, закрытых много лет назад. AliExpress периодически проводит чистку базы данных, и детали очень старых транзакций могут быть обезличены или удалены. Если у вас есть критически важный старый заказ, убедитесь, что вы сохранили чеки и переписку локально заранее, не полагаясь на вечное хранение в облаке платформы.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед удалением данных</h4><label class="check-item"><input type="checkbox"><span>Файл успешно скачан на компьютер</span></label><label class="check-item"><input type="checkbox"><span>Архив открыт и данные читаемы</span></label><label class="check-item"><input type="checkbox"><span>Сделана резервная копия на внешнем диске</span></label><label class="check-item"><input type="checkbox"><span>Скриншоты важных треков сохранены</span></label><label class="check-item"><input type="checkbox"><span>Пароль от архива (если есть) записан</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="что-делать-если-автоматический-экспорт-не-работает">Что делать, если автоматический экспорт не работает</h2>
+
+<p>Если вы столкнулись с тем, что кнопка выгрузки неактивна, страница зависает или файл не приходит на почту, не стоит паниковать. Технические сбои случаются, особенно в периоды распродаж, когда нагрузка на серверы максимальна. В таких случаях существуют обходные пути.</p>
+
+<h3>Использование расширений браузера</h3>
+<p>Для пользователей Google Chrome и Firefox существуют расширения для веб-скрапинга, которые позволяют «собирать» информацию со страницы. Однако <strong>использовать их нужно с крайней осторожностью</strong>. Алиэкспресс может расценить активную работу скрипта как атаку и временно заблокировать аккаунт. Безопаснее делать это медленно и вручную, или использовать специализированные плагины для сохранения веб-страниц в PDF, проходя по диалогу с продавцом.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Официальная поддержка AliExpress не рекомендует использовать сторонние скрипты и ботов для сбора данных из соображений безопасности вашего аккаунта.</p></div>
+
+<h3>Обращение в поддержку как последний аргумент</h3>
+<p>Если речь идет о судебном споре, вы имеете право запросить официальную выписку у администрации площадки. Для этого нужно создать тикет в разделе «Споры и возвраты» или через форму обратной связи, четко сформулировав юридический запрос. Ответ может идти дольше, но такие данные имеют больший вес, чем самостоятельный скриншот.</p>
+
+<h2 id="стратегия-цифрового-архива-для-шопоголика">Стратегия цифрового архива для шопоголика</h2>
+
+<p>Вместо того чтобы судорожно искать функцию экспорта в момент кризиса, лучше выработать привычку регулярного резервирования важной информации. Подход «сохранить и забыть» здесь не работает, так как платформы меняют правила хранения данных. Регулярный бэкап — это ваша страховка.</p>
+<p>Важный момент: создайте простую систему папок на своем компьютере или в облачном хранилище. Раз в полгода, или после покупки дорогостоящего товара, сохраняйте чеки и финальные сообщения с продавцом в отдельный файл. Это займет пару минут, но спасет часы нервотрепки в будущем.</p>
+<p>На практике, наличие собственного архива дает чувство контроля. Вы не зависите от капризов сервера, блокировок или изменений в политике конфиденциальности AliExpress. Ваши данные остаются с вами, и вы в любой момент можете найти нужный трек-код или подтверждение гарантии, даже если аккаунт на сайте будет недоступен.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Экспорт данных с AliExpress возможен через настройки конфиденциальности, но требует обработки JSON файлов. Регулярное ручное сохранение важной переписки — самый надежный способ обезопасить себя.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-функцию-управления-данными-и-экспорта">Где найти функцию управления данными и экспорта</a></li><li><a href="#пошаговая-инструкция-по-выгрузке-данных">Пошаговая инструкция по выгрузке данных</a></li><li><a href="#нюансы-форматов-и-технические-ограничения">Нюансы форматов и технические ограничения</a></li><li><a href="#типичные-ошибки-при-попытке-сохранить-переписку">Типичные ошибки при попытке сохранить переписку</a></li><li><a href="#что-делать-если-автоматический-экспорт-не-работает">Что делать, если автоматический экспорт не работает</a></li><li><a href="#стратегия-цифрового-архива-для-шопоголика">Стратегия цифрового архива для шопоголика</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-izmenit-parol-v-aliexpress.html" class="related-card">Как изменить пароль в AliExpress: полная инструкция</a></li><li><a href="/articles/k/ka/kak-vyglyadit-soobshchenie-ot-aliekspress.html" class="related-card">Как выглядит сообщение от АлиЭкспресс: разбор уведомлений и писем</a></li><li><a href="/articles/k/ka/kak-uznat-rejting-prodavtsa-na-aliekspress-rasshirenie.html" class="related-card">Как узнать рейтинг продавца на AliExpress: расширение и способы</a></li><li><a href="/articles/k/ka/kak-zastrakhovat-posylku-s-aliekspress.html" class="related-card">Как застраховать посылку с Алиэкспресс: полное руководство</a></li><li><a href="/articles/k/ka/kak-skryt-zakaz-na-aliekspress-v-prilozhenii.html" class="related-card">Как скрыть заказ на Алиэкспресс в приложении: полная инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-izmenit-parol-v-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Как изменить пароль в AliExpress: полная инструкция</span><span class="related-bottom-desc">Подробное руководство по смене пароля в AliExpress. Пошаговая инструкция для сайта и приложения, вос</span></a><a href="/articles/k/ka/kak-vyglyadit-soobshchenie-ot-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выглядит сообщение от АлиЭкспресс: разбор уведомлений и писем</span><span class="related-bottom-desc">Подробное руководство по сообщениям от АлиЭкспресс. Узнайте, как отличить официальное письмо от моше</span></a><a href="/articles/k/ka/kak-uznat-rejting-prodavtsa-na-aliekspress-rasshirenie.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать рейтинг продавца на AliExpress: расширение и способы</span><span class="related-bottom-desc">Подробное руководство: как узнать рейтинг продавца на Алиэкспресс через расширение и встроенные инст</span></a><a href="/articles/k/ka/kak-zastrakhovat-posylku-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как застраховать посылку с Алиэкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по страховке товаров на AliExpress. Узнайте, как защитить покупку, оформить воз</span></a><a href="/articles/k/ka/kak-skryt-zakaz-na-aliekspress-v-prilozhenii.html" class="related-bottom-card"><span class="related-bottom-title">Как скрыть заказ на Алиэкспресс в приложении: полная инструкция</span><span class="related-bottom-desc">Подробный гайд по удалению истории покупок в AliExpress. Как скрыть заказы, очистить список и обезоп</span></a><a href="/articles/k/ka/kak-izbavitsya-ot-rassylki-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Как отписаться от рассылок AliExpress: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по отключению email и push-уведомлений AliExpress. Узнайте, как убрать спам и н</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как запрограммировать брелок с Алиэкспресс от ворот — Али Гид</title>
+    <meta name="description" content="Подробное руководство по настройке и программированию универсального брелока с Алиэкспресс для ворот, шлагбаумов и гаражей.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-zaprogrammirovat-brelok-s-aliekspress-ot-vorot.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как запрограммировать брелок с Алиэкспресс от ворот">
+    <meta property="og:description" content="Подробное руководство по настройке и программированию универсального брелока с Алиэкспресс для ворот, шлагбаумов и гаражей.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как запрограммировать брелок с Алиэкспресс от ворот</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как запрограммировать брелок с Алиэкспресс от ворот: пошаговая инструкция</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#определение-типа-радиосигнала-и-совместимости">Определение типа радиосигнала и совместимости</a></li><li><a href="#пошаговая-инструкция-по-копированию-сигнала">Пошаговая инструкция по копированию сигнала</a></li><li><a href="#программирование-через-приемник-запись-в-память-ворот">Программирование через приемник (запись в память ворот)</a></li><li><a href="#типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</a></li><li><a href="#что-делать-если-ничего-не-получается">Что делать, если ничего не получается</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы столкнулись с потерей оригинального пульта управления или просто хотите иметь запасной вариант на случай разряда основной батареи, покупка универсального брелока на AliExpress становится логичным решением. Часто такие устройства стоят в разы дешевле брендовых аналогов в местных магазинах, но вызывают вопросы у новичков: как заставить китайский гаджет работать с вашей калиткой или гаражом? Проблема актуальна, так как без правильной настройки устройство останется просто куском пластика.</p>
+
+<p>Вот что нужно сделать: прежде всего, необходимо понять принцип работы радиопультов. Универсальные брелоки не обладают собственным интеллектом для автоматического определения протокола; им нужно «скормить» сигнал от вашего старого рабочего пульта или использовать метод подбора кода. Процесс этот не сложный, но требует внимательности к деталям и последовательности действий.</p>
+
+<p>Важный момент: перед началом любых манипуляций убедитесь, что в новом брелоке установлена свежая батарейка. Часто из-за длительного хранения на складе или транспортировки заряд элементов питания падает, что приводит к некорректной работе светодиода и невозможности записать код. Также проверьте, что старый пульт (если он у вас есть) исправен и передает сигнал.</p>
+
+<h2 id="определение-типа-радиосигнала-и-совместимости">Определение типа радиосигнала и совместимости</h2>
+
+<p>Если хотите избежать пустой траты времени, начните с изучения характеристик вашего текущего пульта и ворот. Не все брелоки с Алиэкспресс подходят ко всем приемникам. Основное различие кроется в частоте сигнала и типе кодировки. Большинство бытовых систем (ворота, шлагбаумы, сигнализации) работают на частотах 433 МГц или 868 МГц. Реже встречаются 315 МГц или 27 МГц.</p>
+
+<p>На практике самым надежным способом узнать частоту является вскрытие старого пульта. Внутри на черной «капле» или кварцевом генераторе (серебристый продолговатый элемент) всегда выбиты цифры. Ищите значения вроде 433.92, 433.07 или 868.35. Если вы купите брелок на 433 МГц для системы, работающей на 868 МГц, программирование окажется невозможным физически.</p>
+
+<p>Кроме частоты, важен тип кода: фиксированный (Static Code) или динамический (Rolling Code). Универсальные брелоки с Алиэкспресс чаще всего работают с фиксированным кодом (серии PT2260, PT2262, EV1527, HT6P20B и их аналоги). Динамические коды (используемые в современных автомобильных сигнализациях и сложных системах доступа) такие брелоки обычно не копируют без специального оборудования.</p>
+
+<h3>Как визуально отличить подходящий брелок</h3>
+
+<p>При выборе устройства на маркетплейсе обращайте внимание на описание. Если в характеристиках указано «Self-learning» (самообучение) или «Copy», скорее всего, перед вами клонер фиксированного кода. Для таких устройств критически важно наличие хотя бы одного рабочего оригинала для считывания сигнала.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Универсальные брелоки часто называют «клонами» или «копирами», так как они просто копируют сигнал, а не генерируют новый уникальный код для приемника.</p></div>
+
+<p>Вот таблица, которая поможет быстро сориентироваться в основных параметрах совместимости:</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Фиксированный код (Static)</th>
+<th>Динамический код (Rolling)</th>
+<th>Частота (Frequency)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Описание</td>
+<td>Постоянный сигнал, легко копируется</td>
+<td>Меняющийся сигнал, высокая защита</td>
+<td>Несущая частота радиоволны</td>
+</tr>
+<tr>
+<td>Где используется</td>
+<td>Старые ворота, простые шлагбаумы, лампы</td>
+<td>Современные авто, сложные СКУД</td>
+<td>433 МГц, 868 МГц, 315 МГц</td>
+</tr>
+<tr>
+<td>Копирование</td>
+<td>Возможно обычным брелоком с Али</td>
+<td>Требует программирования в контроллере</td>
+<td>Должна совпадать точно</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="пошаговая-инструкция-по-копированию-сигнала">Пошаговая инструкция по копированию сигнала</h2>
+
+<p>Самый распространенный сценарий — это клонирование сигнала. Это процесс, при котором новый брелок считывает код старого и начинает транслировать его идентично. Для этого вам понадобятся оба устройства: оригинал (донор) и новый брелок с Алиэкспресс (реципиент). Расстояние между ними должно быть минимальным, буквально 1-3 сантиметра.</p>
+
+<p>Вот что нужно сделать: сначала необходимо очистить память нового брелока от заводских настроек, если они там были, или от предыдущих попыток записи. Затем переводим устройство в режим обучения и считываем сигнал. Важно держать устройства неподвижно и плотно прижатыми друг к другу торцами или спинками, в зависимости от расположения антенны.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Некоторые модели брелоков при очистке памяти могут сбросить все ранее записанные кнопки. Если у вас многозадачный пульт, копируйте все кнопки сразу или убедитесь, что можете повторить процедуру для каждой.</p></div>
+
+<h3>Алгоритм действий для большинства моделей</h3>
+
+<ol>
+<li>Очистите память нового брелока. Для этого обычно нужно зажать одновременно две верхние кнопки (или две конкретные, указанные в инструкции) и держать около 5-7 секунд, пока светодиод не моргнет несколько раз быстро или не погаснет. Это сигнал готовности к записи.</li>
+<li>Поднесите старый работающий пульт вплотную к новому. Нажмите на старом нужную кнопку (например, «Открыть») и держите ее. Индикатор на старом пульте должен гореть.</li>
+<li>На новом брелоке нажмите и удерживайте ту кнопку, которой хотите управлять воротами. Светодиод на новом устройстве должен начать часто мигать, а затем загореться ровным светом или моргнуть пару раз, подтверждая запись.</li>
+<li>Отпустите обе кнопки. Проверьте работу: нажмите на новую кнопку. Если ворота реагируют, повторите процедуру для остальных кнопок (закрытие, стоп, открытие второй калитки).</li>
+</ol>
+
+<div class="checklist-block"><h4>📋 Копирование брелока</h4><ol><li><strong>Шаг 1.</strong> Зажмите две кнопки для сброса памяти</li><li><strong>Шаг 2.</strong> Поднесите старый пульт вплотную к новому</li><li><strong>Шаг 3.</strong> Зажмите кнопку на старом, затем на новом</li><li><strong>Шаг 4.</strong> Дождитесь быстрого мигания светодиода</li></ol></div>
+
+<h3>Настройка количества кнопок</h3>
+
+<p>Часто на универсальных брелоках 4 кнопки, а нужно только две. В таких случаях программируются только необходимые. Однако, если вы хотите, чтобы одна кнопка на новом брелоке выполняла функцию двух разных действий (что редко, но бывает в специфических системах), потребуется более сложная логика, которую простые «клоны» не поддерживают. Здесь каждая кнопка нового брелока — это независимая копия нажатой кнопки старого.</p>
+
+<h2 id="программирование-через-приемник-запись-в-память-ворот">Программирование через приемник (запись в память ворот)</h2>
+
+<p>Если метод клонирования не работает (старый пульт утерян или имеет динамический код, который невозможно скопировать простым способом), остается вариант записи нового брелока непосредственно в память контроллера ворот или шлагбаума. Это более сложный путь, требующий доступа к «внутренностям» механизма управления.</p>
+
+<p>Важный момент: этот способ подходит только в том случае, если ваш новый брелок с Алиэкспресс имеет возможность менять свой ID-код или если приемник ворот умеет запоминать новые устройства по нажатию кнопки. Для статических брелоков-клонеров этот метод обычно не требуется, так как они имитируют старый пульт. Но если вы купили программируемый пульт с возможностью смены кода (Dip-switch или программный), то действовать нужно иначе.</p>
+
+<h3>Поиск кнопки Learn на контроллере</h3>
+
+<p>Вам нужно добраться до платы управления воротами. Откройте кожух привода. Найдите на плате кнопку, которая может называться <code>Learn</code>, <code>Prog</code>, <code>Record</code> или иметь значок ключа/антенны. Рядом часто есть светодиодный индикатор.</p>
+
+<p>На практике процедура выглядит так: нажмите и отпустите кнопку обучения на плате (иногда нужно нажать и держать 2 секунды). Индикатор на плате должен загореться или заморгать, сигнализируя о переходе в режим записи. В этот момент (обычно у вас есть от 10 до 30 секунд) нажмите кнопку на новом брелоке. Плата должна подтвердить запись миганием или звуковым сигналом.</p>
+
+<details class="faq-item"><summary>Что делать, если кнопки Learn нет?</summary><div class="faq-answer"><p>Иногда кнопка скрыта под защитной крышкой или совмещена с другими функциями. В некоторых моделях для входа в режим программирования нужно подать питание на плату или замкнуть определенные контакты перемычкой. Ищите маркировку на плате, например, SW1 или JP1.</p></div></details>
+
+<h2 id="типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</h2>
+
+<p>Даже при соблюдении инструкции пользователи часто сталкиваются с тем, что брелок не работает. Чаще всего проблема кроется не в браке устройства, а в мелочах, которые упускаются из виду. Разберем основные причины неудач, чтобы вы могли быстро диагностировать проблему.</p>
+
+<p>Вот список наиболее частых ошибок:</p>
+
+<ul>
+<li>Несовпадение частоты: вы пытаетесь запрограммировать брелок 433 МГц на ворота 868 МГц. Визуально они могут быть идентичны, но работать не будут.</li>
+<li>Села батарейка в процессе записи: если заряд критически низок, сигнал будет слишком слабым для корректного считывания новым устройством.</li>
+<li>Неверный угол наклона: антенны пультов должны быть направлены друг на друга. Если держать их боком или слишком далеко, запись не пройдет.</li>
+<li>Попытка скопировать динамический код: простые брелоки с Алиэкспресс не умеют копировать «плавающий» код современных автосигнализаций или систем типа Nice, Came (некоторые модели).</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Проверка перед покупкой</h4><label class="check-item"><input type="checkbox"><span>Измерена частота старого пульта</span></label><label class="check-item"><input type="checkbox"><span>Есть доступ к рабочему оригиналу для копирования</span></label><label class="check-item"><input type="checkbox"><span>Понятен тип кодировки (статика/динамика)</span></label><label class="check-item"><input type="checkbox"><span>Батарейка в новом брелоке заменена на свежую</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h3>Проблемы с дальностью действия</h3>
+
+<p>Иногда брелок программируется, но ворота открываются только в упор. Это может быть связано с качеством кварцевого генератора в дешевом китайском брелоке. Частота может «плавать» от температуры или разряда батареи. В таком случае помогает замена батарейки на более качественную или подстройка антенны приемника (если вы разбираетесь в радиотехнике).</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для увеличения дальности действия можно попробовать заменить штатную батарейку в брелоке на более емкую, если размеры корпуса позволяют, или использовать батарейки литиевого типа, которые лучше работают на морозе.</p></div>
+
+<h2 id="что-делать-если-ничего-не-получается">Что делать, если ничего не получается</h2>
+
+<p>Если вы перепробовали все комбинации кнопок, меняли батарейки и проверяли частоту, но ворота остаются глухи, возможно, дело в несовместимости протоколов. Некоторые производители (например, CAME, Nice, DoorHan) используют проприетарные протоколы, которые не копируются универсальными клонировщиками. В этом случае поможет только оригинальный пульт или специализированный программируемый брелок, поддерживающий конкретный протокол.</p>
+
+<p>На практике часто выручает поиск точной модели пульта по фото платы. Снимите крышку старого брелока, сфотографируйте «внутренности» и отправьте фото продавцу на Алиэкспресс. Они часто могут подсказать, подойдет ли их товар, или даже вышлют уже прошитый вариант.</p>
+
+<h3>Финальная проверка и безопасность</h3>
+
+<p>После успешного программирования обязательно проверьте работу системы несколько раз с разного расстояния. Убедитесь, что новый брелок не создает помех соседям (хотя это редкость) и что старый пульт по-прежнему работает, если вы не стирали его из памяти ворот. Помните, что клонирование кода означает, что любой, кто перехватит сигнал (в случае простых статических кодов), сможет открыть ваши ворота. Для высокой безопасности рекомендуется использовать системы с динамическим кодом.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Успешное программирование брелока зависит от совпадения частоты и типа кода, а также точного соблюдения инструкции по сбросу и записи сигнала.</p></div>
+
+<p>В заключение стоит сказать, что универсальные брелоки с Алиэкспресс — это отличное бюджетное решение для дублирования пультов от гаражей, калиток и простой автоматики. Главное — не торопиться, внимательно изучить маркировку на плате старого устройства и четко следовать алгоритму сброса и записи. Если первый раз не получилось, не отчаивайтесь: часто достаточно просто увеличить время удержания кнопок или заменить элемент питания, чтобы добиться результата. Правильно настроенный гаджет прослужит долго и сэкономит ваши нервы в ситуациях, когда основной пульт потеряется.</p>
+
+<p> В таких случаях лучше обратиться к специалистам или приобрести сертифицированное оборудование у официальных дилеров. Однако в 90% случаев для бытовой автоматики метод клонирования, описанный выше, работает безотказно.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#определение-типа-радиосигнала-и-совместимости">Определение типа радиосигнала и совместимости</a></li><li><a href="#пошаговая-инструкция-по-копированию-сигнала">Пошаговая инструкция по копированию сигнала</a></li><li><a href="#программирование-через-приемник-запись-в-память-ворот">Программирование через приемник (запись в память ворот)</a></li><li><a href="#типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</a></li><li><a href="#что-делать-если-ничего-не-получается">Что делать, если ничего не получается</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-nastroit-usilitel-sotovoj-svyazi-s-aliekspress-goboost.html" class="related-card">Как настроить усилитель GOBOOST с AliExpress: полный гайд</a></li><li><a href="/articles/k/ka/kak-zakazat-sintezator-na-aliekspress.html" class="related-card">Как заказать синтезатор на Алиэкспресс: гид по выбору и оплате</a></li><li><a href="/articles/k/ka/kak-polzovatsya-pirometrom-s-aliekspress.html" class="related-card">Как пользоваться пирометром с AliExpress: инструкция</a></li><li><a href="/articles/c/ch/chto-oznachaet-razblokirovannyj-smartfon-na-aliekspress.html" class="related-card">Разблокированный смартфон на AliExpress: что значит и как проверить</a></li><li><a href="/articles/k/ka/kakoj-shurupovert-luchshe-zakazat-s-aliekspress.html" class="related-card">Какой шуруповерт лучше заказать с Алиэкспресс: гид по выбору</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-nastroit-usilitel-sotovoj-svyazi-s-aliekspress-goboost.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить усилитель GOBOOST с AliExpress: полный гайд</span><span class="related-bottom-desc">Подробная инструкция по установке и настройке репитера GOBOOST. Разбор частот, монтаж антенн, устран</span></a><a href="/articles/k/ka/kak-zakazat-sintezator-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как заказать синтезатор на Алиэкспресс: гид по выбору и оплате</span><span class="related-bottom-desc">Подробное руководство по покупке синтезатора на AliExpress. Выбор модели, проверка продавцов, настро</span></a><a href="/articles/k/ka/kak-polzovatsya-pirometrom-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как пользоваться пирометром с AliExpress: инструкция</span><span class="related-bottom-desc">Полное руководство: как настроить и использовать инфракрасный термометр с Алиэкспресс. Проверка точн</span></a><a href="/articles/c/ch/chto-oznachaet-razblokirovannyj-smartfon-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Разблокированный смартфон на AliExpress: что значит и как проверить</span><span class="related-bottom-desc">Полный гайд по разблокированным телефонам на Алиэкспресс. Как отличить Global Version от China, пров</span></a><a href="/articles/k/ka/kakoj-shurupovert-luchshe-zakazat-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какой шуруповерт лучше заказать с Алиэкспресс: гид по выбору</span><span class="related-bottom-desc">Как выбрать мощный и надежный шуруповерт на AliExpress? Разбор брендов, характеристик, аккумуляторов</span></a><a href="/articles/k/ka/kakoj-dron-zakazat-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какой дрон купить на Алиэкспресс: гид по выбору 2026</span><span class="related-bottom-desc">Подробное руководство по выбору дрона на Алиэкспресс: от бюджетных моделей до профессиональных. Срав</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

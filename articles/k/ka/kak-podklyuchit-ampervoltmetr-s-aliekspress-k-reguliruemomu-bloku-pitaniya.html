@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как подключить ампервольтметр с Алиэкспресс к блоку питания — Али Гид</title>
+    <meta name="description" content="Подробная инструкция: подключение 0.28 дюймового вольтметра к БП. Схемы, калибровка, устранение мигания и настройка своими руками.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-podklyuchit-ampervoltmetr-s-aliekspress-k-reguliruemomu-bloku-pitaniya.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить ампервольтметр с Алиэкспресс к блоку питания">
+    <meta property="og:description" content="Подробная инструкция: подключение 0.28 дюймового вольтметра к БП. Схемы, калибровка, устранение мигания и настройка своими руками.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить ампервольтметр с Алиэкспресс к блоку питания</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Подключение ампервольтметра с Алиэкспресс к регулируемому блоку питания</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#выбор-подходящей-модели-и-оценка-функционала">Выбор подходящей модели и оценка функционала</a></li><li><a href="#схема-подключения-и-монтаж-в-корпус">Схема подключения и монтаж в корпус</a></li><li><a href="#нюансы-гальванической-развязки-и-питания">Нюансы гальванической развязки и питания</a></li><li><a href="#калибровка-показаний-и-устранение-погрешностей">Калибровка показаний и устранение погрешностей</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#финальная-сборка-и-эксплуатация-устройства">Финальная сборка и эксплуатация устройства</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Если вы собрались собрать свой первый регулируемый блок питания или модернизировать старый советский агрегат, то вопрос отображения выходных параметров встает практически сразу. Стрелочные приборы выглядят стильно, но часто имеют большую погрешность и требуют точного подбора шунтов. Цифровые решения с популярных китайских площадок предлагают невероятную точность и компактность за сущие копейки, однако процесс их внедрения в готовое устройство полон технических нюансов.</p>
+
+<p>Вот что нужно сделать: разобраться в типах приборов, так как на рынке присутствуют сотни моделей, визуально похожих друг на друга, но имеющих принципиально разные схемы подключения. Самая распространенная проблема, с которой сталкиваются новички, — это попытка запитать измерительную головку от того же источника, который она должна измерять, без должной изоляции. Это приводит либо к неработоспособности прибора, либо к выходу из строя его внутренностей из-за короткого замыкания.</p>
+
+<p>На практике подключение таких устройств требует внимательности к деталям, особенно когда речь заходит о гальванической развязке. Многие дешевые модули, которые вы видите в топ-продажах, не имеют развязки между измерительной цепью и цепью питания самого дисплея. Если вы просто припаяете три провода к выходу своего лабораторного блока питания, вы рискуете устроить короткое замыкание через минусовой провод питания прибора. В этой статье мы подробно разберем, как избежать фатальных ошибок, правильно выбрать модель и настроить прибор для точной работы.</p>
+
+<h2 id="выбор-подходящей-модели-и-оценка-функционала">Выбор подходящей модели и оценка функционала</h2>
+
+<p>Если хотите избежать проблем на этапе монтажа, важно правильно выбрать устройство еще до покупки. На рынке доминируют компактные врезные приборы с размером экрана 0.28 или 0.36 дюйма. Они делятся на две основные категории: комбинированные (ампервольтметры) и раздельные (отдельно вольтметр, отдельно амперметр). Для самодельного блока питания чаще всего выбирают комбинированные модели, так как они занимают меньше места на лицевой панели.</p>
+
+<p>Важный момент: обращайте внимание на количество проводов, выходящих из корпуса прибора. Стандартный набор для полноценного ампервольтметра — это 3 или 4 тонких провода для питания и калибровки, плюс два толстых провода для измерения тока (шунт). Если вы видите только три тонких провода, перед вами, скорее всего, простой вольтметр, который не умеет мерить ток, либо модель с внутренним шунтом, не подходящая для больших токов.</p>
+
+<h3>Основные характеристики популярных моделей</h3>
+
+<p>Вот основные параметры, на которые стоит ориентироваться при выборе. Большинство приборов работают в диапазоне от 0 до 100 вольт и от 0 до 10 ампер, хотя встречаются модели с расширенным диапазоном. Цвет свечения дисплея (красный, синий, зеленый, белый) влияет не только на эстетику, но и на читаемость при разном освещении.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание и влияние на работу</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Размер дисплея</td>
+<td>0.28 дюйма — стандарт, цифры хорошо читаются. 0.36 — крупнее, но требует больше места в панели.</td>
+</tr>
+<tr>
+<td>Диапазон напряжения</td>
+<td>Обычно 0-100V. Для высоких напряжений (>100V) нужны специальные делители или модели с высоким порогом.</td>
+</tr>
+<tr>
+<td>Диапазон тока</td>
+<td>Стандарт 0-10A. Модели на 50A или 100A требуют внешнего шунта, который редко идет в комплекте.</td>
+</tr>
+<tr>
+<td>Точность</td>
+<td>Заводская калибровка часто имеет погрешность до 5-10%, требуется ручная подстройка.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Если хотите получить максимальную точность сразу из коробки, ищите модели с пометкой «High Precision», но даже они требуют проверки эталонным прибором. Часто бывает так, что дешевый вольтметр за пару долларов показывает напряжение точнее, чем дорогой мультиметр, если провести правильную калибровку.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Обращайте внимание на толщину проводов. Тонкие провода питания (обычно красный, черный, желтый) имеют сечение около 22-24 AWG, тогда как токовые провода (для амперметра) должны быть значительно толще, чтобы не вносить дополнительную погрешность и не греться.</p></div>
+
+<h2 id="схема-подключения-и-монтаж-в-корпус">Схема подключения и монтаж в корпус</h2>
+
+<p>Вот что нужно сделать в первую очередь: внимательно изучить цветовую маркировку проводов, выходящих из «хвоста» прибора. Стандартная расцветка для трехпроводных схем (питание + измерение напряжения) выглядит так: красный — плюс питания, черный — общий минус, желтый — измерительный вход. Для четырехпроводных схем (с отдельным измерением тока) добавляются два толстых провода.</p>
+
+<p>На практике монтаж делится на два этапа: подключение цепи измерения напряжения и подключение цепи измерения тока. Самая распространенная ошибка — объединение минусовых проводов питания прибора и измеряемой цепи там, где это запрещено конструкцией. В дешевых моделях без гальванической развязки минус питания прибора и минус измеряемой цепи внутри уже соединены.</p>
+
+<h3>Пошаговая инструкция по подключению</h3>
+
+<p>Если хотите правильно собрать схему, следуйте алгоритму, который минимизирует риск ошибки. Важно выполнять работы при отключенном питании блока питания.</p>
+
+<ol>
+<li>Подготовьте провода: зачистите концы тонких проводов питания и толстых токовых проводов.</li>
+<li>Подключите питание прибора: красный провод к плюсу вспомогательного источника (или выхода БП, если позволяет схема), черный — к минусу.</li>
+<li>Организуйте измерение напряжения: желтый (измерительный) провод подключите к точке, где нужно мерить напряжение. Если прибор трехпроводной, этот провод часто идет параллельно красному.</li>
+<li>Организуйте измерение тока: толстые провода включите в разрыв цепи нагрузки. Ток должен течь через них от источника к нагрузке.</li>
+<li>Проверьте полярность: неверное подключение питания мгновенно выведет прибор из строя.</li>
+</ol>
+
+<div class="checklist-block"><h4>📋 Базовое подключение 3-проводного вольтметра</h4><ol><li><strong>Шаг 1.</strong> Подключите красный провод к плюсу источника (4.5-30В)</li><li><strong>Шаг 2.</strong> Подключите черный провод к общему минусу (GND)</li><li><strong>Шаг 3.</strong> Подключите желтый провод к точке измерения напряжения</li><li><strong>Шаг 4.</strong> Подайте питание и проверьте показания</li></ol></div>
+
+<p>Важный момент: если вы используете модель, где питание берется от измеряемой цепи (двухпроводные вольтметры), убедитесь, что диапазон измеряемых напряжений попадает в диапазон питания самого прибора. Обычно это 4.5-30 вольт. Если подать на такой прибор 100 вольт, он сгорит.</p>
+
+<h2 id="нюансы-гальванической-развязки-и-питания">Нюансы гальванической развязки и питания</h2>
+
+<p>Если хотите собрать профессиональный лабораторный блок питания, вам придется столкнуться с концепцией гальванической развязки. Проблема большинства дешевых ампервольтметров с Алиэкспресс заключается в том, что «минус» питания самого дисплея и «минус» измеряемой цепи (особенно токовой) жестко связаны внутри платы.</p>
+
+<p>Вот что нужно сделать: если ваш блок питания имеет плавающий минус (не соединенный с корпусом или землей), а вы подключите прибор с общим минусом, вы можете замкнуть выход блока питания на корпус или землю через цепь питания прибора. Это особенно актуально для импульсных блоков питания, где выходной минус часто имеет высокую относительно земли.</p>
+
+<h3>Как организовать независимое питание</h3>
+
+<p>На практике самым надежным способом является использование отдельного маломощного источника питания для измерительной головки. Это может быть маленькая «таблетка» AC-DC модуль или отдельная обмотка трансформатора с выпрямителем.</p>
+
+<ul>
+<li>Используйте отдельный источник 5-12 вольт для питания дисплея.</li>
+<li>Соедините минус этого источника с минусом измеряемой цепи только если прибор этого требует (проверьте схему конкретной модели).</li>
+<li>Для амперметров с внешним шунтом убедитесь, что падение напряжения на шунте не влияет на работу электроники прибора.</li>
+</ul>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Никогда не подключайте минус питания измерительной головки к минусу высоковольтной части схемы, если не уверены в наличии гальванической развязки. Это может привести к пробою и выходу из строя не только прибора, но и подключенной нагрузки.</p></div>
+
+<p>Если хотите проверить наличие развязки, можно «прозвонить» мультиметром в режиме прозвонки контакты питания прибора и токовые контакты. Если слышен писк — развязки нет, и минусы соединены. В таких случаях безопаснее запитывать прибор от отдельной батарейки или изолированного источника.</p>
+
+<details class="faq-item"><summary>Секрет доработки</summary><div class="faq-answer"><p>Некоторые опытные радиолюбители аккуратно перепаивают перемычки на плате прибора, чтобы разорвать связь между минусом питания и минусом измерения. Это требует хороших навыков пайки и знания электроники, так как можно легко повредить дорожки.</p></div></details>
+
+<h2 id="калибровка-показаний-и-устранение-погрешностей">Калибровка показаний и устранение погрешностей</h2>
+
+<p>Если хотите, чтобы ваш блок питания показывал реальное напряжение и ток, без калибровки не обойтись. Заводские настройки китайских приборов часто «плавают». На задней панели прибора (на плате, внутри корпуса) обычно расположены два подстроечных резистора (потенциометра). Один отвечает за напряжение (V), другой за ток (A).</p>
+
+<p>Важный момент: для калибровки вам нужен эталонный прибор. Это может быть хороший мультиметр, точность которого вы не подвергаете сомнению. Подключите эталонный прибор параллельно (для напряжения) или последовательно (для тока) с калибруемым устройством.</p>
+
+<h3>Процесс точной настройки</h3>
+
+<p>Вот что нужно сделать: подайте на выход блока питания известное напряжение, например, 5.00 вольт, и крутите регулятор напряжения (V) на плате прибора, пока цифры на дисплее не совпадут с показаниями эталона. Затем увеличьте напряжение до 20-30 вольт и проверьте снова. Иногда калибровка в одной точке дает погрешность в другой, тогда придется искать компромисс или использовать более сложные методы калибровки в двух точках.</p>
+
+<table>
+<thead>
+<tr>
+<th>Элемент настройки</th>
+<th>Функция</th>
+<th>Рекомендуемое действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Резистор V</td>
+<td>Коррекция показаний вольтметра</td>
+<td>Крутить при подключенной нагрузке по напряжению</td>
+</tr>
+<tr>
+<td>Резистор A</td>
+<td>Коррекция показаний амперметра</td>
+<td>Крутить при протекании тока (подключить нагрузку)</td>
+</tr>
+<tr>
+<td>Тонкий провод</td>
+<td>Вход измерения напряжения</td>
+<td>Убедиться в надежном контакте, иначе будут скачки</td>
+</tr>
+</tbody>
+</table>
+
+<p>На практике калибровка тока требует подключения реальной нагрузки. Можно использовать мощные резисторы, лампы накаливания или нихромовую спираль. Подайте ток, измерьте его эталонным амперметром и подстройте резистором (A) показания на дисплее.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте диэлектрическую отвертку для калибровки. Металлическая отвертка может изменить емкость цепи и сбить настройки, а также создает риск короткого замыкания, если рука дрогнет.</p></div>
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+
+<p>Если вы столкнулись с тем, что прибор работает некорректно, скорее всего, причина кроется в одной из классических ошибок. Анализ форумов показывает, что 90% проблем решаются проверкой схемы подключения и качества пайки.</p>
+
+<p>Вот список наиболее частых проблем, с которыми сталкиваются пользователи:</p>
+
+<ul>
+<li>Мигание дисплея: часто вызвано плохим контактом тонкого измерительного провода или пульсациями в цепи питания самого прибора.</li>
+<li>Показания «уходят в ноль» или скачут: недостаточное сечение проводов питания или отсутствие конденсатора-фильтра в цепи питания головки.</li>
+<li>Перегрев прибора: подключение питания напрямую от измеряемой цепи высокого напряжения без учета допустимого диапазона (например, подача 60В на прибор с максимумом 30В).</li>
+<li>Неверная полярность тока: амперметр показывает минусовые значения, если перепутаны толстые провода входа и выхода тока.</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Диагностика неисправностей</h4><label class="check-item"><input type="checkbox"><span>Проверьте полярность подключения питания</span></label><label class="check-item"><input type="checkbox"><span>Измерьте напряжение на контактах питания прибора</span></label><label class="check-item"><input type="checkbox"><span>Проверьте надежность пайки тонких проводов</span></label><label class="check-item"><input type="checkbox"><span>Убедитесь, что ток нагрузки не превышает 10А</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="финальная-сборка-и-эксплуатация-устройства">Финальная сборка и эксплуатация устройства</h2>
+
+<p>Если все этапы пройдены успешно, остается только грамотно вписать прибор в конструкцию вашего блока питания. Механическая установка требует аккуратности: пластик корпуса хрупок, и при сильном затягивании крепежных лапок (усиков) он может лопнуть. Лучше использовать клей или герметик для фиксации, если лапки держат слабо.</p>
+
+<p>Важный момент: обеспечьте вентиляцию. Хотя сами светодиодные дисплеи греются слабо, они находятся внутри корпуса блока питания, где температура может быть высокой. Перегрев может привести к дрейфу показаний или сокращению срока службы.</p>
+
+<p>На практике правильно подключенный и откалиброванный ампервольтметр превращает обычный блок питания в полноценный лабораторный инструмент. Вы всегда будете видеть, что происходит с вашей схемой: есть ли ток короткого замыкания, держится ли напряжение под нагрузкой. Это повышает не только удобство, но и безопасность вашей работы с электроникой.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Правильное подключение ампервольтметра требует внимания к схеме питания и калибровки, но превращает простой БП в точный инструмент.</p></div>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Помните, что тонкие провода измерительной головки очень хрупкие. При монтаже в корпус оставляйте запас длины и фиксируйте их термоусадкой или клеем, чтобы вибрация не оборвала контакт.</p></div>
+
+<p>Если хотите, чтобы прибор служил долго, не перегружайте его. Для токов выше 10 ампер обязательно используйте внешние шунты, даже если на дисплее написано 50А. Внутренние дорожки дешевых китайских приборов просто не рассчитаны на такие токи и могут выгореть, устроив пожар внутри корпуса.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#выбор-подходящей-модели-и-оценка-функционала">Выбор подходящей модели и оценка функционала</a></li><li><a href="#схема-подключения-и-монтаж-в-корпус">Схема подключения и монтаж в корпус</a></li><li><a href="#нюансы-гальванической-развязки-и-питания">Нюансы гальванической развязки и питания</a></li><li><a href="#калибровка-показаний-и-устранение-погрешностей">Калибровка показаний и устранение погрешностей</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#финальная-сборка-и-эксплуатация-устройства">Финальная сборка и эксплуатация устройства</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-nastroit-smart-chasy-s-telefonom-i-pereklyuchit-russkij-s-aliekspress.html" class="related-card">Как подключить смарт-часы с Алиэкспресс к телефону</a></li><li><a href="/articles/k/ka/kak-podklyuchit-podogrev-sidenij-s-aliekspress.html" class="related-card">Как подключить подогрев сидений с Алиэкспресс: инструкция</a></li><li><a href="/articles/k/ka/kak-sobrat-kompyuter-samostoyatelno-iz-komplektuyushchikh-s-aliekspress.html" class="related-card">Сборка ПК на AliExpress: пошаговый гайд по комплектующим</a></li><li><a href="/articles/k/ka/kak-sinkhronizirovat-chasy-s-ajfonom-s-aliekspress.html" class="related-card">Как синхронизировать умные часы с iPhone: полная инструкция</a></li><li><a href="/articles/k/ka/kak-payat-alyuminievoj-provolokoj-s-aliekspress.html" class="related-card">Пайка алюминия проволокой с AliExpress: подробный гид</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-nastroit-smart-chasy-s-telefonom-i-pereklyuchit-russkij-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить смарт-часы с Алиэкспресс к телефону</span><span class="related-bottom-desc">Полное руководство по подключению умных часов из Китая. Смена языка, выбор приложения, настройка уве</span></a><a href="/articles/k/ka/kak-podklyuchit-podogrev-sidenij-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить подогрев сидений с Алиэкспресс: инструкция</span><span class="related-bottom-desc">Подробное руководство по установке подогрева сидений с AliExpress. Схемы, выбор комплектации, правил</span></a><a href="/articles/k/ka/kak-sobrat-kompyuter-samostoyatelno-iz-komplektuyushchikh-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Сборка ПК на AliExpress: пошаговый гайд по комплектующим</span><span class="related-bottom-desc">Как собрать мощный компьютер из комплектующих с Алиэкспресс. Выбор процессора, материнской платы, ри</span></a><a href="/articles/k/ka/kak-sinkhronizirovat-chasy-s-ajfonom-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как синхронизировать умные часы с iPhone: полная инструкция</span><span class="related-bottom-desc">Подробный гайд по подключению часов с AliExpress к iPhone. Настройка Bluetooth, поиск приложений, ус</span></a><a href="/articles/k/ka/kak-payat-alyuminievoj-provolokoj-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Пайка алюминия проволокой с AliExpress: подробный гид</span><span class="related-bottom-desc">Как паять алюминий специальной проволокой с Алиэкспресс. Секреты выбора флюса, техника работы, устра</span></a><a href="/articles/k/ka/kak-polzovatsya-massazherom-dlya-litsa-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как пользоваться массажером для лица с AliExpress: гид</span><span class="related-bottom-desc">Полное руководство по использованию массажеров для лица с AliExpress. Выбор устройства, инструкции, </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

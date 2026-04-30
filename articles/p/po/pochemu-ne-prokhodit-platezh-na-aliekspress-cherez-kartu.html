@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Почему не проходит платеж на Алиэкспресс: причины и решение — Али Гид</title>
+    <meta name="description" content="Полный гид по ошибкам оплаты на AliExpress. Узнайте, почему карта отклоняется, как настроить 3D-Secure и что делать, если деньги списались, а заказ не создан.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/p/po/pochemu-ne-prokhodit-platezh-na-aliekspress-cherez-kartu.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Почему не проходит платеж на Алиэкспресс: причины и решение">
+    <meta property="og:description" content="Полный гид по ошибкам оплаты на AliExpress. Узнайте, почему карта отклоняется, как настроить 3D-Secure и что делать, если деньги списались, а заказ не создан.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/oplata-i-karty/">Оплата и карты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Почему не проходит платеж на Алиэкспресс: причины и решение</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Почему не проходит платеж на Алиэкспресс и как исправить ошибку</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-причину-отказа-и-как-читать-коды-ошибок">Где найти причину отказа и как читать коды ошибок</a></li><li><a href="#пошаговая-инструкция-что-делать-если-карта-не-принимается">Пошаговая инструкция: что делать, если карта не принимается</a></li><li><a href="#нюансы-работы-с-российскими-картами-и-валютные-ограничения">Нюансы работы с российскими картами и валютные ограничения</a></li><li><a href="#типичные-ошибки-пользователей-при-вводе-данных">Типичные ошибки пользователей при вводе данных</a></li><li><a href="#что-делать-если-деньги-списались-а-заказ-не-создан">Что делать, если деньги списались, а заказ не создан</a></li><li><a href="#альтернативные-способы-оплаты-и-обход-проблем">Альтернативные способы оплаты и обход проблем</a></li><li><a href="#финансовая-безопасность-при-онлайн-покупках">Финансовая безопасность при онлайн-покупках</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Ситуация, когда долгожданный товар уже лежит в корзине, а система оплаты выдает ошибку, знакома многим покупателям. Это вызывает раздражение и потерю времени, особенно если акция заканчивается через несколько минут. Чаще всего проблема кроется не в самом маркетплейсе, а в настройках безопасности банка или введении неверных данных.</p>
+<p>Вот что нужно сделать в первую очередь: не паниковать и внимательно прочитать код ошибки. Система AliExpress всегда сообщает конкретную причину отказа, будь то «Insufficient Balance» или «Card Expired». Понимание этого кода позволяет сразу перейти к решению, минуя лишние проверки.</p>
+<p>Если хотите быстро разобраться в причине отказа, важно знать, что современные платежные шлюзы работают в связке с банком-эмитентом и платежной системой. Сбой может возникнуть на любом из этих этапов. Ниже мы разберем все возможные сценарии, от простых опечаток до блокировок со стороны финансовых учреждений.</p>
+
+<h2 id="где-найти-причину-отказа-и-как-читать-коды-ошибок">Где найти причину отказа и как читать коды ошибок</h2>
+
+<p>Когда вы нажимаете кнопку оплаты и транзакция не проходит, интерфейс сразу реагирует. Обычно появляется всплывающее окно или перенаправление на страницу с описанием проблемы. Важно не закрывать это окно сразу, а зафиксировать информацию.</p>
+<p>На практике система часто использует стандартные английские термины, которые могут быть непонятны без перевода. Например, фраза «System busy» означает временные технические работы, а «Risk Control» указывает на подозрение в мошенничестве со стороны алгоритмов безопасности.</p>
+<p>Вот основные места, где отображается информация об ошибке:</p>
+<ul>
+<li>Всплывающее окно в приложении сразу после нажатия кнопки «Pay Now».</li>
+<li>Страница «Мои заказы» в разделе статуса оплаты (часто там висит кнопка «Оплатить снова» с пояснением).</li>
+<li>СМС-уведомление от банка с кодом отказа (если деньги пытались списаться).</li>
+<li>Push-уведомление от банковского приложения с вопросом о подтверждении операции.</li>
+</ul>
+<p>Если код ошибки неясен, попробуйте скопировать его и проверить в справке или просто перезагрузить страницу. Иногда это банальный глюк соединения, и повторная попытка через минуту решает проблему.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Коды ошибок часто обновляются. Если вы видите сообщение «System Error», попробуйте сменить сеть с Wi-Fi на мобильный интернет или наоборот.</p></div>
+
+<h3>Расшифровка популярных сообщений об ошибках</h3>
+
+<p>Разберем наиболее частые сообщения, которые видит пользователь. Понимание их сути помогает выбрать правильную стратегию действий.</p>
+
+<table>
+<thead>
+<tr>
+<th>Сообщение на экране</th>
+<th>Что это значит</th>
+<th>Где искать решение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSC_7200018</td>
+<td>Неверный CVV-код или данные карты</td>
+<td>Проверьте ввод трех цифр на обороте</td>
+</tr>
+<tr>
+<td>CSC_7200026</td>
+<td>Операция отклонена банком</td>
+<td>Звоните в поддержку банка</td>
+</tr>
+<tr>
+<td>ACTIVITY_PERFORMING</td>
+<td>Слишком много попыток оплаты</td>
+<td>Сделайте перерыв на 24 часа</td>
+</tr>
+<tr>
+<td>Payment Expired</td>
+<td>Время сессии оплаты вышло</td>
+<td>Оформите заказ заново</td>
+</tr>
+</tbody>
+</table>
+
+<p>Важный момент: если вы видите ошибку, связанную с валютой (Currency mismatch), это значит, что карта, привязанная к аккаунту, не поддерживает конвертацию или торговлю в долларах/евро. В таком случае необходимо использовать карту с мультивалютным счетом.</p>
+
+<h2 id="пошаговая-инструкция-что-делать-если-карта-не-принимается">Пошаговая инструкция: что делать, если карта не принимается</h2>
+
+<p>Если вы столкнулись с отказом, алгоритм действий должен быть последовательным. Хаотичные повторные нажатия кнопок могут привести к временной блокировке аккаунта службой безопасности.</p>
+<p>Вот что нужно сделать:</p>
+<ol>
+<li>Проверьте баланс счета. Убедитесь, что на карте есть сумма, превышающая стоимость товара на 5-10% (на случай конвертации).</li>
+<li>Убедитесь, что карта разблокирована для онлайн-покупок. Это можно сделать в банковском приложении в разделе настроек безопасности.</li>
+<li>Проверьте срок действия карты. Если месяц истек, даже если год еще идет, платеж не пройдет.</li>
+<li>Попробуйте отвязать карту и привязать её заново, вводя данные вручную, без использования автозаполнения браузера.</li>
+</ol>
+<p>Часто проблема решается простой перепривязкой карты. Система могла сохранить старые данные или токен безопасности мог истечь.</p>
+
+<div class="checklist-block"><h4>📋 Быстрая проверка карты</h4><ol><li><strong>Шаг 1.</strong> Зайдите в приложение банка</li><li><strong>Шаг 2.</strong> Проверьте лимиты на онлайн-покупки</li><li><strong>Шаг 3.</strong> Убедитесь в наличии средств</li><li><strong>Шаг 4.</strong> Попробуйте оплатитьвую сумму в другом месте</li></ol></div>
+
+<h3>Настройка 3D-Secure и подтверждение в приложении</h3>
+
+<p>Современные стандарты безопасности требуют подтверждения каждой транзакции. Если платеж «висит» или отменяется сам собой, возможно, вы пропускаете запрос от банка.</p>
+<p>На практике это выглядит так: после ввода данных на Алиэкспресс вас перекидывает на страницу банка или приходит Push-уведомление. Если вы не подтвердите операцию в течение 1-2 минут, транзакция будет автоматически отменена.</p>
+<p>Проверьте настройки уведомлений в банковском приложении. Иногда они приходят в «тихом» режиме или попадают в папку «Спам» внутри самого приложения банка. Также убедитесь, что у вас есть устойчивое интернет-соединение в момент подтверждения.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>При вводе данных карты трижды подряд с ошибкой система может временно заблокировать возможность оплаты с этого устройства. Подождите 1-2 часа перед новой попыткой.</p></div>
+
+<h2 id="нюансы-работы-с-российскими-картами-и-валютные-ограничения">Нюансы работы с российскими картами и валютные ограничения</h2>
+
+<p>Для пользователей из России ситуация с оплатой на международных площадках имеет свои особенности. Из-за санкционных ограничений карты российских банков, выпущенные под брендами Visa и Mastercard, <strong>не работают</strong> для оплаты товаров у иностранных продавцов напрямую.</p>
+<p>Если вы пытаетесь оплатить заказ такой картой, платеж будет отклонен с вероятностью 100%. Это техническое ограничение платежных систем, а не ошибка Алиэкспресс.</p>
+<p>Вот какие варианты остаются доступными:</p>
+<ul>
+<li>Карты UnionPay российских банков (работают не везде, требуется проверка конкретного банка).</li>
+<li>Карты «Мир» (работают только через систему MirAccept, если она подключена, или для оплаты товаров со складов в РФ).</li>
+<li>Электронные кошельки и системы быстрых платежей (СБП), если продавец их поддерживает.</li>
+<li>Карты иностранных банков, выпущенные в дружественных юрисдикциях.</li>
+</ul>
+<p>Важно понимать разницу между продавцом из Китая и продавцом из России. Товары с локальных складов (доставка 2-5 дней) часто можно оплатить картой «Мир», так как transaction проходит внутри страны.</p>
+
+<h3>Проблемы с конвертацией и двойной конвертацией</h3>
+
+<p>При оплате в долларах или евро с рублевой карты происходит конвертация. Банк может использовать свой курс, который отличается от курса ЦБ или курса платежной системы. Если на карте не хватает даже нескольких рублей для покрытия разницы курсов, платеж не пройдет.</p>
+<p>Вот что нужно сделать: всегда держите на карте запас в 10-15% от суммы покупки. Это компенсирует возможные колебания курса в момент проведения операции.</p>
+
+<details class="faq-item"><summary>Почему курс в банке выше?</summary><div class="faq-answer"><p>Банки часто включают в курс конвертации свою комиссию за риск. При международных переводах также может взиматься дополнительная комиссия платежной системы (1-2%), о которой банк предупреждает в тарифах.</p></div></details>
+
+<p>Также существует риск двойной конвертации, если счет карты открыт в евро, а оплата идет в долларах. Банк сначала конвертирует доллары в евро, а затем спишет рубли по своему курсу продажи евро. Это может быть невыгодно.</p>
+
+<h2 id="типичные-ошибки-пользователей-при-вводе-данных">Типичные ошибки пользователей при вводе данных</h2>
+
+<p>Человеческий фактор остается одной из главных причин неудачных платежей. Даже небольшая опечатка в длинном номере карты или имени может привести к отказу.</p>
+<p>Рассмотрим самые распространенные mistakes:</p>
+<ul>
+<li>Ввод имени латиницей с ошибками или использованием русских букв (нужно строго как на карте).</li>
+<li>Перепутанный формат даты (месяц/год вместо год/месяц, хотя интерфейс обычно подсказывает).</li>
+<li>Ввод CVV-кода с лицевой стороны (для Visa/Mastercard он на обороте, для American Express — на лицевой).</li>
+<li>Использование виртуальных карт с ограниченным лимитом или истекшим сроком жизни.</li>
+</ul>
+<p>На практике часто встречается ошибка при использовании виртуальных карт для безопасных платежей. Если вы создали такую карту в приложении банка, убедитесь, что она активна и на ней есть средства. Некоторые виртуальные карты «сгорают» после одной транзакции.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед оплатой</h4><label class="check-item"><input type="checkbox"><span>Имя совпадает с картой</span></label><label class="check-item"><input type="checkbox"><span>Срок действия верный</span></label><label class="check-item"><input type="checkbox"><span>CVV введен правильно</span></label><label class="check-item"><input type="checkbox"><span>Лимиты не превышены</span></label><label class="check-item"><input type="checkbox"><span>Интернет стабилен</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h3>Блокировки со стороны банка и антифрод</h3>
+
+<p>Банковские системы безопасности (антифрод) очень чувствительны. Если вы обычно покупаете продукты в супермаркете у дома, а вдруг поступает запрос на оплату $500 в Китай, банк может счесть это взломом.</p>
+<p>В этом случае карта может быть временно заблокирована. Вам придет СМС с вопросом о подтверждении операции или звонок от робота. Если проигнорировать этот запрос, карта останется заблокированной для внешних операций.</p>
+<p>Чтобы избежать этого, перед крупной покупкой лучше предупредить банк через чат в приложении или временно увеличить лимиты на онлайн-покупки.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сохраняйте шаблон платежа в приложении банка или добавляйте AliExpress в «Избранное» в банковском приложении, чтобы помечать такие транзакции как безопасные.</p></div>
+
+<h2 id="что-делать-если-деньги-списались-а-заказ-не-создан">Что делать, если деньги списались, а заказ не создан</h2>
+
+<p>Это самая стрессовая ситуация: баланс уменьшился, но в «Моих заказах» пусто. Не спешите бить тревогу. В 95% случаев это не потеря денег, а задержка в обработке данных между банком и маркетплейсом.</p>
+<p>Вот что происходит технически: банк зарезервировал средства (холдирование), но Алиэкспресс не получил подтверждение. Через определенное время (от 1 часа до 30 дней) банк автоматически вернет деньги на счет, так как не получит финального подтверждения от магазина.</p>
+<p>Порядок действий в такой ситуации:</p>
+<ol>
+<li>Не оформляйте заказ заново сразу, чтобы не оплатить его дважды.</li>
+<li>Проверьте раздел «Мои заказы» -> вкладка «Ожидает оплаты» или «Ожидает отправки».</li>
+<li>Посмотрите историю операций в банковском приложении. Если статус операции «В обработке» или «Холдирование» — ждите.</li>
+<li>Если прошло более 3 рабочих дней, а статус не изменился, пишите в поддержку банка с запросом о судьбе транзакции.</li>
+</ol>
+<p>Важно сохранять скриншоты экрана с ошибкой и чек из банковского приложения. Они понадобятся для доказательства, если деньги действительно «зависнут».</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Срок возврата средств при неудачной оплате может составлять до 30-45 календарных дней в зависимости от банка-эмитента. Обычно деньги возвращаются быстрее (3-5 дней).</p></div>
+
+<h3>Как связаться с поддержкой по финансовым вопросам</h3>
+
+<p>Если проблема не решается самостоятельно, придется обратиться в поддержку. На Алиэкспресс это делается через чат-бот «Eva». Нужно ввести фразу «Human» или «Agent», чтобы соединиться с живым оператором.</p>
+<p>При общении с поддержкой важно предоставить Transaction ID (идентификатор транзакции). Его можно найти в банковской выписке или в истории платежей на сайте (если платеж частично прошел).</p>
+
+<h2 id="альтернативные-способы-оплаты-и-обход-проблем">Альтернативные способы оплаты и обход проблем</h2>
+
+<p>Если карта категорически не работает, есть смысл рассмотреть другие методы. Платежная экосистема предлагает несколько вариантов, которые могут сработать там, где прямая оплата дает сбой.</p>
+<p>Попробуйте следующие варианты:</p>
+<ul>
+<li>Привязка карты через сторонние платежные системы (если доступно в вашем регионе).</li>
+<li>Использование баланса на внутреннем счете AliExpress (можно пополнить через терминалы или партнеров).</li>
+<li>Оплата через Apple Pay / Google Pay (если терминал поддерживает и карта привязана туда).</li>
+</ul>
+<p>Иногда помогает смена устройства. Попробуйте оплатить заказ не через приложение, а через браузер на компьютере, или наоборот. Кэш и куки браузера могут хранить ошибочные данные, мешающие проходу платежа.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Большинство проблем с оплатой решаются проверкой лимитов карты, правильностью ввода данных и ожиданием возврата средств при техническом сбое.</p></div>
+
+<h2 id="финансовая-безопасность-при-онлайн-покупках">Финансовая безопасность при онлайн-покупках</h2>
+
+<p>Завершая обзор, стоит напомнить о безопасности. Проблемы с оплатой могут быть не только техническими, но и признаком попытки мошенничества, если вы перешли по фишинговой ссылке.</p>
+<p>Всегда проверяйте адресную строку. Официальный сайт должен иметь домен aliexpress.com. Если вас просят ввести данные карты на странице, которая выглядит странно или просит прислать код из СМС — это мошенники.</p>
+<p>Никогда не сообщайте коды из СМС операторам «поддержки», которые сами вам позвонили. Настоящие сотрудники банка или Алиэкспресс никогда не спрашивают эти коды.</p>
+<p>Используйте виртуальные карты для разовых покупок. Это защитит основные средства на счете. Установите лимиты на интернет-покупки в банковском приложении и включайте их только на время шопинга.</p>
+<p>Помните, что <mark>безопасность ваших средств важнее скорости покупки</mark>. Если платеж не проходит несколько раз с разных устройств — остановитесь и свяжитесь с банком. Возможно, ваша карта скомпрометирована.</p>
+<p>Следуя этим рекомендациям, вы сможете минимизировать риски и успешно завершать покупки, наслаждаясь выгодными предложениями мировой торговли без лишней нервотрепки.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-причину-отказа-и-как-читать-коды-ошибок">Где найти причину отказа и как читать коды ошибок</a></li><li><a href="#пошаговая-инструкция-что-делать-если-карта-не-принимается">Пошаговая инструкция: что делать, если карта не принимается</a></li><li><a href="#нюансы-работы-с-российскими-картами-и-валютные-ограничения">Нюансы работы с российскими картами и валютные ограничения</a></li><li><a href="#типичные-ошибки-пользователей-при-вводе-данных">Типичные ошибки пользователей при вводе данных</a></li><li><a href="#что-делать-если-деньги-списались-а-заказ-не-создан">Что делать, если деньги списались, а заказ не создан</a></li><li><a href="#альтернативные-способы-оплаты-и-обход-проблем">Альтернативные способы оплаты и обход проблем</a></li><li><a href="#финансовая-безопасность-при-онлайн-покупках">Финансовая безопасность при онлайн-покупках</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-delat-esli-oplatil-zakaz-na-aliekspress-no-status-ostalsya-ozhidaetsya-platezh.html" class="related-card">Оплатил заказ на АлиЭкспресс, а статус не меняется: что делать?</a></li><li><a href="/articles/p/pa/paypal-v-aliekspress-kak-uznat.html" class="related-card">PayPal на AliExpress: как узнать статус и привязать карту</a></li><li><a href="/articles/k/ka/kak-ubrat-dannye-s-aliekspress-o-karte.html" class="related-card">Как удалить карту на АлиЭкспресс: полная инструкция</a></li><li><a href="/articles/v/va/vash-zakaz-budet-obrabotan-v-usd-aliekspress-chto-eto-znachit.html" class="related-card">Заказ в USD на Алиэкспресс: что значит конвертация и курс</a></li><li><a href="/articles/q/qr/qr-kod-na-aliekspress-gde.html" class="related-card">Где найти QR-код на АлиЭкспресс: инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/c/ch/chto-delat-esli-oplatil-zakaz-na-aliekspress-no-status-ostalsya-ozhidaetsya-platezh.html" class="related-bottom-card"><span class="related-bottom-title">Оплатил заказ на АлиЭкспресс, а статус не меняется: что делать?</span><span class="related-bottom-desc">Заплатили, но статус &#x27;Ожидается платеж&#x27;? Узнайте причины задержки, сроки обновления и пошаговый план</span></a><a href="/articles/p/pa/paypal-v-aliekspress-kak-uznat.html" class="related-bottom-card"><span class="related-bottom-title">PayPal на AliExpress: как узнать статус и привязать карту</span><span class="related-bottom-desc">Подробное руководство, как проверить привязку PayPal на AliExpress, настроить оплату и решить типичн</span></a><a href="/articles/k/ka/kak-ubrat-dannye-s-aliekspress-o-karte.html" class="related-bottom-card"><span class="related-bottom-title">Как удалить карту на АлиЭкспресс: полная инструкция</span><span class="related-bottom-desc">Подробное руководство по удалению банковских карт с АлиЭкспресс. Как отвязать карту, избежать ошибок</span></a><a href="/articles/v/va/vash-zakaz-budet-obrabotan-v-usd-aliekspress-chto-eto-znachit.html" class="related-bottom-card"><span class="related-bottom-title">Заказ в USD на Алиэкспресс: что значит конвертация и курс</span><span class="related-bottom-desc">Почему цена в долларах? Разбор валюты списания, скрытой конвертации и комиссий банка при оплате на A</span></a><a href="/articles/q/qr/qr-kod-na-aliekspress-gde.html" class="related-bottom-card"><span class="related-bottom-title">Где найти QR-код на АлиЭкспресс: инструкция</span><span class="related-bottom-desc">Подробный гид по поиску QR-кода в приложении AliExpress для оплаты, входа и бонусов. Решения проблем</span></a><a href="/articles/k/ka/kak-mozhno-oplatit-pokupku-na-aliekspress-nalichnymi.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить на Алиэкспресс наличными: пошаговое руководство 2026</span><span class="related-bottom-desc">Все способы оплаты заказа на AliExpress наличными: от карт с пополнением до сервисов переводов. Инст</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

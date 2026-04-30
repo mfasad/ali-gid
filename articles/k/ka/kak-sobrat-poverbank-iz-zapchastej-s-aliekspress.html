@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как собрать повербанк своими руками: детали с Алиэкспресс — Али Гид</title>
+    <meta name="description" content="Пошаговое руководство по сборке пауэрбанка из батареек 18650 и платы BMS. Выбор компонентов, схема подключения, тестирование и безопасность.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-sobrat-poverbank-iz-zapchastej-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как собрать повербанк своими руками: детали с Алиэкспресс">
+    <meta property="og:description" content="Пошаговое руководство по сборке пауэрбанка из батареек 18650 и платы BMS. Выбор компонентов, схема подключения, тестирование и безопасность.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как собрать повербанк своими руками: детали с Алиэкспресс</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Сборка мощного повербанка из запчастей с Алиэкспресс</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-нужную-функцию-выбор-компонентов-на-маркетплейсе">Где найти нужную функцию: выбор компонентов на маркетплейсе</a></li><li><a href="#пошаговая-инструкция-по-сборке-устройства">Пошаговая инструкция по сборке устройства</a></li><li><a href="#подводные-камни-и-технические-ограничения">Подводные камни и технические ограничения</a></li><li><a href="#типичные-ошибки-при-сборке">Типичные ошибки при сборке</a></li><li><a href="#финальное-тестирование-и-запуск-в-работу">Финальное тестирование и запуск в работу</a></li><li><a href="#экономия-и-персонализация-вашего-проекта">Экономия и персонализация вашего проекта</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если хотите сэкономить значительную сумму или получить устройство с уникальными характеристиками, которые не найти в готовых моделях, самостоятельная сборка внешнего аккумулятора становится отличным решением. Рынок переполнен дешевыми павербанками с завышенной емкостью, которые умирают через полгода, тогда как собственноручно собранный девайс прослужит годы и будет честным в своих показателях.</p>
+<p>Вот что нужно сделать: первым делом необходимо определить реальные потребности в энергии и понять, какие именно компоненты потребуются для реализации проекта. Многие новички совершают ошибку, покупая первую попавшуюся плату и случайные аккумуляторы, что приводит к нестабильной работе или даже выходу из строя электроники. Важно заранее изучить матчасть, чтобы не превратить бюджетный эксперимент в опасное занятие.</p>
+<p>На практике процесс делится на несколько ключевых этапов: выбор надежных элементов питания, покупка контроллера заряда-разряда, подбор корпуса и финальная сборка с соблюдением полярности. Особое внимание стоит уделить безопасности, так как литиевые элементы при неправильном обращении могут воспламениться. Ниже мы разберем каждый шаг подробно, чтобы вы могли собрать устройство, которое превзойдет многие магазинные аналоги.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Цены на компоненты на маркетплейсах могут меняться ежедневно из-за курса валют и логистики. Актуальную стоимость всегда проверяйте непосредственно в карточке товара на момент покупки.</p></div>
+
+<h2 id="где-найти-нужную-функцию-выбор-компонентов-на-маркетплейсе">Где найти нужную функцию: выбор компонентов на маркетплейсе</h2>
+<p>Если хотите собрать качественный повербанк, начинать нужно с поиска надежных элементов питания. Самым популярным и доступным форматом остаются цилиндрические ячейки типа 18650. На Алиэкспрессе их ассортимент огромен, но именно здесь кроется первый риск: множество продавцов предлагают восстановленные или откровенно поддельные батареи с завышенной емкостью.</p>
+<p>Важный момент: обращайте внимание на бренд и отзывы. Лучше переплатить за оригинальные Panasonic, Samsung или LG, даже если они будут стоить дороже китайских аналогов с маркировкой 9900 mAh. Реальная емкость качественной ячейки 18650 редко превышает 3500 mAh. Все, что выше — маркетинговая уловка.</p>
+<p>Вот список критически важных компонентов, которые нужно найти в каталоге:</p>
+<ul>
+<li>Аккумуляторы 18650 (желательно с защитным клапаном PTC/CID).</li>
+<li>Плата контроллера заряда-разряда (BMS) с поддержкой нужного количества ячеек.</li>
+<li>Модуль DC-DC преобразователя (Boost-конвертер) для поднятия напряжения до 5/9/12 Вольт.</li>
+<li>Разъемы для подключения (никелевые пластины или держатели).</li>
+<li>Корпус (можно купить готовый или напечатать на 3D-принтере).</li>
+</ul>
+<p>Для управления зарядом и разрядом необходима специализированная плата. Ищите модули с маркировкой TP5100 для простых схем или более продвинутые IP5306, если нужен дисплей и быстрая зарядка. В поиске используйте запросы вроде "power bank module" или "18650 charging board".</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Обязательно проверяйте рейтинг продавца и наличие фотографий реального товара в отзывах. Если на фото товар выглядит иначе, чем на рендере, лучше воздержаться от покупки.</p></div>
+
+<h2 id="пошаговая-инструкция-по-сборке-устройства">Пошаговая инструкция по сборке устройства</h2>
+<p>Когда все компоненты заказаны и доставлены, можно приступать к самому интересному этапу. Сборка требует аккуратности и минимального набора инструментов: паяльника, мультиметра, изоляции и, возможно, точечной сварки для никелевых пластин. Паять литиевые аккумуляторы напрямую паяльником крайне не рекомендуется из-за риска перегрева.</p>
+<p>Вот основные этапы сборки, которые помогут избежать фатальных ошибок:</p>
+<ol>
+<li>Проверка напряжения каждой ячейки мультиметром перед сборкой.</li>
+<li>Соединение аккумуляторов в батарею (параллельно или последовательно в зависимости от схемы).</li>
+<li>Подключение балансира или BMS платы к сборке.</li>
+<li>Монтаж силовых проводов к плате преобразователя.</li>
+<li>Установка собранной конструкции в корпус и фиксация.</li>
+</ol>
+<p>На практике чаще всего используется схема 2P или 4P, где ячейки соединяются параллельно для увеличения емкости, сохраняя напряжение 3.7 Вольта. Затем этот ток подается на повышающий преобразователь, который стабилизирует выходное напряжение до стандартных 5 Вольт для зарядки гаджетов.</p>
+
+<div class="checklist-block"><h4>📋 Сборка батареи</h4><ol><li><strong>Шаг 1.</strong> Отсортируйте ячейки по напряению</li><li><strong>Шаг 2.</strong> Соедините плюсы вместе, а минусы вместе (параллельно)</li><li><strong>Шаг 3.</strong> Припаяйте провода к общим полюсам</li><li><strong>Шаг 4.</strong> Подключите к плате контроллера</li></ol></div>
+
+<h3>Нюансы подключения и пайки</h3>
+<p>Важный момент: при соединении элементов используйте только специальные никелевые пластины. Медные провода паяются к полюсам аккумуляторов с трудом и требуют большого количества флюса, что может повредить внутренности банки. Если паяете, делайте это быстро, касаясь жалом не более 2-3 секунд.</p>
+<p>Если хотите обезопасить себя, используйте готовые держатели для 18650, которые позволяют собрать батарею без пайки, просто вставив контакты в пружины. Это менее надежно в плане токоотдачи, но безопаснее для новичка. Провода от держателей затем припаиваются к плате управления.</p>
+<p>Для соединения платы и аккумуляторов используйте провода сечением не менее 0.75 мм², если планируете токи зарядки выше 1 Ампера. Тонкие провода будут греться и терять энергию.</p>
+
+<h2 id="подводные-камни-и-технические-ограничения">Подводные камни и технические ограничения</h2>
+<p>Если хотите, чтобы устройство работало долго, нужно учитывать КПД преобразования энергии. Ни один конвертер не работает со 100% эффективностью. Часть энергии всегда теряется в виде тепла. Средний КПД хороших модулей составляет около 85-90%.</p>
+<p>Вот таблица, показывающая примерное соотношение заявленной емкости ячеек и реальной отдаваемой энергии на выходе USB:</p>
+<table>
+<thead>
+<tr>
+<th>Емкость ячеек (суммарная)</th>
+<th>Реальная отдача (5В)</th>
+<th>Потери (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2000 mAh</td>
+<td>1400-1500 mAh</td>
+<td>~25%</td>
+</tr>
+<tr>
+<td>5000 mAh</td>
+<td>3500-3700 mAh</td>
+<td>~25%</td>
+</tr>
+<tr>
+<td>10000 mAh</td>
+<td>7000-7500 mAh</td>
+<td>~25%</td>
+</tr>
+</tbody>
+</table>
+<p>На практике это означает, что если вы собрали батарею из двух ячеек по 3000 mAh (итого 6000 mAh), ваш телефон с батареей 3000 mAh зарядится примерно 1.2 раза, а не 2 раза, как могла бы подсказать простая арифметика.</p>
+<p>Еще один нюанс — саморазряд. Дешевые платы управления могут потреблять ток даже тогда, когда к повербанку ничего не подключено. За месяц такая плата может "съесть" до 10-15% заряда просто лежа на полке. Выбирайте модули с функцией автоматического отключения (Auto Standby).</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для проверки реальной емкости используйте USB-тестер. Он покажет точное количество миллиампер-часов, отданное устройством при зарядке телефона.</p></div>
+
+<h2 id="типичные-ошибки-при-сборке">Типичные ошибки при сборке</h2>
+<p>В процессе создания самодельной электроники новички часто наступают на одни и те же грабли. Избежать их поможет знание чужого опыта. Ниже перечислены самые распространенные промахи, которые могут стоить вам денег или испортить настроение.</p>
+<ul>
+<li>Использование старых ноутбучных аккумуляторов без проверки остаточной емкости.</li>
+<li>Соединение ячеек с разным уровнем заряда или от разных производителей.</li>
+<li>Отсутствие изоляции между контактами внутри корпуса, leading к короткому замыканию.</li>
+<li>Игнорирование нагрева платы при высоких токах зарядки.</li>
+</ul>
+<p>Если хотите избежать проблем, никогда не соединяйте последовательно ячейки с разной емкостью или степенью износа. Это приведет к перезаряду одной из них и возможному вздутию. Все элементы в сборке должны быть максимально идентичны.</p>
+
+<details class="faq-item"><summary>Где взять бесплатные аккумуляторы?</summary><div class="faq-answer"><p>Старые батареи из ноутбуков часто содержат внутри 6 или 8 рабочих ячеек 18650. Даже если ноутбук не включается, элементы внутри могут иметь 80% ресурса. Аккуратно вскройте корпус ноутбука, извлеките банки и замерьте их напряжение. Если оно выше 2.5 Вольт, их можно попробовать восстановить.</p></div></details>
+
+<p>Еще одна частая ошибка — неправильный выбор корпуса. Если собрать мощную батарею и закрыть её в герметичный пластиковый контейнер без вентиляции, при интенсивной работе или зарядке внутри может вырасти давление или температура. Всегда оставляйте минимальные зазоры или отверстия для теплоотвода.</p>
+
+<h2 id="финальное-тестирование-и-запуск-в-работу">Финальное тестирование и запуск в работу</h2>
+<p>Когда сборка завершена, не спешите сразу подключать дорогие гаджеты. Сначала проведите первичное тестирование мультиметром. Проверьте напряжение на выходе USB-порта: оно должно быть в диапазоне 4.8–5.2 Вольта. Скачки напряжения могут повредить заряжаемое устройство.</p>
+<p>Важный момент: первый цикл заряда и разряда лучше провести под контролем. Оставьте устройство включенным на видном месте, периодически проверяя температуру корпуса рукой. Если плата или аккумуляторы начинают ощутимо греться (выше 40-45 градусов), эксплуатацию следует прекратить и искать причину.</p>
+<p>Для полноценного теста используйте нагрузку, например, мощную LED-лампу или резистор, подключенные через USB-тестер. Это позволит увидеть реальную емкость и убедиться в стабильности работы контроллера под нагрузкой.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед использованием</h4><label class="check-item"><input type="checkbox"><span>Напряжение на выходе 5В +/- 0.2В</span></label><label class="check-item"><input type="checkbox"><span>Отсутствие нагрева платы на холостом ходу</span></label><label class="check-item"><input type="checkbox"><span>Стабильная работа индикаторов заряда</span></label><label class="check-item"><input type="checkbox"><span>Надежная фиксация элементов внутри корпуса</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="экономия-и-персонализация-вашего-проекта">Экономия и персонализация вашего проекта</h2>
+<p>Собрав повербанк самостоятельно, вы получаете не просто источник энергии, а полностью кастомизированное устройство. Вы сами выбираете, сколько портов USB будет установлено, будет ли там дисплей с вольтажом или простая светодиодная индикация, и какой дизайн будет у корпуса.</p>
+<p>На практике такая сборка обходится на 30-50% дешевле аналогичных по емкости брендовых моделей, если использовать б/у ячейки или ловить скидки на Алиэкспрессе. Кроме того, в случае поломки вы сможете легко заменить вышедший из строя элемент, чего не сделаешь с запаянным заводским корпусом.</p>
+<p>Если хотите пойти дальше, можно добавить модуль солнечной панели для подзарядки в походных условиях или внедрить поддержку быстрой зарядки QC 3.0, купив соответствующую плату-триггер. possibilities ограничены только вашей фантазией и навыками пайки.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Самостоятельная сборка повербанка — это безопасный и выгодный способ получить надежный источник энергии с честными характеристиками, полностью адаптированный под ваши нужды.</p></div>
+
+<p>В заключение стоит сказать, что первый опыт может показаться сложным, но он дает бесценные знания в электронике. Вы научитесь разбираться в типах батарей, понимать принципы работы преобразователей и правильно работать с инструментом. Это навык, который пригодится не только для создания пауэрбанков, но и для ремонта другой портативной техники.</p>
+<p>Помните, что главное в этом деле — безопасность и внимательность к деталям. Не гонитесь за рекордной емкостью в ущерб качеству компонентов. Лучше собрать компактный и честный аккумулятор на 5000 mAh, который прослужит 5 лет, чем монстра на 50000 mAh, который сгорит через месяц или станет опасным.</p>
+<p>Теперь, когда у вас есть план действий, можно смело переходить к заказу деталей. Удачи в творческом процессе и стабильного напряжения в ваших цепях!</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-нужную-функцию-выбор-компонентов-на-маркетплейсе">Где найти нужную функцию: выбор компонентов на маркетплейсе</a></li><li><a href="#пошаговая-инструкция-по-сборке-устройства">Пошаговая инструкция по сборке устройства</a></li><li><a href="#подводные-камни-и-технические-ограничения">Подводные камни и технические ограничения</a></li><li><a href="#типичные-ошибки-при-сборке">Типичные ошибки при сборке</a></li><li><a href="#финальное-тестирование-и-запуск-в-работу">Финальное тестирование и запуск в работу</a></li><li><a href="#экономия-и-персонализация-вашего-проекта">Экономия и персонализация вашего проекта</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/r/ra/ratsii-iz-aliekspress-kakie-luchshe.html" class="related-card">Рации с AliExpress: какие лучше выбрать в 2026 году</a></li><li><a href="/articles/r/re/rele-zaderzhki-s-aliekspress-kak-rabotaet.html" class="related-card">Реле задержки с AliExpress: как работает и как подключить</a></li><li><a href="/articles/r/ra/razblokirovannye-telefony-s-aliexpress-chto-eto-znachit.html" class="related-card">Разблокированные телефоны с AliExpress: что значит и как проверить</a></li><li><a href="/articles/u/uv/uvlazhnitel-vozdukha-s-aliekspress-kak-polzovatsya-video.html" class="related-card">Увлажнитель воздуха с Алиэкспресс: инструкция и видео</a></li><li><a href="/articles/k/ka/kak-dobavit-igry-na-dendi-s-aliekspress.html" class="related-card">Как добавить игры на Денди с Алиэкспресс: полное руководство</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/r/ra/ratsii-iz-aliekspress-kakie-luchshe.html" class="related-bottom-card"><span class="related-bottom-title">Рации с AliExpress: какие лучше выбрать в 2026 году</span><span class="related-bottom-desc">Подробный гид по выбору рации на AliExpress. Обзор брендов Baofeng, Retevis, диапазоны частот, лицен</span></a><a href="/articles/r/re/rele-zaderzhki-s-aliekspress-kak-rabotaet.html" class="related-bottom-card"><span class="related-bottom-title">Реле задержки с AliExpress: как работает и как подключить</span><span class="related-bottom-desc">Подробное руководство по выбору, настройке и подключению реле задержки с AliExpress: схемы, ошибки и</span></a><a href="/articles/r/ra/razblokirovannye-telefony-s-aliexpress-chto-eto-znachit.html" class="related-bottom-card"><span class="related-bottom-title">Разблокированные телефоны с AliExpress: что значит и как проверить</span><span class="related-bottom-desc">Подробный гид по покупке смартфонов без региональных ограничений. Что такое Global Version, как избе</span></a><a href="/articles/u/uv/uvlazhnitel-vozdukha-s-aliekspress-kak-polzovatsya-video.html" class="related-bottom-card"><span class="related-bottom-title">Увлажнитель воздуха с Алиэкспресс: инструкция и видео</span><span class="related-bottom-desc">Полная инструкция по использованию увлажнителя с AliExpress. Где найти видео, как включить, залить в</span></a><a href="/articles/k/ka/kak-dobavit-igry-na-dendi-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как добавить игры на Денди с Алиэкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по установке игр на приставки с Алиэкспресс. Выбор карт памяти, форматирование,</span></a><a href="/articles/k/ka/kakoj-tv-box-vybrat-na-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Какой TV Box выбрать на AliExpress: гид по моделям 2026</span><span class="related-bottom-desc">Как выбрать ТВ-приставку на AliExpress: разбираем процессоры, Android TV, DRM Netflix и память. Топ </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

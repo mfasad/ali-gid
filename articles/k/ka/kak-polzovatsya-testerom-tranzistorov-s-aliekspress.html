@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как пользоваться тестером транзисторов с Алиэкспресс: инструкция — Али Гид</title>
+    <meta name="description" content="Полное руководство по эксплуатации китайского тестера компонентов. Как проверить диод, транзистор, ESR конденсатора и избежать ошибок при калибровке.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-polzovatsya-testerom-tranzistorov-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как пользоваться тестером транзисторов с Алиэкспресс: инструкция">
+    <meta property="og:description" content="Полное руководство по эксплуатации китайского тестера компонентов. Как проверить диод, транзистор, ESR конденсатора и избежать ошибок при калибровке.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как пользоваться тестером транзисторов с Алиэкспресс: инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как пользоваться тестером транзисторов с Алиэкспресс: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#интерфейс-и-базовая-навигация-в-меню-устройства">Интерфейс и базовая навигация в меню устройства</a></li><li><a href="#пошаговая-инструкция-по-проверке-электронных-компонентов">Пошаговая инструкция по проверке электронных компонентов</a></li><li><a href="#тонкости-калибровки-и-работы-с-аккумулятором">Тонкости калибровки и работы с аккумулятором</a></li><li><a href="#типичные-ошибки-пользователей-и-способы-их-устранения">Типичные ошибки пользователей и способы их устранения</a></li><li><a href="#максимальная-эффективность-при-ремонте-электроники">Максимальная эффективность при ремонте электроники</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Приобретение универсального тестера электронных компонентов на популярной торговой площадке часто становится первым шагом радиолюбителя в мир точной диагностики. Многие пользователи сталкиваются с ситуацией, когда устройство arrives, а понятной инструкции на русском языке в комплекте нет, либо она выполнена в виде плохо отсканированного мануала с машинным переводом. Это создает барьер, так как без понимания алгоритмов работы прибора невозможно эффективно использовать его возможности для проверки исправности радиодеталей.</p>
+
+<p>Основная проблема заключается не только в языковом барьере, но и в разнообразии модификаций этих приборов, которые массово поставляются китайскими производителями. Пользователь получает устройство, которое внешне может отличаться от картинок в интернете, иметь разную прошивку или цвет корпуса. Возникает вопрос: как правильно подключить деталь, какой режим выбрать и почему прибор иногда показывает неверные результаты или вовсе отказывается определять компонент. Разобраться в этом необходимо, чтобы не повредить измеряемые элементы и сам прибор.</p>
+
+<p>Если вы хотите быстро освоить работу с этим гаджетом, важно понимать, что это не просто «прозвонка», а сложный микроконтроллерный анализатор. Он подает различные сигналы на щупы, измеряет отклик и сравнивает его с заложенными в память эталонами. Вот что нужно сделать в первую очередь: внимательно изучить расположение контактов и понять логику работы единственной кнопки управления. Правильное использование тестера сэкономит вам часы времени при ремонте техники или сборке электронных схем.</p>
+
+<h2 id="интерфейс-и-базовая-навигация-в-меню-устройства">Интерфейс и базовая навигация в меню устройства</h2>
+
+<p>Важный момент: несмотря на кажущуюся простоту, устройство имеет несколько скрытых функций, доступных через длительное нажатие или комбинации кнопок. Основной интерфейс представляет собой монохромный дисплей и одну или две кнопки управления. В большинстве моделей, популярных на маркетплейсах, используется одна многофункциональная кнопка. Короткое нажатие обычно включает прибор или запускает измерение, а длительное удержание (около 2-3 секунд) переводит устройство в режим настройки или калибровки.</p>
+
+<p>На практике экран отображает несколько строк информации. Верхняя строка чаще всего показывает тип определенного компонента и его цоколевку (расположение выводов). Центральная часть экрана выводит основные параметры, такие как сопротивление, емкость или коэффициент усиления. Нижняя строка может отображать напряжение батареи или дополнительные параметры, например, ESR (эквивалентное последовательное сопротивление) для конденсаторов. Понимание того, что именно вы видите, критически важно для правильной интерпретации результатов.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Некоторые модели тестеров имеют кнопку сброса на задней панели. Если прибор завис или ведет себя некорректно, кратковременное нажатие на эту кнопку (при наличии) или извлечение батареи поможет перезагрузить систему.</p></div>
+
+<h3>Режимы работы и индикация</h3>
+
+<p>Устройство автоматически определяет тип подключенной детали, но пользователю полезно знать, как прибор сигнализирует о различных состояниях. При включении происходит самотестирование, после чего на экране появляется предложение нажать кнопку для начала измерения. Если компонент не подключен, прибор может периодически уходить в спящий режим для экономии заряда. Различные типы компонентов отображаются с использованием стандартных обозначений: NPN или PNP для биполярных транзисторов, N-CH или P-CH для полевых, символ диода для полупроводников.</p>
+
+<p>Важно обращать внимание на мигающие символы или дополнительные значки, которые могут указывать на режим измерения. Например, при проверке конденсаторов прибор может сначала разрядить их, если они были подключены под напряжением (хотя полагаться на это не стоит), а затем измерить емкость. Для диодов отображается прямое падение напряжения. Понимание этих индикаторов позволяет мгновенно оценить состояние детали без необходимости каждый раз заглядывать в инструкцию.</p>
+
+<h2 id="пошаговая-инструкция-по-проверке-электронных-компонентов">Пошаговая инструкция по проверке электронных компонентов</h2>
+
+<p>Если хотите получить точные результаты, необходимо строго соблюдать последовательность действий при подключении деталей. Процесс измерения прост, но имеет свои технические особенности. Сначала убедитесь, что деталь отпаяна от платы хотя бы одним выводом. Измерение компонентов в схеме часто дает ложные результаты из-за влияния остальных элементов цепи. Это правило актуально для всех типов радиодеталей.</p>
+
+<div class="checklist-block"><h4>📋 Базовая проверка компонента</h4><ol><li><strong>Шаг 1.</strong> Отключите питание измеряемого устройства и извлеките деталь</li><li><strong>Шаг 2.</strong> Очистите выводы детали от припоя и окислов</li><li><strong>Шаг 3.</strong> Вставьте выводы детали в соответствующие гнезда тестера (1, 2, 3)</li><li><strong>Шаг 4.</strong> Нажмите кнопку запуска и дождитесь результата на экране</li></ol></div>
+
+<h3>Проверка биполярных транзисторов и диодов</h3>
+
+<p>Для проверки биполярного транзистора достаточно вставить его выводы в любые три гнезда тестера. Прибор автоматически попытается определить тип структуры (NPN или PNP) и цоколевку (эмиттер, база, коллектор). На экране отобразится схема подключения выводов к гнездам 1, 2, 3, а также коэффициент усиления по току (hFE). Если транзистор исправен, вы увидите конкретные числовые значения. Если деталь неисправна, прибор может показать короткое замыкание (Short) или отсутствие связи между выводами.</p>
+
+<p>Диоды проверяются аналогичным образом. Вставьте выводы диода в любые два гнезда. Прибор определит анод и катод, а также покажет прямое падение напряжения в вольтах. Для кремниевых диодов это значение обычно составляет 0.5–0.7 В, для германиевых — 0.2–0.3 В. Если прибор показывает ноль или, наоборот, очень высокое сопротивление в обоих направлениях (при перевороте выводов), диод, скорее всего, неисправен.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Никогда не подавайте внешнее напряжение на щупы тестера. Это мгновенно выведет измерительную микросхему из строя. Проверяйте только обесточенные детали.</p></div>
+
+<h3>Измерение конденсаторов и резисторов</h3>
+
+<p>Работа с конденсаторами требует особой внимательности. Перед установкой в тестер конденсатор необходимо разрядить, особенно если он был в работе. Замкните его выводы пинцетом или отверткой. При подключении к тестеру прибор сначала измеряет ESR (эквивалентное последовательное сопротивление), что является критически важным параметром для электролитических конденсаторов, а затем емкость. Высокое значение ESR при нормальной емкости говорит о том, что конденсатор высох и подлежит замене.</p>
+
+<p>Резисторы измеряются в автоматическом режиме. Просто подключите выводы к любым двум контактам. Прибор покажет сопротивление в Омах, Килоомах или Мегаомах. Точность измерения зависит от диапазона: очень маленькие сопротивления (менее 1 Ома) и очень большие (более 50 МОм) могут измеряться с погрешностью. Для прецизионных измерений лучше использовать специализированные мультиметры, но для быстрой сортировки данный тестер подходит отлично.</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип компонента</th>
+<th>Что отображает экран</th>
+<th>Нормальные показания</th>
+<th>Признаки неисправности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Биполярный транзистор</td>
+<td>Тип (NPN/PNP), hFE, Vf</td>
+<td>hFE от 20 до 1000+</td>
+<td>Short, Uf=0, отсутствие определения</td>
+</tr>
+<tr>
+<td>Диод</td>
+<td>Прямое падение (Vf)</td>
+<td>0.2В - 0.7В</td>
+<td>0.00В (пробой) или 1.5В+ (обрыв)</td>
+</tr>
+<tr>
+<td>Конденсатор</td>
+<td>Емкость (C), ESR</td>
+<td>Близко к номиналу, ESR низкий</td>
+<td>ESR высокий, емкость занижена</td>
+</tr>
+<tr>
+<td>Резистор</td>
+<td>Сопротивление (R)</td>
+<td>Соответствует цветовой маркировке</td>
+<td>Бесконечность или сильное отклонение</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="тонкости-калибровки-и-работы-с-аккумулятором">Тонкости калибровки и работы с аккумулятором</h2>
+
+<p>На практике точность измерений, особенно емкости конденсаторов и малых сопротивлений, напрямую зависит от калибровки прибора. Заводская калибровка может быть сбита при транспортировке или просто быть неточной. Процедура калибровки обычно требует замыкания определенных контактов тестовым проводником (часто идет в комплекте) или использования эталонных резисторов. Без этой процедуры погрешность измерения малых величин может достигать 10-20%.</p>
+
+<details class="faq-item"><summary>Как войти в режим калибровки</summary><div class="faq-answer"><p>Для входа в меню калибровки обычно требуется удерживать кнопку при включении питания в течение 5 секунд. В некоторых версиях прошивки нужно замкнуть определенные контакты на плате или использовать специальный режим, вызываемый последовательностью коротких и длинных нажатий. Точный алгоритм зависит от версии прошивки (например, 1.04k, 1.06k и т.д.).</p></div></details>
+
+<h3>Влияние питания на точность измерений</h3>
+
+<p>Важный момент: уровень заряда батареи существенно влияет на работу тестера. При низком напряжении питания результаты измерений, особенно емкости и ESR, становятся нестабильными и неверными. Если вы заметили, что прибор начал «врать» или самопроизвольно выключаться, первым делом замените элемент питания. Рекомендуется использовать качественные батареи типа «Крона» (9В) или установленный внутри Li-Ion аккумулятор с платой защиты.</p>
+
+<p>Если хотите продлить жизнь устройству и обеспечить стабильность показаний, следите за контактами батареи. Окисление контактов в отсеке питания — частая проблема дешевых моделей. Периодически очищайте пружины и площадки спиртом. Также стоит учитывать, что некоторые модели чувствительны к типу батареи: щелочные батареи могут давать более стабильное напряжение под нагрузкой, чем солевые аналоги.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для стационарного использования можно модифицировать прибор, подключив внешнее питание 5В через USB-порт (если он есть) или выпаяв диод защиты, но это требует навыков пайки и может лишить гарантии.</p></div>
+
+<h2 id="типичные-ошибки-пользователей-и-способы-их-устранения">Типичные ошибки пользователей и способы их устранения</h2>
+
+<p>Частые ошибки при эксплуатации часто связаны не с неисправностью самого прибора, а с нарушением методики измерений. Новички часто забывают разряжать конденсаторы, что приводит к повреждению входных цепей тестера. Другая распространенная ошибка — попытка измерить компонент, не отпаяв его полностью. Даже один оставшийся контакт с платой может шунтировать измеряемый элемент, и прибор покажет совершенно другие значения.</p>
+
+<p>Еще одна проблема — неправильная интерпретация результатов для составных компонентов. Например, составной транзистор (составной транзистор Дарлингтона) может определяться как обычный, но с очень высоким коэффициентом усиления, или вообще не определиться корректно. Также пользователи часто игнорируют температуру: нагрев детали в процессе работы схемы меняет ее параметры, поэтому измерять горячие компоненты сразу после выключения питания нельзя.</p>
+
+<ul>
+<li>Измерение под напряжением — главная причина выхода прибора из строя.</li>
+<li>Игнорирование разрядки конденсаторов перед проверкой.</li>
+<li>Попытка измерить сопротивление в схеме без выпаивания детали.</li>
+<li>Использование разряженной батареи,ющее к искажению результатов.</li>
+</ul>
+
+<p>Если прибор показывает ошибку или странные значения, проверьте чистоту контактов. Окисленные выводы деталей или загрязненные гнезда тестера добавляют лишнее сопротивление. Протрите гнезда ватной палочкой, смоченной в спирте. Также убедитесь, что выводы детали плотно прилегают к контактам внутри гнезда. Плохой контакт — частая причина «плавающих» показаний.</p>
+
+<div class="checklist-block"><h4>☑️ Диагностика проблем</h4><label class="check-item"><input type="checkbox"><span>Проверьте заряд батареи</span></label><label class="check-item"><input type="checkbox"><span>Убедитесь, что деталь отпаяна от платы</span></label><label class="check-item"><input type="checkbox"><span>Очистите выводы детали и гнезда тестера</span></label><label class="check-item"><input type="checkbox"><span>Проверьте, разряжен ли конденсатор</span></label><label class="check-item"><input type="checkbox"><span>Попробуйте перевернуть деталь в гнездах</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="максимальная-эффективность-при-ремонте-электроники">Максимальная эффективность при ремонте электроники</h2>
+
+<p>Использование тестера транзисторов с маркетплейса превращает процесс поиска неисправностей из гадания в точную науку. этот инструмент, вы можете быстро отсеивать неисправные компоненты из больших партий или диагностировать вышедшую из строя бытовую технику. Главное — помнить, что это вспомогательный инструмент, который требует правильного подхода и понимания физики процессов. Регулярная калибровка и бережное отношение позволят ему служить долгие годы.</p>
+
+<p>В конечном итоге, навык работы с таким прибором приходит с практикой. Не бойтесь экспериментировать с известными исправными деталями, чтобы «почувствовать» прибор. Запоминайте типичные показания для разных типов компонентов. Со временем вы научитесь с одного взгляда на экран определять, годен ли элемент для дальнейшей работы или ему место в утиле. Это знание сэкономит вам деньги на покупке новых деталей и время на поиске дефектов.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Универсальный тестер компонентов — незаменимый инструмент для радиолюбителя, позволяющий быстро проверять транзисторы, диоды и конденсаторы, при условии соблюдения правил безопасности и регулярной калибровки.</p></div>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Помните, что характеристики и функционал могут отличаться в зависимости от версии прошивки, установленной производителем на заводе. Всегда сверяйтесь с актуальной документацией для вашей конкретной модели.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#интерфейс-и-базовая-навигация-в-меню-устройства">Интерфейс и базовая навигация в меню устройства</a></li><li><a href="#пошаговая-инструкция-по-проверке-электронных-компонентов">Пошаговая инструкция по проверке электронных компонентов</a></li><li><a href="#тонкости-калибровки-и-работы-с-аккумулятором">Тонкости калибровки и работы с аккумулятором</a></li><li><a href="#типичные-ошибки-пользователей-и-способы-их-устранения">Типичные ошибки пользователей и способы их устранения</a></li><li><a href="#максимальная-эффективность-при-ремонте-электроники">Максимальная эффективность при ремонте электроники</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-postavit-steklo-na-telefon-s-aliekspress-samomu.html" class="related-card">Как заменить стекло на телефоне с AliExpress: пошаговый гайд</a></li><li><a href="/articles/s/sk/skolko-stoit-podvodnaya-kamera-dlya-rybalki-tsena-na-aliekspress.html" class="related-card">Подводная камера для рыбалки: цены на Алиэкспресс, выбор и нюансы</a></li><li><a href="/articles/s/se/sensornaya-knopka-s-aliekspress-kak-podklyuchit.html" class="related-card">Сенсорная кнопка с Алиэкспресс: подключение и настройка</a></li><li><a href="/articles/k/ka/kak-kleit-steklo-na-telefon-bez-puzyrej-s-aliekspress.html" class="related-card">Как клеить стекло на телефон без пузырей с Алиэкспресс</a></li><li><a href="/articles/k/ka/kak-otkalibrovat-ph-metr-s-aliekspress-v-domashnikh-usloviyakh-video.html" class="related-card">Калибровка pH-метра с AliExpress: полное руководство</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-postavit-steklo-na-telefon-s-aliekspress-samomu.html" class="related-bottom-card"><span class="related-bottom-title">Как заменить стекло на телефоне с AliExpress: пошаговый гайд</span><span class="related-bottom-desc">Подробная инструкция по самостоятельной замене стекла на смартфоне: выбор комплектующих на AliExpres</span></a><a href="/articles/s/sk/skolko-stoit-podvodnaya-kamera-dlya-rybalki-tsena-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Подводная камера для рыбалки: цены на Алиэкспресс, выбор и нюансы</span><span class="related-bottom-desc">Полный гид по подводным камерам с AliExpress: актуальные цены, характеристики, инструкция по выбору </span></a><a href="/articles/s/se/sensornaya-knopka-s-aliekspress-kak-podklyuchit.html" class="related-bottom-card"><span class="related-bottom-title">Сенсорная кнопка с Алиэкспресс: подключение и настройка</span><span class="related-bottom-desc">Полное руководство по подключению сенсорной кнопки Tuya с Алиэкспресс. Настройка умного дома, интегр</span></a><a href="/articles/k/ka/kak-kleit-steklo-na-telefon-bez-puzyrej-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как клеить стекло на телефон без пузырей с Алиэкспресс</span><span class="related-bottom-desc">Подробная инструкция по наклейке защитного стекла с AliExpress. Устранение пузырей, выбор клея, подг</span></a><a href="/articles/k/ka/kak-otkalibrovat-ph-metr-s-aliekspress-v-domashnikh-usloviyakh-video.html" class="related-bottom-card"><span class="related-bottom-title">Калибровка pH-метра с AliExpress: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по калибровке pH-метра в домашних условиях. Разбор растворов, пошаговые действи</span></a><a href="/articles/k/ka/kakoj-nalobnyj-fonar-kupit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать налобный фонарь на Алиэкспресс: полное руководство 2026</span><span class="related-bottom-desc">Пошаговая инструкция по выбору налобного фонаря на Алиэкспресс: ключевые параметры, топ-модели, как </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

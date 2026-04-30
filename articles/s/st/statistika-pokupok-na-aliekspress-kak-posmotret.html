@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Статистика покупок на Алиэкспресс: как посмотреть и проанализировать — Али Гид</title>
+    <meta name="description" content="Узнайте, как посмотреть статистику покупок на Алиэкспресс. Подробный гид по разделу Мои заказы, фильтрации и анализу расходов в приложении.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/s/st/statistika-pokupok-na-aliekspress-kak-posmotret.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Статистика покупок на Алиэкспресс: как посмотреть и проанализировать">
+    <meta property="og:description" content="Узнайте, как посмотреть статистику покупок на Алиэкспресс. Подробный гид по разделу Мои заказы, фильтрации и анализу расходов в приложении.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/dostavka-i-poluchenie/">Доставка и получение</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Статистика покупок на Алиэкспресс: как посмотреть и проанализировать</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Статистика покупок на Алиэкспресс: как посмотреть и проанализировать</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-разделы-с-историей-заказов-и-транзакций">Где найти разделы с историей заказов и транзакций</a></li><li><a href="#пошаговая-инструкция-по-сбору-данных-о-расходах">Пошаговая инструкция по сбору данных о расходах</a></li><li><a href="#нюансы-отображения-данных-и-скрытые-функции">Нюансы отображения данных и скрытые функции</a></li><li><a href="#типичные-ошибки-при-анализе-покупок">Типичные ошибки при анализе покупок</a></li><li><a href="#как-систематизировать-данные-для-будущего">Как систематизировать данные для будущего</a></li><li><a href="#анализ-потребительского-поведения-и-выводы">Анализ потребительского поведения и выводы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы активно пользуетесь популярной китайской торговой площадкой, у вас наверняка возникал вопрос о том, сколько всего денег было потрачено за все время или за последний год. Многие пользователи воспринимают AliExpress как источник бесконечных мелочей, не задумываясь о том, что сумма этих покупок может быть весьма внушительной. Понимание собственной покупательской статистики необходимо не только для удовлетворения любопытства, но и для грамотного планирования бюджета, отслеживания динамики расходов и понимания собственных потребительских привычек.</p>
+
+<p>Вот что нужно сделать в первую очередь: осознать, что единой кнопки «Статистика» в привычном виде, как в банковских приложениях, здесь нет, но все данные находятся в открытом доступе. Платформа собирает полную историю ваших транзакций, статусов заказов и возвратов. Важно понимать, что для получения достоверной картины вам придется самостоятельно собрать эти данные из раздела заказов, так как автоматизированные отчеты часто носят рекламный характер или доступны только в рамках временных акций.</p>
+
+<p>Важный момент: анализ расходов помогает выявить, на каких категориях товаров вы переплачиваете или покупаете лишнее. На практике это позволяет скорректировать стратегию шопинга, отказавшись от импульсивных приобретений. Кроме того, знание точной суммы потраченных средств может пригодиться при участии в некоторых программах лояльности или при общении со службой поддержки, где иногда учитывается общий объем закупок клиента.</p>
+
+<h2 id="где-найти-разделы-с-историей-заказов-и-транзакций">Где найти разделы с историей заказов и транзакций</h2>
+
+<p>Если хотите получить доступ к своим данным, вам необходимо войти в личный кабинет. Именно там сосредоточена вся информация о вашей активности. Интерфейс платформы периодически обновляется, но базовая структура остается неизменной. Все ваши действия фиксируются в профиле, который привязан к вашему аккаунту, независимо от того, с какого устройства вы входите.</p>
+
+<p>Вот где нужно искать информацию: основным инструментом является раздел «Мои заказы». Именно здесь хранится архив всех ваших покупок, начиная с момента регистрации. Для более глубокого анализа финансовых потоков также используется раздел «Аккаунт» или «Финансы», где отображаются пополнения баланса и выводы средств. Важно не путать эти разделы, так как в заказах видна стоимость товаров, а в финансах — движение реальных денег на счете.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Интерфейс мобильного приложения и веб-версии сайта может отличаться расположением кнопок, но логика навигации сохраняется одинаковой.</p></div>
+
+<h3>Навигация в мобильном приложении</h3>
+
+<p>На практике большинство пользователей совершают покупки через смартфон, поэтому рассмотрим путь в приложении. После авторизации нажмите на иконку <em>Человечек</em> или <em>Мой профиль</em> в нижнем правом углу экрана. Перед вами откроется главная панель управления аккаунтом. Здесь нужно найти кнопку <em>Мои заказы</em> или <em>Все заказы</em>. Именно этот раздел является ключевым для сбора статистики.</p>
+
+<p>Важный момент: в верхней части экрана заказов обычно находятся вкладки-фильтры, такие как «Ожидает оплаты», «Ожидает отправки», «Ожидает получения». Для просмотра полной статистики вам нужно выбрать вкладку «Все» или «Завершено», чтобы увидеть весь массив данных, а не только активные процессы.</p>
+
+<div class="checklist-block"><h4>📋 Поиск раздела заказов</h4><ol><li><strong>Шаг 1.</strong> Запустите приложение AliExpress</li><li><strong>Шаг 2.</strong> Нажмите на иконку профиля в нижнем меню</li><li><strong>Шаг 3.</strong> Выберите пункт «Мои заказы»</li><li><strong>Шаг 4.</strong> Переключитесь на вкладку «Все» или «Завершено»</li></ol></div>
+
+<h3>Поиск информации на сайте через браузер</h3>
+
+<p>Если вы предпочитаете работать с большого экрана, веб-версия сайта предоставит более удобный интерфейс для работы с таблицами и большими объемами данных. Наведите курсор на иконку профиля в правом верхнем углу и выберите <em>Orders</em> или <em>Мои заказы</em>. В десктопной версии функционал фильтрации часто расширен, что позволяет выгружать данные в более структурированном виде.</p>
+
+<p>На практике веб-версия удобнее для подсчета итоговых сумм, так как можно использовать инструменты браузера или просто визуально охватить больше позиций на одном экране. Кроме того, здесь проще копировать номера треков и названия товаров, если вы ведете учет в сторонних таблицах.</p>
+
+<h2 id="пошаговая-инструкция-по-сбору-данных-о-расходах">Пошаговая инструкция по сбору данных о расходах</h2>
+
+<p>Если хотите получить точную цифру потраченных средств, вам придется прибегнуть к ручному сбору информации или использованию встроенных фильтров. Платформа не всегда показывает общую сумму «за все время» одной строкой, поэтому алгоритм действий будет зависеть от того, какую именно статистику вы хотите получить: за месяц, за год или за всю историю.</p>
+
+<p>Вот что нужно сделать для анализа: сначала определите временной период. Затем используйте сортировку по дате, чтобы отсечь лишние заказы. После этого суммируйте стоимости оплаченных товаров. Обратите внимание, что стоимость доставки и примененные купоны могут влиять на итоговую сумму, поэтому важно смотреть именно на сумму оплаты, а не на цену товара без скидки.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Курс валют может меняться. Если вы платили в долларах или евро, а статистика ведется в рублях, итоговая сумма может отличаться от фактически списанной с карты из-за конвертации банка.</p></div>
+
+<h3>Использование фильтров по дате и статусу</h3>
+
+<p>На практике наиболее эффективный способ — это использование фильтров. В разделе заказов найдите кнопку фильтрации (часто выглядит как воронка или календарь). Выберите нужный год или месяц. Это позволит изолировать конкретный период и избежать путаницы.</p>
+
+<p>Важный момент: обязательно фильтруйте заказы по статусу «Завершено» или «Оплачено». Заказы со статусом «Отменено» или «Возврат» не должны входить в статистику реальных расходов, хотя формально они могут отображаться в общем списке. Игнорирование этого правила приведет к искажению данных.</p>
+
+<h3>Ручной подсчет и использование списков</h3>
+
+<p>Если автоматические сводки недоступны, придется считать вручную. Это трудоемкий процесс, но он дает самый точный результат. Вы можете создать таблицу в блокноте или Excel и выписывать туда суммы каждого заказа. Для упрощения задачи можно использовать функцию «Избранное» или создание списков, перенося туда товары после покупки для последующего анализа.</p>
+
+<ol>
+<li>Откройте раздел «Мои заказы» и установите фильтр по нужному году.</li>
+<li>Последовательно открывайте каждый заказ и записывайте сумму, которую вы фактически оплатили.</li>
+<li>Суммируйте полученные значения, чтобы получить общую статистику расходов за выбранный период.</li>
+<li>Если заказов очень много, разбейте процесс на этапы: сначала посчитайте заказы за январь, затем за февраль и так далее.</li>
+</ol>
+
+<details class="faq-item"><summary>Лайфхак для пользователей ПК</summary><div class="faq-answer"><p> можно попробовать выделить мышкой столбец с ценами в списке заказов (если они отображаются списком) и скопировать в Excel, но чаще всего цены скрыты внутри карточки заказа, что требует индивидуального открытия каждого лота.</p></div></details>
+
+<h2 id="нюансы-отображения-данных-и-скрытые-функции">Нюансы отображения данных и скрытые функции</h2>
+
+<p>Если хотите разобраться в деталях, стоит знать, что платформа скрывает некоторые данные по умолчанию. Например, в общем списке заказов может не быть видно окончательной суммы с учетом всех скидок и бонусов. Полная финансовая информация доступна только при переходе внутрь конкретного заказа.</p>
+
+<p>Важный момент: статистика может различаться в зависимости от валюты отображения. Если вы сменили регион или валюту в настройках, старые заказы могут пересчитываться по текущему курсу или отображаться в той валюте, в которой были совершены. Это может создать иллюзию изменения цен в истории.</p>
+
+<h3>Разница между ценой товара и суммой оплаты</h3>
+
+<p>На практике часто возникает путаница между стоимостью лота и итоговой суммой чека. В статистику покупок должна попадать именно сумма оплаты. Она формируется из цены товара, стоимости доставки, налогов (если они были) и минусованных купонов.</p>
+
+<ul>
+<li>Цена товара: базовая стоимость единицы товара у продавца.</li>
+<li>Стоимость доставки: может быть бесплатной или платной, иногда оплачивается отдельно.</li>
+<li>Купоны и скидки: уменьшают итоговую сумму, но в истории могут отображаться как перечеркнутая цена.</li>
+<li>Коины и бонусы: если часть оплаты производилась внутренней валютой, это также часть ваших расходов (потенциальных или реальных).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Обращайте внимание на раздел «Детали» внутри заказа. Там расписана полная калькуляция: сколько стоил товар, сколько составила скидка продавца, сколько скидка платформы и сколько вы заплатили окончательно.</p></div>
+
+<h3>Влияние возвратов и споров на статистику</h3>
+
+<p>Если вы открывали споры и возвращали деньги, эти суммы должны вычитаться из общей статистики расходов. Однако система не всегда делает это автоматически в общих сводках. Вам нужно вручную отслеживать статус возврата. Если деньги вернулись на карту или баланс, этот заказ нельзя считать покупкой.</p>
+
+<p>Вот что нужно сделать: ведите учет возвращенных средств отдельно. Если вы анализируете расходы за год, вычтите суммы всех успешных возвратов из общей суммы оплаченных заказов. Это даст реальную картину того, сколько денег осталось у продавцов.</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип операции</th>
+<th>Влияние на статистику</th>
+<th>Где проверить</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Оплата заказа</td>
+<td>Увеличивает сумму расходов</td>
+<td>Мои заказы → Детали заказа</td>
+</tr>
+<tr>
+<td>Применение купона</td>
+<td>Уменьшает фактическую оплату</td>
+<td>Детали заказа → Скидки</td>
+</tr>
+<tr>
+<td>Возврат средств (Refund)</td>
+<td>Должен вычитаться из расходов</td>
+<td>Споры и возвраты → Статус</td>
+</tr>
+<tr>
+<td>Отмена заказа</td>
+<td>Не учитывается в расходах</td>
+<td>Мои заказы → Статус «Отменено»</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="типичные-ошибки-при-анализе-покупок">Типичные ошибки при анализе покупок</h2>
+
+<p>Если хотите получить достоверные данные, избегайте распространенных ошибок, которые допускают многие пользователи. Невнимательность к деталям интерфейса и игнорирование статусов заказов приводят к неверным выводам о бюджете.</p>
+
+<p>Важный момент: часто пользователи забывают, что предзаказы оплачиваются частями или имеют длительный срок ожидания, и считают их в статистику текущего месяца, хотя деньги могли списаться раньше или позже.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед подсчетом</h4><label class="check-item"><input type="checkbox"><span>Отфильтрованы ли заказы по нужному году?</span></label><label class="check-item"><input type="checkbox"><span>Учтены ли только оплаченные заказы?</span></label><label class="check-item"><input type="checkbox"><span>Вычтены ли суммы возвратов?</span></label><label class="check-item"><input type="checkbox"><span>Переведены ли суммы в одну валюту?</span></label><label class="check-item"><input type="checkbox"><span>Учтена ли стоимость доставки?</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h3>Игнорирование статусов заказов</h3>
+
+<p>На практике самая частая ошибка — включение в подсчет заказов со статусом «Ожидает оплаты» или «Отменено». Такие заказы висят в списке, создавая видимость активности, но деньги за них не списаны. Всегда проверяйте, стоит ли отметка «Оплачено».</p>
+
+<h3>Неучет курсовой разницы</h3>
+
+<p>Если вы покупали товары в разное время и в разных валютах, простое суммирование чисел без учета курса даст неверный результат. Для точной статистики нужно приводить все суммы к валюте вашего счета на момент покупки или к текущему курсу, если вы оцениваете текущую стоимость портфеля вещей.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Данные в приложении могут обновляться с задержкой. Если вы только что совершили покупку, она может не сразу отобразиться в общих списках или статистических виджетах. Подождите 10-15 минут.</p></div>
+
+<h3>Путаница с бонусами и коинами</h3>
+
+<p>Многие считают коины (Coins) реальными деньгами, потраченными из кармана. Это ошибка. Коины — это бонусная валюта. В статистику реальных расходов нужно включать только те суммы, которые были списаны с банковской карты или электронного кошелька. Использование коинов для оплаты части заказа снижает реальный расход, но не является отдельной тратой.</p>
+
+<h2 id="как-систематизировать-данные-для-будущего">Как систематизировать данные для будущего</h2>
+
+<p>Если хотите всегда быть в курсе своих расходов, лучше не полагаться только на память или историю приложения, которая может быть неудобной. Созданная вами система учета позволит видеть динамику и планировать покупки.</p>
+
+<p>Вот что нужно сделать: заведите простую таблицу. Записывайте туда дату, категорию товара, продавца и сумму. Это займет пару минут после покупки, но через год вы скажете себе спасибо за такую предусмотрительность. Это поможет понять, какие категории товаров «съедают» бюджет.</p>
+
+<div class="checklist-block"><h4>📋 Создание личного архива</h4><ol><li><strong>Шаг 1.</strong> Создайте файл в Excel или Google Таблицах</li><li><strong>Шаг 2.</strong> Создайте колонки: Дата, Товар, Категория, Сумма, Статус</li><li><strong>Шаг 3.</strong> Вносите данные сразу после оплаты заказа</li><li><strong>Шаг 4.</strong> Раз в месяц подводите итоги по категориям</li></ol></div>
+
+<h3>Использование скриншотов и экспорта</h3>
+
+<p>На практике, если вы боитесь потерять данные, делайте скриншоты экранов с итогами года или месяца. Платформа иногда проводит акции типа «Год с AliExpress», где сама генерирует красивую статистику. Сохраняйте эти отчеты.</p>
+
+<p>Важный момент: не храните скриншоты с полными данными карт в общедоступных альбомах. Скрывайте конфиденциальную информацию перед сохранением или передачей файлов.</p>
+
+<h2 id="анализ-потребительского-поведения-и-выводы">Анализ потребительского поведения и выводы</h2>
+
+<p>Если вы собрали всю информацию, самое время проанализировать её. Статистика покупок — это не просто цифры, это отражение вашего образа жизни. Посмотрите, какие категории товаров преобладают. Быть может, вы слишком много тратите на гаджеты или одежду, которую редко носите.</p>
+
+<p>Вот что нужно сделать: сравните суммы расходов по месяцам. Найдите пиковые периоды (например, 11.11 или Черная пятница) и оцените, были ли покупки в эти дни действительно выгодными или импульсивными. Понимание своих паттернов поведения помогает стать более осознанным покупателем.</p>
+
+<p>Важный момент: используйте полученные данные для установки лимитов. Если в прошлом месяце вы потратили слишком много, установите себе бюджет на текущий месяц и следите за его соблюдением, сверяясь с историей заказов в реальном времени.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Статистика покупок на AliExpress доступна через раздел «Мои заказы», где можно отфильтровать и проанализировать все оплаченные товары, исключив возвраты и отмены для точного расчета бюджета.</p></div>
+
+<p>На практике регулярный мониторинг своей статистики помогает не только экономить, но и лучше ориентироваться в ассортименте и ценовой политике площадки. Вы начинаете понимать реальную стоимость вещей и отличать фейковые скидки от реальных выгодных предложений.</p>
+
+<p>Если хотите контролировать свои финансы, не пренебрегайте этим инструментом. Даже простой просмотр истории заказов раз в месяц дает отличное представление о том, куда уходят деньги, и позволяет вовремя скорректировать финансовый курс, избежав ненужных трат в будущем.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-разделы-с-историей-заказов-и-транзакций">Где найти разделы с историей заказов и транзакций</a></li><li><a href="#пошаговая-инструкция-по-сбору-данных-о-расходах">Пошаговая инструкция по сбору данных о расходах</a></li><li><a href="#нюансы-отображения-данных-и-скрытые-функции">Нюансы отображения данных и скрытые функции</a></li><li><a href="#типичные-ошибки-при-анализе-покупок">Типичные ошибки при анализе покупок</a></li><li><a href="#как-систематизировать-данные-для-будущего">Как систематизировать данные для будущего</a></li><li><a href="#анализ-потребительского-поведения-и-выводы">Анализ потребительского поведения и выводы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/p/pr/problemy-na-tamozhne-s-aliekspress-chto-delat-dalshe.html" class="related-card">Таможня AliExpress: что делать при задержке или проблемах</a></li><li><a href="/articles/k/ka/kak-oformlyat-zakaz-na-aliekspress-dlya-rossii-na-telefone.html" class="related-card">Как оформить заказ на AliExpress с телефона: подробная инструкция для РФ</a></li><li><a href="/articles/k/ka/kak-perevesti-naklejku-na-telo-s-aliekspress.html" class="related-card">Как перевести наклейку на тело с Алиэкспресс: перевод и инструкция</a></li><li><a href="/articles/s/sk/skolko-khranyatsya-posylki-v-postamate-aliekspress.html" class="related-card">Сколько хранится посылка в постамате AliExpress: сроки и правила</a></li><li><a href="/articles/k/ku/kuda-delas-besplatnaya-dostavka-na-aliekspress.html" class="related-card">Куда делась бесплатная доставка на AliExpress: причины и решения</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/p/pr/problemy-na-tamozhne-s-aliekspress-chto-delat-dalshe.html" class="related-bottom-card"><span class="related-bottom-title">Таможня AliExpress: что делать при задержке или проблемах</span><span class="related-bottom-desc">Проблемы на таможне с Алиэкспресс: пошаговая инструкция, как оплатить пошлину, проверить статус и из</span></a><a href="/articles/k/ka/kak-oformlyat-zakaz-na-aliekspress-dlya-rossii-na-telefone.html" class="related-bottom-card"><span class="related-bottom-title">Как оформить заказ на AliExpress с телефона: подробная инструкция для РФ</span><span class="related-bottom-desc">Пошаговое руководство, как правильно сделать заказ на AliExpress через приложение в России. Советы п</span></a><a href="/articles/k/ka/kak-perevesti-naklejku-na-telo-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести наклейку на тело с Алиэкспресс: перевод и инструкция</span><span class="related-bottom-desc">Подробное руководство, как найти и скачать перевод для наклеек на тело с AliExpress. Решаем проблему</span></a><a href="/articles/s/sk/skolko-khranyatsya-posylki-v-postamate-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Сколько хранится посылка в постамате AliExpress: сроки и правила</span><span class="related-bottom-desc">Узнайте, как долго хранится ваша посылка в постамате AliExpress, что делать, если не успели забрать,</span></a><a href="/articles/k/ku/kuda-delas-besplatnaya-dostavka-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Куда делась бесплатная доставка на AliExpress: причины и решения</span><span class="related-bottom-desc">Узнайте, почему пропала бесплатная доставка на Алиэкспресс, как вернуть её с купонами и какие есть а</span></a><a href="/articles/d/do/dolgo-idet-tovar-s-aliekspress-chto-delat.html" class="related-bottom-card"><span class="related-bottom-title">Долго идет товар с АлиЭкспресс: что делать и как вернуть деньги</span><span class="related-bottom-desc">Товар долго не приходит с AliExpress? Узнайте, как продлить защиту, открыть спор и вернуть деньги, е</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

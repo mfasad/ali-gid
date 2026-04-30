@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Лабораторный блок питания своими руками: сборка из модулей AliExpress — Али Гид</title>
+    <meta name="description" content="Подробное руководство по сборке регулируемого лабораторного блока питания из китайских модулей. Схемы, выбор компонентов, настройка и устранение ошибок.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-sdelat-laboratornyj-blok-pitaniya-iz-modulej-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Лабораторный блок питания своими руками: сборка из модулей AliExpress">
+    <meta property="og:description" content="Подробное руководство по сборке регулируемого лабораторного блока питания из китайских модулей. Схемы, выбор компонентов, настройка и устранение ошибок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Лабораторный блок питания своими руками: сборка из модулей AliExpress</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Сборка лабораторного блока питания из модулей с AliExpress</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#выбор-компонентов-и-анализ-технических-характеристик">Выбор компонентов и анализ технических характеристик</a></li><li><a href="#пошаговая-инструкция-по-сборке-устройства">Пошаговая инструкция по сборке устройства</a></li><li><a href="#нюансы-настройки-и-калибровки">Нюансы настройки и калибровки</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#финальная-сборка-и-безопасность-эксплуатации">Финальная сборка и безопасность эксплуатации</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы увлекаетесь электроникой, ремонтом бытовой техники или конструированием устройств, то необходимость в качественном источнике питания возникает постоянно. Покупка профессионального лабораторного блока питания заводского исполнения часто влечет за собой серьезные финансовые затраты, которые не всегда оправданы для начинающего радиолюбителя или домашнего мастера. В то же время, использование простых адаптеров не дает возможности гибко управлять параметрами тока и напряжения, что критически важно при отладке схем.</p>
+<p>Вот что нужно сделать: собрать собственный прибор, используя доступные модули с популярных торговых площадок. Это решение позволяет получить функционал, сопоставимый с дорогими аналогами, при минимальном бюджете. Вы получаете полный контроль над спецификациями устройства, выбирая именно те характеристики, которые нужны для ваших задач, будь то питание микроконтроллеров или проверка автомобильной электроники.</p>
+<p>Важный момент: самостоятельная сборка требует базовых навыков пайки и понимания принципов работы электрических цепей. Однако современные модули настолько стандартизированы, что процесс больше напоминает сборку конструктора, чем сложную инженерную разработку. Главное — правильно подобрать компоненты и обеспечить им надлежащие условия работы.</p>
+
+<h2 id="выбор-компонентов-и-анализ-технических-характеристик">Выбор компонентов и анализ технических характеристик</h2>
+<p>Если хотите получить стабильно работающее устройство, начинать нужно с тщательного подбора «сердца» системы — понижающего DC-DC преобразователя. На рынке представлено множество вариантов, но для лабораторных целей наиболее подходят модули с функциями CC/CV (Constant Current/Constant Voltage). Именно возможность ограничения тока делает источник питания лабораторным, позволяя безопасно запитывать неизвестные схемы.</p>
+<p>На практике чаще всего встречаются модули на базе чипов XL4015, XL4016 или более современные решения. Важно обращать внимание не только на заявленную мощность, но и на реальную конструкцию платы. Наличие массивных радиаторов, качественных конденсаторов и, главное, место под установку вентилятора охлаждения — это признаки хорошего модуля. Дешевые версии часто имеют тонкие дорожки, которые могут выгореть при длительной работе на предельных токах.</p>
+<p>Второй критически важный элемент — блок питания, который будет подавать напряжение на вход DC-DC преобразователя. Здесь выбор стоит между переделанными компьютерными блоками питания (АТХ) и промышленными импульсными источниками в металлическом корпусе. Компьютерные блоки хороши своей доступностью и наличием вентилятора, но могут требовать доработки для стабильной работы без нагрузки. Промышленные блоки надежнее, но часто шумнее и требуют организации притока воздуха.</p>
+<p>Для управления всем этим хозяйством необходим вольт-амперметр. Встроенные в DC-DC модули дисплеи часто имеют низкую точность или малый размер. Отдельный трехпроводной или четырехпроводной вольт-амперметр позволит видеть параметры с высокой точностью. Также не забудьте про потенциометры: штатные «крутилки» на модулях могут быть неудобны для точной настройки, поэтому часто их заменяют на качественные многооборотные переменные резисторы или выносят на лицевую панель через удлинительные провода.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>При выборе DC-DC преобразователя всегда берите модуль с запасом по мощности 30-40%. Если планируете работать на токе 5 Ампер, модуль должен держать минимум 7-8 Ампер, иначе он будет уходить в защиту или перегреваться.</p></div>
+
+<h3>Сравнительная таблица популярных компонентов</h3>
+<p>Чтобы упростить выбор, рассмотрим основные варианты компонентов, которые чаще всего используются для сборки.</p>
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Типичные характеристики</th>
+<th>Плюсы</th>
+<th>Минусы</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DC-DC XL4015</td>
+<td>до 5А, до 36В</td>
+<td>Низкая цена, доступность</td>
+<td>Греется при токах выше 3А, требует хорошего охлаждения</td>
+</tr>
+<tr>
+<td>DC-DC XL4016</td>
+<td>до 10А, до 36В</td>
+<td>Высокий ток, наличие вентилятора</td>
+<td>Большие габариты, высокий уровень пульсаций</td>
+</tr>
+<tr>
+<td>Блок питания АТХ</td>
+<td>300-500Вт, 12В/18А</td>
+<td>Дешево, есть вентилятор, защита</td>
+<td>Габаритный, может требовать нагрузки на канал 5В</td>
+</tr>
+<tr>
+<td>Промышленный БП</td>
+<td>Разная мощность, 12В/24В/36В</td>
+<td>Компактный, надежный, перфорация</td>
+<td>Шумный вентилятор, нет защиты от КЗ на входе</td>
+</tr>
+</tbody>
+</table>
+
+<div class="checklist-block"><h4>📋 Подбор компонентов</h4><ol><li><strong>Шаг 1.</strong> Определите требуемое максимальное напряжение и ток</li><li><strong>Шаг 2.</strong> Выберите DC-DC модуль с запасом мощности 30%</li><li><strong>Шаг 3.</strong> Подберите блок питания с током не менее тока DC-DC модуля</li><li><strong>Шаг 4.</strong> Закажите вольт-амперметр и потенциометры</li></ol></div>
+
+<h2 id="пошаговая-инструкция-по-сборке-устройства">Пошаговая инструкция по сборке устройства</h2>
+<p>Вот что нужно сделать: последовательно соединить все компоненты в единую систему. Процесс начинается с подготовки корпуса. Идеально подходят корпуса от старых блоков питания ПК, измерительных приборов или специально заказанные алюминиевые профили. Главное требование — хорошая вентиляция и возможность размещения всех элементов.</p>
+<p>Первым этапом идет установка блока питания. Если используется АТХ, его нужно закрепить на дне корпуса. Важно обеспечить отвод горячего воздуха. Далее монтируется DC-DC преобразователь. <strong>Категорически нельзя</strong> просто прикручивать его ко дну пластикового корпуса без изоляции, так как низ преобразователя часто находится под напряжением. Используйте керамические изоляторы или термопрокладки.</p>
+<p>Следующий шаг — коммутация. Соедините выход блока питания с входом DC-DC модуля. Используйте провода сечением, соответствующим току нагрузки. Для токов до 5А подойдет сечение 1.5 мм², для 10А и выше — минимум 2.5 мм². Между блоком питания и преобразователем желательно установить предохранитель, рассчитанный на ток чуть выше максимального рабочего тока системы. Это защитит провода от возгорания в случае короткого замыкания внутри модуля.</p>
+<p>Затем подключается вольт-амперметр. Обратите внимание на схему подключения: некоторые модели требуют отдельного питания (тонкие красный и черный провода), которое можно взять от самого блока питания (до преобразователя), а толстые измерительные провода включаются в разрыв цепи нагрузки. Если перепутать тонкие провода питания и толстые измерительные, прибор сгорит мгновенно.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Внимание! Все работы по сборке и пайке проводите только при полностью отключенном от сети устройстве. Конденсаторы в блоке питания могут сохранять заряд длительное время после выключения. Будьте осторожны с сетевым напряжением 220В.</p></div>
+
+<h3>Алгоритм подключения модулей</h3>
+<ol>
+<li>Разместите все компоненты в корпусе, разметьте отверстия для крепления, вентиляции и вывода органов управления.</li>
+<li>Закрепите блок питания и DC-DC преобразователь, обеспечив изоляцию токоведущих частей от корпуса.</li>
+<li>Подключите вход DC-DC модуля к выходу блока питания, соблюдая полярность (+ к +, - к -).</li>
+<li>Установите предохранитель в разрыв плюсового провода между блоком питания и преобразователем.</li>
+<li>Подключите вольт-амперметр: тонкие провода питания к выходу БП, толстые измерительные провода выведите на клеммы выхода устройства.</li>
+<li>Подключите потенциометры регулировки напряжения и тока к соответствующим контактам на плате DC-DC (обычно это два крайних контакта и средний).</li>
+<li>Выведите выходные клеммы на лицевую панель и подключите их к выходу DC-DC модуля через измерительные провода вольт-амперметра.</li>
+<li>Проверьте все соединения мультиметром на отсутствие коротких замыканий перед первым включением в сеть.</li>
+</ol>
+
+<p>После сборки наступает этап тестирования. Включите устройство без нагрузки. Вольт-амперметр должен загореться. Вращая регулятор напряжения, проверьте, меняется ли показания. Затем подключите нагрузку (например, мощную лампу или резистор) и проверьте работу ограничения тока. Для этого замкните выходные щупы (кратковременно!) или подключите амперметр и крутите регулятор тока, пока напряжение не начнет падать, а ток — фиксироваться на заданном уровне.</p>
+
+<details class="faq-item"><summary>Нюансы охлаждения</summary><div class="faq-answer"><p>Если ваш блок питания работает при токах выше 50% от номинала более 10 минут, температура радиатора может превысить 80 градусов. В этом случае необходимо принудительное охлаждение. Можно использовать штатный вентилятор БП, подключив его через термореле, или добавить отдельный тихий вентилятор на выдув, запитанный от 5В или 12В.</p></div></details>
+
+<h2 id="нюансы-настройки-и-калибровки">Нюансы настройки и калибровки</h2>
+<p>Важный момент: китайские модули часто имеют погрешность показаний встроенных или внешних вольт-амперметров. Если вы планируете использовать блок питания для зарядки аккумуляторов или точной настройки схем, калибровка обязательна. Для этого вам понадобится качественный мультиметр, которым вы будете проверять реальные значения на выходе.</p>
+<p>На задней стороне платы DC-DC преобразователя обычно находятся два подстроечных многооборотных резистора. Один отвечает за калибровку напряжения (V-Adj), второй — тока (I-Adj). Процедура проста: подключите мультиметр параллельно выходу, выставите потенциометром на панели, например, 5.00В, и сравните с показаниями мультиметра. Если есть расхождение, аккуратно подкрутите соответствующий подстроечник на плате до совпадения значений. То же самое сделайте для тока, включив мультиметр в режиме амперметра последовательно с нагрузкой.</p>
+<p>Если хотите улучшить стабильность работы, особенно при низких напряжениях, можно добавить на выход LC-фильтр (дроссель и конденсатор). Это снизит уровень пульсаций, что критически важно при питании аудио-аппаратуры или чувствительной аналоговой электроники. Также не лишним будет установка диода Шоттки на выход, чтобы защитить модуль от обратного тока, если вы планируете заряжать аккумуляторы.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для удобства эксплуатации замените штатные потенциометры на качественные с металлическим валом и установите на них пластиковые ручки с указателями. Штатные «крутилки» часто люфтят и не позволяют точно выставить нужное значение.</p></div>
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+<p>На практике при сборке таких устройств новички часто допускают ряд ошибок, которые могут привести к выходу компонентов из строя или нестабильной работе. Понимание этих проблем поможет избежать лишних трат времени и денег.</p>
+<p>Одной из самых распространенных ошибок является пренебрежение сечением проводов. Использование тонких проводов для токов в 5-10 Ампер приводит к их нагреву и падению напряжения. В результате на выходе блока питания вы можете видеть 12В, а на нагрузке — только 10В из-за потерь в проводах.</p>
+<p>Еще одна проблема — плохой контакт. Скрутки вместо пайки, слабое затягивание винтов клеммников приводят к искрению и нагреву мест соединения. Это особенно опасно при больших токах. Все соединения должны быть пропаяны или надежно обжаты и затянуты.</p>
+<p>Частой ошибкой является и неправильная организация охлаждения. Установка мощного DC-DC модуля плашмя на дно корпуса без зазора для циркуляции воздуха превращает корпус в термос. Модуль быстро уходит в тепловую защиту и отключается. Всегда оставляйте зазор между платой и дном или используйте стойки.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед включением</h4><label class="check-item"><input type="checkbox"><span>Все провода надежно припаяны и заизолированы</span></label><label class="check-item"><input type="checkbox"><span>Полярность всех подключений проверена дважды</span></label><label class="check-item"><input type="checkbox"><span>Потенциометры выведены на ноль (минимальное напряжение)</span></label><label class="check-item"><input type="checkbox"><span>Корпус не замыкает ни на одну из токоведущих частей</span></label><label class="check-item"><input type="checkbox"><span>Предохранитель установлен и исправен</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h3>Список распространенных проблем</h3>
+<ul>
+<li>Пульсации выходного напряжения: вызваны низким качеством входного/выходного конденсатора или недостаточной мощностью БП. Решение: замена конденсаторов на низковольтные с низким ESR.</li>
+<li>Невозможность опустить напряжение до нуля: особенность большинства понижающих преобразователей. Решение: использование модулей с отрицательным опорным напряжением или добавление нагрузки на выход.</li>
+<li>Шум вентилятора: решение — установка регулятора оборотов или термореле, чтобы вентилятор включался только при нагреве.</li>
+<li>Скачки напряжения при подключении нагрузки: свидетельствует о медленной реакции петли обратной связи или слабом БП. Требуется настройка или замена компонентов.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Помните, что дешевые вольт-амперметры могут иметь разную «землю» (общий провод) с измеряемой цепью. Если вы подключите такой прибор в схему, где минус блока питания не должен быть соединен с минусом измеряемого устройства, возникнет короткое замыкание. Используйте гальванически развязанные вольт-амперметры или запитывайте их от отдельной батарейки/изолированного источника.</p></div>
+
+<h2 id="финальная-сборка-и-безопасность-эксплуатации">Финальная сборка и безопасность эксплуатации</h2>
+<p>Когда все компоненты собраны, настроены и проверены, наступает время финальной упаковки. Убедитесь, что внутри корпуса нет болтающихся проводов, которые могут попасть в вентилятор или замкнуть контакты. Закрепите все модули винтами. На лицевую панель нанесите маркировку: где выход, где регуляторы, где шкалы напряжения и тока.</p>
+<p>Важный момент: не забывайте про безопасность. Лабораторный блок питания — это устройство, которое может выдавать токи, опасные для жизни, и работать от сетевого напряжения. Корпус должен быть надежно заземлен, если он металлический. Все отверстия для вентиляции должны быть защищены сеткой, чтобы внутрь нельзя было засунуть скрепку или палец.</p>
+<p>При эксплуатации всегда придерживайтесь правила: сначала подключайте нагрузку, потом включайте выходное напряжение. И наоборот: сначала выключайте выход, потом отключайте нагрузку. Это спасет ваши схемы от случайных скачков напряжения в момент коммутации. Регулярно проверяйте затяжку клемм и состояние проводов, особенно если устройство работает на пределе своих возможностей.</p>
+<p>Собрав такой блок питания, вы получаете универсальный инструмент, который прослужит долгие годы. Его можно модернизировать: добавлять USB-выходы для питания гаджетов, менять шкалы, улучшать охлаждение. Это отличный проект для первого шага в мир серьезной электроники, который окупится удобством и экономией.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Сборка лабораторного блока питания из модулей AliExpress — это доступный способ получить профессиональный инструмент за fraction стоимости магазинного аналога, требующий внимательности к деталям сборки и охлаждения.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#выбор-компонентов-и-анализ-технических-характеристик">Выбор компонентов и анализ технических характеристик</a></li><li><a href="#пошаговая-инструкция-по-сборке-устройства">Пошаговая инструкция по сборке устройства</a></li><li><a href="#нюансы-настройки-и-калибровки">Нюансы настройки и калибровки</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#финальная-сборка-и-безопасность-эксплуатации">Финальная сборка и безопасность эксплуатации</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ko/kopter-s-aliekspress-kakoj-vybrat.html" class="related-card">Какой коптер с Алиэкспресс выбрать: гид по моделям</a></li><li><a href="/articles/t/te/telefony-deshevle-chem-na-aliekspress.html" class="related-card">Где купить телефоны дешевле, чем на AliExpress: 7 проверенных способов</a></li><li><a href="/articles/k/ka/kak-nastroit-yazyk-na-smart-chasakh-s-aliekspress.html" class="related-card">Как настроить язык на смарт часах с Алиэкспресс</a></li><li><a href="/articles/k/ki/kitajskij-radar-detektor-kakoj-vybrat-na-aliekspress.html" class="related-card">Китайский радар-детектор на АлиЭкспресс: какой выбрать</a></li><li><a href="/articles/k/ka/kakoj-lazernyj-dalnomer-luchshe-kupit-na-aliekspress.html" class="related-card">Какой лазерный дальномер купить на AliExpress: гид по выбору</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ko/kopter-s-aliekspress-kakoj-vybrat.html" class="related-bottom-card"><span class="related-bottom-title">Какой коптер с Алиэкспресс выбрать: гид по моделям</span><span class="related-bottom-desc">Подробный гид: как выбрать дрон на AliExpress. Сравнение моделей, характеристики, советы новичкам и </span></a><a href="/articles/t/te/telefony-deshevle-chem-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Где купить телефоны дешевле, чем на AliExpress: 7 проверенных способов</span><span class="related-bottom-desc">Пошаговое руководство, как найти смартфоны по цене ниже AliExpress без риска нарваться на подделку. </span></a><a href="/articles/k/ka/kak-nastroit-yazyk-na-smart-chasakh-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить язык на смарт часах с Алиэкспресс</span><span class="related-bottom-desc">Подробная инструкция по смене языка на китайских умных часах. Как переключить интерфейс, обновить пр</span></a><a href="/articles/k/ki/kitajskij-radar-detektor-kakoj-vybrat-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Китайский радар-детектор на АлиЭкспресс: какой выбрать</span><span class="related-bottom-desc">Полный гид по выбору радар-детектора из Китая. Обзор брендов, технологий и советы по установке для б</span></a><a href="/articles/k/ka/kakoj-lazernyj-dalnomer-luchshe-kupit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какой лазерный дальномер купить на AliExpress: гид по выбору</span><span class="related-bottom-desc">Подробный разбор лучших лазерных рулеток с Алиэкспресс. Как выбрать модель, проверить точность и не </span></a><a href="/articles/k/ka/kak-polzovatsya-zhidkostyu-dlya-zashchitnogo-stekla-na-telefone-s-aliekspress-video.html" class="related-bottom-card"><span class="related-bottom-title">Как наносить жидкое стекло с AliExpress: видео + пошаговое руководство</span><span class="related-bottom-desc">Подробная инструкция по использованию жидкости для защитного стекла с AliExpress: от выбора до нанес</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

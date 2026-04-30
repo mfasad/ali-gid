@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как работает инфракрасный датчик с AliExpress: настройка — Али Гид</title>
+    <meta name="description" content="Подробный разбор принципа работы PIR-датчиков с AliExpress. Схема подключения, настройка Arduino, устранение помех и типичные ошибки.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-rabotaet-infrakrasnyj-datchik-dvizheniya-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает инфракрасный датчик с AliExpress: настройка">
+    <meta property="og:description" content="Подробный разбор принципа работы PIR-датчиков с AliExpress. Схема подключения, настройка Arduino, устранение помех и типичные ошибки.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работает инфракрасный датчик с AliExpress: настройка</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Инфракрасный датчик движения с AliExpress: полное руководство по работе</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#физика-процесса-что-видит-линза-френеля">Физика процесса: что видит линза Френеля</a></li><li><a href="#анатомия-модуля-hc-sr501-и-схема-подключения">Анатомия модуля HC-SR501 и схема подключения</a></li><li><a href="#режимы-работы-и-логика-сигналов">Режимы работы и логика сигналов</a></li><li><a href="#типичные-ошибки-при-монтаже-и-эксплуатации">Типичные ошибки при монтаже и эксплуатации</a></li><li><a href="#практическое-применение-и-итоговая-сборка">Практическое применение и итоговая сборка</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы планируете собрать умную систему освещения, автоматизировать включение вентилятора в туалете или создать простую сигнализацию, то первым шагом станет выбор сенсора. На AliExpress представлено огромное количество модулей, но новичка часто пугает разнообразие названий и характеристик. Главная проблема заключается в том, что без понимания физического принципа работы устройства невозможно правильно его подключить и настроить чувствительность.</p>
+
+<p>Вот что нужно сделать: разобраться в том, что именно регистрирует этот маленький пластиковый купол на поверхности платы. Многие ошибочно полагают, что датчик реагирует на движение любого предмета в поле зрения, но это не совсем так. Инфракрасные сенсоры, чаще всего представленные моделями HC-SR501, работают исключительно с тепловым излучением живых организмов.</p>
+
+<p>Важный момент: если вы попытаетесь использовать такой датчик для детекции перемещения холодного предмета, например, робота или игрушки, он не сработает. Понимание этой особенности сэкономит вам время на отладку и предотвратит ложные выводы о браке товара. В этом руководстве мы подробно разберем физику процесса, алгоритм подключения и тонкости настройки.</p>
+
+<h2 id="физика-процесса-что-видит-линза-френеля">Физика процесса: что видит линза Френеля</h2>
+
+<p>На практике работа датчика строится на регистрации изменений инфракрасного излучения в зоне ответственности. Все объекты, температура которых выше абсолютного нуля, испускают ИК-лучи. Человеческое тело, имеющее температуру около 36,6 градуса, является мощным источником такого излучения в определенном диапазоне длин волн.</p>
+
+<h3>Принцип пироэффекта</h3>
+
+<p>Сердцем модуля является пироэлектрический сенсор, состоящий из двух специальных кристаллов. Когда в поле зрения сенсора попадает человек, уровень ИК-излучения на одном кристалле резко возрастает, создавая положительный импульс. Когда человек покидает зону видимости или проходит дальше, уровень излучения падает, создавая отрицательный импульс. Именно эта разница потенциалов и регистрируется микросхемой как событие «Движение».</p>
+
+<p>Если хотите понять, почему датчик не видит статичного человека, представьте, что кристаллы реагируют только на изменение потока фотонов. Статичное тепло не создает перепада напряжения, поэтому система игнорирует неподвижные объекты, даже если они горячие.</p>
+
+<h3>Роль линзы Френеля</h3>
+
+<p>Белый полупрозрачный купол наверху — это не просто защита, а сложная оптическая система. Линза Френеля фокусирует инфракрасное излучение на чувствительном элементе и разбивает пространство перед датчиком на множество конусовидных зон.</p>
+
+<ul>
+<li>Зоны высокой чувствительности, где излучение фокусируется на кристалле.</li>
+<li>Зоны слепых участков между конусами, где излучение блокируется материалом линзы.</li>
+</ul>
+
+<p>Движение человека через эти зоны вызывает чередование сигналов «тепло-холод-тепло», что и формирует надежный импульс для контроллера. Без этой линзы дальность действия составляла бы несколько сантиметров, а с ней модули с AliExpress уверенно ловят движение на расстоянии до 7 метров.</p>
+
+<h2 id="анатомия-модуля-hc-sr501-и-схема-подключения">Анатомия модуля HC-SR501 и схема подключения</h2>
+
+<p>Самым популярным вариантом на маркетплейсе является модуль HC-SR501. Это готовое решение, которое требует минимальной обвязки. На плате расположены три основных компонента: сам пироэлектрический сенсор, линза (часто идет отдельно в комплекте) и печатная плата с микросхемой управления BISS0001.</p>
+
+<p>На практике подключение выглядит крайне простым, но требует внимательности к полярности питания. На плате есть три штырька для подключения к микроконтроллеру (Arduino, ESP8266, ESP32) или напрямую к нагрузке через реле.</p>
+
+<div class="checklist-block"><h4>📋 Подключение модуля HC-SR501</h4><ol><li><strong>Шаг 1.</strong> Подготовьте источник питания 5В (или 3.3В для некоторых версий)</li><li><strong>Шаг 2.</strong> Подключите провод GND к земле (минус)</li><li><strong>Шаг 3.</strong> Подключите провод VCC к плюсу питания</li><li><strong>Шаг 4.</strong> Подключите выход OUT к цифровому пину контроллера</li></ol></div>
+
+<h3>Распиновка контактов</h3>
+
+<p>Разберем назначение каждого контакта подробнее, чтобы избежать короткого замыкания. Ошибки в подключении питания могут мгновенно вывести чувствительную электронику из строя.</p>
+
+<ol>
+<li><strong>VCC</strong> — контакт для подачи питания. Модуль работает в диапазоне от 4.5 до 20 Вольт, что позволяет запитывать его напрямую от аккумуляторов или блоков питания 12В.</li>
+<li><strong>GND</strong> — общий провод (земля). Должен быть соединен с землей вашего контроллера или блока питания.</li>
+<li><strong>OUT</strong> — выходной сигнал. При детектировании движения здесь появляется высокий логический уровень (напряжение, равное VCC), в состоянии покоя — низкий (0В).</li>
+</ol>
+
+<p>Важный момент: некоторые китайские производители могут менять расположение пинов или их маркировку. Всегда проверяйте надписи на самой плате перед подачей напряжения.</p>
+
+<h3>Настройка параметров чувствительности</h3>
+
+<p>На обратной стороне платы расположены два потенциометра (крутилки) для тонкой настройки. Первый регулирует время задержки выхода сигнала, второй — дальность действия (чувствительность).</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Обозначение на плате</th>
+<th>Диапазон настройки</th>
+<th>Влияние на работу</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Время задержки</td>
+<td>Time / Delay</td>
+<td>3 сек — 300 сек</td>
+<td>Определяет, как долго горит свет после ухода человека</td>
+</tr>
+<tr>
+<td>Чувствительность</td>
+<td>Distance / Sens</td>
+<td>3 м — 7 м</td>
+<td>Регулирует дальность обнаружения движения</td>
+</tr>
+</tbody>
+</table>
+
+<p>Вращение винтов по часовой стрелке обычно увеличивает значение параметра, против — уменьшает. Рекомендуется проводить настройку в положении, в котором датчик будет эксплуатироваться, так как близость стен может влиять на чувствительность.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>При первой настройке дайте датчику прогреться 30-60 секунд после включения. В это время он калибрует фоновое излучение и может выдавать ложные срабатывания.</p></div>
+
+<h2 id="режимы-работы-и-логика-сигналов">Режимы работы и логика сигналов</h2>
+
+<p>Ключевой особенностью, о которой часто забывают пользователи AliExpress, является наличие джампера (перемычки) для выбора режима работы. Он расположен между потенциометрами и обозначается как H и L. От его положения зависит логика поведения устройства в серии событий.</p>
+
+<h3>Режим повторного триггера (H)</h3>
+
+<p>Если перемычка установлена в положение <code>H</code>, модуль переходит в режим повторного триггера. Это означает, что пока в зоне действия находится человек и продолжает двигаться, таймер задержки постоянно сбрасывается и отсчитывается заново. Свет будет гореть все время, пока вы находитесь в комнате, и погаснет только через заданный интервал после вашего ухода.</p>
+
+<p>На практике этот режим идеален для систем освещения коридоров, ванных комнат и прихожих. Он обеспечивает комфорт, так как свет не погаснет, если вы замрете на месте.</p>
+
+<h3>Режим одиночного триггера (L)</h3>
+
+<p>В положении <code>L</code> работает режим одиночного триггера. Датчик выдаст один импульс заданной длительности при обнаружении движения и проигнорирует любые новые движения, пока этот импульс не завершится. Даже если вы будете махать руками перед сенсором, он выдаст только один сигнал.</p>
+
+<p>Этот режим полезен для систем сигнализации или счетчиков посещаемости, где важно зафиксировать факт входа, но не реагировать на топтание человека у двери.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>В режиме одиночного триггера (L) существует «слепое окно» — время, пока идет импульс, датчик не реагирует на новые события. Не используйте этот режим для освещения, если человек может замереть в зоне действия.</p></div>
+
+<h2 id="типичные-ошибки-при-монтаже-и-эксплуатации">Типичные ошибки при монтаже и эксплуатации</h2>
+
+<p>Несмотря на простоту конструкции, пользователи часто сталкиваются с нестабильной работой. Анализ форумов и отзывов показывает, что 90% проблем связаны не с браком, а с нарушением условий эксплуатации или монтажа.</p>
+
+<h3>Проблема с нагревом и ложными срабатываниями</h3>
+
+<p>Одной из самых частых ошибок является установка датчика вблизи источников тепла или на пути потоков горячего воздуха. Кондиционеры, батареи отопления, вентиляционные отверстия создают турбулентность теплого воздуха, которую сенсор воспринимает как движение.</p>
+
+<p>Если хотите избежать этого, никогда не монтируйте HC-SR501 над радиаторами или напротив открытых окон в солнечную погоду. Также стоит учитывать, что сам модуль при работе нагревается, и если он установлен в герметичном пластиковом корпусе без вентиляции, это может вызвать дрейф показаний.</p>
+
+<h3>Электромагнитные помехи</h3>
+
+<p>Длинные провода, идущие к датчику, работают как антенны, ловя наводки от силовых кабелей 220В. Это приводит к хаотичным срабатываниям.</p>
+
+<ul>
+<li>Используйте экранированный кабель для соединения с контроллером.</li>
+<li>Обязательно устанавливайте конденсатор (100 мкФ) параллельно питанию (VCC и GND) как можно ближе к контактам датчика.</li>
+<li>Избегайте прокладки сигнальных проводов в одном коробе с силовой проводкой.</li>
+</ul>
+
+<details class="faq-item"><summary>Модификация для работы от 3.3В</summary><div class="faq-answer"><p>Стандартный HC-SR501 питается от 5В, но на плате есть стабилизатор. Если вы хотите запитать его от 3.3В (например, от ESP8266), нужно замкнуть две контактные площадки на обратной стороне платы (обычно они подписаны как 3.3V), чтобы обойти стабилизатор. Без этой перемычки при питании 3.3В модуль работать не будет.</p></div></details>
+
+<h3>Блок «Типичные ошибки»</h3>
+
+<p>Систематизируем основные промахи, которые допускают новички при заказе и использовании:</p>
+
+<ol>
+<li><strong>Игнорирование времени прогрева.</strong> Попытка проверить работу сразу после подачи питания. Датчику нужно 10-60 секунд на калибровку окружающей среды.</li>
+<li><strong>Неправильная ориентация.</strong> Установка датчика так, чтобы движение происходило не поперек зон чувствительности, а радиально (прямо на датчик). В этом случае смена зон происходит медленно, и сенсор может не успеть среагировать.</li>
+<li><strong>Отсутствие гашения дребезга в коде.</strong> При подключении к Arduino новички часто забывают, что механическое или электрическое переключение может давать несколько сигналов. Необходимо программно фильтровать повторяющиеся сигналы в короткий промежуток времени.</li>
+<li><strong>Покупка подделок с плохими компонентами.</strong> Дешевые копии могут иметь нестабильный таймер, из-за чего время задержки «плывет» в зависимости от температуры.</li>
+</ol>
+
+<p>Важный момент: если датчик срабатывает сам по себе в полной тишине, попробуйте уменьшить чувствительность или проверить напряжение питания. Падение напряжения ниже 4.5В часто вызывает хаотичное поведение микросхемы BISS0001.</p>
+
+<h2 id="практическое-применение-и-итоговая-сборка">Практическое применение и итоговая сборка</h2>
+
+<p>Когда вы разобрались с принципом работы и избежали ошибок монтажа, перед вами открывается широкий спектр возможностей. Инфракрасные датчики с AliExpress — это база для десятков проектов умного дома. Их можно интегрировать в системы на базе Home Assistant, использовать для автоматического включения подсветки лестницы или создания «умного» ночника.</p>
+
+<p>На практике, для полноценной работы в системе умного дома, выход OUT датчика подключается к GPIO микроконтроллера (например, ESP8266 или ESP32), который по Wi-Fi отправляет команду на сервер. Это позволяет не просто зажигать лампочку, но и отправлять уведомления на телефон: «Внимание, движение в прихожей».</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед запуском системы</h4><label class="check-item"><input type="checkbox"><span>Питание соответствует требованиям (4.5-20В)</span></label><label class="check-item"><input type="checkbox"><span>Земля соединена надежно</span></label><label class="check-item"><input type="checkbox"><span>Линза установлена плотно и направлена правильно</span></label><label class="check-item"><input type="checkbox"><span>Датчик прогрелся 1 минуту после включения</span></label><label class="check-item"><input type="checkbox"><span>Режим работы (H/L) выбран верно для задачи</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Стоит помнить, что ИК-датчики не проникают сквозь стены и стекло. Они реагируют только на то, что «видят» в прямой видимости. Это одновременно и ограничение, и преимущество, позволяющее зонировать пространство без сложных вычислений.</p>
+
+<p>В заключение, инфракрасный датчик движения HC-SR501 — это надежный, дешевый и понятный инструмент. Его работа базируется на регистрации изменений теплового поля, а правильная настройка чувствительности и времени задержки позволяет адаптировать его под любые бытовые задачи. Главное — учитывать физику распространения тепла и не требовать от теплового сенсора реакции на холодные объекты или движения сквозь препятствия.</p>
+
+<p>Грамотная установка, использование режимов триггера и защита от помех превращают этот простой модуль в неотъемлемую часть автоматизированного жилища. Экспериментируйте с расположением и настройками, и вы найдете оптимальный баланс между отзывчивостью и отсутствием ложных тревог.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Инфракрасный датчик с AliExpress работает на регистрации изменения ИК-излучения живых объектов, требует прогрева при включении и правильной настройки времени задержки для стабильной работы в системах умного дома.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#физика-процесса-что-видит-линза-френеля">Физика процесса: что видит линза Френеля</a></li><li><a href="#анатомия-модуля-hc-sr501-и-схема-подключения">Анатомия модуля HC-SR501 и схема подключения</a></li><li><a href="#режимы-работы-и-логика-сигналов">Режимы работы и логика сигналов</a></li><li><a href="#типичные-ошибки-при-монтаже-и-эксплуатации">Типичные ошибки при монтаже и эксплуатации</a></li><li><a href="#практическое-применение-и-итоговая-сборка">Практическое применение и итоговая сборка</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-nastroit-fitnes-braslet-s-aliekspress.html" class="related-card">Настройка фитнес-браслета с AliExpress: полное руководство</a></li><li><a href="/articles/k/ka/kak-otformatirovat-fleshku-s-aliekspress.html" class="related-card">Как отформатировать флешку с AliExpress: полное руководство</a></li><li><a href="/articles/k/ka/kak-vybrat-rgb-lentu-na-aliekspress.html" class="related-card">Как выбрать RGB ленту на Алиэкспресс: гид по типам и мощности</a></li><li><a href="/articles/k/ka/kak-vybrat-besprovodnye-naushniki-na-aliekspress.html" class="related-card">Как выбрать беспроводные наушники на AliExpress: гид 2026</a></li><li><a href="/articles/k/ka/kak-polzovatsya-mikroskopom-s-aliekspress.html" class="related-card">Как пользоваться микроскопом с AliExpress: полное руководство</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-nastroit-fitnes-braslet-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Настройка фитнес-браслета с AliExpress: полное руководство</span><span class="related-bottom-desc">Пошаговая инструкция по подключению китайского фитнес-браслета. Выбор приложения, синхронизация, нас</span></a><a href="/articles/k/ka/kak-otformatirovat-fleshku-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как отформатировать флешку с AliExpress: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по форматированию USB-накопителей из Китая. Решите проблемы с файловой системой</span></a><a href="/articles/k/ka/kak-vybrat-rgb-lentu-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать RGB ленту на Алиэкспресс: гид по типам и мощности</span><span class="related-bottom-desc">Подробный гид по выбору светодиодной ленты на AliExpress. Разбор типов LED, блоков питания, нюансов </span></a><a href="/articles/k/ka/kak-vybrat-besprovodnye-naushniki-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать беспроводные наушники на AliExpress: гид 2026</span><span class="related-bottom-desc">Подробный гид по выбору беспроводных наушников на AliExpress. Разбор характеристик, проверка продавц</span></a><a href="/articles/k/ka/kak-polzovatsya-mikroskopom-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как пользоваться микроскопом с AliExpress: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по использованию USB-микроскопа. Настройка, калибровка, устранение дефектов и в</span></a><a href="/articles/k/ka/kak-nastroit-velokompyuter-na-29-kolesa-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Настройка велокомпьютера на 29 колес с AliExpress: инструкция</span><span class="related-bottom-desc">Подробный гайд по установке и калибровке велокомпьютера под колеса 29 дюймов. Таблицы окружности, ус</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

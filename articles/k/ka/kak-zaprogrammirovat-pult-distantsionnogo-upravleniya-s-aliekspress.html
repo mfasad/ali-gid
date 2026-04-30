@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как запрограммировать пульт с Алиэкспресс: руководство — Али Гид</title>
+    <meta name="description" content="Подробная инструкция: как настроить универсальный пульт с Алиэкспресс. Коды, частоты, поиск модели и решение проблем с программированием.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-zaprogrammirovat-pult-distantsionnogo-upravleniya-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как запрограммировать пульт с Алиэкспресс: руководство">
+    <meta property="og:description" content="Подробная инструкция: как настроить универсальный пульт с Алиэкспресс. Коды, частоты, поиск модели и решение проблем с программированием.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как запрограммировать пульт с Алиэкспресс: руководство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как запрограммировать пульт с Алиэкспресс: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#поиск-подходящего-метода-кодировки">Поиск подходящего метода кодировки</a></li><li><a href="#пошаговая-инструкция-по-настройке-ик-пульта">Пошаговая инструкция по настройке ИК-пульта</a></li><li><a href="#настройка-умных-пультов-и-радиокопирование">Настройка умных пультов и радиокопирование</a></li><li><a href="#нюансы-и-подводные-камни">Нюансы и подводные камни</a></li><li><a href="#типичные-ошибки-пользователей">Типичные ошибки пользователей</a></li><li><a href="#когда-пульт-не-удается-запрограммировать">Когда пульт не удается запрограммировать</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы приобрели универсальный пульт дистанционного управления на популярной китайской площадке, но не знаете, как заставить его работать с вашей техникой, вы не одиноки. Тысячи пользователей сталкиваются с ситуацией, когда устройство получено, батарейки вставлены, а кнопки не реагируют на телевизор, кондиционер или аудиосистему. Проблема кроется в отсутствии предварительной привязки к конкретному бренду и модели оборудования.</p>
+
+<p>Важный момент: универсальность таких гаджетов означает, что внутри них хранятся сотни тысяч кодовых таблиц для различных производителей электроники. Чтобы пульт заработал, необходимо активировать именно ту таблицу, которая соответствует вашему устройству. Без этого шага девайс остается просто куском пластика с кнопками.</p>
+
+<p>На практике процесс настройки может занять от пяти минут до получаса, в зависимости от выбранного метода и редкости вашей техники. Вот что нужно сделать: подготовить пульт, найти информацию о производителе управляемого устройства и выбрать подходящий способ кодировки. Далее мы подробно разберем каждый этап, чтобы вы могли быстро наслаждаться работой новой покупки.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Интерфейс приложения или прошивка пульта могут отличаться в зависимости от версии и производителя. Всегда проверяйте актуальную документацию на сайте продавца или производителя гаджета.</p></div>
+
+<h2 id="поиск-подходящего-метода-кодировки">Поиск подходящего метода кодировки</h2>
+
+<p>Прежде чем приступать к нажатию кнопок, необходимо понять, какой именно тип пульта оказался у вас в руках. На Алиэкспресс продается три основных вида устройств: инфракрасные (ИК) пульты с дисплеем или без, радиочастотные копии и умные пульты, управляемые со смартфона. От этого зависит стратегия ваших действий.</p>
+
+<p>Если вы хотите сэкономить время, обратите внимание на комплектацию. К дешевым моделям часто прилагается бумажная инструкция на китайском языке с таблицей кодов. В более дорогих версиях кодировка происходит автоматически через встроенный алгоритм поиска. Вот основные типы устройств, с которыми вы можете столкнуться:</p>
+
+<ul>
+<li>Инфракрасные универсалы с экраном, требующие ввода числового кода.</li>
+<li>Умные пульты-брелоки, работающие через Wi-Fi и мобильное приложение.</li>
+<li>Радиочастотные пульты для ворот и шлагбаумов, копирующие сигнал.</li>
+</ul>
+
+<p>Важно определить частоту работы устройства, особенно если речь идет о радиоуправлении. Для инфракрасных моделей это менее критично, так как они используют световой спектр, невидимый глазу. Для радиоканальных устройств частота является ключевым параметром. Если вы купите пульт на 433 МГц для системы, работающей на 315 МГц, никакое программирование не поможет.</p>
+
+<h3>Где найти информацию о коде</h3>
+
+<p>Самый надежный источник информации — это карточка товара на сайте продавца. Пролистайте описание вниз, там часто находятся таблицы соответствия брендов и кодов. Если там пусто, поищите наклейку на самом пульте (иногда под батарейным отсеком) или на задней крышке телевизора/кондиционера. Там может быть указан модельный номер, который поможет найти нужный код в интернете.</p>
+
+<p>Если бумажных следов нет, используйте метод исключения. Большинство универсальных пультов заточены под популярные бренды: Samsung, LG, Sony, Philips. Коды для них находятся в начале списков. Для менее распространенных марок, таких как BBK или DEXP, придется искать код вручную или использовать автоматический перебор.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Для умных пультов, таких как Broadlink или Tuya, поиск кода происходит внутри приложения на смартфоне. Вам не нужно знать цифровые значения, система сама подберет нужный сигнал из облачной базы.</p></div>
+
+<h2 id="пошаговая-инструкция-по-настройке-ик-пульта">Пошаговая инструкция по настройке ИК-пульта</h2>
+
+<p>Рассмотрим самый распространенный сценарий: у вас в руках классический универсальный пульт с небольшим LCD-экраном или набором светодиодов. Процесс программирования здесь строится на вводе специального четырехзначного или трехзначного кода. Это требует внимательности, но дает самый стабильный результат.</p>
+
+<p>Первым делом убедитесь, что в пульте стоят свежие батарейки. Слабый заряд может привести к тому, что пульт войдет в режим программирования, но не сможет отправить сигнал на телевизор. Включите технику, которую собираетесь настраивать. Она должна находиться в зоне прямой видимости.</p>
+
+<div class="checklist-block"><h4>📋 Ввод кода вручную</h4><ol><li><strong>Шаг 1.</strong> Нажмите и удерживайте кнопку SET (или CODE) 3-5 секунд</li><li><strong>Шаг 2.</strong> На экране загорится индикатор или мигнет светодиод</li><li><strong>Шаг 3.</strong> Введите четырехзначный код для вашего бренда из таблицы</li><li><strong>Шаг 4.</strong> Нажмите OK или Power для проверки</li><li><strong>Шаг 5.</strong> Если не заработало, повторите с другим кодом</li></ol></div>
+
+<h3>Алгоритм автоматического поиска</h3>
+
+<p>Если кода под рукой нет или их список слишком велик, можно воспользоваться функцией автопоиска. Этот метод занимает больше времени, но позволяет найти рабочую комбинацию без справочников. Суть метода заключается в том, что пульт последовательно перебирает все возможные сигналы для выключения устройства.</p>
+
+<ol>
+<li>Нажмите и удерживайте кнопку <code>SET</code> или <code>POWER</code> (в зависимости от модели) до тех пор, пока индикатор не загорится постоянно.</li>
+<li>Направьте пульт на устройство и начинайте коротко нажимать кнопку увеличения громкости <code>VOL+</code> или кнопку <code>CH+</code>.</li>
+<li>Каждое нажатие отправляет следующий код в базе. Смотрите на экран телевизора или слушайте щелчок реле кондиционера.</li>
+<li>Как только устройство выключится, немедленно нажмите кнопку <code>SET</code> или <code>OK</code>, чтобы сохранить текущий код.</li>
+</ol>
+
+<p>Важный момент: если вы пропустите момент выключения и нажмете кнопку еще раз, код не сохранится, и придется начинать поиск сначала или возвращаться назад, если пульт поддерживает обратный ход. После сохранения проверьте все основные функции: громкость, каналы, меню. Иногда устройство выключается правильным кодом, но другие кнопки не работают, что означает необходимость поиска альтернативного кода для той же марки.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если автоматический поиск зашел в тупик, попробуйте вынуть батарейки из пульта на 10 секунд, а затем вставить обратно. Это сбросит временную память и позволит начать процесс кодировки заново без ошибок.</p></div>
+
+<h2 id="настройка-умных-пультов-и-радиокопирование">Настройка умных пультов и радиокопирование</h2>
+
+<p>Современная электроника с Алиэкспресс часто предлагает более продвинутые решения. Умные пульты, подключаемые к Wi-Fi, требуют установки специального приложения на смартфон. Популярные платформы — Tuya Smart, Smart Life или собственные приложения брендов вроде Broadlink. Здесь процесс выглядит иначе: вы выбираете тип устройства (ТВ, кондиционер, проектор) и бренд в списке, после чего приложение тестирует сигналы.</p>
+
+<p>Для радиоуправляемых пультов (ворота, шлагбаумы) используется метод копирования. Такие устройства не имеют кодовых таблиц в привычном понимании. Они работают как диктофоны для радиосигнала. Вам понадобится оригинальный рабочий пульт. Процесс обычно выглядит так: вы очищаете память нового пульта (зажимая две кнопки до мигания), затем зажимаете нужную кнопку на новом пульте и, удерживая её, нажимаете кнопку на старом пульте. Индикатор нового пульта должен быстро заморгать, сигнализируя об успешном копировании.</p>
+
+<p>В таблице ниже приведены сравнительные характеристики методов настройки, чтобы вы могли выбрать оптимальный для вашей ситуации:</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Ручной ввод кода</th>
+<th>Автопоиск</th>
+<th>Умное приложение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Скорость</td>
+<td>Высокая (если код известен)</td>
+<td>Низкая (перебор)</td>
+<td>Средняя</td>
+</tr>
+<tr>
+<td>Точность</td>
+<td>100%</td>
+<td>Требует проверки функций</td>
+<td>Высокая</td>
+</tr>
+<tr>
+<td>Сложность</td>
+<td>Низкая</td>
+<td>Средняя</td>
+<td>Требует смартфон</td>
+</tr>
+</tbody>
+</table>
+
+<details class="faq-item"><summary>Секретные комбинации</summary><div class="faq-answer"><p> Некоторые пульты с Алиэкспресс имеют скрытые функции. Например, одновременное зажатие кнопок"1" и"3" может разблокировать дополнительные кнопки для управления аудио-ресиверами, которые не активны по умолчанию.</p></div></details>
+
+<h2 id="нюансы-и-подводные-камни">Нюансы и подводные камни</h2>
+
+<p>Даже при точном следовании инструкции могут возникнуть ситуации, когда пульт ведет себя странно. Одна из частых проблем — «плавающий» код. Это происходит, когда пульт запоминает код, но при следующем включении батареек сбрасывает настройки. В таких случаях виноваты некачественные батарейки или окислившиеся контакты внутри отсека.</p>
+
+<p>Еще один нюанс связан с ИК-приемниками современной техники. Новые телевизоры и приставки часто имеют чувствительные приемники, расположенные нестандартно. Если вы программируете пульт, держа его слишком далеко или под острым углом, сигнал может не доходить. Подходите вплотную (10-15 см) к приемнику устройства во время настройки.</p>
+
+<p>Важный момент: некоторые бренды, например, определенные модели кондиционеров или старые японские телевизоры, используют уникальные протоколы шифрования сигнала. Дешевые универсальные пульты с Алиэкспресс могут просто не поддерживать эти редкие протоколы, сколько бы вы ни искали код. В этом случае поможет только оригинальный пульт или ИК-передатчик для смартфона, если он поддерживает обучение.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>При копировании радиосигналов ворот убедитесь, что вы не копируете сигнал соседского пульта. Радиус действия при копировании может быть увеличен, и вы случайно запрограммируете чужой доступ.</p></div>
+
+<h2 id="типичные-ошибки-пользователей">Типичные ошибки пользователей</h2>
+
+<p>Многие пользователи наступают на одни и те же грабли, теряя время и нервы. Понимание этих ошибок поможет вам избежать лишних телодвижений. Чаще всего проблемы возникают из-за невнимательности к деталям процесса или игнорирования простых правил эксплуатации электроники.</p>
+
+<ul>
+<li>Игнорирование таймингов: пользователи отпускают кнопку SET слишком рано, не дождавшись перехода пульта в режим программирования.</li>
+<li>Неверное направление: при настройке ИК-пульта его держат боком к приемнику, хотя инфракрасный луч направлен строго вперед.</li>
+<li>Путаница с брендами: попытка ввести код для телевизора Sony на пульт, предназначенный в первую очередь для кондиционеров, хотя кросс-коды существуют, они работают нестабильно.</li>
+<li>Слабые источники питания: использование старых батареек, которые дают достаточное напряжение для свечения экрана, но не хватает мощности для излучения ИК-сигнала.</li>
+</ul>
+
+<p>Также часто встречается ошибка, когда пользователь настраивает пульт, а потом удивляется, почему не работает кнопка выключения. Дело в том, что в некоторых режимах автопоиска пульт находит код выключения, но коды громкости и каналов могут быть из другой таблицы. Нужно искать код, который активирует максимальное количество функций, а не только выключение.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед стартом</h4><label class="check-item"><input type="checkbox"><span>Батарейки новые и вставлены правильно</span></label><label class="check-item"><input type="checkbox"><span>Устройство-цель включено в розетку</span></label><label class="check-item"><input type="checkbox"><span>Между пультом и приемником нет препятствий</span></label><label class="check-item"><input type="checkbox"><span>Известен бренд устройства (для поиска кода)</span></label><label class="check-item"><input type="checkbox"><span>Пульт находится на расстоянии 2-5 метров от техники</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="когда-пульт-не-удается-запрограммировать">Когда пульт не удается запрограммировать</h2>
+
+<p>Бывают случаи, когда все усилия тщетны. Вы перебрали десятки кодов, пробовали автопоиск, меняли батарейки, но техника не реагирует. Это не всегда означает, что вы что-то делаете неправильно. Возможно, сам пульт имеет аппаратную несовместимость с вашим устройством. Дешевые модели с Алиэкспресс часто имеют ограниченные чипы памяти, куда зашиты только популярные азиатские и американские бренды.</p>
+
+<p>Если вы столкнулись с такой ситуацией, не спешите открывать спор. Попробуйте найти на пульте модель (обычно написана мелким шрифром под батарейками или на задней крышке, например, RM-36B, KT-1028). Введите эту модель в поиск на YouTube или форумах. Часто энтузиасты уже выкладывали полные таблицы кодов или видеоинструкции именно для этой модели пульта.</p>
+
+<p>Также стоит проверить, не является ли ваше устройство слишком новым. Базы кодов в универсальных пультах обновляются редко. Если телевизор выпущен в этом году, а пульт разработан пять лет назад, нужного кода там физически может не быть. В таком случае рациональнее приобрести ИК-адаптер для смартфона или специализированный пульт-обучалку, который копирует сигнал напрямую с оригинала, не relying на внутренние базы кодов.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Успешное программирование пульта с Алиэкспресс зависит от правильного выбора метода (код, автопоиск или приложение) и точного следования таймингам нажатий.</p></div>
+
+<p>В конечном итоге, настройка универсального пульта — это навык, который пригодится каждому владельцу техники.once вы разберетесь с принципом работы кодовых таблиц и инфракрасного излучения, вы сможете управлять практически любым устройством в доме одним гаджетом. Главное — не бойтесь экспериментировать с кодами и внимательно следите за реакцией техники.</p>
+
+<p>Помните, что универсальные пульты с Алиэкспресс — это отличное бюджетное решение для замены утерянного оригинала или объединения управления несколькими устройствами. Несмотря на простоту исполнения, они часто обладают функционалом, не уступающим дорогим брендовым аналогам, если правильно подойти к их настройке. Удачной программировки!</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#поиск-подходящего-метода-кодировки">Поиск подходящего метода кодировки</a></li><li><a href="#пошаговая-инструкция-по-настройке-ик-пульта">Пошаговая инструкция по настройке ИК-пульта</a></li><li><a href="#настройка-умных-пультов-и-радиокопирование">Настройка умных пультов и радиокопирование</a></li><li><a href="#нюансы-и-подводные-камни">Нюансы и подводные камни</a></li><li><a href="#типичные-ошибки-пользователей">Типичные ошибки пользователей</a></li><li><a href="#когда-пульт-не-удается-запрограммировать">Когда пульт не удается запрограммировать</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/b/be/besprovodnye-naushniki-aliekspress-kakie-vybrat.html" class="related-card">Как выбрать беспроводные наушники на AliExpress: полное руководство 2026</a></li><li><a href="/articles/k/ka/kakoj-komplekt-videonablyudeniya-vybrat-dlya-ulitsy-na-aliekspress.html" class="related-card">Уличное видеонаблюдение с AliExpress: выбор комплекта</a></li><li><a href="/articles/l/la/lampa-proektor-s-aliexpress-kak-pravilno-ustanovit.html" class="related-card">Как установить лампу для проектора с AliExpress: пошаговое руководство</a></li><li><a href="/articles/k/ka/kak-vybrat-ekshn-kameru-na-aliekspress.html" class="related-card">Как выбрать экшн камеру на Алиэкспресс: гид по моделям и продавцам</a></li><li><a href="/articles/d/dl/dlya-chego-klej-v-komplekte-s-zashchitnym-steklom-s-aliekspress.html" class="related-card">Зачем нужен клей в комплекте со стеклом с AliExpress</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/b/be/besprovodnye-naushniki-aliekspress-kakie-vybrat.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать беспроводные наушники на AliExpress: полное руководство 2026</span><span class="related-bottom-desc">Подробная инструкция по выбору TWS-наушников на AliExpress: критерии, топ-бренды, подводные камни и </span></a><a href="/articles/k/ka/kakoj-komplekt-videonablyudeniya-vybrat-dlya-ulitsy-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Уличное видеонаблюдение с AliExpress: выбор комплекта</span><span class="related-bottom-desc">Как выбрать комплект видеонаблюдения для улицы на Алиэкспресс. Разбор характеристик, стандартов защи</span></a><a href="/articles/l/la/lampa-proektor-s-aliexpress-kak-pravilno-ustanovit.html" class="related-bottom-card"><span class="related-bottom-title">Как установить лампу для проектора с AliExpress: пошаговое руководство</span><span class="related-bottom-desc">Подробная инструкция по замене лампы в проекторе: выбор модели, установка, настройка и типичные ошиб</span></a><a href="/articles/k/ka/kak-vybrat-ekshn-kameru-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать экшн камеру на Алиэкспресс: гид по моделям и продавцам</span><span class="related-bottom-desc">Полное руководство по выбору экшн-камеры на AliExpress: характеристики, бренды, проверка продавцов и</span></a><a href="/articles/d/dl/dlya-chego-klej-v-komplekte-s-zashchitnym-steklom-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Зачем нужен клей в комплекте со стеклом с AliExpress</span><span class="related-bottom-desc">Подробный гид: зачем в комплекте со стеклом идет тюбик с жидкостью. Инструкция по наклейке, разбор о</span></a><a href="/articles/k/ka/kak-podklyuchit-svetyashchuyusya-lentu-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить светящуюся ленту с Алиэкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по установке LED-ленты с AliExpress. Схемы подключения, выбор блока питания, ус</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

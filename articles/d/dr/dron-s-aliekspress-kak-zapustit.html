@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как запустить дрон с AliExpress: инструкция и настройка — Али Гид</title>
+    <meta name="description" content="Подробный гайд по первому запуску дрона с AliExpress. Разбор функций приложения, калибровка, настройка GPS и устранение типичных ошибок новичков.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/d/dr/dron-s-aliekspress-kak-zapustit.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как запустить дрон с AliExpress: инструкция и настройка">
+    <meta property="og:description" content="Подробный гайд по первому запуску дрона с AliExpress. Разбор функций приложения, калибровка, настройка GPS и устранение типичных ошибок новичков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как запустить дрон с AliExpress: инструкция и настройка</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Первый полет: как правильно запустить дрон с AliExpress</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-оборудования-и-первичная-диагностика">Подготовка оборудования и первичная диагностика</a></li><li><a href="#настройка-мобильного-приложения-и-калибровка-систем">Настройка мобильного приложения и калибровка систем</a></li><li><a href="#процедура-первого-взлета-и-базовое-управление">Процедура первого взлета и базовое управление</a></li><li><a href="#распространенные-ошибки-и-способы-их-устранения">Распространенные ошибки и способы их устранения</a></li><li><a href="#безопасность-и-юридические-аспекты-полетов">Безопасность и юридические аспекты полетов</a></li><li><a href="#типичные-ошибки-при-запуске">Типичные ошибки при запуске</a></li><li><a href="#ваш-дрон-готов-к-покорению-неба">Ваш дрон готов к покорению неба</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Покупка квадрокоптера на популярной китайской торговой площадке часто оборачивается для новичков настоящим испытанием нервов. В коробке вы обнаруживаете множество деталей, запутанные инструкции на английском или китайском языках, а также полное отсутствие понятного руководства на родном языке. Когда вы впервые берете пульт в руки и пытаетесь взлететь, дрон может либо не реагировать на команды, либо улетать в сторону, что вызывает панику и страх повредить устройство в первые же минуты.</p>
+
+<p>Проблема кроется не в низком качестве товара, а в специфике настройки, которую производители часто описывают крайне скудно. Многие пользователи ошибочно полагают, что достаточно просто вставить батарею и нажать кнопку взлета, однако современные модели требуют обязательной процедуры калибровки и привязки к спутникам. Без выполнения этих технических условий полетное контроллер просто не даст команду моторам на полную мощность, считая устройство неготовым к безопасной эксплуатации.</p>
+
+<p>Если хотите избежать падения дорогостоящей техники и потери сигнала управления, необходимо четко следовать алгоритму подготовки. В этом руководстве мы разберем каждый этап: от распаковки и зарядки до настройки гироскопов и первого успешного зависания в воздухе. Вы узнаете, как правильно интерпретировать сигналы индикаторов, почему важно выбирать открытое пространство и что делать, если дрон ведет себя непредсказуемо сразу после отрыва от земли.</p>
+
+<h2 id="подготовка-оборудования-и-первичная-диагностика">Подготовка оборудования и первичная диагностика</h2>
+
+<p>Первым шагом после распаковки является внимательный осмотр комплектации и проверка целостности всех элементов. Часто в бюджетных моделях с AliExpress винты могут быть закручены не до конца на заводе, а защитные пленки на камерах или датчиках — забыты. Перед любыми манипуляциями с электроникой убедитесь, что пропеллеры установлены правильно: черные или помеченные точками винты должны стоять на моторах с аналогичной маркировкой, иначе дрон перевернется при взлете.</p>
+
+<p>Важный момент: никогда не пытайтесь включать устройство, если аккумулятор полностью разряжен или имеет низкий заряд. Литий-полимерные батареи, которые используются в большинстве дронов, чувствительны к глубокому разряду. Если квадрокоптер пролежал на складе месяцами, его нужно поставить на зарядку оригинальным кабелем и оставить до тех пор, пока индикатор не покажет полный заряд. Попытка взлета на полусевшей батарее может привести к резкой потере мощности и падению.</p>
+
+<p>Вот что нужно сделать перед подключением питания:</p>
+<ul>
+<li>Снимите все транспортировочные фиксаторы с подвеса камеры, если модель оснащена стабилизатором.</li>
+<li>Проверьте плотность посадки аккумуляторов в отсеки до характерного щелчка.</li>
+<li>Убедитесь, что карты памяти (если используются) отформатированы в файловой системе FAT32 и вставлены до щелчка.</li>
+<li>Снимите защитные колпачки с объективов камер и датчиков обхода препятствий.</li>
+</ul>
+
+<p>После визуального осмотра можно переходить к включению. Обычно процедура начинается с короткого нажатия кнопки на аккумуляторе для активации, followed by long press. На пульте управления также необходимо вставить собственные батарейки или зарядить его встроенный аккумулятор. Синхронизация пульта и дрона происходит автоматически у большинства современных моделей, но некоторые требуют ручного сопряжения через комбинации стиков, о чем будет сказано в инструкции к конкретной модели.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Время работы батареи на холоде может сократиться до 50%. Не используйте дрон при температуре ниже 0°C без предварительного прогрева аккумуляторов.</p></div>
+
+<h2 id="настройка-мобильного-приложения-и-калибровка-систем">Настройка мобильного приложения и калибровка систем</h2>
+
+<p>Современные дроны с AliExpress практически не управляются без смартфона. Именно через мобильное приложение происходит передача видеопотока, настройка параметров камеры и, что самое важное, калибровка компаса и гироскопов. Вам потребуется скачать официальное приложение, указанное в инструкции (часто это EUS Pro, VS GPS, ZY GO или аналоги). Будьте осторожны: сканируйте QR-код только из бумажной инструкции или с коробки, не скачивайте приложения с похожими названиями из поиска, чтобы избежать вредоносного ПО.</p>
+
+<p>После установки приложения и регистрации аккаунта необходимо подключить телефон к Wi-Fi сети дрона. Обычно сеть называется моделью устройства, а пароль по умолчанию указан в инструкции (часто 12345678). После подключения в приложении появится видеопоток. Если картинка есть, но дрон не слушается, значит, требуется калибровка. Это критически важный этап, игнорирование которого приводит к «уплыванию» дрона в сторону или невозможности удержания позиции.</p>
+
+<p>Калибровка компаса выполняется на открытом пространстве вдали от металлических конструкций, автомобилей и линий электропередач. Магнитные помехи могут сбить настройки, и дрон потеряет ориентацию в пространстве. Процесс выглядит как игра: приложение попросит вас вращать дрон горизонтально, пока индикаторы не станут зелеными, а затем — вертикально. Следуйте голосовым подсказкам или цветовой индикации на экране.</p>
+
+<div class="checklist-block"><h4>📋 Калибровка компаса</h4><ol><li><strong>Шаг 1.</strong> Выйдите на открытое пространство вдали от машин</li><li><strong>Шаг 2.</strong> Запустите приложение и дождитесь запроса калибровки</li><li><strong>Шаг 3.</strong> Вращайте дрон горизонтально до завершения первого этапа</li><li><strong>Шаг 4.</strong> Переверните дрон и вращайте вертикально до зеленых индикаторов</li></ol></div>
+
+<p>Далее следует калибровка гироскопа. Она выполняется на ровной горизонтальной поверхности. Дрон должен лежать неподвижно, пока вы в приложении нажимаете кнопку калибровки. В этот момент система запоминает нулевые значения наклона. Если запустить дрон с перекошенным гироскопом, он будет самопроизвольно крениться в одну из сторон сразу после взлета, и вам придется постоянно компенсировать это стиками.</p>
+
+<h2 id="процедура-первого-взлета-и-базовое-управление">Процедура первого взлета и базовое управление</h2>
+
+<p>Когда все системы откалиброваны, можно переходить к самому волнительному моменту — первому взлету. Для новичков производители предусмотрели функцию автоматического взлета и посадки. Однако полагаться на нее в ветреную погоду или в ограниченном пространстве не стоит. Лучше освоить ручное управление, начиная с минимальных высот. Помните, что стики управления на большинстве пультов работают в «режиме 2»: левый стик отвечает за высоту и повороты, правый — за движение вперед-назад и влево-вправо.</p>
+
+<p>Для начала разблокируйте моторы. Обычно это делается движением левого стика в нижний правый или левый угол (зависит от модели), после чего пропеллеры начнут медленно вращаться. Плавно поднимите левый стик вверх. Дрон должен оторваться от земли на 10-20 сантиметров. В этот момент отпустите стик. Если дрон стоит на месте и его не сносит ветром или инерцией — калибровка прошла успешно. Если его тянет в сторону, немедленно посадите и повторите калибровку гироскопа.</p>
+
+<p>Вот базовые принципы управления, которые нужно отработать на безопасной высоте:</p>
+<ol>
+<li>Набор высоты осуществляется плавным подъемом левого стика вверх.</li>
+<li>Снижение — плавным опусканием левого стика вниз.</li>
+<li>Поворот вокруг своей оси (рыскание) выполняется движением левого стика влево или вправо.</li>
+<li>Движение вперед, назад и боковые смещения контролируются правым стиком.</li>
+</ol>
+
+<p>Важно понимать разницу между режимами полета. В режиме без GPS (часто обозначается как Optical Flow или просто режим indoors) дрон не умеет держаться в точке при отпускании стиков, он будет дрейфовать. В режиме GPS (Outdoor) дрон автоматически зависает в точке, где вы отпустили управление. Первый полет лучше всего проводить именно в режиме GPS, предварительно дождавшись фиксации минимум 6-8 спутников, о чем сообщит мигающий или горящий ровным светом индикатор статуса.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Для первого полета выберите безветренный день. Даже легкий ветерок может унести легкий дрон с AliExpress, если у него недостаточно мощности моторов.</p></div>
+
+<h2 id="распространенные-ошибки-и-способы-их-устранения">Распространенные ошибки и способы их устранения</h2>
+
+<p>Даже при внимательном изучении инструкции новички часто наступают на одни и те же грабли. Понимание природы этих ошибок поможет сохранить дрон целым. Самая частая проблема — попытка взлета в помещении. Датчики давления и оптические сенсоры в бюджетных моделях часто работают некорректно при искусственном освещении или наличии сквозняков от вентиляции, что приводит к неуправляемому поведению.</p>
+
+<p>Другая распространенная ошибка — игнорирование предупреждений приложения. Если приложение пишет «Compass Error» или «IMU Error», продолжать полет нельзя. Дрон может улететь в сторону («эффект компаса») или перевернуться. Также пользователи часто забывают снять крышку с камеры или защитную пенку с объектива, удивляясь потом мутному изображению на экране.</p>
+
+<p>Ниже приведена таблица типичных проблем и методов их решения:</p>
+
+<table>
+<thead>
+<tr>
+<th>Проблема</th>
+<th>Возможная причина</th>
+<th>Решение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Дрон не взлетает, моторы не крутятся</td>
+<td>Не разблокированы моторы или разряжен аккумулятор</td>
+<td>Выполните команду разблокировки стиками, проверьте заряд</td>
+</tr>
+<tr>
+<td>Дрон уносит в сторону сразу после взлета</td>
+<td>Неверная калибровка компаса или гироскопа</td>
+<td>Провести повторную калибровку на открытом месте</td>
+</tr>
+<tr>
+<td>Нет видеосигнала на телефоне</td>
+<td>Не подключен Wi-Fi или сбиты настройки частот</td>
+<td>Переподключить Wi-Fi, проверить настройки приложения</td>
+</tr>
+<tr>
+<td>Дрон не держит высоту, падает</td>
+<td>Разряжен аккумулятор или поврежден пропеллер</td>
+<td>Зарядить батарею, заменить винт</td>
+</tr>
+</tbody>
+</table>
+
+<p>Особое внимание стоит уделить <mark>потере сигнала</mark>. Если дрон улетел далеко и связь прервалась, большинство моделей с GPS автоматически включат функцию «Return to Home» (возврат домой). Однако она сработает только если точка возврата была успешно записана (обычно это происходит автоматически при взлете). Если GPS не пойман, дрон может просто зависнуть на месте и сесть там, где потерял сигнал, или упасть.</p>
+
+<details class="faq-item"><summary>Секретная функция</summary><div class="faq-answer"><p> Многие дроны поддерживают управление через Wi-Fi роутер на большие расстояния. Если подключить пульт к роутеру через кабель OTG, дальность связи может вырасти в разы, но это требует дополнительной настройки.</p></div></details>
+
+<h2 id="безопасность-и-юридические-аспекты-полетов">Безопасность и юридические аспекты полетов</h2>
+
+<p>Прежде чем запустить дрон в небо, необходимо осознавать ответственность. Запуск летательного аппарата вблизи аэропортов, стратегических объектов, над скоплениями людей или частной собственностью без разрешения может повлечь за собой серьезные штрафы. В многих странах действуют ограничения по высоте полета (обычно до 50 или 150 метров) и обязательной регистрации устройств весом более 250 грамм.</p>
+
+<p>Всегда проверяйте актуальные правила полетов в вашем регионе, так как законодательство меняется. Полеты над людьми категорически запрещены, так как в случае отказа техники дрон может нанести травмы. Также стоит избегать полетов рядом с линиями электропередач: магнитное поле может сбить компас, а контакт с проводом приведет к короткому замыканию и падению.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Запуск дронов вблизи аэропортов и режимных объектов запрещен законом. Нарушение границ воздушного пространства грозит крупными штрафами и конфискацией оборудования.</p></div>
+
+<h2 id="типичные-ошибки-при-запуске">Типичные ошибки при запуске</h2>
+
+<p>Чтобы систематизировать опыт, выделим четыре критические ошибки, которые совершает большинство владельцев новых дронов с AliExpress в первые дни эксплуатации. Избежав их, вы сохраните устройство и нервы.</p>
+
+<ul>
+<li>Запуск без предварительной калибровки компаса, что приводит к улету дрона в неизвестном направлении.</li>
+<li>Игнорирование погодных условий: попытка летать в ветер, превышающий технические характеристики модели.</li>
+<li>Неправильная установка пропеллеров, когда винты перепутаны местами, из-за чего дрон не может взлететь.</li>
+<li>Полное разряжение аккумулятора «в ноль» после полета, что убивает батарею за несколько циклов.</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Проверка перед взлетом</h4><label class="check-item"><input type="checkbox"><span>Карты памяти вставлены и отформатированы</span></label><label class="check-item"><input type="checkbox"><span>Пропеллеры целы и закреплены плотно</span></label><label class="check-item"><input type="checkbox"><span>Объективы камер очищены от пленки</span></label><label class="check-item"><input type="checkbox"><span>Пульт и дрон заряжены полностью</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="ваш-дрон-готов-к-покорению-неба">Ваш дрон готов к покорению неба</h2>
+
+<p>Запуск дрона с AliExpress — это процесс, требующий внимательности, но не обладающий сверхъестественной сложностью. Главное, что нужно запомнить: никогда не спешите с взлетом. Потратьте 10-15 минут на подготовку, калибровку и проверку окружения, и ваш полет пройдет успешно. Современные бюджетные модели способны творить чудеса и снимать видео высокого качества, если подойти к их эксплуатации с умом.</p>
+
+<p>Регулярная практика и соблюдение правил безопасности превратят вас из неуверенного новичка в уверенного пилота. Помните, что дрон — это в первую очередь инструмент для творчества и получения удовольствия, а не источник проблем. Следуйте инструкциям, уважайте воздушное пространство и наслаждайтесь видом с высоты птичьего полета.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Успешный запуск дрона зависит от правильной калибровки компаса, выбора открытого места без магнитных помех и соблюдения базовых правил безопасности.</p></div>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Храните аккумуляторы при заряде 50-60%, если не планируете летать в ближайшее время. Это продлит срок их службы в несколько раз.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-оборудования-и-первичная-диагностика">Подготовка оборудования и первичная диагностика</a></li><li><a href="#настройка-мобильного-приложения-и-калибровка-систем">Настройка мобильного приложения и калибровка систем</a></li><li><a href="#процедура-первого-взлета-и-базовое-управление">Процедура первого взлета и базовое управление</a></li><li><a href="#распространенные-ошибки-и-способы-их-устранения">Распространенные ошибки и способы их устранения</a></li><li><a href="#безопасность-и-юридические-аспекты-полетов">Безопасность и юридические аспекты полетов</a></li><li><a href="#типичные-ошибки-при-запуске">Типичные ошибки при запуске</a></li><li><a href="#ваш-дрон-готов-к-покорению-неба">Ваш дрон готов к покорению неба</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-podklyuchit-svetodiody-s-aliekspress.html" class="related-card">Как подключить светодиоды с АлиЭкспресс: полная инструкция</a></li><li><a href="/articles/k/ka/kakoj-usilitel-sotovoj-svyazi-luchshe-kupit-na-aliekspress.html" class="related-card">Как выбрать усилитель сотовой связи на AliExpress: полное руководство</a></li><li><a href="/articles/k/ka/kak-podklyuchit-tsiklicheskij-tajmer-s-aliekspress.html" class="related-card">Как подключить циклический таймер с AliExpress: полная инструкция</a></li><li><a href="/articles/k/ka/kak-nastroit-termometr-beskontaktnyj-s-aliekspress-na-tselsiya.html" class="related-card">Как настроить бесконтактный термометр с AliExpress на Цельсии</a></li><li><a href="/articles/i/in/ingalyator-s-aliekspress-kak-polzovatsya-video.html" class="related-card">Ингалятор с Алиэкспресс: как пользоваться и видео-инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-podklyuchit-svetodiody-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить светодиоды с АлиЭкспресс: полная инструкция</span><span class="related-bottom-desc">Подробное руководство по подключению светодиодов с AliExpress. Выбор драйвера, расчет резисторов, сх</span></a><a href="/articles/k/ka/kakoj-usilitel-sotovoj-svyazi-luchshe-kupit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать усилитель сотовой связи на AliExpress: полное руководство</span><span class="related-bottom-desc">Пошаговая инструкция по выбору и покупке усилителя сигнала 4G/5G на AliExpress: параметры, бренды, о</span></a><a href="/articles/k/ka/kak-podklyuchit-tsiklicheskij-tajmer-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить циклический таймер с AliExpress: полная инструкция</span><span class="related-bottom-desc">Подробное руководство по настройке циклического таймера. Схемы подключения, выбор модели и устранени</span></a><a href="/articles/k/ka/kak-nastroit-termometr-beskontaktnyj-s-aliekspress-na-tselsiya.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить бесконтактный термометр с AliExpress на Цельсии</span><span class="related-bottom-desc">Подробное руководство по переключению единиц измерения в инфракрасных термометрах. Решите проблему с</span></a><a href="/articles/i/in/ingalyator-s-aliekspress-kak-polzovatsya-video.html" class="related-bottom-card"><span class="related-bottom-title">Ингалятор с Алиэкспресс: как пользоваться и видео-инструкция</span><span class="related-bottom-desc">Полное руководство: как настроить ингалятор с AliExpress, где найти видео-обучение, советы по эксплу</span></a><a href="/articles/u/us/usilitel-zvuka-dlya-kolonok-s-aliekspress-kakoj-luchshe.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать усилитель звука для колонок на AliExpress в 2026 году</span><span class="related-bottom-desc">Подробное руководство по выбору усилителя для колонок с AliExpress: критерии, рейтинг моделей, пошаг</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

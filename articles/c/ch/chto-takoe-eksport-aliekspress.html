@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Экспорт заказов с AliExpress: как скачать данные о покупках — Али Гид</title>
+    <meta name="description" content="Пошаговое руководство по экспорту заказов с AliExpress: где найти функцию, как сохранить данные в Excel или PDF, нюансы и ограничения платформы.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/c/ch/chto-takoe-eksport-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Экспорт заказов с AliExpress: как скачать данные о покупках">
+    <meta property="og:description" content="Пошаговое руководство по экспорту заказов с AliExpress: где найти функцию, как сохранить данные в Excel или PDF, нюансы и ограничения платформы.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/prodavtsam-i-biznes/">Продавцам и бизнес</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Экспорт заказов с AliExpress: как скачать данные о покупках</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как экспортировать заказы с AliExpress: инструкция и подводные камни</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#зачем-нужен-экспорт-заказов-с-aliexpress-и-где-это-пригодится">Зачем нужен экспорт заказов с AliExpress и где это пригодится</a></li><li><a href="#где-найти-функцию-экспорта-заказов-на-aliexpress">Где найти функцию экспорта заказов на AliExpress</a></li><li><a href="#пошаговая-инструкция-как-экспортировать-заказы">Пошаговая инструкция: как экспортировать заказы</a></li><li><a href="#нюансы-и-подводные-камни">Нюансы и подводные камни</a></li><li><a href="#типичные-ошибки-при-экспорте-заказов">Типичные ошибки при экспорте заказов</a></li><li><a href="#как-использовать-экспортированные-данные-с-максимальной-пользой">Как использовать экспортированные данные с максимальной пользой</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><h2 id="зачем-нужен-экспорт-заказов-с-aliexpress-и-где-это-пригодится">Зачем нужен экспорт заказов с AliExpress и где это пригодится</h2>
+
+<p>Если вы активно покупаете на AliExpress — будь то для личных нужд или дропшиппинга — рано или поздно столкнётесь с необходимостью сохранить историю заказов в удобном формате. Платформа не предоставляет автоматическую выгрузку данных, но ручной экспорт поможет решить несколько ключевых задач. Во-первых, это <strong>упрощение бухгалтерии</strong>: если вы ведёте учёт расходов (например, для налоговой отчётности или личного бюджета), таблица с заказами сэкономит часы на ручном вводе. Во-вторых, <strong>анализ покупок</strong> — так проще отследить, на что тратите больше всего, какие категории товаров преобладают, а какие продавцы чаще подводят.</p>
+
+<p>Для бизнеса экспорт ещё критичнее. Дропшипперы и перекупщики используют данные о заказах, чтобы синхронизировать информацию с собственными CRM, отслеживать сроки доставки для клиентов или формировать отчёты о прибыли. Без выгрузки придётся вручную копировать каждый заказ — а при сотнях транзакций это нереально. К сожалению, AliExpress не предлагает API для обычных пользователей, поэтому экспорт осуществляется через интерфейс сайта или сторонние инструменты. Далее разберём, как это сделать правильно и на что обратить внимание.</p>
+
+<h2 id="где-найти-функцию-экспорта-заказов-на-aliexpress">Где найти функцию экспорта заказов на AliExpress</h2>
+
+<p>Функция экспорта спрятана неочевидно, и её расположение зависит от того, с какого устройства вы работаете. На <strong>десктопной версии сайта</strong> путь проще, чем в мобильном приложении, где опция может отсутствовать вовсе. Вот где искать:</p>
+
+<ul>
+  <li><strong>Личный кабинет → «Мои заказы»</strong>. Это основной раздел, где собираются все покупки. Здесь можно фильтровать заказы по статусу (например, «Завершённые» или «В обработке»), что упрощает экспорт только актуальных данных.</li>
+  <li><strong>Кнопка «Экспорт» или «Скачать отчёт»</strong>. Находится в верхнем правом углу списка заказов, но появляется только после применения фильтров (например, по дате).</li>
+</ul>
+
+<p>Важный момент: на мобильной версии AliExpress (приложение для iOS/Android) <strong>нет встроенной функции экспорта</strong>. Чтобы обойти это ограничение, можно:</p>
+<ol>
+  <li>Открыть полную версию сайта через браузер на смартфоне (в Chrome или Safari нажмите «Версия для ПК»).</li>
+  <li>Использовать сторонние сервисы для парсинга данных (например, расширения для браузера вроде <em>AliExpress Order Exporter</em>).</li>
+</ol>
+
+
+<p>- Вы авторизованы в аккаунте.</p>
+<p>- У вас есть хотя бы один завершённый заказ.</p>
+<p>- Фильтры применены (например, выбран диапазон дат).--></p>
+
+<h3>Доступные форматы экспорта</h3>
+
+<p>AliExpress позволяет сохранить данные в двух форматах:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Формат</th>
+      <th>Что включает</th>
+      <th>Ограничения</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Excel (XLS/XLSX)</strong></td>
+      <td>Таблица с колонками: номер заказа, дата, статус, сумма, продавец, трек-номер, адрес доставки.</td>
+      <td>Нет детализации по товарам (только общая сумма заказа).</td>
+    </tr>
+    <tr>
+      <td><strong>PDF</strong></td>
+      <td>Визуальная копия чека с логотипом AliExpress, реквизитами продавца и покупателя.</td>
+      <td>Неудобен для обработки данных (только для печати или архива).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>На практике <strong>Excel</strong> подходит для дальнейшего анализа, а <strong>PDF</strong> — для подтверждения покупки (например, при споре с продавцом или банком). Если нужны данные по каждому товару в заказе (название, цена, количество), придётся дополнять таблицу вручную или использовать сторонние инструменты.</p>
+
+<h2 id="пошаговая-инструкция-как-экспортировать-заказы">Пошаговая инструкция: как экспортировать заказы</h2>
+
+<p>Процесс занимает не больше 5 минут, если знать нюансы. Следуйте алгоритму:</p>
+
+
+<p>1. Авторизуйтесь на сайте [aliexpress.com](https://www.aliexpress.com) через браузер (не приложение)|</p>
+<p>2. Перейдите в раздел <code>Account → My Orders</code> (Аккаунт → Мои заказы)|</p>
+<p>3. Примените фильтры: выберите статус заказов (например, «Completed») и диапазон дат|</p>
+<p>4. Нажмите кнопку <em>Export</em> (Экспорт) в верхнем правом углу|</p>
+<p>5. Выберите формат (Excel или PDF) и подтвердите скачивание--></p>
+
+<p>После скачивания файл сохранится в папку «Загрузки» (или ту, что указана в настройках браузера). Если данные не полные, проверьте:</p>
+<ul>
+  <li>Выбран ли правильный временной диапазон (по умолчанию показываются заказы за последний месяц).</li>
+  <li>Нет ли ограничений по количеству заказов в одном файле (AliExpress может дробить экспорт, если заказов больше 500).</li>
+</ul>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>AliExpress ограничивает экспорт заказов старше 2 лет. Для выгрузки более ранних данных потребуется обратиться в поддержку с подтверждением права собственности на аккаунт.</p></div>
+
+<h3>Что делать, если экспорт не работает</h3>
+
+<p>Иногда кнопка «Экспорт» неактивна или выдаёт ошибку. Вот типичные причины и решения:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Проблема</th>
+      <th>Причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Кнопка «Экспорт» отсутствует</td>
+      <td>Не применены фильтры или нет заказов в выбранном статусе.</td>
+      <td>Убедитесь, что в списке есть хотя бы один заказ, соответствующий фильтрам.</td>
+    </tr>
+    <tr>
+      <td>Файл скачивается пустым</td>
+      <td>Сбой на стороне AliExpress или блокировщик рекламы мешает работе скрипта.</td>
+      <td>Попробуйте в другом браузере или отключите расширения вроде AdBlock.</td>
+    </tr>
+    <tr>
+      <td>Ошибка «Too many requests»</td>
+      <td>Слишком частые запросы на экспорт (ограничение платформы).</td>
+      <td>Подождите 10–15 минут и повторите попытку.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Если проблема сохраняется, попробуйте <strong>очистить кэш браузера</strong> или использовать режим инкогнито. В крайнем случае можно вручную скопировать данные из раздела «Мои заказы» в Excel, но это займёт много времени при большом количестве транзакций.</p>
+
+<h2 id="нюансы-и-подводные-камни">Нюансы и подводные камни</h2>
+
+<p>Экспорт заказов с AliExpress кажется простой процедурой, но есть скрытые ограничения, о которых платформа не предупреждает заранее. Вот что важно учесть:</p>
+
+<ul>
+  <li><strong>Ограничение по времени</strong>: данные доступны только за последние 2 года. Заказы старше этого срока экспортировать нельзя — их придётся искать в архиве email-уведомлений или чеках.</li>
+  <li><strong>Неполные данные</strong>: в Excel-файле не будет информации о промокодах, частичных возвратах или изменениях статуса заказа. Эти детали придётся дополнять вручную.</li>
+  <li><strong>Валюта</strong>: суммы в экспортируемой таблице отображаются в той валюте, в которой был оформлен заказ. Если покупали в разных валютах, для анализа потребуется конвертация по курсу на дату покупки.</li>
+  <li><strong>Конфиденциальность</strong>: в PDF-чеках указывается ваш адрес доставки и телефон. Будьте осторожны при передаче таких файлов третьим лицам.</li>
+</ul>
+
+<p>Ещё один важный момент: <strong>AliExpress не обновляет экспортированные файлы автоматически</strong>. Если вам нужны актуальные данные (например, для отслеживания текущих заказов), придётся повторять экспорт регулярно. Для бизнеса это может стать проблемой — в таком случае стоит рассмотреть интеграцию через API (доступно только для официальных партнёров платформы) или специализированные сервисы вроде <em>Zapier</em>.</p>
+
+<details class="faq-item"><summary>Как автоматизировать экспорт для бизнеса</summary><div class="faq-answer"><p>
+<p>Для дропшипперов и владельцев интернет-магазинов ручной экспорт неэффективен. Альтернативные решения:</p>
+<p>- <strong>Парсинг данных</strong> через скрипты (например, на Python с библиотекой <em>requests</em> и <em>BeautifulSoup</em>).</p>
+<p>- <strong>Сервисы-коннекторы</strong> вроде <em>ShopMaster</em> или <em>DSers</em>, которые синхронизируют заказы с AliExpress и вашей CRM.</p>
+<p>- <strong>Google Apps Script</strong> для автоматической выгрузки данных в Google Sheets по расписанию.</p>
+<p>Обратите внимание: автоматизированный сбор данных может нарушать правила AliExpress. Используйте такие методы на свой страх и риск, избегая чрезмерной нагрузки на серверы платформы.</p></div></details></p>
+
+<h2 id="типичные-ошибки-при-экспорте-заказов">Типичные ошибки при экспорте заказов</h2>
+
+<p>Даже опытные пользователи допускают просчёты, которые ведут к потере данных или некорректным отчётам. Вот самые распространённые:</p>
+
+<ul>
+  <li><strong>Экспорт без фильтров</strong>. Если не указать диапазон дат или статус заказов, в файл попадут все транзакции за 2 года — это сотни строк, среди которых сложно найти нужное. Всегда сужайте выборку перед экспортом.</li>
+  <li><strong>Игнорирование проверки файла</strong>. Многие скачивают Excel и сразу закрывают его, не проверив целостность данных. Например, кириллические символы (адреса на русском) могут отображаться кракозябрами — это лечится изменением кодировки файла на UTF-8.</li>
+  <li><strong>Хранение данных в одном файле</strong>. Если вы ведёте учёт для бизнеса, не накапливайте все заказы в одной таблице. Разбивайте по месяцам или кварталам — так проще обновлять и анализировать.</li>
+  <li><strong>Пренебрежение резервными копиями</strong>. AliExpress не гарантирует вечное хранение вашей истории заказов. Экспортируйте данные регулярно и сохраняйте копии на облачном диске (Google Drive, Яндекс.Диск).</li>
+</ul>
+
+<p>Ещё одна частая ошибка — <strong>попытка редактировать PDF-чек</strong>. Этот формат не предназначен для изменений: если нужно исправить ошибку (например, в адресе), проще запросить новый чек у продавца через раздел <code>My Orders → View Details → Contact Seller</code>.</p>
+
+<h2 id="как-использовать-экспортированные-данные-с-максимальной-пользой">Как использовать экспортированные данные с максимальной пользой</h2>
+
+<p>Скачать файл с заказами — только половина дела. Главное — правильно его обработать. Для личного использования достаточно базовых инструментов вроде Excel или Google Sheets. Вот несколько практических советов:</p>
+
+<ol>
+  <li><strong>Сортировка по продавцам</strong>. Отфильтруйте таблицу по колонке «Продавец», чтобы выявить надёжных поставщиков (с быстрой доставкой и без проблем) и тех, с кем лучше не сотрудничать.</li>
+  <li><strong>Анализ категорий товаров</strong>. Добавьте в таблицу колонку «Категория» и классифицируйте покупки (электроника, одежда, аксессуары). Так проще понять, на что уходит бюджет.</li>
+  <li><strong>Отслеживание возвратов</strong>. Если в заказе был возврат, добавьте пометку в отдельный столбец. Это поможет оценить процент проблемных покупок.</li>
+  <li><strong>Сравнение цен</strong>. Если покупаете одни и те же товары у разных продавцов, сводная таблица покажет, где выгоднее.</li>
+</ol>
+
+<p>Для бизнеса полезно интегрировать данные с другими инструментами. Например:</p>
+<ul>
+  <li>Импортировать заказы в <em>1C</em> или <em>МойСклад</em> для бухгалтерского учёта.</li>
+  <li>Связать трек-номера с сервисами отслеживания (например, <em>17Track</em> или <em>ParcelMonitor</em>), чтобы автоматически обновлять статус доставки для клиентов.</li>
+  <li>Использовать данные для формирования отчётов о прибыли (вычтите стоимость товаров на AliExpress из вашей продажной цены).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Чтобы ускорить обработку больших файлов, используйте <strong>сводные таблицы</strong> в Excel. Они позволяют группировать данные по продавцам, датам или категориям за несколько кликов. Для этого выделите весь диапазон данных и выберите <code>Вставка → Сводная таблица</code>.</p></div>
+
+<p>Если вы занимаетесь дропшиппингом, экспортированные данные помогут оптимизировать логистику. Например, можно выявить, какие товары чаще задерживаются, и исключить ненадёжных продавцов из ассортимента. Или проанализировать, в какие страны доставка идёт быстрее, чтобы сосредоточиться на этих рынках.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Экспорт заказов с AliExpress — это ручной процесс, который требует внимания к фильтрам и форматам. Для личного учёта достаточно Excel, а для бизнеса придётся автоматизировать выгрузку через сторонние сервисы. Главное — регулярно сохранять данные и проверять их на полноту, чтобы избежать потерь при аналитике или отчётности.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#зачем-нужен-экспорт-заказов-с-aliexpress-и-где-это-пригодится">Зачем нужен экспорт заказов с AliExpress и где это пригодится</a></li><li><a href="#где-найти-функцию-экспорта-заказов-на-aliexpress">Где найти функцию экспорта заказов на AliExpress</a></li><li><a href="#пошаговая-инструкция-как-экспортировать-заказы">Пошаговая инструкция: как экспортировать заказы</a></li><li><a href="#нюансы-и-подводные-камни">Нюансы и подводные камни</a></li><li><a href="#типичные-ошибки-при-экспорте-заказов">Типичные ошибки при экспорте заказов</a></li><li><a href="#как-использовать-экспортированные-данные-с-максимальной-пользой">Как использовать экспортированные данные с максимальной пользой</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-vygodno-pereprodavat-s-aliexpress.html" class="related-card">Что выгодно перепродавать с AliExpress: топ ниш 2026</a></li><li><a href="/articles/k/ka/kak-sotrudnichat-s-aliekspress-reklamirovat-ikh-odezhdu.html" class="related-card">Как рекламировать одежду AliExpress: Партнерская программа</a></li><li><a href="/articles/k/ka/kak-ofitsialno-pereprodavat-tovary-s-aliexpress.html" class="related-card">Как перепродавать с AliExpress: бизнес-план и инструкция</a></li><li><a href="/articles/a/al/alibaba-chem-otlichaetsya-ot-aliexpress.html" class="related-card">Alibaba или AliExpress: в чем разница и что выбрать</a></li><li><a href="/articles/i/in/internet-magazin-luchshe-chem-aliekspress.html" class="related-card">Свой интернет-магазин лучше AliExpress: бизнес-план</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/c/ch/chto-vygodno-pereprodavat-s-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Что выгодно перепродавать с AliExpress: топ ниш 2026</span><span class="related-bottom-desc">Руководство по выбору товаров для перепродажи с AliExpress. Анализ ниш, расчет маржи, работа с поста</span></a><a href="/articles/k/ka/kak-sotrudnichat-s-aliekspress-reklamirovat-ikh-odezhdu.html" class="related-bottom-card"><span class="related-bottom-title">Как рекламировать одежду AliExpress: Партнерская программа</span><span class="related-bottom-desc">Подробный гид по заработку на рекламе одежды AliExpress. Регистрация, выбор товаров, создание ссылок</span></a><a href="/articles/k/ka/kak-ofitsialno-pereprodavat-tovary-s-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Как перепродавать с AliExpress: бизнес-план и инструкция</span><span class="related-bottom-desc">Полное руководство по перепродаже товаров с Алиэкспресс. Где брать, как доставлять и сколько можно з</span></a><a href="/articles/a/al/alibaba-chem-otlichaetsya-ot-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Alibaba или AliExpress: в чем разница и что выбрать</span><span class="related-bottom-desc">Подробное сравнение Alibaba и AliExpress. Узнайте, чем отличаются платформы, условия доставки, цены </span></a><a href="/articles/i/in/internet-magazin-luchshe-chem-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Свой интернет-магазин лучше AliExpress: бизнес-план</span><span class="related-bottom-desc">Почему свой интернет-магазин выгоднее AliExpress. Сравнение комиссий, рисков и возможностей для прод</span></a><a href="/articles/p/po/pokupka-na-aliekspress-kak-yur-litso.html" class="related-bottom-card"><span class="related-bottom-title">AliExpress для юрлиц: покупка, таможня, налоги</span><span class="related-bottom-desc">Инструкция по закупкам на AliExpress для бизнеса. Таможенные правила, налоги, лимиты и риски для юри</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

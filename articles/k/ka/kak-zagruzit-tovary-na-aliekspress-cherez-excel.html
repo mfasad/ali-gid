@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как загрузить товары на AliExpress через Excel: пошаговое руководство — Али Гид</title>
+    <meta name="description" content="Подробная инструкция по массовой загрузке товаров на AliExpress с помощью Excel: шаблоны, правила, ошибки и нюансы для продавцов.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-zagruzit-tovary-na-aliekspress-cherez-excel.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как загрузить товары на AliExpress через Excel: пошаговое руководство">
+    <meta property="og:description" content="Подробная инструкция по массовой загрузке товаров на AliExpress с помощью Excel: шаблоны, правила, ошибки и нюансы для продавцов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/prodavtsam-i-biznes/">Продавцам и бизнес</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как загрузить товары на AliExpress через Excel: пошаговое руководство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Загрузка товаров на AliExpress через Excel: полное руководство для продавцов</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-функцию-массовой-загрузки-товаров">Где найти функцию массовой загрузки товаров</a></li><li><a href="#пошаговая-инструкция-по-загрузке-товаров-через-excel">Пошаговая инструкция по загрузке товаров через Excel</a></li><li><a href="#нюансы-и-подводные-камни">Нюансы и подводные камни</a></li><li><a href="#типичные-ошибки-и-как-их-исправить">Типичные ошибки и как их исправить</a></li><li><a href="#что-делать-после-успешной-загрузки">Что делать после успешной загрузки</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы продавец на AliExpress и планируете добавить десятки или сотни товаров, ручной ввод каждого наименования отнимет недели. К счастью, платформа позволяет загружать каталог массово через Excel — это экономит время, минимизирует ошибки и упрощает управление ассортиментом. Но без знания правил формата файла, обязательных полей и технических нюансов даже опытные продавцы сталкиваются с отказами системы или потерянными данными.</p>
+
+<p>Вот что нужно сделать: подготовить файл по шаблону AliExpress, заполнить его согласно требованиям платформы, а затем импортировать через личный кабинет. На практике большинство проблем возникает из-за неверного формата изображений, неправильных категорий или пропущенных обязательных полей. Эта инструкция поможет избежать типичных ошибок и успешно загрузить товары с первого раза.</p>
+
+<h2 id="где-найти-функцию-массовой-загрузки-товаров">Где найти функцию массовой загрузки товаров</h2>
+
+<p>Функция импорта через Excel доступна только для продавцов с подтверждённым аккаунтом <strong>AliExpress Seller Center</strong>. Если у вас ещё нет доступа к панели продавца, сначала зарегистрируйтесь на <a href="https://seller.aliexpress.com/" target="_blank" rel="noopener noreferrer">официальном сайте</a> и пройдите верификацию.</p>
+
+<h3>Путь к разделу загрузки</h3>
+<p>Чтобы начать импорт, выполните следующие действия:</p>
+<ol>
+  <li>Авторизуйтесь в <em>Seller Center</em> и перейдите в раздел <code>Продукты → Управление товарами</code>.</li>
+  <li>В правом верхнем углу нажмите кнопку <em>Добавить товар</em> и выберите <em>Массовая загрузка (Excel)</em>.</li>
+  <li>Скачайте актуальный шаблон файла (обязательно!), так как структура может обновляться.</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Шаблон Excel для загрузки обновляется раз в 2-3 месяца. Всегда используйте последнюю версию из личного кабинета, чтобы избежать ошибок совместимости.</p></div>
+
+<h3>Требования к аккаунту</h3>
+<p>Важный момент: массовая загрузка доступна только для продавцов с <strong>подтверждённым бизнес-профилем</strong> и оплаченной подпиской (если применимо к вашему тарифу). Бесплатные аккаунты могут иметь ограничения на количество загружаемых товаров в день.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Лимиты на массовую загрузку зависят от типа аккаунта и региона продавца. Уточните актуальные условия в разделе <em>Правила платформы</em> вашего Seller Center.</p></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип аккаунта</th>
+      <th>Макс. товаров за 1 загрузку</th>
+      <th>Макс. загрузок в день</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Стандартный (бесплатный)</td>
+      <td>500</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Профессиональный (платный)</td>
+      <td>2000</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Премиум (VIP)</td>
+      <td>5000</td>
+      <td>Неограничено*</td>
+    </tr>
+  </tbody>
+</table>
+<p>* — при соблюдении правил платформы и отсутствии блокировок.</p>
+
+<h2 id="пошаговая-инструкция-по-загрузке-товаров-через-excel">Пошаговая инструкция по загрузке товаров через Excel</h2>
+
+<p>Процесс состоит из трёх этапов: подготовка файла, заполнение данных и непосредственный импорт. Рассмотрим каждый шаг подробно.</p>
+
+<h3>1. Подготовка шаблона Excel</h3>
+<p>Скачанный шаблон содержит несколько листов, но для базовой загрузки достаточно <em>Main</em> (основные данные) и <em>Images</em> (изображения). Не удаляйте и не переименовывайте листы — это приведёт к ошибке.</p>
+
+
+<p>1. Откройте скачанный шаблон в Excel (рекомендуется версия 2016 или новее)</p>
+<p>2. Сохраните файл в формате <strong>.xlsx</strong> (не .xls!)</p>
+<p>3. Убедитесь, что в настройках региональных стандартов используется <em>точка</em> как разделитель дробной части (например, 19.99, а не 19,99)</p>
+<p>4. Заблокируйте первые две строки (с заголовками) от редактирования--></p>
+
+<p>Важный момент: <strong>не изменяйте названия колонок</strong> и их порядок. Даже если вы не используете какое-то поле (например, <em>Video URL</em>), оставьте его пустым, но не удаляйте столбец.</p>
+
+<h3>2. Заполнение обязательных полей</h3>
+<p>AliExpress требует заполнения как минимум 12 полей для каждого товара. Без них система отклонит загрузку. Вот ключевые колонки:</p>
+
+<ul>
+  <li><strong>Product Name</strong> — название товара (макс. 128 символов, без спецсимволов #$%^&*).</li>
+  <li><strong>Category ID</strong> — числовой идентификатор категории (уточняйте в справочнике AliExpress).</li>
+  <li><strong>Price</strong> — цена в USD (формат: 0.00, без валютных знаков).</li>
+  <li><strong>Quantity</strong> — количество на складе (целое число).</li>
+  <li><strong>Image URL</strong> — ссылки на изображения (разрешённые форматы: JPG, PNG; макс. 5 МБ каждое).</li>
+  <li><strong>Shipping Method</strong> — способы доставки (например, <em>AliExpress Standard Shipping</em>).</li>
+</ul>
+
+<details class="faq-item"><summary>Пример корректного заполнения полей</summary><div class="faq-answer"><p>
+<li><strong>Product Name</strong>: "Беспроводные наушники Bluetooth 5.3 с шумоподавлением, чёрный"
+<li><strong>Category ID</strong>: 100003938 (категория "Наушники")
+<li><strong>Price</strong>: 29.99
+<li><strong>Quantity</strong>: 500
+<li><strong>Image URL</strong>: https://yourdomain.com/images/earphones1.jpg|https://yourdomain.com/images/earphones2.jpg (разделитель — вертикальная черта)
+<li><strong>Shipping Method</strong>: AliExpress Standard Shipping;Cainiao Super Economy</p></div></details>
+
+<p>На практике продавцы часто забывают про <strong>атрибуты товара</strong> (цвет, размер, материал). Их нужно указывать в отдельных колонках (например, <em>Color</em>, <em>Size</em>) и дублировать в поле <em>Product Attributes</em> в формате:</p>
+<pre><code>Цвет:Чёрный;Цвет:Белый;Размер:S;Размер:M</code></pre>
+
+<h3>3. Проверка и импорт файла</h3>
+<p>Перед загрузкой обязательно:</p>
+<ol>
+  <li>Проверьте файл на ошибки с помощью встроенного валидатора AliExpress (кнопка <em>Validate</em> в разделе импорта).</li>
+  <li>Исправьте все помеченные ошибки (они будут выделены красным в отчёте).</li>
+  <li>Сохраните файл и загрузите его через кнопку <em>Import</em>.</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для ускорения проверки используйте функцию <em>Условное форматирование</em> в Excel: выделите колонки с обязательными полями и установите правило "выделить красным пустые ячейки".</p></div>
+
+<h2 id="нюансы-и-подводные-камни">Нюансы и подводные камни</h2>
+
+<p>Даже при корректном заполнении файла загрузка может завершиться ошибкой. Вот что чаще всего упускают продавцы:</p>
+
+<h3>1. Ограничения на изображения</h3>
+<p>AliExpress жёстко контролирует качество и содержание изображений. Вот ключевые требования:</p>
+<ul>
+  <li>Минимальное разрешение: 800×800 пикселей.</li>
+  <li>Фон: белый (RGB 255,255,255) или прозрачный для PNG.</li>
+  <li>Запрещены: водяные знаки, логотипы других брендов, коллажи.</li>
+  <li>Первое изображение должно показывать товар целиком (без обрезки).</li>
+</ul>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Если изображение не соответствует правилам, товар будет отклонён, а аккаунт может получить предупреждение. Проверяйте картинки через инструмент <em>Image Checker</em> в Seller Center.</p></div>
+
+<h3>2. Категории и атрибуты</h3>
+<p>Неверно указанная категория — одна из главных причин отклонения товаров. Вот как избежать ошибок:</p>
+<ul>
+  <li>Используйте <strong>числовой ID категории</strong>, а не её название. Найдите его в справочнике AliExpress (раздел <code>Продукты → Категории</code>).</li>
+  <li>Для некоторых категорий (например, электроники) требуются <strong>сертификаты</strong> (CE, FCC, RoHS). Укажите их в поле <em>Certification</em>.</li>
+  <li>Атрибуты должны соответствовать выбранной категории. Например, для одежды обязательны <em>размер</em> и <em>материал</em>, для электроники — <em>мощность</em> или <em>ёмкость батареи</em>.</li>
+</ul>
+
+<h3>3. Цены и валюта</h3>
+<p>Все цены в файле указываются в <strong>долларах США (USD)</strong>, даже если вы продаёте в другой валюте. Система автоматически конвертирует стоимость для покупателей. Важные моменты:</p>
+<ul>
+  <li>Используйте точку в качестве разделителя (например, 19.99, а не 19,99).</li>
+  <li>Цена должна включать все сборы (например, комиссию AliExpress).</li>
+  <li>Для товаров с вариантами (цвет, размер) укажите цену для каждого варианта в отдельной колонке (например, <em>Price:Чёрный</em>, <em>Price:Белый</em>).</li>
+</ul>
+
+<h2 id="типичные-ошибки-и-как-их-исправить">Типичные ошибки и как их исправить</h2>
+
+<p>Около 60% отклонённых загрузок связаны с пятью распространёнными ошибками. Проверьте свой файл на их наличие перед импортом.</p>
+
+
+<p>Незаполненные обязательные поля (особенно <em>Category ID</em> и <em>Shipping Method</em>)</p>
+<p>Некорректный формат цены (запятая вместо точки, символы валюты)</p>
+<p>Ссылки на изображения ведут на несуществующие или заблокированные файлы</p>
+<p>Превышен лимит символов в <em>Product Name</em> или <em>Description</em></p>
+<p>Несовпадение атрибутов с выбранной категорией--></p>
+
+<h3>1. Ошибка: "Invalid Category ID"</h3>
+<p><strong>Причина</strong>: Указан несуществующий или устаревший идентификатор категории.</p>
+<p><strong>Решение</strong>:</p>
+<ol>
+  <li>Проверьте актуальный список категорий в <code>Seller Center → Продукты → Категории</code>.</li>
+  <li>Используйте только числовые ID (например, 100003938, а не "Наушники").</li>
+  <li>Если категория требует подкатегории, укажите её в поле <em>Subcategory ID</em>.</li>
+</ol>
+
+<h3>2. Ошибка: "Image URL is invalid"</h3>
+<p><strong>Причина</strong>: Ссылки на изображения недоступны, ведут на запрещённые хостинги или имеют неверный формат.</p>
+<p><strong>Решение</strong>:</p>
+<ul>
+  <li>Загрузите изображения на надёжный хостинг (рекомендуется <em>AliExpress Image Hosting</em> или Amazon S3).</li>
+  <li>Проверьте, что ссылки открываются в браузере и ведут прямо на изображение (не на страницу с картинкой).</li>
+  <li>Используйте только разрешённые форматы: JPG, PNG.</li>
+</ul>
+
+<h3>3. Ошибка: "Price must be greater than 0"</h3>
+<p><strong>Причина</strong>: Цена указана как 0, отрицательное число или в неверном формате.</p>
+<p><strong>Решение</strong>:</p>
+<ul>
+  <li>Убедитесь, что цена — положительное число (например, 19.99).</li>
+  <li>Проверьте региональные настройки Excel: разделитель должен быть точкой.</li>
+  <li>Если товар имеет варианты, заполните цены для каждого из них.</li>
+</ul>
+
+<h2 id="что-делать-после-успешной-загрузки">Что делать после успешной загрузки</h2>
+
+<p>После импорта товары не сразу появляются в поиске AliExpress. Система проводит модерацию, которая может занять от <mark>24 до 72 часов</mark>. В этот период:</p>
+<ul>
+  <li>Проверьте статус товаров в разделе <code>Продукты → Ожидающие модерации</code>.</li>
+  <li>Если товар отклонён, исправьте ошибки (они будут указаны в комментарии модератора) и загрузите файл повторно.</li>
+  <li>Отслеживайте показатель <em>Quality Score</em> — он влияет на видимость товара в поиске.</li>
+</ul>
+
+<p>На практике продавцы часто забывают про оптимизацию после загрузки. Вот что стоит сделать:</p>
+<ul>
+  <li>Добавьте <strong>ключевые слова</strong> в название и описание (используйте инструмент <em>AliExpress Keyword Tool</em>).</li>
+  <li>Настройте <strong>скидки для оптовых покупателей</strong> (раздел <em>Промо-акции</em>).</li>
+  <li>Подключите <strong>AliExpress Choice</strong> (если соответствуете требованиям) для повышения видимости.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Массовая загрузка через Excel экономит время, но требует внимания к деталям: проверяйте обязательные поля, формат изображений и соответствие категории. После импорта оптимизируйте товары для поиска и отслеживайте статус модерации.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-функцию-массовой-загрузки-товаров">Где найти функцию массовой загрузки товаров</a></li><li><a href="#пошаговая-инструкция-по-загрузке-товаров-через-excel">Пошаговая инструкция по загрузке товаров через Excel</a></li><li><a href="#нюансы-и-подводные-камни">Нюансы и подводные камни</a></li><li><a href="#типичные-ошибки-и-как-их-исправить">Типичные ошибки и как их исправить</a></li><li><a href="#что-делать-после-успешной-загрузки">Что делать после успешной загрузки</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-mozhno-kupit-na-aliekspress-i-prodat-dorozhe.html" class="related-card">Что выгодно перепродавать с AliExpress: ниши и товары</a></li><li><a href="/articles/k/ko/komu-prinadlezhit-aliekspress-rus.html" class="related-card">Кому принадлежит AliExpress Russia: структура владения и риски</a></li><li><a href="/articles/i/in/internet-magazin-kak-aliekspress-analog.html" class="related-card">Как создать аналог AliExpress: пошаговое руководство</a></li><li><a href="/articles/c/ch/chto-mozhno-kupit-na-aliekspress-dlya-vygodnoj-pereprodazhi.html" class="related-card">Что выгодно купить на AliExpress для перепродажи: список товаров</a></li><li><a href="/articles/k/kt/kto-osnoval-aliexpress.html" class="related-card">Кто основал AliExpress: история создания и создатели</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/c/ch/chto-mozhno-kupit-na-aliekspress-i-prodat-dorozhe.html" class="related-bottom-card"><span class="related-bottom-title">Что выгодно перепродавать с AliExpress: ниши и товары</span><span class="related-bottom-desc">Подробный гид по выбору товаров для перепродажи с Алиэкспресс. Анализ маржинальности, поиск поставщи</span></a><a href="/articles/k/ko/komu-prinadlezhit-aliekspress-rus.html" class="related-bottom-card"><span class="related-bottom-title">Кому принадлежит AliExpress Russia: структура владения и риски</span><span class="related-bottom-desc">Узнайте, кто реально управляет AliExpress в России. Разбор структуры акционеров, влияние санкций на </span></a><a href="/articles/i/in/internet-magazin-kak-aliekspress-analog.html" class="related-bottom-card"><span class="related-bottom-title">Как создать аналог AliExpress: пошаговое руководство</span><span class="related-bottom-desc">Гид по запуску маркетплейса. Выбор движка, поиск поставщиков, логистика, юридические аспекты и бюдже</span></a><a href="/articles/c/ch/chto-mozhno-kupit-na-aliekspress-dlya-vygodnoj-pereprodazhi.html" class="related-bottom-card"><span class="related-bottom-title">Что выгодно купить на AliExpress для перепродажи: список товаров</span><span class="related-bottom-desc">Подробный гид по выбору товаров на AliExpress для перепродажи. Анализ ниш, расчет маржи, поиск поста</span></a><a href="/articles/k/kt/kto-osnoval-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Кто основал AliExpress: история создания и создатели</span><span class="related-bottom-desc">Узнайте, кто основал AliExpress, когда появилась платформа и какова роль Джека Ма. История успеха Al</span></a><a href="/articles/c/ch/chem-ali-baba-otlichaetsya-ot-aliekspressa.html" class="related-bottom-card"><span class="related-bottom-title">Алибаба vs Алиэкспресс: 7 ключевых отличий для покупателей</span><span class="related-bottom-desc">Чем отличается AliBaba от AliExpress: сравнение цен, условий доставки, минимальных заказов и возможн</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

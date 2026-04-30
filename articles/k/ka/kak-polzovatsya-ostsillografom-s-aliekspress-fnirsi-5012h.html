@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как пользоваться осциллографом Fnirsi 5012H: полное руководство — Али Гид</title>
+    <meta name="description" content="Подробная инструкция по настройке и работе с осциллографом Fnirsi 5012H. Разбор интерфейса, калибровка щупов, триггеры и устранение частых ошибок.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-polzovatsya-ostsillografom-s-aliekspress-fnirsi-5012h.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как пользоваться осциллографом Fnirsi 5012H: полное руководство">
+    <meta property="og:description" content="Подробная инструкция по настройке и работе с осциллографом Fnirsi 5012H. Разбор интерфейса, калибровка щупов, триггеры и устранение частых ошибок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как пользоваться осциллографом Fnirsi 5012H: полное руководство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Руководство по эксплуатации цифрового осциллографа Fnirsi 5012H</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#первичное-знакомство-с-интерфейсом-и-подготовка-к-работе">Первичное знакомство с интерфейсом и подготовка к работе</a></li><li><a href="#управление-осциллограммой-и-настройка-развертки">Управление осциллограммой и настройка развертки</a></li><li><a href="#режимы-измерений-и-математические-функции">Режимы измерений и математические функции</a></li><li><a href="#типичные-ошибки-и-troubleshooting">Типичные ошибки и troubleshooting</a></li><li><a href="#максимальная-эффективность-при-ремонте-и-диагностике">Максимальная эффективность при ремонте и диагностике</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы стали владельцем портативного осциллографа Fnirsi 5012H, то, скорее всего, перед вами встал вопрос о том, как эффективно использовать этот мощный инструмент для ремонта электроники или обучения. Несмотря на компактные размеры и доступную цену, устройство обладает функционалом, сопоставимым со стационарными моделями начального уровня, однако интерфейс и логика работы могут показаться непривычными после настольных приборов или симуляторов. Отсутствие бумажной инструкции на русском языке и специфика сенсорного управления часто становятся барьером для новичков.</p>
+<p>Важный момент: правильное понимание базовых настроек критически важно, так как неверная калибровка или выбор режима входа могут привести к получению искаженных данных или, в худшем случае, к повреждению прибора. Вот что нужно сделать в первую очередь: внимательно изучить расположение портов и органов управления, прежде чем подавать напряжение на вход. В этом руководстве мы подробно разберем все этапы работы, от включения до проведения сложных измерений, чтобы вы могли максимально быстро начать получать пользу от приобретения.</p>
+
+<h2 id="первичное-знакомство-с-интерфейсом-и-подготовка-к-работе">Первичное знакомство с интерфейсом и подготовка к работе</h2>
+<p>Если хотите избежать путаницы в дальнейшем, начните с тщательного изучения передней панели устройства. Fnirsi 5012H выполнен в форм-факторе планшета, где основную часть занимает сенсорный дисплей, а физические кнопки сведены к минимуму. Слева расположены входы для щупов, маркированные как <code>CH1</code> и <code>CH2</code>, а также выход калибровочного сигнала. Справа находятся разъемы для питания и интерфейса USB. Понимание назначения каждого элемента — это фундамент безопасной эксплуатации.</p>
+<p>Вот что нужно сделать: подключите щупы к соответствующим каналам. Обратите внимание, что стандартные щупы часто имеют переключатель коэффициента деления <code>1X</code> и <code>10X</code>. Для большинства задач диагностики импульсных блоков питания или цифровых схем рекомендуется использовать режим <code>10X</code>, так как он обеспечивает большую полосу пропускания и меньшую нагрузку на измеряемую цепь. Однако в настройках прибора этот параметр необходимо согласовать.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Входное напряжение на щуп не должно превышать заявленные пределы (обычно до 400V для режима 10X). Превышение напряжения может мгновенно вывести входной каскад из строя.</p></div>
+
+<p>На практике включение устройства происходит через удержание кнопки питания. После загрузки операционной системы вы увидите главный экран осциллографа. Здесь важно сразу обратить внимание на индикатор заряда батареи и статус подключения каналов. Если вы планируете работать с высокочастотными сигналами, убедитесь, что щупы плотно вставлены в разъемы BNC до характерного щелчка фиксатора.</p>
+
+<h3>Настройка параметров канала и согласование щупа</h3>
+<p>Важный момент: перед началом любых измерений (необходимо) провести компенсацию щупа. Это процедура, которую часто игнорируют, что приводит к неверному отображению формы сигнала, особенно прямоугольных импульсов. На боковой или нижней грани корпуса (в зависимости от ревизии) или через меню калибровки находится выход с меандром частотой 1 кГц и амплитудой 3.3В или 5В.</p>
+<p>Вот пошаговая инструкция, как правильно настроить щуп:</p>
+<ol>
+<li>Подключите щуп к калибровочному выходу (обычно обозначен как <code>PROBE COMP</code>).</p>
+<li>Коснитесь экрана, чтобы вызвать меню настроек канала (обычно это нижняя панель).</li>
+<li>Выберите параметр <em>Attenuation</em> (Затухание) и установите значение <code>10X</code>, если переключатель на щупе стоит в этом положении.</li>
+<li>Наблюдайте за формой сигнала: если вертикальные участки меандра имеют завалы или выбросы, используйте отвертку для вращения подстроечного конденсатора на корпусе щупа.</li>
+<li>Добейтесь идеально прямоугольной формы импульса без искажений углов.</li>
+</ol>
+
+<div class="checklist-block"><h4>📋 Калибровка щупа</h4><ol><li><strong>Шаг 1.</strong> Подключите щуп к выходу PROBE COMP</li><li><strong>Шаг 2.</strong> Установите переключатель щупа в 10X</li><li><strong>Шаг 3.</strong> Выберите в меню канала затухание 10X</li><li><strong>Шаг 4.</strong> Подстройте конденсатор отверткой до ровного меандра</li></ol></div>
+
+<p>Если хотите получить точные результаты измерений амплитуды, никогда не пренебрегайте этой процедурой при смене щупа или изменении положения переключателя на его корпусе. Несогласованность коэффициента деления приведет к тому, что прибор покажет амплитуду в 10 раз меньше или больше реальной.</p>
+
+<h2 id="управление-осциллограммой-и-настройка-развертки">Управление осциллограммой и настройка развертки</h2>
+<p>На практике работа с осциллографом сводится к управлению двумя осями: вертикальной (напряжение) и горизонтальной (время). В Fnirsi 5012H это реализовано через сенсорные жесты и меню. Горизонтальная развертка определяет, какой временной интеротображается на экране. Чем меньше значение времени на деление, тем более детально можно рассмотреть быстрые изменения сигнала.</p>
+<p>Вот что нужно сделать: используйте жесты масштабирования (щипок двумя пальцами) или кнопки <code>+/-</code> в меню <em>Horizontal</em> для изменения масштаба времени. Вертикальная развертка регулирует чувствительность канала. Если сигнал слишком маленький, уменьшайте значение вольт на деление, и наоборот. </p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Режим 1X</th>
+<th>Режим 10X</th>
+<th>Влияние на измерение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Полоса пропускания</td>
+<td>Ограничена (обычно до 10-20 МГц)</td>
+<td>Полная (до 100+ МГц)</td>
+<td>В режиме 1X высокочастотные составляющие срезаются</td>
+</tr>
+<tr>
+<td>Входное сопротивление</td>
+<td>1 МОм</td>
+<td>10 МОм</td>
+<td>10X меньше нагружает измеряемую цепь</td>
+</tr>
+<tr>
+<td>Макс. напряжение</td>
+<td>До 40V</td>
+<td>До 400V</td>
+<td>Критично для безопасности прибора</td>
+</tr>
+</tbody>
+</table>
+
+<p>Если хотите зафиксировать нестабильный сигнал, необходимо правильно настроить триггер. Триггер — это условие, по которому осциллограф начинает развертку. Без него изображение будет «бежать» по экрану. В Fnirsi 5012H управление триггером доступно через нижнюю панель меню.</p>
+
+<h3>Работа с триггерами для стабилизации изображения</h3>
+<p>Важный момент: для большинства задач достаточно использования триггера по фронту (<em>Edge Trigger</em>). Вы можете выбрать канал (CH1 или CH2), тип фронта (восходящий или нисходящий) и уровень напряжения, при котором должна происходить синхронизация. Регулировка уровня триггера осуществляется перетаскиванием индикатора на экране или через меню.</p>
+<p>Вот что нужно сделать, если сигнал не стабилизируется:</p>
+<ul>
+<li>Проверьте, выбран ли правильный источник триггера (тот канал, где есть сигнал).</li>
+<li>Убедитесь, что уровень триггера находится в пределах амплитуды сигнала.</li>
+<li>Попробуйте изменить режим с <em>Auto</em> на <em>Normal</em> или <em>Single</em>, если нужно поймать однократный импульс.</li>
+<li>Используйте фильтр шумов, если сигнал сильно зашумлен и триггер срывается.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Режим Single (Одиночный) незаменим при отладке схем сброса или (ловли) редких ошибок, так как осциллограф останавливает развертку после выполнения условия триггера один раз.</p></div>
+
+<h2 id="режимы-измерений-и-математические-функции">Режимы измерений и математические функции</h2>
+<p>Если хотите перейти от визуального наблюдения к точному анализу, воспользуйтесь встроенными измерительными функциями. Fnirsi 5012H позволяет автоматически рассчитывать частоту, период, амплитуду, среднеквадратичное значение (RMS) и другие параметры. Эти данные выводятся в нижней части экрана в реальном времени.</p>
+<p>На практике автоматические измерения могут давать погрешность на зашумленных сигналах. В таких случаях полезно использовать курсоры. Активировав режим курсоров, вы можете вручную установить две вертикальные линии для измерения времени или две горизонтальные для измерения напряжения. Разница между положениями курсоров (<code>Δ</code>) отображается отдельно.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для измерения разницы потенциалов между двумя точками схемы используйте математическую функцию вычитания каналов (CH1 - CH2), но помните, что оба канала должны быть заземлены относительно друг друга или использовать дифференциальный щуп.</p></div>
+
+<p>Важный момент: математические функции позволяют выполнять операции БПФ (Быстрое Преобразование Фурье) для анализа спектра сигнала. Это превращает осциллограф в примитивный анализатор спектра, что полезно для поиска источников помех. Доступ к этим функциям осуществляется через меню <em>Math</em>.</p>
+
+<h3>Сохранение данных и работа с файлами</h3>
+<p>Вот что нужно сделать для сохранения результатов: в меню <em>Storage</em> (или значок дискеты) можно выбрать сохранение скриншота или данных осциллограммы. Файлы сохраняются на внутреннюю память или внешнюю microSD карту. Поддерживаются форматы изображений (BMP, PNG) и файлов данных (CSV), которые затем можно открыть на компьютере в Excel или специализированном ПО.</p>
+<p>Если хотите обновить прошивку или загрузить сохраненные файлы, подключите осциллограф к ПК через USB-кабель. Устройство может определяться как съемный диск или требовать установки драйверов (в зависимости от версии ПО). Регулярное обновление прошивки от производителя может добавлять новые функции и исправлять ошибки.</p>
+
+<details class="faq-item"><summary>Скрытые функции меню</summary><div class="faq-answer"><p>В некоторых версиях прошивки доступно скрытое меню инженерной калибровки, доступное по специальной комбинации касаний. Однако вмешательство в эти настройки без эталонного оборудования категорически не рекомендуется, так как это собьет заводскую калибровку АЦП.</p></div></details>
+
+<h2 id="типичные-ошибки-и-troubleshooting">Типичные ошибки и troubleshooting</h2>
+<p>На практике даже опытные пользователи иногда допускают ошибки, которые приводят к неверным выводам или поломке оборудования. Анализ наиболее частых проблем поможет вам избежать потери времени и денег. Ниже приведен список ситуаций, с которыми сталкиваются владельцы Fnirsi 5012H.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед включением</h4><label class="check-item"><input type="checkbox"><span>Целостность изоляции щупов</span></label><label class="check-item"><input type="checkbox"><span>Правильность установки переключателя 1X/10X</span></label><label class="check-item"><input type="checkbox"><span>Наличие заземления</span></label><label class="check-item"><input type="checkbox"><span>Уровень заряда батареи</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Типичные ошибки, которых следует избегать:</p>
+<ol>
+<li><strong>Заземление через USB:</strong> Категорически запрещается подключать осциллограф к компьютеру через USB, если щуп подключен к цепи, не имеющей гальванической развязки от сети 220В. Земля щупа соединена с землей USB-порта ПК. Это может привести к короткому замыканию и сгоранию материнской платы компьютера или самого осциллографа.</li>
+<li><strong>Игнорирование перегрузки:</strong> Подача напряжения выше допустимого (даже кратковременно) на вход в режиме 1X. Всегда перепроверяйте положение переключателя щупа.</li>
+<li><strong>Неверная интерпретация шумов:</strong> Принятие собственных шумов прибора за сигнал. В режиме максимальной чувствительности (например, 10 мВ/дел) даже отключенный щуп может показывать «кашу». Используйте ограничение полосы пропускания (<em>Bandwidth Limit</em>), чтобы отсечь высокочастотные шумы.</li>
+<li><strong>Путаница с частотой дискретизации:</strong> При сильном увеличении масштаба времени реальная частота дискретизации может падать, что приводит к алиасингу (искажению формы высокочастотного сигнала). Следите за индикатором текущей частоты сэмплов.</li>
+</ol>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>При работе с сетевым напряжением (220В) обязательно используйте дифференциальные щупы или осциллограф с гальванической развязкой каналов. Обычный осциллограф с заземленным корпусом при подключении к фазе создаст короткое замыкание на землю.</p></div>
+
+<p>Если хотите устранить проблему «плывущего» изображения, проверьте не только настройки триггера, но и качество контакта щупа с измеряемой точкой. Длинные «земляные» провода щупа могут работать как антенна, ловя наводки. Для высокочастотных измерений используйте короткую заземляющую пружинку, идущую в комплекте.</p>
+
+<h2 id="максимальная-эффективность-при-ремонте-и-диагностике">Максимальная эффективность при ремонте и диагностике</h2>
+<p>В завершение стоит подчеркнуть, что Fnirsi 5012H — это инструмент, который раскрывается с опытом. Начав с простых измерений напряжения и частоты, вы постепенно научитесь видеть то, что скрыто от глаз: выбросы напряжения, звон на фронтах импульсов, просадки питания под нагрузкой. Умение правильно настроить масштаб и триггер позволяет находить неисправности, которые невозможно обнаружить мультиметром.</p>
+<p>Важный момент: не бойтесь экспериментировать с настройками в безопасных пределах. Изучение реакции осциллографа на известные сигналы (например, с калибровочного выхода) создает в памяти «эталонные образы», с которыми вы будете сравнивать сигналы неисправных устройств. Регулярная практика и соблюдение мер безопасности превратят этот гаджет в незаменимого помощника в вашей мастерской.</p>
+<p>Если хотите поддерживать прибор в рабочем состоянии, следите за состоянием аккумулятора и не оставляйте его разряженным на длительное хранение. Периодически проверяйте наличие обновлений программного обеспечения на официальном сайте производителя, так как функционал портативных осциллографов часто расширяется разработчиками. Грамотное использование всех возможностей Fnirsi 5012H позволит вам решать задачи любой сложности, от настройки ШИМ-контроллеров до анализа цифровых протоколов.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Правильная калибровка щупов, аккуратное заземление и грамотная настройка триггера — три кита успешной работы с осциллографом Fnirsi 5012H.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#первичное-знакомство-с-интерфейсом-и-подготовка-к-работе">Первичное знакомство с интерфейсом и подготовка к работе</a></li><li><a href="#управление-осциллограммой-и-настройка-развертки">Управление осциллограммой и настройка развертки</a></li><li><a href="#режимы-измерений-и-математические-функции">Режимы измерений и математические функции</a></li><li><a href="#типичные-ошибки-и-troubleshooting">Типичные ошибки и troubleshooting</a></li><li><a href="#максимальная-эффективность-при-ремонте-и-диагностике">Максимальная эффективность при ремонте и диагностике</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-otkryt-smart-chasy-s-aliekspress.html" class="related-card">Как открыть смарт-часы с АлиЭкспресс: полное руководство</a></li><li><a href="/articles/k/ka/kakie-telefony-khoroshie-s-aliekspress.html" class="related-card">Какие телефоны хорошие с АлиЭкспресс: гид по выбору 2026</a></li><li><a href="/articles/k/ka/kak-kleit-steklo-s-aliekspress.html" class="related-card">Как клеить стекло на AliExpress: пошаговая инструкция</a></li><li><a href="/articles/v/vc/vcds-s-aliekspress-kak-vybrat.html" class="related-card">Как выбрать VCDS с Алиэкспресс: гид по версиям и версиям</a></li><li><a href="/articles/u/us/us-plug-chto-eto-na-aliekspress.html" class="related-card">US Plug на Алиэкспресс: что это и как выбрать переходник</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-otkryt-smart-chasy-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как открыть смарт-часы с АлиЭкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция: как разблокировать и настроить умные часы. Решаем проблемы с подключением, язы</span></a><a href="/articles/k/ka/kakie-telefony-khoroshie-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какие телефоны хорошие с АлиЭкспресс: гид по выбору 2026</span><span class="related-bottom-desc">Подробный разбор, какие смартфоны выгодно брать на AliExpress. Рейтинг брендов, проверка продавца и </span></a><a href="/articles/k/ka/kak-kleit-steklo-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как клеить стекло на AliExpress: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид по наклейке защитного стекла с AliExpress. Разбор типов стекол, устранение пузырей и п</span></a><a href="/articles/v/vc/vcds-s-aliekspress-kak-vybrat.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать VCDS с Алиэкспресс: гид по версиям и версиям</span><span class="related-bottom-desc">Подробный гид по выбору диагностического сканера VCDS на AliExpress. Разбор версий HEX-V2, китайских</span></a><a href="/articles/u/us/us-plug-chto-eto-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">US Plug на Алиэкспресс: что это и как выбрать переходник</span><span class="related-bottom-desc">Подробный гид по вилке US Plug на Алиэкспресс. Как отличить от EU, нужна ли адаптация для России и с</span></a><a href="/articles/k/ka/kak-nakleit-zashchitnuyu-plenku-na-telefon-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как наклеить пленку с Алиэкспресс: инструкция</span><span class="related-bottom-desc">Подробный гид: как выбрать и идеально наклеить защитную пленку на телефон, заказанную на AliExpress.</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

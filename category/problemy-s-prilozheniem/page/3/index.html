@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Проблемы с приложением — страница 3 — Али Гид</title>
+    <meta name="description" content="Решение ошибок входа, вылетов приложения и проблем с интерфейсом.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+        .cat-hero {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e3a5f 100%);
+            border-bottom: none;
+            padding: 48px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cat-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(37,99,235,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(139,92,246,0.1) 0%, transparent 50%);
+            animation: heroShimmer 8s ease-in-out infinite alternate;
+        }
+        @keyframes heroShimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(3deg); }
+        }
+        .cat-hero .container { position: relative; z-index: 1; }
+        .cat-hero-icon {
+            font-size: 3.5rem; display: block; margin-bottom: 16px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+        }
+        .cat-hero h1 {
+            font-size: 2rem; font-weight: 800; color: #f1f5f9;
+            margin-bottom: 10px; letter-spacing: -0.02em;
+        }
+        .cat-hero p {
+            color: #94a3b8; font-size: 1.05rem; max-width: 600px;
+            margin: 0 auto; line-height: 1.6;
+        }
+        .cat-benefits {
+            display: flex; justify-content: center; gap: 12px;
+            margin-top: 24px; flex-wrap: wrap;
+        }
+        .cat-benefit {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.08); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px; padding: 8px 18px;
+            font-size: 0.88rem; color: #e2e8f0; font-weight: 500;
+            transition: all 0.25s;
+        }
+        .cat-benefit:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        .benefit-icon { font-size: 1.15em; }
+
+        .cat-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px; padding: 32px 0 24px;
+        }
+        .article-home-card {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+            padding: 0; text-decoration: none; color: #1e293b;
+            transition: all 0.25s ease; display: flex; flex-direction: column;
+            overflow: hidden; position: relative;
+        }
+        .article-home-card:hover {
+            border-color: #bfdbfe;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.1);
+            transform: translateY(-4px);
+        }
+        .card-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 20px 0;
+        }
+        .card-icon {
+            font-size: 1.4em;
+            background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+            width: 36px; height: 36px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 6px rgba(37,99,235,0.1);
+        }
+        .card-read-time {
+            font-size: 0.78rem; color: #94a3b8; font-weight: 500;
+        }
+        .article-home-title {
+            font-weight: 600; font-size: 0.97rem; line-height: 1.4;
+            padding: 12px 20px 0; transition: color 0.2s;
+        }
+        .article-home-card:hover .article-home-title { color: #2563eb; }
+        .article-home-desc {
+            font-size: 0.84rem; color: #64748b; line-height: 1.5;
+            padding: 6px 20px 0; flex: 1;
+        }
+        .card-footer {
+            display: flex; justify-content: flex-end; align-items: center;
+            padding: 12px 20px; margin-top: auto;
+            border-top: 1px solid #f1f5f9;
+        }
+        .card-read-more {
+            font-size: 0.82rem; font-weight: 600; color: #94a3b8;
+            transition: all 0.2s;
+        }
+        .article-home-card:hover .card-read-more {
+            color: #2563eb; letter-spacing: 0.02em;
+        }
+
+        .pagination {
+            display: flex; justify-content: center; gap: 6px;
+            padding: 8px 0 48px; flex-wrap: wrap; align-items: center;
+        }
+        .pag-link {
+            padding: 10px 16px; border-radius: 10px; border: 1px solid #e2e8f0;
+            color: #64748b; font-size: 0.9rem; text-decoration: none;
+            transition: all 0.2s; font-weight: 500;
+        }
+        .pag-link:hover { border-color: #2563eb; color: #2563eb; background: #eff6ff; }
+        .pag-active {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: #fff !important; border-color: #2563eb;
+            box-shadow: 0 3px 10px rgba(37,99,235,0.3);
+        }
+        .pag-edge { font-size: 1rem; font-weight: 700; }
+        .pag-dots { color: #94a3b8; padding: 0 4px; }
+
+        
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+
+        @media (max-width: 640px) {
+            .cat-grid { grid-template-columns: 1fr; }
+            .cat-hero h1 { font-size: 1.5rem; }
+        }
+    </style>
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container">
+            <a href="/">Главная</a>
+            <span class="breadcrumb-sep">›</span>
+            <span class="breadcrumb-current">Проблемы с приложением</span>
+        </div>
+    </nav>
+
+    <section class="cat-hero">
+        <div class="container">
+            <span class="cat-hero-icon">📲</span>
+            <h1>Проблемы с приложением</h1>
+            <p>Решение ошибок входа, вылетов приложения и проблем с интерфейсом. · страница 3 из 60</p>
+            <div class="cat-benefits"><div class="cat-benefit"><span class="benefit-icon">📖</span><span>Понятные инструкции</span></div><div class="cat-benefit"><span class="benefit-icon">✅</span><span>Проверенные решения</span></div><div class="cat-benefit"><span class="benefit-icon">⚡</span><span>Без лишних слов</span></div></div>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="cat-grid">
+            <a href="/articles/a/al/aliexpress-pochemu-ne-mogu-zajti.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Не могу зайти на AliExpress: причины и решения 2026</div>
+                <div class="article-home-desc">Почему AliExpress не открывается? Пошаговые инструкции для восстановления доступа к аккаунту, решения проблем с входом и</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/c/ch/chto-delat-esli-ne-poluchaetsya-zakazat-na-aliekspress.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Не получается оформить заказ на AliExpress? Решение за 5 шагов</div>
+                <div class="article-home-desc">Пошаговая инструкция, что делать, если не проходит оплата, не открывается корзина или возникают ошибки при оформлении за</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/c/ch/chto-za-fignya-s-aliekspressom.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Проблемы с AliExpress: почему заказы не приходят, деньги пропадают и как это исправить</div>
+                <div class="article-home-desc">Разбираем основные неполадки на Алиэкспресс: от неотслеживаемых посылок до блокировок аккаунта. Пошаговые инструкции, ка</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-otkryt-aliekspress-ne-v-prilozhenii.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Как открыть AliExpress без приложения: полное руководство 2026</div>
+                <div class="article-home-desc">Пошаговая инструкция, как зайти на AliExpress через браузер на телефоне или ПК, обойти ограничения и пользоваться всеми </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-otkryt-ssylku-aliekspress.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Как открыть ссылку AliExpress: пошаговое руководство 2026</div>
+                <div class="article-home-desc">Не можете открыть ссылку с AliExpress? Узнайте, почему это происходит и как исправить: на ПК, телефоне, через приложение</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-postavit-temnuyu-temu-v-aliekspress.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Как включить темную тему в Алиэкспресс: пошаговая инструкция</div>
+                <div class="article-home-desc">Подробное руководство по активации темного режима в приложении и браузерной версии AliExpress. Нюансы, ошибки и советы д</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-sinkhronizirovat-aliexpress.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Как синхронизировать AliExpress: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по синхронизации AliExpress с браузером, приложением и другими устройствами. Пошаговые действия, н</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-smenit-profil-na-aliekspress-v-mobilnom-prilozhenii.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Как сменить профиль на АлиЭкспресс в приложении: пошаговое руководство</div>
+                <div class="article-home-desc">Подробная инструкция по смене профиля в мобильном приложении AliExpress: где найти функцию, пошаговые действия и частые </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-ubrat-reklamu-aliekspress-na-android.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Как убрать рекламу в AliExpress на Android: полное руководство</div>
+                <div class="article-home-desc">Пошаговая инструкция, как отключить назойливую рекламу в приложении AliExpress на смартфоне. Способы для разных версий О</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-udalit-akkaunt-aliekspress-s-ajfona.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Как удалить аккаунт Алиэкспресс с Айфона: пошаговое руководство</div>
+                <div class="article-home-desc">Подробная инструкция по удалению профиля Алиэкспресс через iPhone: где найти функцию, нюансы процесса и частые ошибки. С</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-udalit-iz-korziny-aliekspress-nenuzhnye-tovary-na-smartfone.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 7 мин</span>
+                </div>
+                <div class="article-home-title">Как очистить корзину Алиэкспресс на телефоне — пошаговое руководство</div>
+                <div class="article-home-desc">Подробная инструкция по удалению ненужных товаров из корзины Алиэкспресс в мобильном приложении. Рассмотрены все нюансы </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-vosstanovit-uchetnuyu-zapis-v-aliekspress-v-prilozhenii.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Как восстановить учетную запись AliExpress в приложении: пошагово</div>
+                <div class="article-home-desc">Потеряли доступ к аккаунту AliExpress? Узнайте, как восстановить учетную запись через приложение: инструкции, нюансы и р</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-vosstanovit-zakazy-na-aliekspress-esli-prilozhenie-obnovilos.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Как восстановить заказы на Алиэкспресс после обновления приложения</div>
+                <div class="article-home-desc">Пошаговое руководство: где найти историю покупок, как вернуть данные о заказах и что делать, если они исчезли после обно</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-vvesti-kod-s-kartinki-na-aliekspress.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 7 мин</span>
+                </div>
+                <div class="article-home-title">Как ввести код с картинки на Алиэкспресс: пошаговая инструкция</div>
+                <div class="article-home-desc">Подробное руководство по вводу капчи на AliExpress: где найти поле, как правильно ввести символы и избежать ошибок. Акту</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ko/kod-oshibki-csc-7200022-na-aliekspress-chto-eto-znachit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Код ошибки CSC 7200022 на AliExpress: причины и решение</div>
+                <div class="article-home-desc">Что означает ошибка CSC 7200022 на Алиэкспресс, как исправить её самостоятельно и избежать блокировки аккаунта. Пошагова</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/pa/page-under-maintenance-aliekspress-chto-delat.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Page Under Maintenance на AliExpress: что делать и как решить проблему</div>
+                <div class="article-home-desc">Подробная инструкция: почему возникает ошибка «Страница на техническом обслуживании» на Алиэкспресс, как обойти блокиров</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-aliekspress-ne-otkryvaet-tovary-v-yandekse.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 16 мин</span>
+                </div>
+                <div class="article-home-title">Почему AliExpress не открывает товары в Яндексе: решения 2026</div>
+                <div class="article-home-desc">Разбираем причины, почему товары с Алиэкспресс не отображаются в поиске Яндекса, и даём пошаговые инструкции по исправле</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-ne-skachivaetsya-aliekspress.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Не скачивается AliExpress: причины и решения проблемы</div>
+                <div class="article-home-desc">Разбираем, почему не открывается или не скачивается AliExpress на телефоне/компьютере. Пошаговые инструкции, ошибки и сп</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/a/al/aliekspress-polnaya-versiya-na-mobilnom-kak-perejti-na-drugoj.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Как перейти на полную версию AliExpress с мобильного: инструкция 2026</div>
+                <div class="article-home-desc">Пошаговое руководство по переключению между мобильной и десктопной версиями AliExpress на телефоне. Сравнение функций, н</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/a/al/aliekspress-temnaya-tema-kak-vklyuchit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 8 мин</span>
+                </div>
+                <div class="article-home-title">Как включить темную тему на Алиэкспресс: пошаговое руководство</div>
+                <div class="article-home-desc">Подробная инструкция по активации темного режима на Алиэкспресс в приложении и браузере. Нюансы, ошибки и полезные совет</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-na-aliekspress-udalit-istoriyu-prosmotrov-na-telefone.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Как удалить историю просмотров на AliExpress с телефона: пошагово</div>
+                <div class="article-home-desc">Подробная инструкция, как очистить историю поиска и просмотров на AliExpress в мобильном приложении. Рабочие способы для</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-obnovit-aliekspress-na-telefone-do-poslednej-versii.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Как обновить AliExpress на телефоне до последней версии: пошагово</div>
+                <div class="article-home-desc">Подробная инструкция по обновлению приложения AliExpress на Android и iOS. Узнайте, как проверить версию, скачать апдейт</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-otklyuchit-evu-v-aliekspress.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 8 мин</span>
+                </div>
+                <div class="article-home-title">Как отключить Еву в AliExpress: пошаговое руководство 2026</div>
+                <div class="article-home-desc">Подробная инструкция по отключению виртуального помощника Евы в AliExpress на телефоне и ПК. Сроки, ограничения и частые</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-otkryvat-ssylki-aliekspress-v-prilozhenii-iz-vk.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Как открывать ссылки AliExpress в приложении из ВК: пошагово</div>
+                <div class="article-home-desc">Подробная инструкция с фото и советами, как переходить по ссылкам AliExpress из ВКонтакте напрямую в мобильное приложени</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-otpisatsya-ot-reklamy-aliekspress.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Как отписаться от рекламы AliExpress: полное руководство 2026</div>
+                <div class="article-home-desc">Пошаговая инструкция, как навсегда отключить рассылки, уведомления и спам от AliExpress через приложение, сайт и почту. </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-polzovatsya-prilozheniem-aliekspress-na-telefone-android.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Как пользоваться Алиэкспресс на Android: полное руководство 2026</div>
+                <div class="article-home-desc">Пошаговая инструкция по установке, настройке и покупкам в приложении AliExpress на Android. Секреты поиска, оплаты, трек</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-pomenyat-nomer-na-aliekspress-v-prilozhenii.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 8 мин</span>
+                </div>
+                <div class="article-home-title">Как изменить номер телефона в AliExpress: пошаговое руководство</div>
+                <div class="article-home-desc">Подробная инструкция по смене номера в приложении AliExpress: где найти настройки, как подтвердить новый номер и избежат</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-skachat-prilozhenie-aliekspress-na-kompyuter-besplatno-na-russkom-yazyke.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Как скачать AliExpress на ПК бесплатно на русском языке</div>
+                <div class="article-home-desc">Пошаговое руководство по установке приложения AliExpress на компьютер с Windows или Mac. Бесплатно, на русском языке, бе</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-svyazatsya-s-podderzhkoj-aliekspress-v-prilozhenii.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Как связаться с поддержкой Алиэкспресс через приложение: пошагово</div>
+                <div class="article-home-desc">Подробное руководство: где найти чат, как написать в службу поддержки Алиэкспресс в мобильном приложении, сроки ответа и</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-udalit-istoriyu-aliekspress-na-telefone-v-prilozhenii.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📲</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Как удалить историю Алиэкспресс на телефоне — пошаговое руководство</div>
+                <div class="article-home-desc">Подробная инструкция, как очистить историю поиска, просмотров и заказов в приложении AliExpress на Android и iOS. Нюансы</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a></div>
+            <nav class="pagination" aria-label="Страницы"><a href="/category/problemy-s-prilozheniem/" class="pag-link pag-edge" title="В начало">«</a><a href="/category/problemy-s-prilozheniem/page/2/" class="pag-link">← Назад</a><a href="/category/problemy-s-prilozheniem/" class="pag-link">1</a><a href="/category/problemy-s-prilozheniem/page/2/" class="pag-link">2</a><a href="/category/problemy-s-prilozheniem/page/3/" class="pag-link pag-active">3</a><a href="/category/problemy-s-prilozheniem/page/4/" class="pag-link">4</a><a href="/category/problemy-s-prilozheniem/page/5/" class="pag-link">5</a><a href="/category/problemy-s-prilozheniem/page/6/" class="pag-link">6</a><span class="pag-dots">…</span><a href="/category/problemy-s-prilozheniem/page/60/" class="pag-link">60</a><a href="/category/problemy-s-prilozheniem/page/4/" class="pag-link">Далее →</a><a href="/category/problemy-s-prilozheniem/page/60/" class="pag-link pag-edge" title="В конец">»</a></nav>
+        </div>
+    </main>
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script>
+    document.getElementById('menuBtn')?.addEventListener('click', () => {
+        document.getElementById('mainNav')?.classList.toggle('open');
+    });
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

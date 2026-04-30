@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как собрать дрон с AliExpress: пошаговая инструкция — Али Гид</title>
+    <meta name="description" content="Подробный гид по сборке квадрокоптера из Китая. Выбор деталей, пайка, настройка Betaflight и типичные ошибки новичков.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-samomu-sobrat-dron-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как собрать дрон с AliExpress: пошаговая инструкция">
+    <meta property="og:description" content="Подробный гид по сборке квадрокоптера из Китая. Выбор деталей, пайка, настройка Betaflight и типичные ошибки новичков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как собрать дрон с AliExpress: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Сборка дрона с AliExpress: полное руководство для новичка</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#выбор-комплектующих-и-поиск-нужных-функций-на-aliexpress">Выбор комплектующих и поиск нужных функций на AliExpress</a></li><li><a href="#пошаговая-инструкция-по-сборке-и-пайке-компонентов">Пошаговая инструкция по сборке и пайке компонентов</a></li><li><a href="#настройка-программного-обеспечения-и-калибровка">Настройка программного обеспечения и калибровка</a></li><li><a href="#типичные-ошибки-и-проблемы-при-сборке">Типичные ошибки и проблемы при сборке</a></li><li><a href="#первый-запуск-и-финальные-тесты-системы">Первый запуск и финальные тесты системы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Самостоятельная сборка квадрокоптера — это увлекательный процесс, который позволяет не только сэкономить значительную сумму, но и получить устройство, полностью адаптированное под ваши личные требования. Покупка готового дрона часто означает компромисс: либо переплата за бренд, либо низкое качество компонентов в бюджетных моделях. Заказывая комплектующие по отдельности на AliExpress, вы сами выбираете материалы рамы, мощность моторов и характеристики полетного контроллера, что в итоге дает превосходство в производительности и ремонтопригодности.</p>
+
+<p>Однако путь от разрозненных деталей к стабильно летающему аппарату не лишен сложностей. Новичка ожидает множество технических нюансов, от выбора правильного напряжения батареи до тонкой настройки программного обеспечения. Если вы хотите избежать разочарований и лишних трат, важно заранее изучить теоретическую базу и подготовить необходимый инструмент. В этом руководстве мы пройдем весь путь от заказа компонентов до первого взлета, уделяя внимание критически важным моментам, которые часто упускают в обзорных видео.</p>
+
+<p>Важный момент: сборка дрона требует базовых навыков пайки и работы с электроникой. Если вы никогда не держали в руках паяльник, рекомендуется сначала потренироваться на ненужных платах. Кроме того, помните о технике безопасности при работе с литий-полимерными аккумуляторами, которые могут быть пожароопасны при неправильной эксплуатации. Ниже мы подробно разберем, как выбрать надежные компоненты и правильно их соединить.</p>
+
+<h2 id="выбор-комплектующих-и-поиск-нужных-функций-на-aliexpress">Выбор комплектующих и поиск нужных функций на AliExpress</h2>
+
+<p>Первым этапом всегда является формирование списка покупок. На AliExpress тысячи продавцов, и найти качественные компоненты среди моря дешевых аналогов бывает непросто. Если хотите собрать надежный дрон, не стоит гнаться за минимальной ценой, особенно в вопросах безопасности полетов. Основные компоненты — это рама, полетный контроллер (FC), регуляторы оборотов (ESC), моторы, пропеллеры и приемник.</p>
+
+<p>Вот что нужно сделать в первую очередь: определитесь с форматом дрона. Для FPV-полетов стандартом де-факто является диагональ 5 дюймов, но для обучения в помещении лучше подойдут 3 дюйма. При поиске товаров используйте фильтры «Доставка из РФ» или «AliExpress Standard Shipping», чтобы минимизировать риски потери груза. Также обращайте внимание на рейтинг продавца и количество заказов — это косвенные indicators качества.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Цены на электронику на AliExpress могут меняться ежедневно из-за курсовых колебаний и акций. Характеристики товаров также могут обновляться производителями без уведомления. Всегда проверяйте актуальные спецификации в карточке товара перед оплатой.</p></div>
+
+<p>При выборе полетного контроллера и регуляторов важно убедиться в их совместимости. Современные системы часто строятся по стековой схеме, когда FC и 4-в-1 ESC (регулятор на 4 мотора) соединяются пинами напрямую. Это упрощает сборку и снижает вес. Ищите комплекты «Stack» от проверенных брендов, таких как iFlight, T-Motor, SpeedyBee или Hobbywing. В описании товара обязательно проверьте поддерживаемое напряжение (например, 4S или 6S) — использование батареи с большим количеством банок, чем рассчитано, приведет к мгновенному сгоранию электроники.</p>
+
+<details class="faq-item"><summary>Что такое протоколы связи и почему это важно</summary><div class="faq-answer"><p> Протоколы управления (ELRS, Crossfire, FPort) и видеосигнала (Analog, HDZero, DJI O3) определяют дальность и качество картинки. ELRS сейчас является стандартом дальности и надежности, в то время как аналоговое видео теряет популярность из-за низкого разрешения, хотя и имеет минимальную задержку.</p></div></details>
+
+<p>Для поиска нужных функций и товаров используйте ключевые слова на английском языке, так как перевод на русский в карточках часто выполнен машиной и может быть некорректным. Например, ищите «5 inch frame carbon», «2207 motor 1700kv» или «f4 flight controller». В фильтрах поиска можно выбрать «Order» (по количеству заказов), чтобы увидеть самые популярные модели, которые уже проверены сообществом.</p>
+
+<h2 id="пошаговая-инструкция-по-сборке-и-пайке-компонентов">Пошаговая инструкция по сборке и пайке компонентов</h2>
+
+<p>После получения всех посылок начинается самый ответственный этап — физическая сборка. Важно организовать рабочее место: вам понадобится хороший свет, паяльник с регулировкой температуры, припой, флюс и набор отверток. Перед началом пайки настоятельно рекомендуется разложить все детали на столе и примерить их на раму, чтобы понять логику укладки проводов.</p>
+
+<div class="checklist-block"><h4>📋 Базовая сборка рамы</h4><ol><li><strong>Шаг 1.</strong> Прикрутите нижнюю пластину рамы и стойки</li><li><strong>Шаг 2.</strong> Установите моторы на лучи, протянув провода внутрь</li><li><strong>Шаг 3.</strong> Закрепите верхнюю пластину рамы</li><li><strong>Шаг 4.</strong> Смонтируйте стек FC+ESC на центральные стойки</li></ol></div>
+
+<p>Монтаж моторов начинается с их прикручивания к лучам рамы. Используйте винты из комплекта, но будьте осторожны: если вкрутить слишком длинные винты, они могут повредить обмотку мотора снизу. Провода от моторов пока ни к чему не припаиваем, просто протягиваем их к центру рамы. Затем устанавливается плата распределения питания (если она отдельная) или сразу стек регуляторов. Крепление должно быть жестким, желательно использовать демпферные шайбы или силиконовые проставки, чтобы вибрации моторов не передавались на гироскоп полетного контроллера.</p>
+
+<p>Самый сложный момент — пайка силовых проводов. Моторы трехфазные, у них три провода. Порядок подключения первых двух можно менять (это изменит направление вращения), но третий должен быть в правильной последовательности. Если после сборки мотор крутится не в ту сторону, в настройках ПО можно программно изменить направление, не перепайывая контакты. Главное — надежно залудить контакты и использовать достаточное количество припоя для хорошего контакта.</p>
+
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Рекомендуемый размер/тип</th>
+<th>Важный нюанс</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Рама</td>
+<td>Карбон 4мм (для 5")</td>
+<td>Проверьте отсутствие расслоений карбона</td>
+</tr>
+<tr>
+<td>Моторы</td>
+<td>2207 или 2306 размер</td>
+<td>Вал мотора должен быть идеально ровным</td>
+</tr>
+<tr>
+<td>Полетный контроллер</td>
+<F8 или F7 процессор</F8>
+<td>Наличие барометра и OSD желательно</td>
+</tr>
+<tr>
+<td>Видеопередатчик</td>
+<td>800mW+ (Analog) или 1W (Digital)</td>
+<td>Обязательно наличие защиты от перегрева</td>
+</tr>
+</tbody>
+</table>
+
+<p>После пайки силовой части переходим к тонким проводам: подключение приемника, видеопередатчика, светодиода (LED) и пищалки. Здесь критически важно не перепутать плюс и минус. В отличие от моторов, цифровые устройства сгорают мгновенно при обратном подключении питания. Используйте мультиметр для «прозвонки» контактов перед подачей напряжения.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Всегда проверяйте полярность подключения аккумулятора перед первым включением. Один неверно припаянный провод может стоить вам всего комплекта электроники. Используйте разъемы XT60 или XT30 в зависимости от токопотребления.</p></div>
+
+<h2 id="настройка-программного-обеспечения-и-калибровка">Настройка программного обеспечения и калибровка</h2>
+
+<p>Когда «железо» собрано, наступает время «магии» — настройки программного обеспечения. Основным инструментом для конфигурации дронов является прошивка Betaflight. Это мощная система с открытым исходным кодом, которая управляет стабилизацией, телеметрией и видеосигналом. Для начала работы необходимо скачать конфигуратор Betaflight Configurator и установить драйверы для вашего полетного контроллера.</p>
+
+<p>Вот что нужно сделать в конфигураторе: подключите дрон к компьютеру через USB. Если горит индикатор и компьютер издает звук подключения устройства — все хорошо. Перейдите во вкладку <code>Setup</code> (Настройка). Здесь вы увидите 3D-модель дрона. Пошевелите дрон руками — модель должна повторять движения. Если модель реагирует наоборот или не в той оси, значит, неправильно задана ориентация платы. В поле <em>Board Alignment</em> нужно ввести значения Roll, Pitch или Yaw (обычно кратные 90 градусам), чтобы виртуальная модель совпала с реальной.</p>
+
+<p>Следующий критический этап — вкладка <code>Ports</code> (Порты). Здесь нужно указать, к каким физическим контактам на плате подключены периферийные устройства. Например, если видеопередатчик подключен к UART1, то в строке UART1 в столбце <em>Peripherals</em> нужно выбрать <code>VTX</code>. Если приемник подключен к UART6, выбираем <code>Serial Rx</code>. Без правильной настройки портов дрон не будет видеть пульт управления или не сможет менять каналы видеопередатчика.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте функцию «Blackbox» для записи логов полета. Это поможет диагностировать проблемы с вибрацией или настройкой PID-коэффициентов после первых тестовых запусков.</p></div>
+
+<p>Далее следует настройка режимов полета во вкладке <code>Modes</code> (Режимы). Вам нужно назначить переключатели на пульте для активации режимов <em>Angle</em> (стабилизация, дрон сам возвращается в горизонт), <em>Horizon</em> (гибрид) и <em>Acro</em> (полная ручная, для трюков). Также обязательно настройте режим <em>Arm</em> (арм/разарм) — включение моторов. Без активного режима Arm моторы не запустятся в целях безопасности.</p>
+
+<h2 id="типичные-ошибки-и-проблемы-при-сборке">Типичные ошибки и проблемы при сборке</h2>
+
+<p>Даже опытные сборщики сталкиваются с проблемами. Чаще всего они связаны с невнимательностью или спешкой. Если хотите избежать многочасовой отладки, изучите список наиболее частых ошибок, которые допускают новички при сборке дронов с AliExpress.</p>
+
+<ul>
+<li>Неверная прошивка регулятора ESC. Часто регуляторы приходят с заводской прошивкой, которая несовместима с Betaflight или настроена на низкие токи. Это решается перепрошивкой через BLHeli Configurator.</li>
+<li>Плохая пайка контактов. «Холодная» пайка (когда припой не прогрелся и не растекся) приводит к потере сигнала в полете и падению дрона.</li>
+<li>Игнорирование мягкого монтажа. Полетный контроллер должен висеть на мягких силиконовых кембриках или специальных демпферах. Жесткое крепление передает вибрации на гироскоп, что вызывает «шум» и дерганое поведение дрона.</li>
+<li>Неправильный порядок фаз мотора. Как упоминалось, это лечится софтом, но если перепутать провода питания, сгорят дорожки на плате.</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Чек-лист перед первым запуском</h4><label class="check-item"><input type="checkbox"><span>Все винты рамы затянуты и зафиксированы фиксатором резьбы</span></label><label class="check-item"><input type="checkbox"><span>Провода не касаются пропеллеров и острых краев карбона</span></label><label class="check-item"><input type="checkbox"><span>Антенна видеопередатчика надежно прикручена (запуск без антенны сжигает передатчик)</span></label><label class="check-item"><input type="checkbox"><span>Аккумулятор полностью заряжен и подключен правильно</span></label><label class="check-item"><input type="checkbox"><span>Настройки портов в Betaflight соответствуют реальной распайке</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Отдельно стоит упомянуть проблему качества компонентов с AliExpress. Иногда встречаются бракованные гироскопы или моторы с люфтом вала. Перед окончательной сборкой и установкой пропеллеров полезно проверить каждый мотор отдельно, запустив его на низких оборотах. Вибрация или странный звук укажут на брак, который лучше выявить до финальной сборки.</p>
+
+<h2 id="первый-запуск-и-финальные-тесты-системы">Первый запуск и финальные тесты системы</h2>
+
+<p>Наступает момент истины. Перед тем как дернуть стик арминга на пульте, убедитесь, что пропеллеры сняты! Первый запуск всегда делается без винтов. Подключите аккумулятор и слушайте звуки. Если писк моторов ровный, а в конфигураторе все датчики показывают зеленые статусы — это хороший знак. Попробуйте покрутить дрон в руках: в режиме Angle он должен сопротивляться наклону и пытаться выровняться.</p>
+
+<p>Если все прошло успешно, можно установить пропеллеры. Внимание: направление вращения пропеллера должно строго соответствовать направлению вращения мотора. На пропеллерах есть маркировка CW (clockwise) и CCW (counter-clockwise). Установка пропеллера не на тот мотор приведет к мгновенному разрушению конструкции при взлете.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Первый взлет проводите только на огороженной территории, вдали от людей, животных и стеклянных поверхностей. Дрон может повести себя непредсказуемо из-за настроек PID или порывов ветра.</p></div>
+
+<p>После успешного висения и проверки всех режимов полета можно считать сборку завершенной. Не забудьте настроить OSD (экранное меню), чтобы видеть заряд батареи и время полета в очках. Регулярно проверяйте состояние винтов рамы после каждого полета — вибрации имеют свойство раскручивать соединения.</p>
+
+<p>Сборка собственного дрона — это инвестиция в ваши навыки и понимание технологии. Вы больше не будете зависеть от сервисных центров, так как сможете заменить любую деталь за 15 минут. Компоненты с AliExpress позволяют собрать аппарат, который по характеристикам превзойдет многие магазинные аналоги, при этом стоимость будет ниже. Главное — не торопиться, внимательно читать документацию и соблюдать технику безопасности.</p>
+
+<p>В будущем вы сможете модернизировать свой дрон, меняя камеры, антенны или моторы, адаптируя его под новые задачи. Мир FPV-полетов огромен, и собственный собранный дрон станет вашим лучшим проводником в нем. Помните, что каждый упавший и разбитый дрон — это опыт, который делает вас пилотом лучше, а возможность быстро и дешево восстановить его благодаря конструкции (модульности) — главное преимущество самостоятельной сборки.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Сборка дрона с AliExpress требует времени и аккуратности, но дает полный контроль над характеристиками и ремонтопригодностью аппарата.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#выбор-комплектующих-и-поиск-нужных-функций-на-aliexpress">Выбор комплектующих и поиск нужных функций на AliExpress</a></li><li><a href="#пошаговая-инструкция-по-сборке-и-пайке-компонентов">Пошаговая инструкция по сборке и пайке компонентов</a></li><li><a href="#настройка-программного-обеспечения-и-калибровка">Настройка программного обеспечения и калибровка</a></li><li><a href="#типичные-ошибки-и-проблемы-при-сборке">Типичные ошибки и проблемы при сборке</a></li><li><a href="#первый-запуск-и-финальные-тесты-системы">Первый запуск и финальные тесты системы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-nout-vzyat-s-aliekspress.html" class="related-card">Как выбрать ноутбук на AliExpress: гайд с проверенными советами</a></li><li><a href="/articles/k/ka/kak-na-aliekspress-kupit-telefon.html" class="related-card">Как купить телефон на AliExpress: гид по выбору и заказу</a></li><li><a href="/articles/k/ka/kakoj-videoregistrator-s-radar-detektorom-luchshe-kupit-na-aliekspress.html" class="related-card">Выбор видеорегистратора с радар-детектором на AliExpress: гид по покупке</a></li><li><a href="/articles/k/ko/koltso-nfs-s-aliekspress-kak-polzovatsya.html" class="related-card">Кольцо NFC с Алиэкспресс: как настроить и пользоваться</a></li><li><a href="/articles/k/ka/kak-zakazat-airpods-na-aliekspress.html" class="related-card">Как заказать AirPods на Алиэкспресс: инструкция и проверка</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kakoj-nout-vzyat-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать ноутбук на AliExpress: гайд с проверенными советами</span><span class="related-bottom-desc">Пошаговое руководство по покупке ноутбука на AliExpress: где искать, как проверить продавца, какие х</span></a><a href="/articles/k/ka/kak-na-aliekspress-kupit-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как купить телефон на AliExpress: гид по выбору и заказу</span><span class="related-bottom-desc">Подробная инструкция: как выбрать смартфон на Алиэкспресс, проверить продавца, оплатить заказ и избе</span></a><a href="/articles/k/ka/kakoj-videoregistrator-s-radar-detektorom-luchshe-kupit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Выбор видеорегистратора с радар-детектором на AliExpress: гид по покупке</span><span class="related-bottom-desc">Как выбрать надежный радар-детектор и видеорегистратор на Алиэкспресс. Советы по поиску, проверке пр</span></a><a href="/articles/k/ko/koltso-nfs-s-aliekspress-kak-polzovatsya.html" class="related-bottom-card"><span class="related-bottom-title">Кольцо NFC с Алиэкспресс: как настроить и пользоваться</span><span class="related-bottom-desc">Подробное руководство: как активировать NFC-кольцо с AliExpress, записать ключ доступа, открыть двер</span></a><a href="/articles/k/ka/kak-zakazat-airpods-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как заказать AirPods на Алиэкспресс: инструкция и проверка</span><span class="related-bottom-desc">Подробный гид: как купить AirPods на AliExpress. Проверка оригинальности, выбор продавца, настройка </span></a><a href="/articles/k/ka/kak-programmirovat-brelok-dlya-vorot-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Программирование брелока для ворот: руководство</span><span class="related-bottom-desc">Подробная инструкция по настройке пультов с AliExpress. Как копировать частоту, коды и устранять оши</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

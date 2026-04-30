@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>AliExpress не показывает все товары: причины и решения — Али Гид</title>
+    <meta name="description" content="Узнайте, почему AliExpress скрывает часть товаров. Разбор фильтров, региональных ограничений и настроек поиска в приложении.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/p/po/pochemu-aliekspress-ne-pokazyvaet-vse-tovary-v-prilozhenii.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AliExpress не показывает все товары: причины и решения">
+    <meta property="og:description" content="Узнайте, почему AliExpress скрывает часть товаров. Разбор фильтров, региональных ограничений и настроек поиска в приложении.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/poisk-tovarov/">Поиск товаров</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">AliExpress не показывает все товары: причины и решения</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Почему AliExpress не показывает все товары: полный разбор причин</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#влияние-региона-доставки-и-геолокации-на-выдачу">Влияние региона доставки и геолокации на выдачу</a></li><li><a href="#скрытые-фильтры-и-персонализация-поисковой-выдачи">Скрытые фильтры и персонализация поисковой выдачи</a></li><li><a href="#технические-ограничения-и-региональные-блокировки">Технические ограничения и региональные блокировки</a></li><li><a href="#типичные-ошибки-пользователей-при-поиске">Типичные ошибки пользователей при поиске</a></li><li><a href="#стратегии-поиска-редких-и-скрытых-товаров">Стратегии поиска редких и скрытых товаров</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы привыкли находить на AliExpress буквально всё, от иголки до автомобиля, то внезапное исчезновение целых категорий или конкретных моделей может сбить с толку. Пользователи часто сталкиваются с ситуацией, когда товар, который они видели у друзей или в рекламных роликах, в поиске приложения просто не находится. Это вызывает недоумение, ведь платформа позиционируется как универсальный маркетплейс с миллиардами позиций. Однако за видимостью ассортимента стоит сложная система алгоритмов, которые решают, что именно показать конкретному покупателю в его регионе.</p>
+
+<p>Важный момент: отсутствие товара в выдаче не всегда означает, что его нет в наличии или продавец перестал им торговать. Чаще всего дело в индивидуальных настройках аккаунта, геолокации или скрытых фильтрах, которые включены по умолчанию. Понимание этих механизмов позволяет не только найти нужный продукт, но и увидеть цены, доступные другим пользователям, а также получить доступ к эксклюзивным купонам.</p>
+
+<p>Вот что нужно сделать: прежде чем паниковать и искать товар на других площадках, стоит провести ревизию настроек самого приложения. Система AliExpress стремится персонализировать опыт, показывая в первую очередь то, что имеет высокую вероятность быстрой доставки именно в ваш город. Это сужает воронку поиска, скрывая тысячи позиций с долгими сроками логистики или неподходящими характеристиками.</p>
+
+<h2 id="влияние-региона-доставки-и-геолокации-на-выдачу">Влияние региона доставки и геолокации на выдачу</h2>
+
+<p>На практике самым мощным фильтром, который скрывает товары, является настройка страны и города доставки. AliExpress делит весь ассортимент на две большие группы: товары, которые могут быть доставлены в выбранный регион, и те, которые туда не доставляются. Если в настройках профиля указан конкретный город в России, система автоматически отсеивает миллионы лотов, sellers которых не отправляют грузы в РФ или используют логистические маршруты, недоступные для вашего почтового индекса.</p>
+
+<p>Если хотите увидеть полный каталог, включая товары, которые формально не доставляются в ваш регион, можно временно изменить настройки локации. Однако стоит помнить, что даже если товар отобразится, заказать его с доставкой на ваш реальный адрес может быть невозможно. Часто пользователи меняют регион доставки на соседние страны или глобальные хабы, чтобы оценить ассортимент, но при оформлении заказа система все равно запросит подтверждение возможности доставки.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Правила доставки и доступность товаров зависят от текущей геополитической ситуации и логистических договоров. Проверяйте актуальность условий доставки на официальной странице помощи AliExpress или в разделе «Доставка и оплата» перед покупкой.</p></div>
+
+<p>Важно учитывать и валютные ограничения. При смене региона часто меняется и валюта отображения цен. Некоторые товары могут быть скрыты, если продавец не настроил конвертацию цены в валюту вашего текущего региона. Также существуют товары с ограничением по весу или габаритам для определенных направлений. Например, крупногабаритные грузы могут не показываться пользователям из удаленных регионов, куда логистические операторы не возят такие грузы.</p>
+
+<h3>Как проверить и изменить настройки локации</h3>
+
+<p>Для управления видимостью товаров первым делом нужно зайти в профиль. В верхней части главной страницы или в боковом меню обычно отображается текущая страна и город. Нажав на эту область, вы попадете в меню выбора локации. Здесь можно выбрать опцию «Доставка по всему миру» или сменить страну на ту, где базируется продавец, чтобы увидеть весь его ассортимент без географических фильтров.</p>
+
+<ol>
+<li>Откройте приложение AliExpress и перейдите в раздел <code>Мой AliExpress</code> (иконка человечка).</li>
+<li>Найдите блок с адресом доставки или страной в верхней части экрана.</li>
+<li>Нажмите на название страны и выберите «Добавить адрес» или «Управление адресами».</li>
+<li>В настройках доставки попробуйте отключить фильтр «Только товары с доставкой в [Ваша страна]», если такая опция доступна в вашей версии приложения.</li>
+</ol>
+
+<div class="checklist-block"><h4>📋 Смена региона для расширенного поиска</h4><ol><li><strong>Шаг 1.</strong> Зайдите в настройки профиля -> Выберите «Страна/Регион» -> Смените на глобальный или нужный вам -> Обновите главную страницу приложения</li></ol></div>
+
+<p>Стоит отметить, что изменение региона может повлиять на отображение купонов и акций. Многие промо-акции привязаны строго к географии покупателя. Поэтому, сменив регион ради поиска товара, вы можете потерять доступ к локальным скидкам. После нахождения нужной модели лучше вернуть настройки обратно, чтобы проверить итоговую стоимость с учетом доставки до двери.</p>
+
+<h2 id="скрытые-фильтры-и-персонализация-поисковой-выдачи">Скрытые фильтры и персонализация поисковой выдачи</h2>
+
+<p>Алгоритмы ранжирования AliExpress работают на основе сложного анализа поведения пользователя. Система запоминает, какие товары вы просматривали, что добавляли в корзину и что игнорировали. Если вы часто покупаете электронику, система может приоритетно показывать гаджеты, даже если вы ищете одежду, считая это более релевантным для вас. Кроме того, существуют скрытые фильтры, которые включаются автоматически.</p>
+
+<p>Один из самых частых случаев — фильтр «Только с быстрой доставкой» или «Местный склад». Приложение по умолчанию может скрывать товары, которые идут из Китая 3-4 недели, показывая только те, что лежат на складах в вашей стране. Это удобно для скорости, но drastically сокращает ассортимент. Чтобы увидеть все варианты, нужно вручную сбрасывать эти фильтры в поисковой строке.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Персонализация поиска работает и на основе ценового сегмента. Если вы обычно покупаете товары до 500 рублей, система может прятать более дорогие аналоги, считая их неинтересными для вашего кошелька.</p></div>
+
+<p>Еще один нюанс — это «пузырь фильтров» по брендам. Если вы недавно искали товары определенного бренда или, наоборот, избегали их, алгоритм будет корректировать выдачу. Также скрываются товары с низким рейтингом продавца или высоким процентом возвратов, даже если формально они соответствуют поисковому запросу. Платформа защищает покупателя, не показывая потенциально проблемные лоты в топ-выдаче.</p>
+
+<h3>Управление фильтрами в поисковой строке</h3>
+
+<p>Когда вы вводите запрос в поиск, обратите внимание на панель фильтров сразу под строкой ввода. Там могут быть активны скрытые переключатели. Например, галочка «Бесплатная доставка» или «4 звезды и выше». Снятие этих ограничений мгновенно расширяет список результатов. Также стоит проверить сортировку: по умолчанию стоит «Наилучшее соответствие», которое учитывает персонализацию. Переключение на «Количество заказов» или «Новизна» часто выводит на поверхность товары, которые ранее были скрыты.</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип фильтра</th>
+<th>Что скрывает</th>
+<th>Как включить все товары</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доставка</td>
+<td>Товары с долгим сроком доставки</td>
+<td>Снять галочку «Доставка за X дней»</td>
+</tr>
+<tr>
+<td>Рейтинг</td>
+<td>Новые товары без отзывов</td>
+<td>Убрать ограничение «4 звезды и выше»</td>
+</tr>
+<tr>
+<td>Склад</td>
+<td>Товары только из-за рубежа</td>
+<td>Выбрать «Все склады» или «Глобально»</td>
+</tr>
+<tr>
+<td>Цена</td>
+<td>Слишком дорогие или дешевые аналоги</td>
+<td>Сбросить ползунок диапазона цен</td>
+</tr>
+</tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте режим инкогнито в браузере или войдите с нового аккаунта, чтобы увидеть «чистую» выдачу без влияния истории ваших покупок и предпочтений.</p></div>
+
+<h2 id="технические-ограничения-и-региональные-блокировки">Технические ограничения и региональные блокировки</h2>
+
+<p>Иногда причина кроется не в настройках, а в технических ограничениях самой платформы или законодательных нормах. AliExpress обязан соблюдать законы стран, в которых работает. Это касается запрета на продажу определенных категорий товаров (например, дронов с определенными характеристиками, радиопередающих устройств без сертификации, товаров с брендовой символикой, если есть споры о правах).</p>
+
+<p>Если товар помечен как «Недоступно в вашем регионе», никакие манипуляции с фильтрами не помогут. Это жесткая блокировка на уровне сервера. Часто такие ограничения касаются литиевых батарей, жидкостей, аэрозолей или товаров, попавших под таможенные ограничения. В этом случае система просто убирает товар из индекса поиска для IP-адресов из вашей страны.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Попытки обойти блокировки сменой IP-адреса могут привести к заморозке аккаунта службой безопасности. Используйте только легальные методы поиска.</p></div>
+
+<p>Также существуют ограничения, связанные с версией приложения. В некоторых регионах (например, в РФ) может использоваться отдельная версия приложения или серверная группа, которая отличается от глобальной. Обновления интерфейса и функционала приходят волнами. Если у вас старая версия приложения, некоторые категории товаров могут не отображаться корректно или быть скрыты из-за несовместимости форматов отображения.</p>
+
+<h3>Проблемы кэша и версии приложения</h3>
+
+<p>Накопленный кэш приложения может вызывать ошибки отображения. Старые данные о категориях или поисковых запросах конфликтуют с актуальной базой товаров. В результате вы можете видеть пустые страницы или неполный список результатов. Регулярная очистка кэша помогает обновить списки и «проявить» пропавшие товары.</p>
+
+<ol>
+<li>Зайдите в настройки вашего смартфона.</li>
+<li>Перейдите в раздел «Приложения» и найдите AliExpress.</li>
+<li>Выберите «Хранилище» или «Память».</li>
+<li>Нажмите кнопку <code>Очистить кэш</code> (не перепутайте с «Очистить данные», чтобы не сбросить авторизацию).</li>
+<li>Перезапустите приложение и проверьте поиск.</li>
+</ol>
+
+<details class="faq-item"><summary>Скрытые категории</summary><div class="faq-answer"><p>Некоторые товары, такие как-продукция или определенные виды ножей, скрыты по умолчанию и требуют включения «Безопасного поиска» в настройках аккаунта для их отображения, либо наоборот, их виден только при выключенном фильтре безопасности.</p></div></details>
+
+<h2 id="типичные-ошибки-пользователей-при-поиске">Типичные ошибки пользователей при поиске</h2>
+
+<p>Часто пользователи сами ограничивают себя, допуская ряд распространенных ошибок. Понимание этих нюансов поможет избежать ложного впечатления, что товар исчез.</p>
+
+<ul>
+<li>Использование слишком специфичных илиtranslated запросов. Если искать товар на русском языке, а продавец заполнил карточку только на английском или китайском (с автопереводом), система может не найти совпадений. Лучше использовать ключевые слова на английском или копировать артикул модели.</li>
+<li>Игнорирование похожих товаров. Алгоритм часто показывает карточку товара-заглушки или основной вариант, а все модификации (цвета, размеры) скрыты внутри. Нужно обязательно заходить внутрь карточки.</li>
+<li>Поиск по картинке без уточнения. Функция поиска по фото полезна, но она часто дает узкую выдачу. Лучше комбинировать её с текстовым запросом.</li>
+<li>Неверная категория. Если вы ищете «чехол для телефона» в категории «Электроника», а товар лежит в «Аксессуарах», он может затеряться. Всегда проверяйте, в какой категории находится найденный аналог.</li>
+</ul>
+
+<div class="checklist-block"><h4>☑️ Чек-лист перед обращением в поддержку</h4><label class="check-item"><input type="checkbox"><span>Товар не найден по точному артикулу</span></label><label class="check-item"><input type="checkbox"><span>Фильтры сброшены, регион изменен</span></label><label class="check-item"><input type="checkbox"><span>Кэш приложения очищен</span></label><label class="check-item"><input type="checkbox"><span>Версия приложения обновлена</span></label><label class="check-item"><input type="checkbox"><span>Поиск выполнен с английского запроса</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Еще одна ошибка — ожидание мгновенного обновления базы. Если товар только что появился у продавца или вернулся в stock, он может индексироваться до 24 часов. В это время прямой ссылкой он может открываться, но в общем поиске еще не отображаться.</p>
+
+<h2 id="стратегии-поиска-редких-и-скрытых-товаров">Стратегии поиска редких и скрытых товаров</h2>
+
+<p>Чтобы гарантированно найти товар, который система упорно скрывает, нужно использовать комбинированный подход. Сначала попробуйте найти магазин продавца через поиск по названию. Внутри магазина фильтрация по регионам работает менее строго, и вы сможете увидеть весь ассортимент продавца. Если товар есть у продавца, но не виден вам, значит, проблема именно в доставке в ваш регион.</p>
+
+<p>Также эффективно использование внешних поисковиков. Введите в Google или Яндекс запрос: <code>site:aliexpress.com название товара</code>. Поисковые роботы индексируют страницы быстрее, чем внутренний поиск Ali, и могут показать прямую ссылку на товар, даже если он выпал из внутренней выдачи. Переход по такой ссылке часто «прогревает» алгоритм, и товар начинает отображаться у вас в истории и рекомендациях.</p>
+
+<p>Не забывайте про артикулы. Если вы знаете модель товара, ищите по его внутреннему ID или артикулу производителя. Это самый точный способ обойти текстовые фильтры и языковые барьеры. Введите номер модели в поисковую строку без лишних слов — это часто приводит прямо к карточке товара.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>AliExpress скрывает товары из-за настроек региона, персонализации выдачи и технических ограничений. Смена локации, сброс фильтров и поиск по артикулу помогают вернуть доступ к полному каталогу.</p></div>
+
+<p>В заключение стоит сказать, что платформа постоянно evolves, и механизмы отображения товаров меняются. То, что работало вчера, сегодня может дать сбой. Главное — не полагаться только на главную страницу и стандартную выдачу. Активное управление фильтрами, знание настроек аккаунта и использование альтернативных методов поиска позволяют обойти большинство ограничений. Если товар действительно нужен, он найдется, даже если для этого придется временно «обмануть» алгоритм, сменив виртуальное местоположение или язык запроса.</p>
+
+<p>Помните, что отсутствие товара в поиске — это чаще всего забота системы о вашем времени и гарантии доставки, а не технический сбой. Однако, понимая принципы работы этих фильтров, вы получаете полный контроль над покупками и доступ к тысячам позиций, которые ранее были скрыты. Регулярно проверяйте обновления приложения и меняющиеся правила доставки, чтобы оставаться в курсе всех возможностей маркетплейса.</p></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#влияние-региона-доставки-и-геолокации-на-выдачу">Влияние региона доставки и геолокации на выдачу</a></li><li><a href="#скрытые-фильтры-и-персонализация-поисковой-выдачи">Скрытые фильтры и персонализация поисковой выдачи</a></li><li><a href="#технические-ограничения-и-региональные-блокировки">Технические ограничения и региональные блокировки</a></li><li><a href="#типичные-ошибки-пользователей-при-поиске">Типичные ошибки пользователей при поиске</a></li><li><a href="#стратегии-поиска-редких-и-скрытых-товаров">Стратегии поиска редких и скрытых товаров</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/c/ch/chto-znachit-tsena-za-1-lot-na-aliekspress.html" class="related-card">Цена за 1 лот на Алиэкспресс: что это значит и как не переплатить</a></li><li><a href="/articles/k/ka/kak-najti-tojs-na-aliekspress.html" class="related-card">Как найти и открыть тойсы на AliExpress: инструкция</a></li><li><a href="/articles/k/ka/kak-vstavit-foto-v-aliekspress-v-poiske.html" class="related-card">Как добавить фото в поиск AliExpress: пошаговая инструкция</a></li><li><a href="/articles/i/is/istoriya-poiska-aliekspress-kak-udalit.html" class="related-card">Как удалить историю поиска на AliExpress: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-zakazat-linzy-na-aliekspress.html" class="related-card">Как заказать линзы на Алиэкспресс: полная инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/c/ch/chto-znachit-tsena-za-1-lot-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Цена за 1 лот на Алиэкспресс: что это значит и как не переплатить</span><span class="related-bottom-desc">Подробный разбор понятия лота на AliExpress. Как узнать количество товаров в партии, рассчитать итог</span></a><a href="/articles/k/ka/kak-najti-tojs-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как найти и открыть тойсы на AliExpress: инструкция</span><span class="related-bottom-desc">Подробное руководство, как найти тойсы на Алиэкспресс. Инструкция по поиску, обход блокировок, прове</span></a><a href="/articles/k/ka/kak-vstavit-foto-v-aliekspress-v-poiske.html" class="related-bottom-card"><span class="related-bottom-title">Как добавить фото в поиск AliExpress: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как загрузить фото в поиск AliExpress для точного подбора товаров. Пошаговые действия, нюан</span></a><a href="/articles/i/is/istoriya-poiska-aliekspress-kak-udalit.html" class="related-bottom-card"><span class="related-bottom-title">Как удалить историю поиска на AliExpress: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по очистке истории поиска на AliExpress с мобильного и ПК. Узнайте, как скрыть</span></a><a href="/articles/k/ka/kak-zakazat-linzy-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как заказать линзы на Алиэкспресс: полная инструкция</span><span class="related-bottom-desc">Подробный гид по покупке контактных линз на AliExpress. Выбор параметров, проверка продавца, оформле</span></a><a href="/articles/k/ka/kak-zapolnit-zakaz-na-aliexpress.html" class="related-bottom-card"><span class="related-bottom-title">Как оформить заказ на AliExpress: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид по оформлению покупки на AliExpress. Узнайте, как выбрать товар, применить купоны, опл</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

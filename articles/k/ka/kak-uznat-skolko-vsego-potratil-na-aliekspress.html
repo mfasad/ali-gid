@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как узнать общую сумму трат на AliExpress — пошаговое руководство — Али Гид</title>
+    <meta name="description" content="Где посмотреть историю заказов и подсчитать расходы на AliExpress за любой период: инструкции, скрытые функции и нюансы.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-uznat-skolko-vsego-potratil-na-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как узнать общую сумму трат на AliExpress — пошаговое руководство">
+    <meta property="og:description" content="Где посмотреть историю заказов и подсчитать расходы на AliExpress за любой период: инструкции, скрытые функции и нюансы.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/oplata-i-karty/">Оплата и карты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как узнать общую сумму трат на AliExpress — пошаговое руководство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как посчитать все траты на AliExpress: 3 способа с пошаговыми инструкциями</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#зачем-нужно-знать-общую-сумму-трат-на-aliexpress">Зачем нужно знать общую сумму трат на AliExpress</a></li><li><a href="#где-на-aliexpress-хранится-информация-о-заказах">Где на AliExpress хранится информация о заказах</a></li><li><a href="#способ-1-ручной-подсчёт-через-мои-заказы">Способ 1: Ручной подсчёт через «Мои заказы»</a></li><li><a href="#способ-2-использование-сторонних-сервисов">Способ 2: Использование сторонних сервисов</a></li><li><a href="#способ-3-анализ-банковских-выписок">Способ 3: Анализ банковских выписок</a></li><li><a href="#типичные-ошибки-при-подсчёте-трат">Типичные ошибки при подсчёте трат</a></li><li><a href="#как-оптимизировать-расходы-на-aliexpress-в-будущем">Как оптимизировать расходы на AliExpress в будущем</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><h2 id="зачем-нужно-знать-общую-сумму-трат-на-aliexpress">Зачем нужно знать общую сумму трат на AliExpress</h2>
+
+<p>Если вы регулярно покупаете на AliExpress, рано или поздно возникает вопрос: <strong>сколько всего денег потрачено на платформе?</strong> Эта информация нужна не только для контроля личного бюджета. Она помогает оценить реальную стоимость покупок (включая доставку и комиссии), сравнить расходы с другими площадками или подготовить данные для налоговой декларации, если вы покупаете товары для бизнеса.</p>
+
+<p>На практике многие пользователи сталкиваются с тем, что AliExpress не предоставляет готовый отчёт о расходах. В отличие от банковских приложений, где есть статистика по категориям, здесь данные разбросаны по разным разделам. Без знания нюансов интерфейса можно упустить скрытые платежи (например, доплаты за доставку) или не учесть возвраты средств. Вот что нужно сделать, чтобы получить точную картину.</p>
+
+<p>В этой статье — <strong>три проверенных способа</strong> подсчитать траты, включая ручной метод и автоматизированные инструменты. Также разберём, как учитывать дополнительные расходы и избежать типичных ошибок при расчётах.</p>
+
+<h2 id="где-на-aliexpress-хранится-информация-о-заказах">Где на AliExpress хранится информация о заказах</h2>
+
+<p>Все данные о покупках сосредоточены в разделе <em>Мои заказы</em>, но не все пользователи знают, что здесь можно фильтровать заказы по датам, статусам и даже способам оплаты. Это ключевой инструмент для анализа трат.</p>
+
+<h3>Основные разделы с финансовой информацией</h3>
+
+<p>Чтобы найти историю покупок:</p>
+<ol>
+  <li>Авторизуйтесь на сайте или в приложении AliExpress.</li>
+  <li>Перейдите в <code>Личный кабинет → Мои заказы</code>.</li>
+  <li>Используйте фильтры в верхней части страницы: <em>Все заказы</em>, <em>Последние 3 месяца</em>, <em>2023 год</em> и т.д.</li>
+</ol>
+
+<p>Важный момент: по умолчанию показываются только <strong>завершённые заказы</strong>. Чтобы увидеть отменённые или возвращённые товары, выберите в фильтре <em>Все статусы</em>. Иначе сумма будет занижена.</p>
+
+<div class="checklist-block"><h4>📋 Поиск истории заказов</h4><ol><li><strong>Шаг 1.</strong> Откройте «Мои заказы» в личном кабинете</li><li><strong>Шаг 2.</strong> Выберите период в фильтре (например, «Последние 6 месяцев»)</li><li><strong>Шаг 3.</strong> Нажмите «Применить»</li><li><strong>Шаг 4.</strong> Прокрутите список или экспортируйте данные</li></ol></div>
+
+<h3>Что учитывать при анализе заказов</h3>
+
+<p>В каждом заказе отображается:</p>
+<ul>
+  <li><strong>Сумма товара</strong> (без учёта скидок и купонов).</li>
+  <li><strong>Итоговая цена</strong> (со всеми скидками, но без доставки).</li>
+  <li><strong>Стоимость доставки</strong> (если она не была бесплатной).</li>
+  <li><strong>Дополнительные платежи</strong>: комиссии за перевод, налоги (для некоторых стран), страховка.</li>
+</ul>
+
+<p>На практике многие упускают последний пункт. Например, при оплате через некоторые платежные системы (например, Qiwi или WebMoney) может взиматься комиссия до 5%. Эти суммы не отображаются в истории заказов AliExpress — их нужно проверять в выписке банка.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Если вы оплачивали заказы с разных карт или кошельков, сверьте данные с банковскими выписками. AliExpress может не показывать комиссии за переводы.</p></div>
+
+<h2 id="способ-1-ручной-подсчёт-через-мои-заказы">Способ 1: Ручной подсчёт через «Мои заказы»</h2>
+
+<p>Это самый надёжный метод, если вам нужна <strong>точная сумма</strong> с учётом всех нюансов. Подходит для анализа трат за любой период — от месяца до нескольких лет.</p>
+
+<h3>Пошаговая инструкция</h3>
+
+<p>Вот что нужно сделать:</p>
+<ol>
+  <li>Откройте <code>Личный кабинет → Мои заказы</code>.</li>
+  <li>В фильтре выберите диапазон дат (например, <em>1 января 2023 — 31 декабря 2023</em>).</li>
+  <li>Нажмите <em>Экспортировать в Excel</em> (кнопка в правом верхнем углу). Файл сохранится в формате <code>.xlsx</code>.</li>
+  <li>Откройте файл в Excel или Google Sheets. Вам нужны столбцы:
+    <ul>
+      <li><em>Order Amount</em> (сумма заказа)</li>
+      <li><em>Shipping Fee</em> (доставка)</li>
+      <li><em>Status</em> (статус — чтобы исключить отменённые заказы)</li>
+    </ol>
+  </li>
+  <li>Отфильтруйте строки по статусу <em>Completed</em> (завершённые).</li>
+  <li>Создайте новую колонку с формулой для суммы трат:
+    <pre><code>=СУММ(E2:E100) + СУММ(F2:F100)</code></pre>
+<p>где <code>E</code> — столбец с суммой заказа, <code>F</code> — с доставкой.</p>
+  </li>
+</ol>
+
+<p>Если хотите учесть возвраты, добавьте ещё один фильтр по статусу <em>Refunded</em> и вычтите эти суммы из итога.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>AliExpress хранит историю заказов только за последние 2 года. Для более ранних покупок данные могут быть недоступны.</p></div>
+
+<h3>Нюансы ручного метода</h3>
+
+<p>При ручном подсчёте легко допустить ошибки:</p>
+<ul>
+  <li><strong>Неучтённые комиссии</strong>: если оплачивали через третьи сервисы (например, PayPal), проверьте их выписки.</li>
+  <li><strong>Курс валют</strong>: AliExpress показывает суммы в валюте заказа. Если покупали в долларах или юанях, пересчитайте по курсу на дату покупки.</li>
+  <li><strong>Частичные возвраты</strong>: иногда продавцы возвращают деньги не через AliExpress, а напрямую на карту. Эти транзакции не отобразятся в истории заказов.</li>
+</ul>
+
+<p>Для удобства можно использовать шаблон таблицы (см. ниже). Скопируйте его в Google Sheets и подставьте свои данные.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Дата</th>
+      <th>Номер заказа</th>
+      <th>Сумма товара</th>
+      <th>Доставка</th>
+      <th>Итог (в руб.)</th>
+      <th>Статус</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01.05.2023</td>
+      <td>123456789</td>
+      <td>1 200 ₽</td>
+      <td>300 ₽</td>
+      <td>1 500 ₽</td>
+      <td>Завершён</td>
+    </tr>
+    <tr>
+      <td>15.05.2023</td>
+      <td>987654321</td>
+      <td>800 ₽</td>
+      <td>0 ₽</td>
+      <td>800 ₽</td>
+      <td>Возврат</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="способ-2-использование-сторонних-сервисов">Способ 2: Использование сторонних сервисов</h2>
+
+<p>Если ручной метод кажется слишком трудоёмким, можно воспользоваться специализированными инструментами. Они автоматически собирают данные из личного кабинета и формируют отчёты.</p>
+
+<h3>Популярные сервисы для анализа трат</h3>
+
+<p>Наиболее надёжные варианты:</p>
+<ul>
+  <li><strong>AliTools</strong> (расширение для браузера) — показывает статистику по покупкам, ценам и продавцам.</li>
+  <li><strong>ShopMaster</strong> — подходит для тех, кто покупает на AliExpress для перепродажи. Есть функция импорта заказов и расчёта прибыли.</li>
+  <li><strong>Excel-шаблоны</strong> от сообщества (например, на форумах по дропшиппингу). Их можно адаптировать под свои нужды.</li>
+</ul>
+
+<p>Важный момент: <strong>не все сервисы бесплатны</strong>. Например, полная версия AliTools стоит от 500 рублей в месяц. Перед оплатой проверьте, какие именно данные предоставляет сервис — некоторые не учитывают доставку или комиссии.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Перед использованием сторонних сервисов проверьте отзывы на независимых площадках (например, на Reddit или форумах по шопингу). Некоторые инструменты могут запрашивать доступ к личному кабинету — это риск для безопасности.</p></div>
+
+<h3>Как подключить сервис к AliExpress</h3>
+
+<p>На примере AliTools:</p>
+<ol>
+  <li>Установите расширение для Chrome или Firefox.</li>
+  <li>Авторизуйтесь в своём аккаунте AliExpress.</li>
+  <li>Откройте раздел <em>Статистика</em> в AliTools.</li>
+  <li>Выберите период и нажмите <em>Сгенерировать отчёт</em>.</li>
+</ol>
+
+<p>Сервис автоматически соберёт данные о:</p>
+<ul>
+  <li>Общей сумме трат.</li>
+  <li>Среднем чеке.</li>
+  <li>Самых частотных категориях товаров.</li>
+  <li>Динамике покупок по месяцам.</li>
+</ul>
+
+<p>Минус такого подхода — <strong>зависимость от третьих лиц</strong>. Если сервис перестанет работать или изменит тарифы, доступ к истории может пропасть.</p>
+
+<h2 id="способ-3-анализ-банковских-выписок">Способ 3: Анализ банковских выписок</h2>
+
+<p>Если вы всегда оплачивали заказы с одной карты, проще всего проверить траты через банковское приложение. Этот метод подходит для тех, кто не хочет разбираться в интерфейсе AliExpress или потерял доступ к старым заказам.</p>
+
+<h3>Как найти платежи AliExpress в выписке</h3>
+
+<p>Инструкция для большинства банков:</p>
+<ol>
+  <li>Откройте мобильное приложение или веб-версию вашего банка.</li>
+  <li>Перейдите в раздел <em>История операций</em> или <em>Выписка по карте</em>.</li>
+  <li>В поиске введите <code>ALIEXPRESS</code>, <code>ALIPAY</code> или <code>INTERNATIONAL</code> (если платежи проходили как зарубежные).</li>
+  <li>Отфильтруйте операции по датам.</li>
+</ol>
+
+<p>На что обратить внимание:</p>
+<ul>
+  <li>Суммы в выписке могут отличаться от тех, что указаны на AliExpress, из-за <strong>комиссий за конвертацию валют</strong>.</li>
+  <li>Если платили через PayPal, ищите операции с пометкой <code>PAYPAL *ALIEXPRESS</code>.</li>
+  <li>Некоторые банки группируют платежи по категориям (например, «Покупки в интернете»). Проверьте эту вкладку.</li>
+</ul>
+
+<details class="faq-item"><summary>Пример названий платежей в выписке</summary><div class="faq-answer"><p>ALIEXPRESS.COM / ALIPAY (USA) LTD|ALIEXPRESS SINGAPORE|INTERNET PAYMENT ALIEXPRESS|PAYPAL *ALIEXPRESS</p></div></details>
+
+<h3>Преимущества и недостатки метода</h3>
+
+<p>Плюсы:</p>
+<ul>
+  <li>Не нужно разбираться в интерфейсе AliExpress.</li>
+  <li>Учитываются <strong>все комиссии</strong> банка и платёжных систем.</li>
+  <li>Можно анализировать траты за любой период (если банк хранит историю).</li>
+</ul>
+
+<p>Минусы:</p>
+<ul>
+  <li>Не видно детализации по товарам (только общие суммы платежей).</li>
+  <li>Если оплачивали с разных карт, придётся собирать данные из нескольких выписок.</li>
+  <li>Сложно отделить покупки на AliExpress от других интернет-платежей.</li>
+</ul>
+
+<h2 id="типичные-ошибки-при-подсчёте-трат">Типичные ошибки при подсчёте трат</h2>
+
+<p>Даже опытные покупатели часто допускают просчёты, из-за которых итоговая сумма получается неточной. Вот самые распространённые ошибки:</p>
+
+<ul>
+  <li><strong>Игнорирование отменённых заказов</strong>. Если вы отменили покупку, но деньги вернулись не сразу, их можно посчитать дважды — как расход и как возврат. Проверяйте статусы в истории.</li>
+  <li><strong>Учёт только стоимости товаров</strong>. Многие забывают прибавить доставку, налоги (для заказов свыше 200 евро в РФ) и комиссии платёжных систем. Эти суммы могут добавлять до 10–15% к итогу.</li>
+  <li><strong>Неправильный курс валют</strong>. AliExpress показывает цены в долларах или юанях, а банк списывает рубли по своему курсу. Разница может достигать нескольких процентов.</li>
+  <li><strong>Пропуск скрытых платежей</strong>. Например, некоторые продавцы берут доплату за «ускоренную доставку» уже после оформления заказа. Эти транзакции не всегда видны в основной истории.</li>
+</ul>
+
+<p>Чтобы избежать ошибок, используйте чек-лист:</p>
+
+<div class="checklist-block"><h4>☑️ Проверка точности расчётов</h4><label class="check-item"><input type="checkbox"><span>Сверил все статусы заказов (исключил отменённые)</span></label><label class="check-item"><input type="checkbox"><span>Учёт доставки и дополнительных сборов</span></label><label class="check-item"><input type="checkbox"><span>Проверка курса валют на дату покупки</span></label><label class="check-item"><input type="checkbox"><span>Сверка с банковской выпиской</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="как-оптимизировать-расходы-на-aliexpress-в-будущем">Как оптимизировать расходы на AliExpress в будущем</h2>
+
+<p>Когда вы знаете точную сумму трат, можно проанализировать покупки и сэкономить. Вот несколько практических советов:</p>
+
+<p><strong>1. Отслеживайте динамику цен</strong>. Сервисы вроде <em>AliPrice</em> или <em>Keepa</em> показывают, как менялась цена товара за последние месяцы. Возможно, вы переплатили из-за сезонных колебаний.</p>
+
+<p><strong>2. Используйте кэшбэк</strong>. Специализированные сервисы (например, <em>LetyShops</em> или <em>EPN</em>) возвращают до 10% от покупок. Если вы тратите на AliExpress больше 50 000 рублей в год, кэшбэк может покрыть стоимость доставки.</p>
+
+<p><strong>3. Объединяйте заказы</strong>. Многие продавцы дают скидку при покупке нескольких товаров или бесплатную доставку от определённой суммы. Планируйте покупки заранее, чтобы сэкономить на логистике.</p>
+
+<p><strong>4. Проверяйте альтернативные площадки</strong>. Иногда тот же товар дешевле на <em>Taobao</em>, <em>1688</em> или даже в местных интернет-магазинах (с учётом доставки). Сравнивайте цены перед оформлением.</p>
+
+<p>Если вы покупаете на AliExpress для бизнеса, ведите отдельную таблицу с учётом:</p>
+<ul>
+  <li>Себестоимости товара (включая доставку).</li>
+  <li>Налогов и пошлин (при импорте).</li>
+  <li>Времени доставки (чтобы планировать запасы).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Чтобы точно посчитать траты на AliExpress, экспортируйте историю заказов в Excel, учитывайте доставку и комиссии, а затем сверьтесь с банковской выпиской. Для автоматизации используйте сервисы вроде AliTools, но не забывайте о безопасности данных.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#зачем-нужно-знать-общую-сумму-трат-на-aliexpress">Зачем нужно знать общую сумму трат на AliExpress</a></li><li><a href="#где-на-aliexpress-хранится-информация-о-заказах">Где на AliExpress хранится информация о заказах</a></li><li><a href="#способ-1-ручной-подсчёт-через-мои-заказы">Способ 1: Ручной подсчёт через «Мои заказы»</a></li><li><a href="#способ-2-использование-сторонних-сервисов">Способ 2: Использование сторонних сервисов</a></li><li><a href="#способ-3-анализ-банковских-выписок">Способ 3: Анализ банковских выписок</a></li><li><a href="#типичные-ошибки-при-подсчёте-трат">Типичные ошибки при подсчёте трат</a></li><li><a href="#как-оптимизировать-расходы-на-aliexpress-в-будущем">Как оптимизировать расходы на AliExpress в будущем</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-izmenit-kartu-na-aliekspress-privyazannuyu-k-oplate.html" class="related-card">Как изменить карту на Алиэкспресс: полная инструкция</a></li><li><a href="/articles/k/ka/kak-oplatit-aliekspress-cherez-telefon.html" class="related-card">Как оплатить AliExpress через телефон: пошаговое руководство 2026</a></li><li><a href="/articles/k/ka/kak-oplatit-pokupki-na-aliekspress-cherez-kivi-koshelek.html" class="related-card">Как оплатить AliExpress через QIWI: пошаговое руководство 2026</a></li><li><a href="/articles/g/gd/gde-v-aliekspress-sokhranyaetsya-karta.html" class="related-card">Где в АлиЭкспресс сохраняется карта: полное руководство</a></li><li><a href="/articles/k/ka/kak-udalit-debetovuyu-kartu-s-aliekspress.html" class="related-card">Как удалить дебетовую карту с AliExpress: пошаговое руководство</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/g/gd/gde-izmenit-kartu-na-aliekspress-privyazannuyu-k-oplate.html" class="related-bottom-card"><span class="related-bottom-title">Как изменить карту на Алиэкспресс: полная инструкция</span><span class="related-bottom-desc">Подробный гид по смене, удалению и добавлению банковских карт на AliExpress. Разбор нюансов оплаты в</span></a><a href="/articles/k/ka/kak-oplatit-aliekspress-cherez-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить AliExpress через телефон: пошаговое руководство 2026</span><span class="related-bottom-desc">Подробная инструкция по оплате заказов на AliExpress с телефона: способы, пошаговые действия, ошибки</span></a><a href="/articles/k/ka/kak-oplatit-pokupki-na-aliekspress-cherez-kivi-koshelek.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить AliExpress через QIWI: пошаговое руководство 2026</span><span class="related-bottom-desc">Подробная инструкция по оплате заказов на Алиэкспресс с QIWI-кошелька: привязка карты, комиссии, лим</span></a><a href="/articles/g/gd/gde-v-aliekspress-sokhranyaetsya-karta.html" class="related-bottom-card"><span class="related-bottom-title">Где в АлиЭкспресс сохраняется карта: полное руководство</span><span class="related-bottom-desc">Подробная инструкция: как найти, добавить и управлять банковскими картами в профиле AliExpress. Реше</span></a><a href="/articles/k/ka/kak-udalit-debetovuyu-kartu-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как удалить дебетовую карту с AliExpress: пошаговое руководство</span><span class="related-bottom-desc">Подробная инструкция по удалению карты с AliExpress: где найти настройки, как отвязать карту и что д</span></a><a href="/articles/k/ka/kak-na-aliexpress-privyazat-kartu.html" class="related-bottom-card"><span class="related-bottom-title">Как привязать карту к AliExpress: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по привязке банковской карты к аккаунту AliExpress: где найти функцию, как изб</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

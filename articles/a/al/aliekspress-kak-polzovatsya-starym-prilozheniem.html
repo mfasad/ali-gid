@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>AliExpress: как пользоваться старой версией приложения — Али Гид</title>
+    <meta name="description" content="Подробная инструкция по использованию старых версий AliExpress. Как скачать APK, авторизоваться и обойти блокировку входа на устаревших Android.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/a/al/aliekspress-kak-polzovatsya-starym-prilozheniem.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AliExpress: как пользоваться старой версией приложения">
+    <meta property="og:description" content="Подробная инструкция по использованию старых версий AliExpress. Как скачать APK, авторизоваться и обойти блокировку входа на устаревших Android.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/problemy-s-prilozheniem/">Проблемы с приложением</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">AliExpress: как пользоваться старой версией приложения</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Старый AliExpress: руководство по использованию устаревших версий приложения</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#поиск-и-установка-архивной-версии-приложения">Поиск и установка архивной версии приложения</a></li><li><a href="#авторизация-и-обход-блокировок-входа">Авторизация и обход блокировок входа</a></li><li><a href="#функциональные-ограничения-и-нюансы-работы">Функциональные ограничения и нюансы работы</a></li><li><a href="#типичные-ошибки-пользователей">Типичные ошибки пользователей</a></li><li><a href="#альтернативные-решения-для-слабых-устройств">Альтернативные решения для слабых устройств</a></li><li><a href="#стратегия-безопасного-шопинга-в-условиях-ограничений">Стратегия безопасного шопинга в условиях ограничений</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы владелец смартфона с ограниченным объемом памяти или просто предпочитаете минималистичный дизайн без тяжелых анимаций, то вопрос о том, как пользоваться старой версией приложения AliExpress, для вас вполне актуален. Современные мобильные приложения часто обрастают избыточным функционалом: встроенные игры, сложные социальные ленты и видеостриминг, которые превращают легкую утилиту для покупок в неповоротливый монстр. Это не только занимает гигабайты места, но и заставляет гудеть процессоры даже на мощных устройствах, не говоря уже о бюджетных моделях.</p>
+
+<p>На практике многие пользователи пытаются найти способ установить предыдущую версию программы, чтобы вернуть привычную скорость работы и понятный интерфейс. Однако процесс этот не лишен сложностей, так как разработчики платформы всячески препятствуют использованию устаревшего программного обеспечения, принудительно заставляя обновляться. Вот что нужно сделать, если вы твердо решили остаться на проверенной версии и не хотите мириться с навязчивыми обновлениями.</p>
+
+<p>Важный момент: использование старых версий сопряжено с рисками безопасности и возможными сбоями в работе платежных систем. Платформа постоянно меняет протоколы шифрования данных, и то, что работало полгода назад, сегодня может просто не запуститься или перестать пропускать авторизацию. Тем не менее, существуют проверенные методы, позволяющие эксплуатировать старые сборки с минимальными потерями функционала.</p>
+
+<h2 id="поиск-и-установка-архивной-версии-приложения">Поиск и установка архивной версии приложения</h2>
+
+<p>Если хотите вернуть старый интерфейс AliExpress, первым шагом станет поиск установочного файла нужной версии. Официальные магазины Google Play и App Store, как правило, предлагают только последнюю актуальную сборку, поэтому рассчитывать на них не приходится. Вам придется обратиться к сторонним ресурсам, специализирующимся на хранении архивных версий Android-приложений (APK-файлов).</p>
+
+<p>Наиболее надежными источниками считаются крупные репозитории вроде APKPure или Uptodown. Там можно найти версии приложения, выпущенные год или два назад. Важно обращать внимание на дату публикации файла и количество загрузок — это косвенные признаки того, что файл не был поврежден при загрузке на сервер.</p>
+
+<p>Вот что нужно сделать для безопасной установки:</p>
+<ol>
+<li>Перейдите в настройки безопасности вашего смартфона и разрешите установку приложений из неизвестных источников (браузера или файлового менеджера).</li>
+<li>Найдите в поисковике запрос «AliExpress old version APK» или конкретный номер версии, если он вам известен.</li>
+<li>Скачайте файл с проверенного ресурса, обращая внимание на отзывы других пользователей.</li>
+<li>Перед установкой обязательно отключите автоматическое обновление приложения в Google Play, иначе система сама обновит вас до последней версии сразу после запуска.</li>
+</ol>
+
+<div class="checklist-block"><h4>📋 Установка старой версии</h4><ol><li><strong>Шаг 1.</strong> Отключите автообновление в Play Market</li><li><strong>Шаг 2.</strong> Найдите APK файл нужной версии на стороннем ресурсе</li><li><strong>Шаг 3.</strong> Разрешите установку из неизвестных источников в настройках</li><li><strong>Шаг 4.</strong> Установите скачанный файл и запустите приложение</li></ol></div>
+
+<p>Стоит учитывать, что версия приложения для iOS (iPhone) практически не подлежит downgrade (откату на предыдущую версию) без использования сложных методов джейлбрейка или специальных корпоративных сертификатов, которые часто отзываются. Поэтому данное руководство ориентировано в первую очередь на пользователей Android.</p>
+
+<h2 id="авторизация-и-обход-блокировок-входа">Авторизация и обход блокировок входа</h2>
+
+<p>Самая распространенная проблема, с которой сталкиваются пользователи старых версий — это невозможность войти в аккаунт. При попытке авторизации приложение может выдавать ошибку «Необходимо обновить приложение» или просто бесконечно крутить колесико загрузки. Это связано с тем, что серверы AliExpress блокируют запросы от клиентов с устаревшим API.</p>
+
+<p>Важный момент: существуют обходные пути, которые позволяют «обмануть» систему проверки версии. Один из самых действенных методов — использование модифицированных версий приложения или специальных патчей, которые меняют идентификатор версии, отправляемый на сервер. Однако установка модифицированного ПО (MOD) несет риски кражи личных данных, поэтому использовать их нужно с крайней осторожностью.</p>
+
+<p>Более безопасный, но менее удобный способ — использование веб-версии через браузер. Если приложение не пускает, можно открыть в браузере (Chrome, Firefox) полную десктопную версию сайта aliexpress.com. Браузеры позволяют сохранять пароли и данные карт, а интерфейс в режиме «Полная версия» часто даже удобнее, чем в мобильном приложении.</p>
+
+<p>Если вы все же пытаетесь войти через старое приложение, попробуйте следующие действия:</p>
+<ul>
+<li>Очистите кэш и данные приложения перед запуском, чтобы сбросить старые сессионные токены.</li>
+<li>Попробуйте войти не через номер телефона, а через привязанную электронную почту или аккаунт Google/Facebook.</li>
+<li>Используйте прокси или смену DNS, так как иногда блокировка связана с региональными ограничениями протоколов.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Не вводите данные банковской карты в модифицированные версии приложения. Используйте только официальные, даже если они старые, или оплачивайте через привязанные платежные системы вроде Google Pay, если они поддерживаются.</p></div>
+
+<p>Часто бывает так, что вход выполняется успешно, но при переходе в раздел оплаты или трекинга снова вылетает требование обновления. В этом случае помогает метод «заморозки» обновлений через настройки системы Android (отключение приложения в диспетчере приложений сразу после установки, до первого запуска, если это возможно, или через ADB-команды).</p>
+
+<h2 id="функциональные-ограничения-и-нюансы-работы">Функциональные ограничения и нюансы работы</h2>
+
+<p>На практике использование устаревшего программного обеспечения означает, что некоторые функции просто перестанут работать. Платформа AliExpress постоянно внедряет новые механики взаимодействия, и старый код не знает, как их обрабатывать. Вы можете столкнуться с тем, что не сможете участвовать в новых акциях, использовать купоны определенного типа или видеть актуальный статус доставки.</p>
+
+<p>Особое внимание стоит уделить разделу «Мои заказы». В старых версиях трекинг-коды могут отображаться некорректно или не обновляться вовсе, так как формат данных трекинга изменился. Для отслеживания посылок в таком случае лучше использовать сторонние приложения-трекеры (например, 17Track или Почта России), куда можно скопировать номер заказа.</p>
+
+<p>Ниже приведена таблица, иллюстрирующая, какие функции скорее всего будут работать, а какие могут быть недоступны:</p>
+
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Статус в старой версии</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Поиск и просмотр товаров</td>
+<td>Работает</td>
+<td>Базовый функционал обычно сохраняется</td>
+</tr>
+<tr>
+<td>Оплата заказа</td>
+<td>Частично</td>
+<td>Старые шлюзы могут блокироваться банками</td>
+</tr>
+<tr>
+<td>Трекинг посылок</td>
+<td>Не работает</td>
+<td>Изменен формат API трекинга</td>
+</tr>
+<tr>
+<td>Игры и монеты</td>
+<td>Не работает</td>
+<td>Серверная часть игр обновляется постоянно</td>
+</tr>
+<tr>
+<td>Чат с продавцом</td>
+<td>Работает</td>
+<td>Базовый текст проходит, медиа могут не грузиться</td>
+</tr>
+</tbody>
+</table>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Протоколы безопасности SSL/TLS меняются. Старое приложение может использовать устаревшие стандарты шифрования, которые современные браузеры и серверы помечают как небезопасные, что приводит к ошибке соединения.</p></div>
+
+<p>Еще один важный нюанс касается купонов и скидок. Система купонов AliExpress стала очень сложной: появились купоны выбора, купоны магазина, промокоды на определенную сумму. Старое приложение может просто не иметь полей для ввода новых типов промокодов или некорректно рассчитывать итоговую сумму со скидкой.</p>
+
+<h2 id="типичные-ошибки-пользователей">Типичные ошибки пользователей</h2>
+
+<p>Пытаясь реанимировать старый AliExpress, пользователи часто совершают одни и те же ошибки, которые приводят к блокировке аккаунта или потере денег. Понимание этих рисков поможет избежать неприятных ситуаций.</p>
+
+<p>Вот список наиболее распространенных ошибок:</p>
+<ol>
+<li><strong>Игнорирование обновлений безопасности.</strong> Если приложение перестало пускать в личный кабинет, не стоит пытаться обойти это десять раз подряд. Система безопасности может расценить это как атаку и временно заблокировать IP-адрес или аккаунт.</li>
+<li><strong>Использование сомнительных APK-файлов.</strong> Скачивание «взломанных» версий с форумов часто приводит к установке вирусов-стилеров, которые крадут пароли от других приложений.</li>
+<li><strong>Попытка оплаты в обход системы.</strong> Если старая версия предлагает strange способ оплаты или перенаправляет на подозрительный сайт, ни в коем случае не вводите данные карты.</li>
+<li><strong>Отсутствие резервной копии.</strong> Перед экспериментами с версиями нужно убедиться, что все важные данные (адреса, переписки) сохранены.</li>
+</ol>
+
+<details class="faq-item"><summary>Риски использования APK</summary><div class="faq-answer"><p>Файлы APK, скачанные не из официального магазина, не проходят проверку Google Play Protect. В них может быть внедрен вредоносный код, который получает доступ к вашим SMS (для подтверждения платежей), контактам и галерее. Всегда проверяйте хеш-сумму файла, если возможно, или используйте эмулятор на отдельном устройстве.</p></div></details>
+
+<p>Также частой ошибкой является попытка установить очень старую версию (например, 5-летней давности) на современный Android. Новые версии операционной системы (Android 12, 13, 14) могут просто не запустить приложение, так как в них удалены старые библиотеки поддержки, необходимые для работы старого кода.</p>
+
+<h2 id="альтернативные-решения-для-слабых-устройств">Альтернативные решения для слабых устройств</h2>
+
+<p>Если ваша цель — сэкономить трафик и место, но пользоваться актуальным функционалом, рассмотрите альтернативы. Вместо поиска древних версий можно использовать облегченные аналоги или веб-версии.</p>
+
+<p>Существует концепция «Lite» версий приложений. Хотя официального AliExpress Lite может не быть в вашем регионе, многие пользователи успешно используют международные версии приложения, которые часто оптимизированы лучше, чем локализованные для СНГ. Также можно попробовать установить версию приложения, предназначенную для планшетов, на телефон — иногда они работают стабильнее.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте браузер Opera Mini или UC Browser с включенным режимом экономии трафика. Они сжимают страницы на сервере перед отправкой на телефон, что значительно ускоряет загрузку тяжелых страниц AliExpress даже на слабом интернете.</p></div>
+
+<p>Другой вариант — использование PWA (Progressive Web Apps). Откройте сайт AliExpress в браузере Chrome на Android, нажмите меню (три точки) и выберите «Добавить на главный экран». Это создаст иконку, которая будет открывать сайт как приложение, но без установки тяжелого APK-файла и без постоянных обновлений.</p>
+
+<h2 id="стратегия-безопасного-шопинга-в-условиях-ограничений">Стратегия безопасного шопинга в условиях ограничений</h2>
+
+<p>Подводя итог, можно сказать, что использование старой версии AliExpress — это компромисс между комфортом интерфейса и доступностью функций. Если вы готовы мириться с тем, что трекинг придется смотреть в другом месте, а некоторые купоны могут не примениться, то этот вариант имеет право на жизнь, особенно для устройств с 1-2 ГБ оперативной памяти.</p>
+
+<p>Однако, если для вас важна безопасность платежей и гарантия получения товара через систему защиты покупателя, лучше все же рассмотреть возможность обновления. Платформа постоянно улучшает алгоритмы защиты, и старые дыры в безопасности, через которые когда-то можно было легко войти, в новых версиях закрыты. Ваша финансовая безопасность стоит нескольких мегабайт места в памяти телефона.</p>
+
+<p>В любом случае, всегда имейте под рукой актуальную версию приложения или доступ к полной веб-версии сайта на компьютере. Это позволит оперативно решить спорный вопрос с продавцом или открыть диспут, если с заказом что-то пойдет не так, ведь функционал dispute-центра также подвергается изменениям и в старых версиях может быть недоступен.</p>
+
+<div class="checklist-block"><h4>☑️ Безопасность при использовании старых версий</h4><label class="check-item"><input type="checkbox"><span>Проверьте источник скачивания APK файла</span></label><label class="check-item"><input type="checkbox"><span>Отключите автообновление в магазине приложений</span></label><label class="check-item"><input type="checkbox"><span>Не сохраняйте данные карты в приложении</span></label><label class="check-item"><input type="checkbox"><span>Используйте двухфакторную авторизацию</span></label><label class="check-item"><input type="checkbox"><span>Регулярно меняйте пароль от аккаунта</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Использование старых версий AliExpress возможно, но требует осторожности при установке APK и готовности к частичной потере функционала, особенно в трекинге и акциях.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#поиск-и-установка-архивной-версии-приложения">Поиск и установка архивной версии приложения</a></li><li><a href="#авторизация-и-обход-блокировок-входа">Авторизация и обход блокировок входа</a></li><li><a href="#функциональные-ограничения-и-нюансы-работы">Функциональные ограничения и нюансы работы</a></li><li><a href="#типичные-ошибки-пользователей">Типичные ошибки пользователей</a></li><li><a href="#альтернативные-решения-для-слабых-устройств">Альтернативные решения для слабых устройств</a></li><li><a href="#стратегия-безопасного-шопинга-в-условиях-ограничений">Стратегия безопасного шопинга в условиях ограничений</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/a/al/aliekspress-chto-to-poshlo-ne-tak-obnovite-stranitsu-i-poprobujte-eshche-raz.html" class="related-card">Ошибка AliExpress: что делать, если нужно обновить страницу</a></li><li><a href="/articles/p/po/pochemu-ne-vkhodit-aliekspress.html" class="related-card">Почему не входит AliExpress: причины, ошибки и решение</a></li><li><a href="/articles/k/ka/kak-uznat-telefon-aliekspress.html" class="related-card">Как узнать телефон AliExpress: поиск и контакты</a></li><li><a href="/articles/k/ko/kogda-mozhno-budet-zakazat-na-aliekspress.html" class="related-card">Когда можно заказать на Алиэкспресс: сроки, лимиты и правила</a></li><li><a href="/articles/k/ka/kak-svyazatsya-s-operatorom-aliekspress-na-russkom-yazyke-cherez-prilozhenie.html" class="related-card">Как связаться с оператором AliExpress: полная инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/a/al/aliekspress-chto-to-poshlo-ne-tak-obnovite-stranitsu-i-poprobujte-eshche-raz.html" class="related-bottom-card"><span class="related-bottom-title">Ошибка AliExpress: что делать, если нужно обновить страницу</span><span class="related-bottom-desc">Подробное руководство по устранению ошибки «что-то пошло не так» на Алиэкспресс. Решения для приложе</span></a><a href="/articles/p/po/pochemu-ne-vkhodit-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Почему не входит AliExpress: причины, ошибки и решение</span><span class="related-bottom-desc">Не можете войти в AliExpress? Полный разбор причин: от блокировок и паролей до сбоев в приложении. К</span></a><a href="/articles/k/ka/kak-uznat-telefon-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать телефон AliExpress: поиск и контакты</span><span class="related-bottom-desc">Подробная инструкция, как найти телефон AliExpress, связаться с продавцом или техподдержкой. Решаем </span></a><a href="/articles/k/ko/kogda-mozhno-budet-zakazat-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Когда можно заказать на Алиэкспресс: сроки, лимиты и правила</span><span class="related-bottom-desc">Узнайте, когда откроется возможность заказа на Алиэкспресс после сбоев. Сроки восстановления, работа</span></a><a href="/articles/k/ka/kak-svyazatsya-s-operatorom-aliekspress-na-russkom-yazyke-cherez-prilozhenie.html" class="related-bottom-card"><span class="related-bottom-title">Как связаться с оператором AliExpress: полная инструкция</span><span class="related-bottom-desc">Подробный гид по соединению с живым оператором AliExpress на русском языке через приложение. Решения</span></a><a href="/articles/g/gd/gde-napisat-prodavtsu-na-aliekspress-s-telefona.html" class="related-bottom-card"><span class="related-bottom-title">Где написать продавцу на Алиэкспресс с телефона: инструкция</span><span class="related-bottom-desc">Узнайте, как написать продавцу на Алиэкспресс с телефона. Подробный гид по чату, спорам и правилам о</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

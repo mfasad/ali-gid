@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как подключить датчик звука с Алиэкспресс: пошаговая схема — Али Гид</title>
+    <meta name="description" content="Подробное руководство по подключению модуля микрофона KY-037. Разбор пинов, схемы с Arduino, настройка чувствительности и устранение шумов.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-podklyuchit-datchik-zvuka-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить датчик звука с Алиэкспресс: пошаговая схема">
+    <meta property="og:description" content="Подробное руководство по подключению модуля микрофона KY-037. Разбор пинов, схемы с Arduino, настройка чувствительности и устранение шумов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить датчик звука с Алиэкспресс: пошаговая схема</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как подключить датчик звука с Алиэкспресс к Arduino</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#идентификация-модуля-и-изучение-распиновки">Идентификация модуля и изучение распиновки</a></li><li><a href="#схема-подключения-и-монтаж-оборудования">Схема подключения и монтаж оборудования</a></li><li><a href="#программная-настройка-и-калибровка-чувствительности">Программная настройка и калибровка чувствительности</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#практическое-применение-и-финальные-рекомендации">Практическое применение и финальные рекомендации</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Если вы занимаетесь созданием умного дома или робототехникой, часто возникает потребность в реакции устройства на внешние акустические сигналы. Многие новички, заказывая компоненты на китайских площадках, сталкиваются с модулями, маркированными как «Sound Sensor» или «Microphone Module», и не всегда понимают, как интегрировать их в свои проекты. Проблема заключается в том, что на первый взгляд простая плата с микрофоном и светодиодами может оказаться сложной в настройке, если не знать особенностей распиновки и принципа работы аналоговых и цифровых выходов.</p>
+<p>Вот что нужно сделать в первую очередь: определить тип вашего модуля, так как производители электроники выпускают множество вариаций датчиков. Чаще всего в наборах Starter Kit или при отдельном заказе встречается модуль KY-037, реже — более продвинутые версии с регулировкой усиления. Без понимания разницы между цифровым и аналоговым сигналом велик риск не только не получить работающую схему, но и повредить контроллер.</p>
+<p>На практике подключение таких сенсоров сводится к правильной коммутации четырех контактов и написанию базового кода для считывания данных. Важно понимать, что сам по себе датчик не «слышит» слова, он лишь реагирует на громкость звука, преобразуя колебания мембраны микрофона в электрический сигнал. Именно этот сигнал мы и будем обрабатывать, чтобы зажечь светодиод, включить реле или отправить уведомление на смартфон.</p>
+
+<h2 id="идентификация-модуля-и-изучение-распиновки">Идентификация модуля и изучение распиновки</h2>
+<p>Прежде чем браться за паяльник или соединительные провода, необходимо внимательно изучить приобретенный компонент. На плате обычно расположено несколько элементов: сам микрофон (часто в виде маленького круглого отверстия), светодиод индикации питания, светодиод выходного сигнала и, в некоторых моделях, подстроечный резистор.</p>
+
+<h3>Различия между моделями KY-037 и KY-038</h3>
+<p>Самая распространенная путаница возникает между модулями KY-037 и KY-038. Внешне они могут быть очень похожи, но их внутренняя схема и логика работы отличаются. Модель KY-037 выдает на аналоговом выходе сигнал, который в спокойном состоянии держится на уровне около 2.5В (половина напряжения питания), а при звуке колеблется вверх и вниз. Модель KY-038 часто имеет иную логику работы выходного компаратора. Если перепутать их в коде или схеме, показания будут некорректными.</p>
+<p>Важный момент: на обратной стороне платы или в описании товара на сайте продавца всегда ищите маркировку. Если маркировка стерлась, определить тип можно опытным путем, подключив центральный пин к аналоговому входу микроконтроллера и наблюдая за значениями в мониторе порта. Стабильное значение около 512 (для 10-битного АЦП) при тишине характерно для KY-037.</p>
+
+<h3>Назначение контактов разъема</h3>
+<p>Стандартный модуль имеет четыре контакта, хотя иногда их может быть три, если цифровой выход отсутствует. Распиновка обычно следующая: контакт «-» или «GND» предназначен для подключения к земле (минус питания). Контакт «+» или «VCC» подключается к источнику питания, обычно это 5 вольт, но некоторые модули работают и от 3.3В.</p>
+<p>Центральный контакт, часто обозначаемый как «S» или «SIG», является сигнальным. Именно через него передается информация о звуке. В зависимости от типа подключения (аналоговое или цифровое), этот пин соединяется с соответствующим входом контроллера. Четвертой ножкой может быть контакт «DO» (Digital Output), который выдает логический ноль или единицу при превышении порога громкости.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Всегда проверяйте напряжение питания модуля. Подача 5В на модуль, рассчитанный на 3.3В, может привести к выходу компонента из строя.</p></div>
+
+<h2 id="схема-подключения-и-монтаж-оборудования">Схема подключения и монтаж оборудования</h2>
+<p>Для успешной интеграции датчика в проект необходимо собрать электрическую цепь. Это не требует сложных инструментов, достаточно макетной платы, контроллера (например, Arduino Uno) и нескольких перемычек. Ошибки на этом этапе встречаются чаще всего из-за невнимательности к цветам проводов.</p>
+
+<h3>Подключение аналогового выхода</h3>
+<p>Аналоговый режим позволяет получать детальную информацию о громкости звука в реальном времени. Вы будете видеть синусоиду или хаотичные скачки значений, соответствующие звуковым волнам. Для этого нужно соединить пин «S» (или «AO») на датчике с любым аналоговым входом на плате Arduino, например, A0.</p>
+<p>Питание подключается следующим образом: VCC датчика к пину 5V на Arduino, а GND к GND. Такая схема позволяет микроконтроллеру считывать изменения напряжения на входе A0. Чем громче звук, тем больше амплитуда колебаний напряжения.</p>
+
+<h3>Использование цифрового выхода</h3>
+<p>Если вам не нужны точные значения громкости, а требуется просто реакция на хлопок или шум, используется цифровой выход. На модуле есть компаратор, который сравнивает сигнал с микрофона с установленным порогом. Если звук громче порога, на выходе появляется логическая единица (или ноль, в зависимости от схемы).</p>
+<p>Для подключения цифрового режима используйте пин «DO». Его нужно подключить к любому цифровому входу Arduino, например, D2. Порог срабатывания регулируется маленьким синим или желтым потенциометром на самой плате датчика. Вращая его отверткой, вы настраиваете чувствительность.</p>
+
+<div class="checklist-block"><h4>📋 Монтаж схемы подключения</h4><ol><li><strong>Шаг 1.</strong> Подключите пин GND датчика к GND Arduino</li><li><strong>Шаг 2.</strong> Соедините пин VCC датчика с пином 5V</li><li><strong>Шаг 3.</strong> Подключите сигнальный пин S к аналоговому входу A0</li><li><strong>Шаг 4.</strong> Загрузите тестовый скетч в среду разработки</li></ol></div>
+
+<p>В таблице ниже приведены основные характеристики подключения для стандартного модуля:</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение / Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Рабочее напряжение</td>
+<td>3.3В - 5В</td>
+</tr>
+<tr>
+<td>Тип выхода</td>
+<td>Аналоговый (AO) и Цифровой (DO)</td>
+</tr>
+<tr>
+<td>Чувствительность</td>
+<td>Регулируется потенциометром</td>
+</tr>
+<tr>
+<td>Ток потребления</td>
+<td>Около 10-20 мА</td>
+</tr>
+</tbody>
+</table>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>При работе с электроникой всегда отключайте питание перед изменением схемы подключения. Короткое замыкание может сжечь порт контроллера.</p></div>
+
+<h2 id="программная-настройка-и-калибровка-чувствительности">Программная настройка и калибровка чувствительности</h2>
+<p>После физического подключения наступает этап программной настройки. Даже идеально собранная схема не заработает без корректного кода. Основная задача программы — опросить состояние входа и принять решение на основе полученных данных.</p>
+
+<h3>Базовый код для считывания данных</h3>
+<p>Для начала работы достаточно стандартного примера из среды Arduino IDE. Код считывает значение с аналогового порта и выводит его в последовательный монитор. Это позволяет увидеть «шум» в тишине и скачки при звуке.</p>
+<p>Вот пример простой логики работы: в функции setup инициализируется Serial, а в loop происходит чтение значения analogRead(A0). Если значение превышает определенный порог (например, 500), можно зажигать встроенный светодиод на плате Arduino.</p>
+
+<h3>Регулировка потенциометра</h3>
+<p>Ключевым моментом в работе с цифровым выходом является настройка потенциометра. Если крутить его в одну сторону, датчик станет реагировать на малейший шорох, в другую — будет игнорировать даже громкие хлопки. Идеальная настройка достигается экспериментальным путем.</p>
+<p>Включите схему, подайте питание и начните издавать звуки (хлопки, свист). Медленно вращайте винт потенциометра до момента, когда светодиод на модуле (обычно обозначен как DO или OUT) загорится. Затем верните его чуть назад, чтобы светодиод погас. Теперь модуль готов реагировать на звук.</p>
+
+<details class="faq-item"><summary>Пример кода для мигания светодиодом</summary><div class="faq-answer"><p>Внутри функции loop считывается значение с пина A0. Если оно больше 600, выполняется digitalWrite(LED_BUILTIN, HIGH), иначе LOW. Задержка в конце цикла должна быть минимальной для быстрой реакции.</p></div></details>
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+<p>В процессе работы с акустическими сенсорами новички часто сталкиваются с одними и теми же проблемами. Понимание причин этих неполадок экономит много времени и нервов.</p>
+
+<h3>Проблемы с помехами и стабильностью</h3>
+<p>Самая частая жалоба — датчик реагирует на все подряд или, наоборот, молчит. Часто причина кроется в наводках от блока питания. Если вы запитываете Arduino и датчик от USB порта компьютера, наводки могут быть минимальны. Но при питании от батареек или нестабильного источника могут возникать ложные срабатывания.</p>
+<p>Важный момент: длинные провода, соединяющие датчик с контроллером, работают как антенны. Они ловят электромагнитные помехи. Старайтесь делать соединения максимально короткими и используйте экранированные провода, если проект требует высокой точности.</p>
+
+<h3>Неверная интерпретация показаний</h3>
+<p>Многие ожидают, что датчик сможет распознавать команды «включи свет» или «открой дверь». Это невозможно. Датчик звука с Алиэкспресс — это просто измеритель уровня громкости. Он не различает частоты и не умеет анализировать речь без сложных внешних библиотек и мощных процессоров.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка работоспособности</h4><label class="check-item"><input type="checkbox"><span>Проверьте полярность подключения питания</span></label><label class="check-item"><input type="checkbox"><span>Убедитесь, что выбран правильный пин в коде</span></label><label class="check-item"><input type="checkbox"><span>Проверьте работу потенциометра чувствительности</span></label><label class="check-item"><input type="checkbox"><span>Убедитесь, что микрофон не закрыт корпусом</span></label><label class="check-item"><input type="checkbox"><span>Проверьте наличие напряжения на пине VCC</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Список распространенных ошибок:</p>
+<ul>
+<li>Подключение сигнального провода к цифровому пину при попытке считать аналоговый сигнал.</li>
+<li>Отсутствие настройки порога срабатывания потенциометром.</li>
+<li>Использование библиотек для других моделей датчиков (например, для I2S микрофонов) с обычным аналоговым модулем.</li>
+<li>Попытка запитать модуль от пина 3.3В, когда ему требуется 5В для стабильной работы светодиода и компаратора.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для защиты входа контроллера можно добавить резистор на 1-2 кОм между сигнальным проводом и пином Arduino, это снизит риск повреждения при скачках напряжения.</p></div>
+
+<h2 id="практическое-применение-и-финальные-рекомендации">Практическое применение и финальные рекомендации</h2>
+<p>После того как вы разобрались с подключением и настройкой, перед вами открываются широкие возможности для творчества. Простой датчик звука может стать основой для полноценного устройства управления.</p>
+
+<h3>Идеи для проектов</h3>
+<p>Наиболее популярное применение — создание выключателей света по хлопку. Логика проста: один хлопок — включил, второй — выключил. Для этого в коде нужно реализовать счетчик хлопков с debounce (защитой от дребезга контактов), чтобы одно событие не считалось за несколько.</p>
+<p>Также датчик используют в охранных системах как детектор вторжения. Если ночью уровень шума превышает норму, система отправляет сигнал тревоги. В робототехнике такие сенсоры помогают роботам избегать шумных мест или, наоборот, двигаться на звук (как мотыльки на свет).</p>
+
+<h3>Ограничения технологии</h3>
+<p>Стоит помнить, что микрофон на модуле имеет низкую чувствительность и узкий частотный диапазон. Он хорошо реагирует на резкие, громкие звуки, но плохо воспринимает тихую речь или музыку. Для записи голоса или сложных аудиоанализов этот модуль не подходит, здесь нужны специализированные I2S микрофоны.</p>
+<p>В условиях сильной запыленности или влажности открытый микрофон может быстро выйти из строя. Если вы делаете устройство для эксплуатации в гараже или на улице, обязательно предусмотрите защитный корпус с акустической прозрачностью, например, из тканевой сетки.</p>
+
+<p>В заключение, подключение датчика звука с Алиэкспресс — это отличный первый шаг в мир акустического управления. Несмотря на простоту конструкции, модуль требует внимательного отношения к настройке чувствительности и фильтрации шумов. Правильно настроенный сенсор станет надежным элементом вашей умной системы.</p>
+<p>Главное — не бояться экспериментировать со значениями порогов в коде и положением потенциометра. Именно баланс между аппаратной настройкой и программной логикой дает наилучший результат. Теперь вы знаете, как превратить простые колебания воздуха в полезные действия вашего устройства.</p>
+<p>Используйте полученные знания для создания уникальных проектов, будь то музыкальные визуализаторы или системы безопасности. Помните, что качество работы датчика напрямую зависит от качества питания и отсутствия внешних электромагнитных.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Датчик звука подключается через аналоговый или цифровой пин, требует настройки чувствительности потенциометром и не распознает речь, а лишь уровень громкости.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#идентификация-модуля-и-изучение-распиновки">Идентификация модуля и изучение распиновки</a></li><li><a href="#схема-подключения-и-монтаж-оборудования">Схема подключения и монтаж оборудования</a></li><li><a href="#программная-настройка-и-калибровка-чувствительности">Программная настройка и калибровка чувствительности</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#практическое-применение-и-финальные-рекомендации">Практическое применение и финальные рекомендации</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-antiradar-vybrat-s-aliekspress.html" class="related-card">Какой антирадар выбрать с Алиэкспресс: честный гид 2026</a></li><li><a href="/articles/t/te/termopasta-kakuyu-kupit-na-aliekspress.html" class="related-card">Какая термопаста лучше: топ-5 вариантов с Алиэкспресс</a></li><li><a href="/articles/k/ka/kak-podklyuchit-besprovodnoj-vyklyuchatel-s-aliekspress-sveta.html" class="related-card">Как подключить беспроводной выключатель света с АлиЭкспресс</a></li><li><a href="/articles/k/ka/kak-kleit-plenku-na-ajfon-s-aliekspress.html" class="related-card">Как клеить пленку на Айфон с Алиэкспресс: полное руководство</a></li><li><a href="/articles/k/ka/kakie-bi-led-linzy-luchshe-vybrat-na-aliekspress.html" class="related-card">Как выбрать Bi-Led линзы на AliExpress: гид и советы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kakoj-antiradar-vybrat-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какой антирадар выбрать с Алиэкспресс: честный гид 2026</span><span class="related-bottom-desc">Как выбрать радар-детектор на AliExpress: обзор брендов, GPS-базы камер, ловля сигнала и проверка на</span></a><a href="/articles/t/te/termopasta-kakuyu-kupit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какая термопаста лучше: топ-5 вариантов с Алиэкспресс</span><span class="related-bottom-desc">Обзор лучших термопаст на AliExpress для процессоров и видеокарт. Сравнение теплопроводности, разбор</span></a><a href="/articles/k/ka/kak-podklyuchit-besprovodnoj-vyklyuchatel-s-aliekspress-sveta.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить беспроводной выключатель света с АлиЭкспресс</span><span class="related-bottom-desc">Пошаговое руководство по установке и настройке умного выключателя из Китая: от выбора модели до синх</span></a><a href="/articles/k/ka/kak-kleit-plenku-na-ajfon-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как клеить пленку на Айфон с Алиэкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по наклейке защитной пленки на iPhone. Как выбрать качественную пленку на AliEx</span></a><a href="/articles/k/ka/kakie-bi-led-linzy-luchshe-vybrat-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать Bi-Led линзы на AliExpress: гид и советы</span><span class="related-bottom-desc">Полный гид по выбору Bi-Led линз на Алиэкспресс. Разбор брендов, характеристик, нюансы заказа и уста</span></a><a href="/articles/k/ko/komplektatsii-smartfonov-na-aliekspress-chto-oznachayut.html" class="related-bottom-card"><span class="related-bottom-title">Комплектации смартфонов на Алиэкспресс: что означают версии</span><span class="related-bottom-desc">Подробный гид по версиям смартфонов на AliExpress. Чем отличается Global Version от Global ROM и CN </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

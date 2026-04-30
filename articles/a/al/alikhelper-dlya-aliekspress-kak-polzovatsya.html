@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Алихелпер для Алиэкспресс: как пользоваться сервисом — Али Гид</title>
+    <meta name="description" content="Подробное руководство по AliHelper: как искать товары, анализировать цены, выбирать продавцов и безопасно покупать на Алиэкспресс.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/a/al/alikhelper-dlya-aliekspress-kak-polzovatsya.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Алихелпер для Алиэкспресс: как пользоваться сервисом">
+    <meta property="og:description" content="Подробное руководство по AliHelper: как искать товары, анализировать цены, выбирать продавцов и безопасно покупать на Алиэкспресс.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/poisk-tovarov/">Поиск товаров</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Алихелпер для Алиэкспресс: как пользоваться сервисом</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Алихелпер для Алиэкспресс: полное руководство по использованию</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#где-найти-и-как-установить-полезное-расширение">Где найти и как установить полезное расширение</a></li><li><a href="#пошаговая-инструкция-по-поиску-и-анализу-товаров">Пошаговая инструкция по поиску и анализу товаров</a></li><li><a href="#нюансы-работы-с-рейтингом-продавцов-и-магазинами">Нюансы работы с рейтингом продавцов и магазинами</a></li><li><a href="#типичные-ошибки-при-использовании-сервиса">Типичные ошибки при использовании сервиса</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>Покупки на огромных маркетплейсах из Китая часто превращаются в настоящий квест, где вместо желаемой выгоды можно легко наткнуться на переплату или недобросовестного продавца. Тысячи одинаковых товаров, запутанные графики изменения стоимости и скрытые рейтинги создают иллюзию выбора, хотя на деле пользователь часто действует вслепую. Именно в такой ситуации на помощь приходят специализированные расширения и сервисы, такие как Алихелпер, которые берут на себя роль личного аналитика.</p>
+<p>Если хотите быть уверены, что покупаете товар по реальной рыночной цене, а не по искусственно завышенной перед акцией, вам необходимо понимать механику работы вспомогательных инструментов. Алихелпер — это один из самых популярных инструментов, который интегрируется в браузер или работает как отдельное приложение, накладывая поверх стандартного интерфейса площадки дополнительные данные. Он позволяет заглянуть «под капот» карточки товара, увидеть историю цены за весь период существования лота и оценить реальную надежность продавца, опираясь на сухие цифры, а не на красивые картинки.</p>
+<p>Вот что нужно сделать в первую очередь: осознать, что без такого помощника вы теряете значительную часть информации, доступной опытному байеру. Сервис агрегирует данные, строит графики, подсвечивает подозрительные активности и дает рекомендации, основанные на алгоритмах. Использование подобных инструментов становится не просто удобством, а необходимостью для тех, кто заказывает регулярно и хочет экономить время и деньги, избегая типичных ловушек онлайн-торговли.</p>
+
+<h2 id="где-найти-и-как-установить-полезное-расширение">Где найти и как установить полезное расширение</h2>
+<p>Если хотите начать пользоваться всеми преимуществами аналитики, первым шагом станет установка самого инструмента. Чаще всего речь идет о браузерном расширении, которое добавляет функционал прямо в интерфейс сайта. Важно понимать, что официальные магазины браузеров (Chrome Web Store, Opera Addons, Firefox Addons) являются единственными безопасными источниками для загрузки. Скачивание со сторонних сайтов может привести к установке вредоносного ПО, которое украдет ваши пароли.</p>
+<p>На практике процесс установки занимает не более пары минут. После добавления расширения в браузер, в правом верхнем углу появится его иконка. При первом заходе на сайт маркетплейса система может запросить разрешение на работу с данными сайта — это необходимо для того, чтобы скрипт мог считывать информацию о товаре и выводить свои графики. Без этого разрешения функционал работать не будет.</p>
+<p>Важный момент: расширение должно быть совместимо с вашей версией браузера и регионом аккаунта. Иногда интерфейс может отличаться для разных доменных зон (например,.com,.ru,.fr), поэтому убедитесь, что вы находитесь на правильной версии сайта перед активацией плагина. После установки требуется авторизация, которая часто выполняется через аккаунт на самом маркетплейсе или через социальные сети, что связывает ваш профиль с базой данных сервиса.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Интерфейс и функционал расширений могут меняться после обновлений платформы. Всегда проверяйте актуальность версии плагина в магазине расширений вашего браузера.</p></div>
+
+<p>Существует также мобильная версия приложения, которая работает независимо от браузера. Она удобна тем, кто предпочитает совершать покупки со смартфона. В мобильном приложении функционал может быть слегка урезан по сравнению с десктопной версией, но основные функции — поиск по фото и проверка истории цены — доступны в полном объеме. Синхронизация между устройствами позволяет сохранять избранное и отслеживать изменения стоимости в режиме реального времени, где бы вы ни находились.</p>
+
+<h3>Основные возможности интерфейса</h3>
+<p>После успешной установки перед вами откроется панель управления, которая может показаться перегруженной новичку. Однако все элементы расположены логично. Главная вкладка обычно посвящена поиску и каталогу, где можно применять сложные фильтры. Вторая важная часть — это аналитика конкретного товара, которая всплывает при открытии любой карточки. Третья — личный кабинет, где хранятся отслеживаемые позиции и история просмотров.</p>
+<ul>
+<li>График изменения цены: визуализация колебаний стоимости за месяц, год или весь период.</li>
+<li>Рейтинг надежности: комплексная оценка продавца на основе отзывов, сроков доставки и процента споров.</li>
+<li>Поиск аналогов: функция нахождения идентичных товаров у других продавцов для сравнения условий.</li>
+<li>Купоны и скидки: автоматический поиск доступных промокодов для конкретного магазина.</li>
+</ul>
+
+<h2 id="пошаговая-инструкция-по-поиску-и-анализу-товаров">Пошаговая инструкция по поиску и анализу товаров</h2>
+<p>Вот что нужно сделать, чтобы найти действительно выгодное предложение. Стандартный поиск по сайту часто выдает товары в порядке платного продвижения или популярности, которая может быть накручена. Алихелпер позволяет сортировать выдачу по реальным параметрам, таким как динамика цены или честный рейтинг. Это дает возможность отсечь перекупщиков и найтичные товары или проверенные магазины.</p>
+<p>Если хотите проанализировать конкретный товар, просто откройте его страницу. В правом верхнем углу или сбоку вы увидите виджет с логотипом сервиса. Нажав на него, вы развернете подробную статистику. Первым делом обратите внимание на график цены. Он покажет, является ли текущая скидка реальной или это маркетинговый ход, когда цену поднимают перед распродажей, чтобы потом якобы снизить ее.</p>
+<ol>
+<li>Введите поисковый запрос в строку расширенного поиска сервиса.</li>
+<li>Отфильтруйте результаты по параметру «Динамика цены» или «Надежность продавца».</li>
+<li>Выберите товар и откройте его страницу для детального изучения.</li>
+<li>Активируйте виджет анализа и изучите график стоимости за последние 3-6 месяцев.</li>
+<li>Проверьте отзывы, отфильтровав только те, что с фотографиями и от проверенных покупателей.</li>
+</ol>
+
+<div class="checklist-block"><h4>📋 Быстрый анализ товара</h4><ol><li><strong>Шаг 1.</strong> Откройте карточку товара</li><li><strong>Шаг 2.</strong> Кликните на иконку расширения</li><li><strong>Шаг 3.</strong> Изучите график цены</li><li><strong>Шаг 4.</strong> Проверьте рейтинг продавца</li><li><strong>Шаг 5.</strong> Сравните с аналогами</li></ol></div>
+
+<p>Важно также пользоваться функцией поиска по изображению. Если вы увидели вещь в социальных сетях или в другом магазине, просто загрузите фото в поиск Алихелпера. Система найдет все идентичные или похожие товары на площадке. Это часто позволяет найти тот же самый предмет, но у производителя, а не у посредника, что может снизить цену в два-три раза.</p>
+
+<h3>Чтение графиков и статистики</h3>
+<p>На практике график цены — это самый важный инструмент в арсенале покупателя. Линия на графике показывает, как менялась стоимость. Если вы видите резкий скачок вверх за неделю до крупной распродажи (например, 11.11 или Черная пятница), это сигнал о накрутке. Реальная скидка должна отсчитываться от средней цены за длительный период, а не от пикового значения.</p>
+<p>Кроме цены, статистика показывает динамику продаж. Если товар покупают часто и регулярно, это хороший знак. Если же продаж не было несколько месяцев, а вдруг резко появились сотни штук за один день — это может свидетельствовать о накрутке рейтинга. Сервис помечает такие аномалии специальными маркерами, предупреждая пользователя о рисках.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Обращайте внимание на цвет индикатора цены. Зеленый обычно означает выгодное предложение, красный — цена выше средней, желтый — среднее значение.</p></div>
+
+<h2 id="нюансы-работы-с-рейтингом-продавцов-и-магазинами">Нюансы работы с рейтингом продавцов и магазинами</h2>
+<p>Если хотите обезопасить себя от долгой доставки или получения брака, тщательно изучайте рейтинг продавца. Обычная звездочка на сайте часто не отражает реальной картины, так как учитывает только общий процент положительных отзывов. Алихелпер же проводит глубокий анализ, учитывая возраст аккаунта, количество выполненных заказов и, что самое важное, реакцию на споры.</p>
+<p>Вот что нужно сделать: посмотрите на детальную разбивку отзывов. Сервис группирует их по категориям: «Товар соответствует описанию», «Скорость доставки», «Качество упаковки». Низкие баллы в любой из этих категорий могут стать красным флагом. Также стоит обратить внимание на географию покупателей: если товар массово покупают в вашем регионе и отзывы хорошие, это гарантия того, что доставка работает стабильно.</p>
+<p>Важный момент: новые магазины часто предлагают товары по очень низким ценам, чтобы набрать базу клиентов. Это может быть выгодно, но рискованно. Расширение показывает дату регистрации магазина. Если магазину меньше месяца и он торгует электроникой — это повод для осторожности. Надежные продавцы обычно имеют историю в несколько лет.</p>
+
+<h3>Система уровней доверия</h3>
+<p>Сервис присваивает магазинам определенные уровни или badges, которые легко считываются. Например, статус «Топ бренд» или «Выбор покупателей» подтверждается алгоритмами на основе объективных данных. Полагаться на эти метки безопаснее, чем на красивые баннеры в витрине магазина.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Нормальное значение</th>
+<th>Тревожный сигнал</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Возраст магазина</td>
+<td>Более 1 года</td>
+<td>Менее 3 месяцев</td>
+</tr>
+<tr>
+<td>Процент положительных отзывов</td>
+<td>Выше 95%</td>
+<td>Ниже 90%</td>
+</tr>
+<tr>
+<td>Среднее время доставки</td>
+<td>Соответствует заявленному</td>
+<td>Превышает в 2 раза</td>
+</tr>
+<tr>
+<td>Ответы на споры</td>
+<td>Решаются в пользу покупателя</td>
+<td>Частые отказы или игнор</td>
+</tr>
+</tbody>
+</table>
+
+<details class="faq-item"><summary>Скрытые метрики рейтинга</summary><div class="faq-answer"><p>Алгоритмы учитывают не только количество звезд, но и вес отзыва. Отзыв от пользователя с высоким уровнем доверия (Trusted User) имеет больший вес, чем от новичка. Также анализируется текст отзыва на наличие шаблонных фраз, характерных для ботов.</p></div></details>
+
+<h2 id="типичные-ошибки-при-использовании-сервиса">Типичные ошибки при использовании сервиса</h2>
+<p>Несмотря на мощь инструмента, пользователи часто допускают ошибки, которые сводят на нет всю пользу от его применения. Самая распространенная из них — слепое доверие графику без учета контекста. Например, падение цены может быть связано с окончанием сезона или изменением курса валют, а</div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#где-найти-и-как-установить-полезное-расширение">Где найти и как установить полезное расширение</a></li><li><a href="#пошаговая-инструкция-по-поиску-и-анализу-товаров">Пошаговая инструкция по поиску и анализу товаров</a></li><li><a href="#нюансы-работы-с-рейтингом-продавцов-и-магазинами">Нюансы работы с рейтингом продавцов и магазинами</a></li><li><a href="#типичные-ошибки-при-использовании-сервиса">Типичные ошибки при использовании сервиса</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/s/sp/spinning-dlya-dzhiga-s-aliekspress-kakoj-luchshe.html" class="related-card">Спиннинг для джига с Алиэкспресс: какой лучше выбрать</a></li><li><a href="/articles/g/gd/gde-tovary-mogut-byt-deshevle-chem-na-aliekspress.html" class="related-card">Где купить дешевле, чем на Алиэкспресс: полный гид по аналогам</a></li><li><a href="/articles/a/al/aliekspress-magazin-otkuda.html" class="related-card">Магазин AliExpress: откуда товар и как найти продавца</a></li><li><a href="/articles/k/ka/kak-v-prilozhenii-aliekspress-iskat-magazin.html" class="related-card">Как найти магазин на АлиЭкспресс: полное руководство</a></li><li><a href="/articles/k/ka/kakie-voblery-s-aliekspress-rabotayut.html" class="related-card">Рабочие воблеры с Алиэкспресс: выбор, бренды, тест</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/s/sp/spinning-dlya-dzhiga-s-aliekspress-kakoj-luchshe.html" class="related-bottom-card"><span class="related-bottom-title">Спиннинг для джига с Алиэкспресс: какой лучше выбрать</span><span class="related-bottom-desc">Как выбрать спиннинг для джига на Алиэкспресс: обзор брендов, тестов, материалов и советы по покупке</span></a><a href="/articles/g/gd/gde-tovary-mogut-byt-deshevle-chem-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Где купить дешевле, чем на Алиэкспресс: полный гид по аналогам</span><span class="related-bottom-desc">Ищете альтернативы AliExpress? Узнайте, где товары стоят дешевле, доставка быстрее, а качество выше.</span></a><a href="/articles/a/al/aliekspress-magazin-otkuda.html" class="related-bottom-card"><span class="related-bottom-title">Магазин AliExpress: откуда товар и как найти продавца</span><span class="related-bottom-desc">Узнайте, откуда приходят товары с AliExpress. Как найти страну отправителя, проверить рейтинг продав</span></a><a href="/articles/k/ka/kak-v-prilozhenii-aliekspress-iskat-magazin.html" class="related-bottom-card"><span class="related-bottom-title">Как найти магазин на АлиЭкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция: как найти магазин продавца на АлиЭкспресс через приложение. Поиск по названию,</span></a><a href="/articles/k/ka/kakie-voblery-s-aliekspress-rabotayut.html" class="related-bottom-card"><span class="related-bottom-title">Рабочие воблеры с Алиэкспресс: выбор, бренды, тест</span><span class="related-bottom-desc">Подробный гид по уловистым воблерам с Алиэкспресс. Топ брендов, разбор копий, советы по выбору и нас</span></a><a href="/articles/p/po/pochemu-s-aliekspress-ubrali-elektronnye-sigarety.html" class="related-bottom-card"><span class="related-bottom-title">Почему с Алиэкспресс убрали электронные сигареты: причины и поиск</span><span class="related-bottom-desc">Узнайте, почему исчезли вейпы с AliExpress, как работают фильтры цензуры и где искать товары для пар</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

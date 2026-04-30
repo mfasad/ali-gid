@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как принять товары с AliExpress к учету: пошаговое руководство — Али Гид</title>
+    <meta name="description" content="Подробная инструкция, как правильно оприходовать товары с Алиэкспресс в 1С и Excel. Нюансы учета, курсы валют и работа с накладными.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-prinyat-k-uchetu-tovary-s-aliekspress.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как принять товары с AliExpress к учету: пошаговое руководство">
+    <meta property="og:description" content="Подробная инструкция, как правильно оприходовать товары с Алиэкспресс в 1С и Excel. Нюансы учета, курсы валют и работа с накладными.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/drugoe/">Другое</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как принять товары с AliExpress к учету: пошаговое руководство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как правильно принять к учету товары с AliExpress</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#поиск-и-подготовка-первичной-документации">Поиск и подготовка первичной документации</a></li><li><a href="#пошаговая-инструкция-по-оприходованию-в-учетных-системах">Пошаговая инструкция по оприходованию в учетных системах</a></li><li><a href="#технические-особенности-и-таблица-соответствия">Технические особенности и таблица соответствия</a></li><li><a href="#типичные-ошибки-при-учете-товаров">Типичные ошибки при учете товаров</a></li><li><a href="#стратегия-успешного-учета-и-оптимизация-процессов">Стратегия успешного учета и оптимизация процессов</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Тарифные ставки и таможенные лимиты для физических лиц могут изменяться. Актуальные пороги беспошлинного ввоза всегда проверяйте на сайте Федеральной таможенной службы или в актуальных новостях ЕАЭС.</p></div>
+
+<p>Если вы занимаетесь закупками товаров для перепродажи или для нужд собственного бизнеса, вопрос правильного оформления документов встает практически сразу. Покупка на популярной китайской площадке — это не просто разовая сделка, а полноценная хозяйственная операция, требующая отражения в бухгалтерии. Многие предприниматели сталкиваются с трудностями, когда товар уже на руках, деньги списаны, а в учете царит хаос из-за отсутствия правильных первичных документов.</p>
+<p>Вот что нужно сделать: необходимо четко понимать, что для налоговой службы и внутреннего контроля важен не сам факт покупки в приложении, а наличие документального подтверждения перехода права собственности и стоимости актива. Игнорирование этого этапа может привести к проблемам при проверках и искажению реальной картины profitability вашего бизнеса. Важно разобраться в специфике работы с иностранным контрагентом, даже если формально вы платите российской платежной системе.</p>
+<p>На практике процесс оприходования требует внимательности к деталям, таким как курсовые разницы и способ подтверждения расходов. Ниже мы подробно разберем, где искать необходимые данные в интерфейсе площадки, как формировать проводки и какие подводные камни скрывает работа с электронными чеками.</p>
+
+<h2 id="поиск-и-подготовка-первичной-документации">Поиск и подготовка первичной документации</h2>
+<p>Первым шагом для любого бухгалтера или предпринимателя становится сбор доказательной базы. В отличие от работы с российскими поставщиками, где вы получаете бумажные накладные или легко доступные ЭДО-документы, здесь вся информация хранится в цифровом виде внутри личного кабинета. Если хотите принять товар к учету, вам нужно научиться правильно выгружать эти данные.</p>
+<p>Важный момент: основным документом, подтверждающим факт покупки и оплаты, является электронный чек и детализация заказа. Именно на их основании производится запись в книге расходов или бухгалтерском балансе. Без этих файлов легитимность операции может быть поставлена под сомнение.</p>
+<p>Для начала работы войдите в свой аккаунт через браузер, так как в мобильном приложении функционал выгрузки часто ограничен. Вам нужно найти раздел с историей всех ваших действий. Обычно он скрыт в профиле пользователя. Навигация по интерфейсу может меняться, но логика остается прежней: ищите разделы, связанные с финансами или историей транзакций.</p>
+<div class="checklist-block"><h4>📋 Где найти документы</h4><ol><li><strong>Шаг 1.</strong> Зайдите в раздел «Мои заказы»</li><li><strong>Шаг 2.</strong> Выберите конкретный завершенный заказ</li><li><strong>Шаг 3.</strong> Нажмите кнопку «Подробнее» или «Информация о заказе»</li><li><strong>Шаг 4.</strong> Найдите ссылку «Скачать счет» или «Детали оплаты»</li></ol></div>
+<p>Обратите внимание на статус заказа. К учету можно принимать только те позиции, которые помечены как «Завершено» или «Подтверждено получение». Пока товар находится в пути или в статусе ожидания подтверждения, он числится как товар в пути или аванс, но не как основной складской запас.</p>
+
+<h3>Формирование пакета документов для бухгалтерии</h3>
+<p>После того как вы нашли нужный заказ, необходимо сформировать полный пакет документов. Стандартный набор включает в себя скриншот или PDF-файл с деталями заказа, где виден состав товаров, их количество и цена в валюте продавца. Также критически важен документ, подтверждающий списание денежных средств с вашего счета.</p>
+<p>Если вы платили с корпоративной карты, выписки из банка будет достаточно для подтверждения оплаты. Однако для внутренней аналитики лучше сохранить и чек с площадки. В интерфейсе сайта часто есть кнопка <code>Download Invoice</code> или аналогичная, которая генерирует файл на английском языке. Этот документ является аналогом счета-фактуры или товарной накладной.</p>
+<ul>
+<li>Сохраняйте документы в формате PDF для защиты от изменений.</li>
+<li>Добавляйте к файлам дату фактического получения товара, так как она может отличаться от даты оплаты.</li>
+<li>Если заказ состоял из нескольких лотов, объединяйте документы в одну папку по дате поступления.</li>
+<li>Проверяйте, чтобы в документе был виден итоговый сумма с учетом всех скидок и купонов.</li>
+</ul>
+<p>Вот что нужно сделать: создайте единую систему архивации. Называйте файлы по принципу «Дата_НомерЗаказа_Поставщик». Это сэкономит часы работы при поиске нужной операции в конце квартала или года.</p>
+
+<h2 id="пошаговая-инструкция-по-оприходованию-в-учетных-системах">Пошаговая инструкция по оприходованию в учетных системах</h2>
+<p>Когда документы собраны, наступает этап ввода данных в учетную систему. Будь то полноценная 1С:Бухгалтерия или упрощенная таблица Excel, алгоритм действий схож. Главная задача — корректно пересчитать стоимость из иностранной валюты в рубли по актуальному курсу.</p>
+<p>На практике большинство ошибок возникает именно на этапе пересчета. Система может автоматически подтянуть курс ЦБ на дату оплаты, а может потребовать ручного ввода. Важно следить за тем, чтобы курсовая разница учитывалась правильно, особенно если между оплатой и фактическим поступлением товара прошло много времени.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>При использовании упрощенной системы налогообложения (УСН) расходы на покупку товаров для перепродажи признаются только после их реализации конечному покупателю. До этого момента они висят на балансе как товарные запасы.</p></div>
+<p>Рассмотрим процесс детально. Сначала вы создаете новый документ поступления. В поле контрагента указываете иностранную компанию-продавца. Если такого контрагента нет в базе, его нужно создать, указав страну регистрации (Китай) и валюту контракта (обычно доллары США или рубли, если оплата шла через российский шлюз в рублях).</p>
+
+<ol>
+<li>Создайте документ «Поступление товаров и услуг» в вашей учетной программе.</li>
+<li>Укажите дату фактического получения товара (согласно трекинг-номеру или отметке в системе).</li>
+<li>В табличную часть внесите номенклатуру: название, количество и цену за единицу в валюте заказа.</li>
+<li>Система автоматически пересчитает сумму по курсу на дату операции или предложит ввести курс вручную.</li>
+<li>Проведите документ и проверьте формирование проводок по счетам учета товаров.</li>
+</ol>
+
+<h3>Нюансы работы с курсами валют</h3>
+<p>Важный момент: если оплата производилась в рублях через конвертацию банка, то в учете может возникнуть разница между суммой в чеке и суммой списания. Эту разницу нужно относить на финансовые результаты или корректировать стоимость товара, в зависимости от вашей учетной политики.</p>
+<p>Если же оплата была в долларах или евро, пересчет ведется по курсу ЦБ РФ на дату признания расходов. Для товаров это дата перехода права собственности, что часто совпадает с датой получения. Курсовые разницы могут существенно влиять на итоговую прибыль, поэтому игнорировать их нельзя.</p>
+<p>В некоторых случаях, когда товар идет долго, курс может измениться на 10-15%. <mark>Это напрямую влияет на себестоимость единицы продукции</mark> и, как следствие, на маржинальность бизнеса. Всегда проверяйте актуальность курса перед проведением финальных отчетов.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте автоматические сервисы загрузки курсов валют в вашу учетную систему, чтобы избежать ручных ошибок и расхождений с официальными данными ЦБ.</p></div>
+
+<h2 id="технические-особенности-и-таблица-соответствия">Технические особенности и таблица соответствия</h2>
+<p>Работа с иностранными площадками имеет свои технические особенности, которые отличают её от привычной российской розницы. Понимание этих нюансов поможет избежать двойного учета или, наоборот, потери данных. Основная сложность кроется в разнице терминологии и форматах документов.</p>
+<p>Ниже приведена таблица, которая поможет сопоставить понятия и действия на платформе с требованиями отечественного бухгалтерского учета. Это своего рода переводчик с языка маркетплейса на язык бухгалтерских проводок.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр на AliExpress</th>
+<th>Аналог в бухучете РФ</th>
+<th>Особенности учета</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order Amount (Сумма заказа)</td>
+<td>Стоимость приобретения</td>
+<td>Включает стоимость товара, но может не включать доставку отдельно</td>
+</tr>
+<tr>
+<td>Shipping Fee (Доставка)</td>
+<td>Транспортно-заготовительные расходы</td>
+<td>Может включаться в стоимость товара или учитываться на отдельном счете</td>
+</tr>
+<tr>
+<td>Coupon/Discount (Купон)</td>
+<td>Скидка поставщика</td>
+<td>Уменьшает стоимость товара, важно отражать чистую цену</td>
+</tr>
+<tr>
+<td>Order Status: Completed</td>
+<td>Дата оприходования</td>
+<td>Момент перехода рисков и права собственности</td>
+</tr>
+</tbody>
+</table>
+
+<p>Как видно из таблицы, доставка часто идет отдельной строкой. В бухгалтерии эти расходы можно распределить пропорционально стоимости товаров в заказе или включить в стоимость конкретной единицы, если она покупалась отдельно. Выбор метода зависит от вашей учетной политики.</p>
+<p>Еще один технический аспект — это возвраты (Refund). Если часть товара не пришла или была бракованной, и продавец вернул деньги, необходимо сделать сторнирующую запись или документ возврата. Просто оставить это без внимания нельзя, так как это приведет к занижению расходов и искажению остатков.</p>
+<details class="faq-item"><summary>Как учесть комиссию платежной системы</summary><div class="faq-answer"><p>Если при оплате с карты была снята комиссия за конвертацию или транзакцию, её можно учесть как прочие расходы или увеличить стоимость товара. Для этого сохраните выписку банка, где виден этот вычет отдельно.</p></div></details>
+
+<h3>Автоматизация процесса выгрузки</h3>
+<p>Для тех, кто торгует большими объемами, ручной ввод каждого чека становится невыносимым. Существуют сервисы-агрегаторы и модули для 1С, которые умеют выгружать отчеты о продажах и закупках напрямую с площадки. Они парсят данные из личного кабинета и формируют готовые документы.</p>
+<p>Использование таких инструментов экономит время, но требует проверки. Алгоритмы не всегда корректно распознают сложные скидки или составные заказы. Поэтому выборочный контроль первых партий, проведенных через автоматизацию, обязателен.</p>
+
+<h2 id="типичные-ошибки-при-учете-товаров">Типичные ошибки при учете товаров</h2>
+<p>Даже опытные бухгалтеры иногда допускают ошибки при работе с китайскими площадками, что уж говорить о новичках. Чаще всего проблемы связаны с невнимательностью к деталям или попыткой упростить процесс там, где это запрещено правилами учета.</p>
+<p>Вот список самых распространенных ошибок, которые могут привести к штрафам или неверному расчету налогов. Избегайте их, чтобы ваш бизнес оставался прозрачным и безопасным.</p>
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Отсутствие документов на иностранном языке без нотариально заверенного перевода может вызвать вопросы у налоговой при глубокой проверке, хотя для внутреннего учета часто достаточно распечатки.</p></div>
+
+<ul>
+<li><strong>Игнорирование курсовой разницы.</strong> Многие просто берут сумму в рублях со счета банка и вбивают её как стоимость товара. Это неверно, если валюта платежа отличалась от валюты учета.</li>
+<li><strong>Учет по дате оплаты, а не получения.</strong> Товар считается приобретенным, когда перешел в вашу собственность. Если вы заплатили в декабре, а получили в январе, в учете это разные периоды.</li>
+<li><strong>Забывчивость про доставку.</strong> Стоимость доставки — это часть затрат на приобретение. Если её не включить в себестоимость, вы занизите цену единицы товара и получите неверную маржу.</li>
+<li><strong>Неверная классификация расходов.</strong> Покупка оборудования для офиса и закупка товара для перепродажи учитываются на разных счетах. Важно сразу разделять эти потоки.</li>
+</ul>
+<p>Также частой ошибкой является потеря информации о скидках. Если вы купили товар со скидкой 50%, а в учете провели по полной цене, ожидая, что «как-нибудь само выровняется», вы нарушите логику ценообразования. Учет должен отражать реальную экономическую суть сделки.</p>
+<div class="checklist-block"><h4>☑️ Проверка перед закрытием месяца</h4><label class="check-item"><input type="checkbox"><span>Все чеки сохранены в архиве</span></label><label class="check-item"><input type="checkbox"><span>Курсы валют актуальны на дату операции</span></label><label class="check-item"><input type="checkbox"><span>Доставка включена в себестоимость</span></label><label class="check-item"><input type="checkbox"><span>Статусы всех заказов проверены</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="стратегия-успешного-учета-и-оптимизация-процессов">Стратегия успешного учета и оптимизация процессов</h2>
+<p>Подводя итог, можно сказать, что принятие товаров с AliExpress к учету — процесс вполне реальный и отлаженный, если подойти к нему системно. Главное правило: не полагайтесь на память, фиксируйте каждый шаг документально. Электронный след, который вы оставляете на площадке, является полноценным основанием для бухгалтерских записей.</p>
+<p>Если хотите избежать проблем в будущем, наладьте регулярность. Выгружайте отчеты еженедельно или сразу после получения крупных партий. Не накапливайте «снежный ком» из сотен непроведенных чеков за год. Это создаст хаос, в котором легко запутаться и допустить фатальные ошибки в расчетах с бюджетом.</p>
+<p>В конечном счете, грамотный учет — это не просто бюрократия, а инструмент управления бизнесом. Точно зная себестоимость каждого гаджета или детали, вы сможете гибче управлять ценами и эффективнее планировать закупки. Используйте современные инструменты автоматизации, но всегда держите руку на пульсе и выборочно проверяйте данные.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Правильный учет товаров с AliExpress требует сбора электронных чеков, корректного пересчета валюты по курсу ЦБ и разделения затрат на товар и доставку.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#поиск-и-подготовка-первичной-документации">Поиск и подготовка первичной документации</a></li><li><a href="#пошаговая-инструкция-по-оприходованию-в-учетных-системах">Пошаговая инструкция по оприходованию в учетных системах</a></li><li><a href="#технические-особенности-и-таблица-соответствия">Технические особенности и таблица соответствия</a></li><li><a href="#типичные-ошибки-при-учете-товаров">Типичные ошибки при учете товаров</a></li><li><a href="#стратегия-успешного-учета-и-оптимизация-процессов">Стратегия успешного учета и оптимизация процессов</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/a/al/aliekspress-kak-posmotret-istoriyu-pokupok.html" class="related-card">История покупок на Алиэкспресс: как найти и восстановить</a></li><li><a href="/articles/c/ch/chto-nashel-na-aliekspress.html" class="related-card">Что найти на АлиЭкспресс: скрытые разделы и функции</a></li><li><a href="/articles/k/ka/kak-obshit-rul-opletkoj-s-aliekspress-svoimi.html" class="related-card">Как обшить руль оплеткой с Алиэкспресс: полное руководство</a></li><li><a href="/articles/k/ka/kak-pishetsya-aliekspress-po-angl.html" class="related-card">Как правильно пишется AliExpress по-английски: руководство</a></li><li><a href="/articles/k/ka/kak-prikleit-tatu-naklejki-na-telo-s-aliekspress-v-domashnikh-usloviyakh.html" class="related-card">Как клеить тату наклейки с Алиэкспресс: полная инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/a/al/aliekspress-kak-posmotret-istoriyu-pokupok.html" class="related-bottom-card"><span class="related-bottom-title">История покупок на Алиэкспресс: как найти и восстановить</span><span class="related-bottom-desc">Подробное руководство, как посмотреть историю покупок на Алиэкспресс. Восстановление удаленных заказ</span></a><a href="/articles/c/ch/chto-nashel-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Что найти на АлиЭкспресс: скрытые разделы и функции</span><span class="related-bottom-desc">Подробный гид по скрытым разделам АлиЭкспресс. Узнайте, где искать промокоды, отслеживать заказы и п</span></a><a href="/articles/k/ka/kak-obshit-rul-opletkoj-s-aliekspress-svoimi.html" class="related-bottom-card"><span class="related-bottom-title">Как обшить руль оплеткой с Алиэкспресс: полное руководство</span><span class="related-bottom-desc">Подробная инструкция по установке оплетки на руль своими руками. Советы по выбору материала, пошагов</span></a><a href="/articles/k/ka/kak-pishetsya-aliekspress-po-angl.html" class="related-bottom-card"><span class="related-bottom-title">Как правильно пишется AliExpress по-английски: руководство</span><span class="related-bottom-desc">Узнайте, как правильно пишется AliExpress на английском языке. Разбор ошибок, официальный логотип и </span></a><a href="/articles/k/ka/kak-prikleit-tatu-naklejki-na-telo-s-aliekspress-v-domashnikh-usloviyakh.html" class="related-bottom-card"><span class="related-bottom-title">Как клеить тату наклейки с Алиэкспресс: полная инструкция</span><span class="related-bottom-desc">Подробный гид по нанесению временных татуировок с Алиэкспресс. Подготовка кожи, пошаговая инструкция</span></a><a href="/articles/p/po/pochemu-na-aliekspress-ne-vizhu-svoj-otzyv.html" class="related-bottom-card"><span class="related-bottom-title">Почему не видно отзыв на Алиэкспресс: причины и решение</span><span class="related-bottom-desc">Узнайте, почему не отображается ваш отзыв на Алиэкспресс. Разбор причин модерации, скрытия контента </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

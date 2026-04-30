@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🛍️</text></svg>">
+    <title>Как запрограммировать пульт с Алиэкспресс: 4 кнопки — Али Гид</title>
+    <meta name="description" content="Полная инструкция по настройке 4-х кнопочного пульта с AliExpress. Настройка кнопок, частот, кодов и решение проблем с записью сигналов.">
+    <link rel="canonical" href="https://ali-gid.vercel.app/articles/k/ka/kak-zaprogrammirovat-pult-s-aliekspress-4-knopochnyj.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как запрограммировать пульт с Алиэкспресс: 4 кнопки">
+    <meta property="og:description" content="Полная инструкция по настройке 4-х кнопочного пульта с AliExpress. Настройка кнопок, частот, кодов и решение проблем с записью сигналов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1777549002">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🛍️</span>
+                <span>Али Гид</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/registratsiya-i-vkhod/" class="nav-link">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="nav-link">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="nav-link">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="nav-link">📏 Размеры и выбор</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/registratsiya-i-vkhod/" class="dropdown-item">🔑 Регистрация и вход</a>
+<a href="/category/oplata-i-karty/" class="dropdown-item">💳 Оплата и карты</a>
+<a href="/category/poisk-tovarov/" class="dropdown-item">🔍 Поиск товаров</a>
+<a href="/category/razmery-i-vybor/" class="dropdown-item">📏 Размеры и выбор</a>
+<a href="/category/kupony-i-skidki/" class="dropdown-item">🏷️ Купоны и скидки</a>
+<a href="/category/treking-posylok/" class="dropdown-item">🚚 Трекинг посылок</a>
+<a href="/category/dostavka-i-poluchenie/" class="dropdown-item">📦 Доставка и получение</a>
+<a href="/category/vozvrat-i-spory/" class="dropdown-item">⚖️ Возврат и споры</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🛡️ Безопасность</a>
+<a href="/category/elektronika-i-gadzhety/" class="dropdown-item">📱 Электроника и гаджеты</a>
+<a href="/category/dom-i-sad/" class="dropdown-item">🏡 Дом и сад</a>
+<a href="/category/odezhda-i-stil/" class="dropdown-item">👗 Одежда и стиль</a>
+<a href="/category/problemy-s-prilozheniem/" class="dropdown-item">📲 Проблемы с приложением</a>
+<a href="/category/prodavtsam-i-biznes/" class="dropdown-item">💼 Продавцам и бизнес</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/elektronika-i-gadzhety/">Электроника и гаджеты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как запрограммировать пульт с Алиэкспресс: 4 кнопки</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как запрограммировать пульт с Алиэкспресс 4 кнопочный: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#идентификация-устройства-и-подготовка-к-работе">Идентификация устройства и подготовка к работе</a></li><li><a href="#пошаговая-инструкция-по-клонированию-пульта">Пошаговая инструкция по клонированию пульта</a></li><li><a href="#технические-нюансы-и-совместимость-частот">Технические нюансы и совместимость частот</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#финальная-настройка-и-проверка-системы">Финальная настройка и проверка системы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Владение пультом дистанционного управления с AliExpress часто сталкивается с одной распространенной проблемой: устройство приходит в руки пользователя абсолютно «пустым». Это не брак и не неисправность, а стандартная практика производителей электроники для экономии заряда встроенных аккумуляторов и предотвращения случайных сбоев при транспортировке. Если вы приобрели универсальный пульт с четырьмя кнопками, рассчитывая сразу управлять воротами, шлагбаумом или системой освещения, вас может ожидать разочарование при первом нажатии.</p>
+
+<p>Необходимость самостоятельного программирования возникает, когда требуется заменить утерянный оригинальный пульт или создать дубликат для членов семьи. Процесс этот не требует глубоких знаний в радиоэлектронике, однако он критически зависит от точности выполнения последовательности действий. Малейшее отклонение от тайминга или неправильный порядок нажатия может привести к тому, что устройство не запишет код, и вы потратите время впустую. Важно понимать, что 4-х кнопочные пульты бывают разных типов кодировки, и универсального метода «для всех сразу» не существует, хотя алгоритм действий часто схож.</p>
+
+<p>Вот что нужно сделать в первую очередь: не паниковать и внимательно изучить маркировку на корпусе вашего устройства. Часто внутри батарейного отсека или на задней крышке нанесены обозначения частоты работы, например, 433.92 МГц или 315 МГц. Эта информация является ключевой, так как пульт, работающий на одной частоте, физически не сможет передать сигнал на приемник, работающий на другой, сколько бы вы ни пытались его запрограммировать. Кроме того, важно определить тип кодировки вашего оригинального пульта, так как бюджетные модели с AliExpress чаще всего работают с фиксированным кодом, но существуют и версии с динамическим кодом, требующие более сложной процедуры.</p>
+
+<h2 id="идентификация-устройства-и-подготовка-к-работе">Идентификация устройства и подготовка к работе</h2>
+
+<p>Прежде чем приступать к манипуляциям с кнопками, необходимо провести тщательную диагностику имеющегося оборудования. Если вы хотите успешно клонировать пульт, вам нужно убедиться, что частотные диапазоны совпадают. Проверка осуществляется визуально по маркировке на кварцевом резисторе внутри корпуса или по надписям на печатной плате. Если маркировка стерлась, можно воспользоваться частотомером или просто исходить из логики: большинство шлагбаумов и ворот в СНГ работают на частоте 433 МГц, в то время как старая охранная техника может использовать 315 МГц.</p>
+
+<h3>Определение типа кодировки сигнала</h3>
+
+<p>Критически важным этапом является понимание того, с каким типом кода вы имеете дело. Существуют пульты с фиксированным кодом (Fixed Code), где каждая кнопка передает строго определенную, неизменную последовательность бит. Именно такие устройства проще всего клонировать с помощью бюджетных китайских аналогов. Существует также динамический код (Rolling Code), где сигнал меняется после каждого нажатия. Стандартные 4-х кнопочные пульты с AliExpress, как правило, не умеют работать с динамическим кодом без специальной перепайки микросхем или использования продвинутых программируемых моделей.</p>
+
+<p>Чтобы определить тип кода без осциллографа, можно использовать метод наблюдения. Если при каждом нажатии одной и той же кнопки на приемном устройстве (например, индикатор на блоке управления мигает по-разному или система реагирует только один раз), скорее всего, у вас динамический код. Если же система реагирует одинаково каждый раз, и вы можете сделать несколько копий с одного оригинала — это фиксированный код. Для работы с <strong>фиксированным кодом</strong> подходят самые простые модели, которые мы и будем настраивать.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📝</span><p>Важно знать: Если ваш оригинальный пульт имеет всего одну или две кнопки, а новый — четыре, программирование возможно, но новые кнопки будут дублировать функции старых, либо одна кнопка оригинала будет управлять несколькими кнопками копии, в зависимости от логики приемника.</p></div>
+
+<h3>Проверка элементов питания и работоспособности</h3>
+
+<p>Частой причиной неудач при программировании является слабый заряд батареек. В процессе записи кода пульт потребляет больше энергии, чем при обычной работе, так как идет активная передача сигнала на несущей частоте. Если батарейки старые или дешевые, напряжения может не хватить для корректной работы передатчика в режиме записи. Рекомендуется сразу установить новые алкалиновые элементы питания, даже если старые еще работают в режиме обычного использования.</p>
+
+<p>Также стоит проверить целостность контактов внутри батарейного отсека. Окисление или слабый контакт могут приводить к кратковременным разрывам цепи в момент нажатия, что сбивает алгоритм записи. Протрите контакты сухой тканью или ластиком, убедитесь, что пружины не растянуты. Только после обеспечения стабильного питания можно переходить непосредственно к процедуре клонирования.</p>
+
+<h2 id="пошаговая-инструкция-по-клонированию-пульта">Пошаговая инструкция по клонированию пульта</h2>
+
+<p>Процесс записи кода с оригинального пульта на новый (клон) состоит из нескольких строго регламентированных этапов. Нарушение последовательности или временных интервалов приведет к сбросу настроек. Существует два основных метода: быстрая запись всех кнопок одновременно и запись каждой кнопки отдельно. Первый метод подходит, если нужно полностью скопировать функционал, второй — если требуется назначить конкретные действия на конкретные кнопки.</p>
+
+<div class="attention-box attention-warning"><span class="attention-icon">⚠️</span><p>Будьте внимательны: в некоторых моделях пультов при начале процедуры записи происходит полная очистка памяти. Если вы прервете процесс на середине, пульт может остаться без ни одного рабочего кода, и процедуру придется начинать заново с первой кнопки.</p></div>
+
+<h3>Метод полной перезаписи (Клонирование)</h3>
+
+<p>Этот метод позволяет скопировать все четыре кнопки оригинального пульта на новое устройство. Для начала возьмите оба пульта в руки: оригинал в левую, новый — в правую. Расположите их друг напротив друга на расстоянии 2-3 сантиметра. Светодиоды должны «смотреть» друг на друга, хотя для радиосигнала это не критично, но помогает визуально контролировать процесс.</p>
+
+<ol>
+<li>Нажмите и удерживайте две любые кнопки на новом пульте (обычно верхние или диагональные, например, A и B, или 1 и 4). Удерживайте их около 2-3 секунд, пока светодиод не начнет быстро мигать. Это сигнал о переходе в режим очистки памяти.</li>
+<li>Отпустите кнопки. Светодиод должен мигнуть несколько раз, подтверждая сброс. Теперь пульт готов к приему новых данных.</li>
+<li>Зажмите кнопку, которую хотите запрограммировать (например, верхнюю левую), и, не отпуская её, нажмите соответствующую кнопку на оригинальном пульте. Светодиод на новом устройстве должен загореться и начать часто моргать, затем гореть ровно.</li>
+<li>Отпустите обе кнопки. Проверка: нажмите запрограммированную кнопку. Если светодиод мигает один раз при каждом нажатии — код записан успешно.</li>
+<li>Повторите процедуру для остальных трех кнопок.</li>
+</ol>
+
+<div class="checklist-block"><h4>📋 Алгоритм записи</h4><ol><li><strong>Шаг 1.</strong> Зажать две кнопки для входа в режим</li><li><strong>Шаг 2.</strong> Дождаться быстрого мигания индикатора</li><li><strong>Шаг 3.</strong> Нажать кнопку нового пульта и одновременно кнопку оригинала</li><li><strong>Шаг 4.</strong> Отпустить и проверить мигание</li></ol></div>
+
+<h3>Настройка каждой кнопки отдельно</h3>
+
+<p>Если вам не нужно копировать все кнопки, или вы хотите изменить логику работы (например, чтобы одна кнопка нового пульта вызывала сигнал другой кнопки оригинала), используйте режим индивидуальной записи. В этом случае не нужно предварительно очищать память всего устройства, хотя это рекомендуется для избежания конфликтов.</p>
+
+<p>Нажмите и удерживайте нужную кнопку на программируемом пульте. Одновременно с этим нажмите и удерживайте нужную кнопку на оригинальном пульте. Держите их в таком положении около 2-3 секунд. Индикатор на новом устройстве должен загореться ровным светом, что означает успешную запись. Этот метод удобен, если оригинальный пульт имеет поврежденные кнопки, и вы хотите перенести рабочие функции на новые места.</p>
+
+<table>
+<thead>
+<tr>
+<th>Действие</th>
+<th>Индикация светодиода</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Очистка памяти</td>
+<td>Быстрое мигание после отпускания</td>
+<td>Сброс всех кодов</td>
+</tr>
+<tr>
+<td>Запись кода</td>
+<td>Частое моргание, затем ровный свет</td>
+<td>Код успешно сохранен</td>
+</tr>
+<tr>
+<td>Проверка работы</td>
+<td>Одиночное мигание при нажатии</td>
+<td>Пульт готов к работе</td>
+</tr>
+<tr>
+<td>Ошибка записи</td>
+<td>Светодиод не загорается или мигает хаотично</td>
+<td>Нужно повторить процедуру</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="технические-нюансы-и-совместимость-частот">Технические нюансы и совместимость частот</h2>
+
+<p>Успех программирования зависит не только от правильности нажатия кнопок, но и от физических характеристик радиосигнала. Китайские пульты с AliExpress часто позиционируются как универсальные, но на практике они охватывают определенный спектр частот. Наиболее распространены модели на 433.92 МГц, которые совместимы с большинством современных систем. Однако существуют также устройства на 315 МГц, 868 МГц и даже 27 МГц.</p>
+
+<details class="faq-item"><summary>Технические детали</summary><div class="faq-answer"><p> Внутри пульта находится кварцевый резистор, определяющий частоту. Если на корпусе написано 433, но внутри стоит кварц на другую частоту (что бывает при браке или перемаркировке), пульт работать не будет. Проверить частоту можно только спецприбором или методом подбора.</p></div></details>
+
+<h3>Проблема плавающей частоты</h3>
+
+<p>Дешевые модели пультов могут иметь нестабильную частоту из-за использования недорогих компонентов. При изменении температуры или влажности частота передатчика может «уплывать» за пределы полосы пропускания приемника. Если пульт перестал работать через неделю или работает только вблизи приемника, возможно, дело именно в drift частоты. В таких случаях помогает замена батарейки на более качественную или установка дополнительного конденсатора в схему (для продвинутых пользователей).</p>
+
+<h3>Совместимость протоколов передачи</h3>
+
+<p>Даже если частота совпадает, пульт может не работать из-за различий в протоколах кодирования. Основные форматы, с которыми работают 4-х кнопочные пульты: PT2260, PT2262, PT2264, EV1527, FP527. Пульт, заточенный под PT2262, скорее всего, не сможет управлять устройством, требующим EV1527, без перепрошивки чипа. При покупке на AliExpress важно смотреть в описании поддерживаемые чипы. Если в описании указан список чипов, убедитесь, что ваш оригинальный пульт собран на одном из них.</p>
+
+<ul>
+<li>PT2262/2264 — классические чипы с фиксированным кодом, легко копируются.</li>
+<li>EV1527 — популярный стандарт для ворот и шлагбаумов, также легко копируется.</li>
+<li>Keeloq — динамический код, требует специальных пультов с функцией обучения.</li>
+<li>SMC5326 — менее распространенный формат, часто встречается в специфическом оборудовании.</li>
+</ul>
+
+<h2 id="типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</h2>
+
+<p>Несмотря на простоту процедуры, пользователи часто допускают ошибки, которые приводят к мысли о неисправности устройства. Разберем наиболее частые сценарии, когда пульт с AliExpress отказывается сотрудничать, и способы решения этих проблем. В большинстве случаев проблема кроется не в самом устройстве, а в нарушении технологии программирования.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Совет: Если стандартная процедура не работает, попробуйте изменить расстояние между пультами. Иногда для записи их нужно плотно прижать друг к другу «спинками», а иногда, наоборот, развести на 5-10 см. Экспериментируйте с положением.</p></div>
+
+<h3>Светодиод не реагирует на нажатие</h3>
+
+<p>Если при нажатии кнопок светодиод на новом пульте не загорается вообще, в первую очередь проверьте полярность установки батареек. В китайских устройствах иногда встречается нестандартная маркировка плюса и минуса, или же сама батарейка может быть бракованной. Также проверьте, не застряла ли какая-то кнопка в нажатом состоянии — это блокирует вход в режим программирования. Если с батарейками все в порядке, возможно, вышел из строя ИК-светодиод или радиомодуль, что является производственным браком.</p>
+
+<h3>Светодиод мигает, но устройство не управляется</h3>
+
+<p>Это самый распространенный случай. Индикатор показывает, что код записан, но ворота не открываются. Здесь два варианта: либо вы записали не ту кнопку (например, вместо «Открыть» записали «Стоп», если приемник их различает), либо частота пульта не совпадает с частотой приемника. Также возможно, что оригинальный пульт имеет динамический код, а вы пытаетесь клонировать его как статический. В последнем случае поможет только замена приемного блока или покупка специализированного пульта с поддержкой вашего протокола.</p>
+
+<div class="checklist-block"><h4>☑️ Диагностика проблем</h4><label class="check-item"><input type="checkbox"><span>Проверены ли батарейки на работоспособность</span></label><label class="check-item"><input type="checkbox"><span>Совпадает ли частота (315/433 МГц)</span></label><label class="check-item"><input type="checkbox"><span>Очищена ли память перед записью</span></label><label class="check-item"><input type="checkbox"><span>Находится ли пульт в зоне действия приемника</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="финальная-настройка-и-проверка-системы">Финальная настройка и проверка системы</h2>
+
+<p>После успешного программирования всех необходимых кнопок не спешите убирать оригинальный пульт. Проведите серию тестовых проверок в различных условиях. Подойдите к воротам или шлагбауму с разных сторон, проверьте работу на максимальном расстоянии. Важно убедиться, что новый пульт работает стабильно не только вблизи, но и на пределе дальности, так как мощность передатчика у китайских аналогов может быть ниже, чем у оригинала.</p>
+
+<p>Если вы программировали пульт для системы безопасности, обязательно проверьте отсутствие ложных срабатываний. Убедитесь, что соседи с похожими пультами не могут управлять вашим оборудованием (хотя вероятность этого при использовании уникальных кодов мала, в старых системах с малой битностью кода такие случаи бывали). Сохраните оригинальный пульт в надежном месте как резервный вариант, на случай если новый потеряется или разрядится.</p>
+
+<p>Владение навыком программирования универсальных пультов дает вам независимость от сервисных центров и возможность быстро решать бытовые проблемы. Купленные на AliExpress устройства, несмотря на свою низкую стоимость, при правильной настройке служат годами, не уступая дорогим брендовым аналогам. Главное — соблюдать технологию, следить за частотой и типом кодировки, и тогда ваш дом будет под надежным контролем.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">📌</span><p>Успешное программирование пульта с AliExpress требует совпадения частоты, правильного типа кодировки и точного соблюдения таймингов при записи кода.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#идентификация-устройства-и-подготовка-к-работе">Идентификация устройства и подготовка к работе</a></li><li><a href="#пошаговая-инструкция-по-клонированию-пульта">Пошаговая инструкция по клонированию пульта</a></li><li><a href="#технические-нюансы-и-совместимость-частот">Технические нюансы и совместимость частот</a></li><li><a href="#типичные-ошибки-и-способы-их-устранения">Типичные ошибки и способы их устранения</a></li><li><a href="#финальная-настройка-и-проверка-системы">Финальная настройка и проверка системы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakoj-irrigator-zakazat-na-aliekspress.html" class="related-card">Какой ирригатор купить на АлиЭкспресс: гид по выбору</a></li><li><a href="/articles/k/ka/kak-dokazat-chto-fleshka-fejk-s-aliekspress.html" class="related-card">Как доказать фейк флешку с Алиэкспресс: инструкция</a></li><li><a href="/articles/m/mi/mikshernyj-pult-s-aliekspress-kakoj-luchshe.html" class="related-card">Как выбрать микшерный пульт на AliExpress: гид по моделям</a></li><li><a href="/articles/a/aj/ajfon-4s-skolko-stoit-na-aliekspress.html" class="related-card">iPhone 4S на AliExpress: актуальные цены и риски покупки</a></li><li><a href="/articles/k/ka/kak-polzovatsya-naushnikom-blyutuz-cherez-telefon-s-aliekspress.html" class="related-card">Как подключить наушники Bluetooth с AliExpress к телефону</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kakoj-irrigator-zakazat-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Какой ирригатор купить на АлиЭкспресс: гид по выбору</span><span class="related-bottom-desc">Как выбрать ирригатор на AliExpress: типы устройств, мощность, насадки. Рейтинг проверенных брендов </span></a><a href="/articles/k/ka/kak-dokazat-chto-fleshka-fejk-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как доказать фейк флешку с Алиэкспресс: инструкция</span><span class="related-bottom-desc">Подробное руководство: как проверить флешку на реальный объем, собрать доказательства для спора на A</span></a><a href="/articles/m/mi/mikshernyj-pult-s-aliekspress-kakoj-luchshe.html" class="related-bottom-card"><span class="related-bottom-title">Как выбрать микшерный пульт на AliExpress: гид по моделям</span><span class="related-bottom-desc">Подробный разбор микшерных пультов с AliExpress. Сравнение брендов Behringer, Soundking, Yamaha. Инс</span></a><a href="/articles/a/aj/ajfon-4s-skolko-stoit-na-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">iPhone 4S на AliExpress: актуальные цены и риски покупки</span><span class="related-bottom-desc">Сколько стоит iPhone 4S на Алиэкспресс в 2026 году? Реальные цены, риски покупки б/у техники, выбор </span></a><a href="/articles/k/ka/kak-polzovatsya-naushnikom-blyutuz-cherez-telefon-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить наушники Bluetooth с AliExpress к телефону</span><span class="related-bottom-desc">Подробное руководство по сопряжению беспроводных наушников с AliExpress и смартфону. Решение проблем</span></a><a href="/articles/k/ka/kak-razobrat-kitajskij-fonarik-s-aliekspress.html" class="related-bottom-card"><span class="related-bottom-title">Как разобрать китайский фонарик с Алиэкспресс: полная инструкция</span><span class="related-bottom-desc">Подробный гид по разборке фонаря с AliExpress. Узнайте, как заменить аккумулятор, смазать резьбу и п</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🛍️ Али Гид</div>
+                    <p class="footer-about">Полный справочник покупателя по заказам, оплате, спорам и доставке товаров с AliExpress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/registratsiya-i-vkhod/">🔑 Регистрация и вход</a></li>
+<li><a href="/category/oplata-i-karty/">💳 Оплата и карты</a></li>
+<li><a href="/category/poisk-tovarov/">🔍 Поиск товаров</a></li>
+<li><a href="/category/razmery-i-vybor/">📏 Размеры и выбор</a></li>
+<li><a href="/category/kupony-i-skidki/">🏷️ Купоны и скидки</a></li>
+<li><a href="/category/treking-posylok/">🚚 Трекинг посылок</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Али Гид. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>
